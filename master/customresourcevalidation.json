@@ -2,7 +2,7 @@
   "description": "CustomResourceValidation is a list of validation methods for CustomResources.",
   "properties": {
     "openAPIV3Schema": {
-      "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps",
+      "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps",
       "description": "openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning."
     }
   },

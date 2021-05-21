@@ -2,13 +2,13 @@
   "description": "CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition",
   "properties": {
     "acceptedNames": {
-      "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames",
+      "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames",
       "description": "acceptedNames are the names that are actually being used to serve discovery. They may be different than the names in spec."
     },
     "conditions": {
       "description": "conditions indicate state for particular aspects of a CustomResourceDefinition",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionCondition"
+        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionCondition"
       },
       "type": [
         "array",

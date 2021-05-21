@@ -11,7 +11,7 @@
     "items": {
       "description": "items list individual CustomResourceDefinition objects",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition"
+        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "apiextensions.k8s.io",
       "kind": "CustomResourceDefinitionList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

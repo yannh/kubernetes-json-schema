@@ -753,7 +753,10 @@
                     "null"
                   ]
                 },
-                "type": "array"
+                "type": [
+                  "array",
+                  "null"
+                ]
               },
               "sizeBytes": {
                 "description": "The size of the image in bytes.",
@@ -764,9 +767,6 @@
                 ]
               }
             },
-            "required": [
-              "names"
-            ],
             "type": [
               "object",
               "null"
