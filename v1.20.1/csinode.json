@@ -19,11 +19,11 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "metadata.name must be the Kubernetes node name."
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.1/_definitions.json#/definitions/io.k8s.api.storage.v1beta1.CSINodeSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.1/_definitions.json#/definitions/io.k8s.api.storage.v1beta1.CSINodeSpec",
       "description": "spec is the specification of CSINode"
     }
   },

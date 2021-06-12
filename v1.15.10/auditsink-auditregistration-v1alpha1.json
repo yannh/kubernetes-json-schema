@@ -22,10 +22,10 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.10/_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.10/_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec",
       "description": "Spec defines the audit configuration spec"
     }
   },

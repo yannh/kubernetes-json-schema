@@ -30,7 +30,7 @@
     "env": {
       "description": "List of environment variables to set in the container. Cannot be updated.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVar"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVar"
       },
       "type": [
         "array",
@@ -42,7 +42,7 @@
     "envFrom": {
       "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.EnvFromSource"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.EnvFromSource"
       },
       "type": [
         "array",
@@ -64,11 +64,11 @@
       ]
     },
     "lifecycle": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Lifecycle",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Lifecycle",
       "description": "Lifecycle is not allowed for ephemeral containers."
     },
     "livenessProbe": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
       "description": "Probes are not allowed for ephemeral containers."
     },
     "name": {
@@ -81,7 +81,7 @@
     "ports": {
       "description": "Ports are not allowed for ephemeral containers.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerPort"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerPort"
       },
       "type": [
         "array",
@@ -89,19 +89,19 @@
       ]
     },
     "readinessProbe": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
       "description": "Probes are not allowed for ephemeral containers."
     },
     "resources": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
       "description": "Resources are not allowed for ephemeral containers. Ephemeral containers use spare resources already allocated to the pod."
     },
     "securityContext": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.SecurityContext",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.SecurityContext",
       "description": "SecurityContext is not allowed for ephemeral containers."
     },
     "startupProbe": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
       "description": "Probes are not allowed for ephemeral containers."
     },
     "stdin": {
@@ -149,7 +149,7 @@
     "volumeDevices": {
       "description": "volumeDevices is the list of block devices to be used by the container. This is a beta feature.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeDevice"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeDevice"
       },
       "type": [
         "array",
@@ -161,7 +161,7 @@
     "volumeMounts": {
       "description": "Pod volumes to mount into the container's filesystem. Cannot be updated.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
       },
       "type": [
         "array",

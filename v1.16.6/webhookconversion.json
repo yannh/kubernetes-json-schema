@@ -2,7 +2,7 @@
   "description": "WebhookConversion describes how to call a conversion webhook",
   "properties": {
     "clientConfig": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.6/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.WebhookClientConfig",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.6/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.WebhookClientConfig",
       "description": "clientConfig is the instructions for how to call the webhook if strategy is `Webhook`."
     },
     "conversionReviewVersions": {

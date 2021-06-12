@@ -11,7 +11,7 @@
     "ephemeralContainers": {
       "description": "A list of ephemeral containers associated with this pod. New ephemeral containers may be appended to this list, but existing ephemeral containers may not be removed or modified.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.21.0/_definitions.json#/definitions/io.k8s.api.core.v1.EphemeralContainer"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.0/_definitions.json#/definitions/io.k8s.api.core.v1.EphemeralContainer"
       },
       "type": [
         "array",
@@ -31,7 +31,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     }
   },
   "required": [

@@ -12,7 +12,7 @@
     "metrics": {
       "description": "metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used).  The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods.  Ergo, metrics used must decrease as the pod count is increased, and vice-versa.  See the individual metric source types for more information about how each type of metric must respond.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.10/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.MetricSpec"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.10/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.MetricSpec"
       },
       "type": [
         "array",
@@ -28,7 +28,7 @@
       ]
     },
     "scaleTargetRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.10/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.10/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference",
       "description": "scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count."
     }
   },

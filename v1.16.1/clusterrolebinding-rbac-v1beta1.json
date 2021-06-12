@@ -22,17 +22,17 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata."
     },
     "roleRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.1/_definitions.json#/definitions/io.k8s.api.rbac.v1beta1.RoleRef",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.1/_definitions.json#/definitions/io.k8s.api.rbac.v1beta1.RoleRef",
       "description": "RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error."
     },
     "subjects": {
       "description": "Subjects holds references to the objects the role applies to.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.1/_definitions.json#/definitions/io.k8s.api.rbac.v1beta1.Subject"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.1/_definitions.json#/definitions/io.k8s.api.rbac.v1beta1.Subject"
       },
       "type": [
         "array",

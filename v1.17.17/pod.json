@@ -19,15 +19,15 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.17/_definitions.json#/definitions/io.k8s.api.core.v1.PodSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.17/_definitions.json#/definitions/io.k8s.api.core.v1.PodSpec",
       "description": "Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.17/_definitions.json#/definitions/io.k8s.api.core.v1.PodStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.17/_definitions.json#/definitions/io.k8s.api.core.v1.PodStatus",
       "description": "Most recently observed status of the pod. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },

@@ -11,7 +11,7 @@
     "items": {
       "description": "List of audit configurations.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.5/_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.AuditSink"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.5/_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.AuditSink"
       },
       "type": [
         "array",
@@ -29,7 +29,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
     }
   },
   "required": [

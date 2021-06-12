@@ -14,7 +14,7 @@
     "items": {
       "description": "Items is the list of StorageClasses",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.api.storage.v1.StorageClass"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.api.storage.v1.StorageClass"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     }
   },

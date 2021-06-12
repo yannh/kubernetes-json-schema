@@ -4,7 +4,7 @@
     "conditions": {
       "description": "`conditions` is a list of the current states of FlowSchema.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.20.5/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1alpha1.FlowSchemaCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.5/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1alpha1.FlowSchemaCondition"
       },
       "type": [
         "array",

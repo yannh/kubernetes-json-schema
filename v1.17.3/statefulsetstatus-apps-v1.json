@@ -12,7 +12,7 @@
     "conditions": {
       "description": "Represents the latest available observations of a statefulset's current state.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.3/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.3/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetCondition"
       },
       "type": [
         "array",

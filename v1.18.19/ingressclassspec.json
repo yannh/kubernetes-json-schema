@@ -9,7 +9,7 @@
       ]
     },
     "parameters": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.19/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.19/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
       "description": "Parameters is a link to a custom resource containing additional configuration for the controller. This is optional if the controller does not require extra parameters."
     }
   },

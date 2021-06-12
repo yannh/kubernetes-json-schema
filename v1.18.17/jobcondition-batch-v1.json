@@ -2,11 +2,11 @@
   "description": "JobCondition describes current state of a job.",
   "properties": {
     "lastProbeTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time the condition was checked."
     },
     "lastTransitionTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time the condition transit from one status to another."
     },
     "message": {

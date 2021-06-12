@@ -2,7 +2,7 @@
   "description": "VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.",
   "properties": {
     "required": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.3/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.3/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
       "description": "Required specifies hard node constraints that must be met."
     }
   },

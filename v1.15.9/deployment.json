@@ -19,15 +19,15 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object metadata."
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.9/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.DeploymentSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.9/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.DeploymentSpec",
       "description": "Specification of the desired behavior of the Deployment."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.9/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.DeploymentStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.9/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.DeploymentStatus",
       "description": "Most recently observed status of the Deployment."
     }
   },

@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is a list of schema objects.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.events.v1beta1.Event"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.events.v1beta1.Event"
       },
       "type": [
         "array",
@@ -29,7 +29,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     }
   },

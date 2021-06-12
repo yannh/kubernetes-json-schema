@@ -19,15 +19,15 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.10/_definitions.json#/definitions/io.k8s.api.core.v1.ServiceSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.10/_definitions.json#/definitions/io.k8s.api.core.v1.ServiceSpec",
       "description": "Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.10/_definitions.json#/definitions/io.k8s.api.core.v1.ServiceStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.10/_definitions.json#/definitions/io.k8s.api.core.v1.ServiceStatus",
       "description": "Most recently observed status of the service. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },

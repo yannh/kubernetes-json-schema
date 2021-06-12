@@ -4,7 +4,7 @@
     "conditions": {
       "description": "Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.PodCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.PodCondition"
       },
       "type": [
         "array",
@@ -16,7 +16,7 @@
     "containerStatuses": {
       "description": "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
       },
       "type": [
         "array",
@@ -33,7 +33,7 @@
     "initContainerStatuses": {
       "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
       },
       "type": [
         "array",
@@ -83,7 +83,7 @@
       ]
     },
     "startTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod."
     }
   },

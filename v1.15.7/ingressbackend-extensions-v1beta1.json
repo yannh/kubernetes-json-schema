@@ -9,7 +9,7 @@
       ]
     },
     "servicePort": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.7/_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.7/_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
       "description": "Specifies the port of the referenced service."
     }
   },

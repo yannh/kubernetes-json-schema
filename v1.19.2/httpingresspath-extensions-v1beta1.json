@@ -2,7 +2,7 @@
   "description": "HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.",
   "properties": {
     "backend": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.IngressBackend",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.IngressBackend",
       "description": "Backend defines the referenced service endpoint to which the traffic will be forwarded to."
     },
     "path": {

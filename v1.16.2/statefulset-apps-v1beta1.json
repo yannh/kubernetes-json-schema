@@ -22,14 +22,14 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.2/_definitions.json#/definitions/io.k8s.api.apps.v1beta1.StatefulSetSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.2/_definitions.json#/definitions/io.k8s.api.apps.v1beta1.StatefulSetSpec",
       "description": "Spec defines the desired identities of pods in this set."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.2/_definitions.json#/definitions/io.k8s.api.apps.v1beta1.StatefulSetStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.2/_definitions.json#/definitions/io.k8s.api.apps.v1beta1.StatefulSetStatus",
       "description": "Status is the current status of Pods in this StatefulSet. This data may be out of date by some window of time."
     }
   },

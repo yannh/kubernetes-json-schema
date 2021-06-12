@@ -10,7 +10,7 @@
       ]
     },
     "lastObservedTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.3/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.3/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
       "description": "Time of the last occurrence observed"
     }
   },

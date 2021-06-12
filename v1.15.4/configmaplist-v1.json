@@ -14,7 +14,7 @@
     "items": {
       "description": "Items is the list of ConfigMaps.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.4/_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMap"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.4/_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMap"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.4/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.4/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
     }
   },

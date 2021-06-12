@@ -34,11 +34,11 @@
       ]
     },
     "nonResourceAttributes": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.7/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.NonResourceAttributes",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.7/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.NonResourceAttributes",
       "description": "NonResourceAttributes describes information for a non-resource access request"
     },
     "resourceAttributes": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.7/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.ResourceAttributes",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.7/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.ResourceAttributes",
       "description": "ResourceAuthorizationAttributes describes information for a resource access request"
     },
     "uid": {

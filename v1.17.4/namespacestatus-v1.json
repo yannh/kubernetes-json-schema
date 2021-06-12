@@ -4,7 +4,7 @@
     "conditions": {
       "description": "Represents the latest available observations of a namespace's current state.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.4/_definitions.json#/definitions/io.k8s.api.core.v1.NamespaceCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.4/_definitions.json#/definitions/io.k8s.api.core.v1.NamespaceCondition"
       },
       "type": [
         "array",

@@ -4,7 +4,7 @@
     "nodeSelectorTerms": {
       "description": "Required. A list of node selector terms. The terms are ORed.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelectorTerm"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelectorTerm"
       },
       "type": [
         "array",

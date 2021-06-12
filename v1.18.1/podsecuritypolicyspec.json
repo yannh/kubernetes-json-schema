@@ -11,7 +11,7 @@
     "allowedCSIDrivers": {
       "description": "AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec. An empty value indicates that any CSI driver can be used for inline ephemeral volumes. This is an alpha field, and is only honored if the API server enables the CSIInlineVolume feature gate.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedCSIDriver"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedCSIDriver"
       },
       "type": [
         "array",
@@ -34,7 +34,7 @@
     "allowedFlexVolumes": {
       "description": "allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \"volumes\" field.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedFlexVolume"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedFlexVolume"
       },
       "type": [
         "array",
@@ -44,7 +44,7 @@
     "allowedHostPaths": {
       "description": "allowedHostPaths is a white list of allowed host paths. Empty indicates that all host paths may be used.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedHostPath"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedHostPath"
       },
       "type": [
         "array",
@@ -111,7 +111,7 @@
       ]
     },
     "fsGroup": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.FSGroupStrategyOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.FSGroupStrategyOptions",
       "description": "fsGroup is the strategy that will dictate what fs group is used by the SecurityContext."
     },
     "hostIPC": {
@@ -138,7 +138,7 @@
     "hostPorts": {
       "description": "hostPorts determines which host port ranges are allowed to be exposed.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.HostPortRange"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.HostPortRange"
       },
       "type": [
         "array",
@@ -173,23 +173,23 @@
       ]
     },
     "runAsGroup": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions",
       "description": "RunAsGroup is the strategy that will dictate the allowable RunAsGroup values that may be set. If this field is omitted, the pod's RunAsGroup can take any value. This field requires the RunAsGroup feature gate to be enabled."
     },
     "runAsUser": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions",
       "description": "runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set."
     },
     "runtimeClass": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions",
       "description": "runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod. If this field is omitted, the pod's runtimeClassName field is unrestricted. Enforcement of this field depends on the RuntimeClass feature gate being enabled."
     },
     "seLinux": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.SELinuxStrategyOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.SELinuxStrategyOptions",
       "description": "seLinux is the strategy that will dictate the allowable labels that may be set."
     },
     "supplementalGroups": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions",
       "description": "supplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext."
     },
     "volumes": {

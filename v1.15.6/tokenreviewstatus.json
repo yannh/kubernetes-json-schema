@@ -29,7 +29,7 @@
       ]
     },
     "user": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.6/_definitions.json#/definitions/io.k8s.api.authentication.v1beta1.UserInfo",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.6/_definitions.json#/definitions/io.k8s.api.authentication.v1beta1.UserInfo",
       "description": "User is the UserInfo associated with the provided token."
     }
   },

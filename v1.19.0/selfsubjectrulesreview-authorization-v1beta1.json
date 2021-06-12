@@ -22,14 +22,14 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SelfSubjectRulesReviewSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SelfSubjectRulesReviewSpec",
       "description": "Spec holds information about the request being evaluated."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SubjectRulesReviewStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SubjectRulesReviewStatus",
       "description": "Status is filled in by the server and indicates the set of actions a user can perform."
     }
   },

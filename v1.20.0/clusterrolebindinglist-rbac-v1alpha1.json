@@ -14,7 +14,7 @@
     "items": {
       "description": "Items is a list of ClusterRoleBindings",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.20.0/_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.ClusterRoleBinding"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.0/_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.ClusterRoleBinding"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard object's metadata."
     }
   },

@@ -4,7 +4,7 @@
     "conditions": {
       "description": "Current service state",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.20.4/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.4/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
       },
       "type": [
         "array",
@@ -18,7 +18,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "loadBalancer": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.4/_definitions.json#/definitions/io.k8s.api.core.v1.LoadBalancerStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.4/_definitions.json#/definitions/io.k8s.api.core.v1.LoadBalancerStatus",
       "description": "LoadBalancer contains the current status of the load-balancer, if one is present."
     }
   },

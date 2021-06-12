@@ -22,15 +22,15 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.19/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.19/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.19/_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.19/_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobSpec",
       "description": "Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.19/_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.19/_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobStatus",
       "description": "Current status of a cron job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },

@@ -10,7 +10,7 @@
       ]
     },
     "affinity": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Affinity",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Affinity",
       "description": "If specified, the pod's scheduling constraints"
     },
     "automountServiceAccountToken": {
@@ -23,7 +23,7 @@
     "containers": {
       "description": "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
       },
       "type": [
         "array",
@@ -33,7 +33,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "dnsConfig": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.PodDNSConfig",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.PodDNSConfig",
       "description": "Specifies the DNS parameters of a pod. Parameters specified here will be merged to the generated DNS configuration based on DNSPolicy."
     },
     "dnsPolicy": {
@@ -53,7 +53,7 @@
     "hostAliases": {
       "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified. This is only valid for non-hostNetwork pods.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.HostAlias"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.HostAlias"
       },
       "type": [
         "array",
@@ -93,7 +93,7 @@
     "imagePullSecrets": {
       "description": "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference"
       },
       "type": [
         "array",
@@ -105,7 +105,7 @@
     "initContainers": {
       "description": "List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, or Liveness probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
       },
       "type": [
         "array",
@@ -159,7 +159,7 @@
     "readinessGates": {
       "description": "If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to \"True\" More info: https://git.k8s.io/enhancements/keps/sig-network/0007-pod-ready%2B%2B.md",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.PodReadinessGate"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.PodReadinessGate"
       },
       "type": [
         "array",
@@ -188,7 +188,7 @@
       ]
     },
     "securityContext": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.PodSecurityContext",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.PodSecurityContext",
       "description": "SecurityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field."
     },
     "serviceAccount": {
@@ -230,7 +230,7 @@
     "tolerations": {
       "description": "If specified, the pod's tolerations.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Toleration"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Toleration"
       },
       "type": [
         "array",
@@ -240,7 +240,7 @@
     "volumes": {
       "description": "List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Volume"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.0/_definitions.json#/definitions/io.k8s.api.core.v1.Volume"
       },
       "type": [
         "array",

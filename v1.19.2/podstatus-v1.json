@@ -4,7 +4,7 @@
     "conditions": {
       "description": "Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.PodCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.PodCondition"
       },
       "type": [
         "array",
@@ -16,7 +16,7 @@
     "containerStatuses": {
       "description": "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
       },
       "type": [
         "array",
@@ -26,7 +26,7 @@
     "ephemeralContainerStatuses": {
       "description": "Status for any ephemeral containers that have run in this pod. This field is alpha-level and is only populated by servers that enable the EphemeralContainers feature.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
       },
       "type": [
         "array",
@@ -43,7 +43,7 @@
     "initContainerStatuses": {
       "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
       },
       "type": [
         "array",
@@ -81,7 +81,7 @@
     "podIPs": {
       "description": "podIPs holds the IP addresses allocated to the pod. If this field is specified, the 0th entry must match the podIP field. Pods may be allocated at most 1 value for each of IPv4 and IPv6. This list is empty if no IPs have been allocated yet.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.PodIP"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.core.v1.PodIP"
       },
       "type": [
         "array",
@@ -105,7 +105,7 @@
       ]
     },
     "startTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod."
     }
   },

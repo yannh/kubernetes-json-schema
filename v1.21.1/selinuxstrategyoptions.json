@@ -9,7 +9,7 @@
       ]
     },
     "seLinuxOptions": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions",
       "description": "seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
     }
   },

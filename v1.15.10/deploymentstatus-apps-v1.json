@@ -20,7 +20,7 @@
     "conditions": {
       "description": "Represents the latest available observations of a deployment's current state.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.10/_definitions.json#/definitions/io.k8s.api.apps.v1.DeploymentCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.10/_definitions.json#/definitions/io.k8s.api.apps.v1.DeploymentCondition"
       },
       "type": [
         "array",

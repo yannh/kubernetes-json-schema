@@ -14,14 +14,14 @@
       ]
     },
     "additionalItems": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrBool"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrBool"
     },
     "additionalProperties": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrBool"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrBool"
     },
     "allOf": {
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
       },
       "type": [
         "array",
@@ -30,7 +30,7 @@
     },
     "anyOf": {
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
       },
       "type": [
         "array",
@@ -38,12 +38,12 @@
       ]
     },
     "default": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON",
       "description": "default is a default value for undefined object fields. Defaulting is an alpha feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false."
     },
     "definitions": {
       "additionalProperties": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
       },
       "type": [
         "object",
@@ -52,7 +52,7 @@
     },
     "dependencies": {
       "additionalProperties": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrStringArray"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrStringArray"
       },
       "type": [
         "object",
@@ -67,7 +67,7 @@
     },
     "enum": {
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON"
       },
       "type": [
         "array",
@@ -75,7 +75,7 @@
       ]
     },
     "example": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON"
     },
     "exclusiveMaximum": {
       "type": [
@@ -90,7 +90,7 @@
       ]
     },
     "externalDocs": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation"
     },
     "format": {
       "type": [
@@ -105,7 +105,7 @@
       ]
     },
     "items": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrArray"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrArray"
     },
     "maxItems": {
       "format": "int64",
@@ -171,7 +171,7 @@
       ]
     },
     "not": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
     },
     "nullable": {
       "type": [
@@ -181,7 +181,7 @@
     },
     "oneOf": {
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
       },
       "type": [
         "array",
@@ -196,7 +196,7 @@
     },
     "patternProperties": {
       "additionalProperties": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
       },
       "type": [
         "object",
@@ -205,7 +205,7 @@
     },
     "properties": {
       "additionalProperties": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps"
       },
       "type": [
         "object",

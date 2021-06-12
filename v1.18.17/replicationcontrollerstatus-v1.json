@@ -12,7 +12,7 @@
     "conditions": {
       "description": "Represents the latest available observations of a replication controller's current state.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.api.core.v1.ReplicationControllerCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.api.core.v1.ReplicationControllerCondition"
       },
       "type": [
         "array",

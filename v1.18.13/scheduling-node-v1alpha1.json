@@ -17,7 +17,7 @@
     "tolerations": {
       "description": "tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.13/_definitions.json#/definitions/io.k8s.api.core.v1.Toleration"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.13/_definitions.json#/definitions/io.k8s.api.core.v1.Toleration"
       },
       "type": [
         "array",

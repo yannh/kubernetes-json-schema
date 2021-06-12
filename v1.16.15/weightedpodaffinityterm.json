@@ -2,7 +2,7 @@
   "description": "The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)",
   "properties": {
     "podAffinityTerm": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.15/_definitions.json#/definitions/io.k8s.api.core.v1.PodAffinityTerm",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.15/_definitions.json#/definitions/io.k8s.api.core.v1.PodAffinityTerm",
       "description": "Required. A pod affinity term, associated with the corresponding weight."
     },
     "weight": {

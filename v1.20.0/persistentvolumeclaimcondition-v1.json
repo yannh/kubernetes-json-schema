@@ -2,11 +2,11 @@
   "description": "PersistentVolumeClaimCondition contails details about state of pvc",
   "properties": {
     "lastProbeTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time we probed the condition."
     },
     "lastTransitionTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time the condition transitioned from one status to another."
     },
     "message": {

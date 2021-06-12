@@ -30,7 +30,7 @@
       ]
     },
     "secretRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference",
       "description": "SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail."
     },
     "sslEnabled": {

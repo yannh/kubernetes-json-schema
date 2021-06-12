@@ -12,7 +12,7 @@
     },
     "items": {
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.12/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequest"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.12/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequest"
       },
       "type": [
         "array",
@@ -30,7 +30,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.12/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.12/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
     }
   },
   "required": [

@@ -19,14 +19,14 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec",
       "description": "Spec holds information about the request being evaluated.  user and groups must be empty"
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SubjectAccessReviewStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.SubjectAccessReviewStatus",
       "description": "Status is filled in by the server and indicates whether the request is allowed or not"
     }
   },

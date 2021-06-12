@@ -2,7 +2,7 @@
   "description": "An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).",
   "properties": {
     "preference": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelectorTerm",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelectorTerm",
       "description": "A node selector term, associated with the corresponding weight."
     },
     "weight": {

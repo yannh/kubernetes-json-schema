@@ -14,7 +14,7 @@
       "type": "integer"
     },
     "finishedAt": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.8/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.8/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Time at which the container last terminated"
     },
     "message": {
@@ -37,7 +37,7 @@
       "type": "integer"
     },
     "startedAt": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.8/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.8/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Time at which previous execution of the container started"
     }
   },

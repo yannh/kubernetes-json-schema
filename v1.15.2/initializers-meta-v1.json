@@ -4,7 +4,7 @@
     "pending": {
       "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Initializer"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Initializer"
       },
       "type": [
         "array",
@@ -14,7 +14,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "result": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Status",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Status",
       "description": "If result is set with the Failure field, the object will be persisted to storage and then deleted, ensuring that other clients can observe the deletion."
     }
   },

@@ -16,7 +16,7 @@
       ]
     },
     "valueFrom": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.2/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVarSource",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.2/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVarSource",
       "description": "Source for the environment variable's value. Cannot be used if value is not empty."
     }
   },

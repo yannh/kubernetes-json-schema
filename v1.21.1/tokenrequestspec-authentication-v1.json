@@ -15,7 +15,7 @@
       ]
     },
     "boundObjectRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.api.authentication.v1.BoundObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.api.authentication.v1.BoundObjectReference",
       "description": "BoundObjectRef is a reference to an object that the token will be bound to. The token will only be valid for as long as the bound object exists. NOTE: The API server's TokenReview endpoint will validate the BoundObjectRef, but other audiences may not. Keep ExpirationSeconds small if you want prompt revocation."
     },
     "expirationSeconds": {

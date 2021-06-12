@@ -9,7 +9,7 @@
       ]
     },
     "http": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.3/_definitions.json#/definitions/io.k8s.api.networking.v1beta1.HTTPIngressRuleValue"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.3/_definitions.json#/definitions/io.k8s.api.networking.v1beta1.HTTPIngressRuleValue"
     }
   },
   "type": "object",

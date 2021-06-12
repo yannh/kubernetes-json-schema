@@ -14,7 +14,7 @@
     "conditions": {
       "description": "List of component conditions observed",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.ComponentCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.1/_definitions.json#/definitions/io.k8s.api.core.v1.ComponentCondition"
       },
       "type": [
         "array",
@@ -34,7 +34,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
     }
   },

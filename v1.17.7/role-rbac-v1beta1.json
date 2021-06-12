@@ -22,13 +22,13 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.7/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.7/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata."
     },
     "rules": {
       "description": "Rules holds all the PolicyRules for this Role",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.7/_definitions.json#/definitions/io.k8s.api.rbac.v1beta1.PolicyRule"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.7/_definitions.json#/definitions/io.k8s.api.rbac.v1beta1.PolicyRule"
       },
       "type": [
         "array",

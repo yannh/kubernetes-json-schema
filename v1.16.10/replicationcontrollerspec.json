@@ -31,7 +31,7 @@
       ]
     },
     "template": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.10/_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.10/_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
       "description": "Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template"
     }
   },

@@ -22,14 +22,14 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequestSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequestSpec",
       "description": "spec contains the certificate request, and is immutable after creation. Only the request, signerName, and usages fields can be set on creation. Other fields are derived by Kubernetes and cannot be modified by users."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.2/_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequestStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.2/_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequestStatus",
       "description": "status contains information about whether the request is approved or denied, and the certificate issued by the signer, or the failure condition indicating signer failure."
     }
   },

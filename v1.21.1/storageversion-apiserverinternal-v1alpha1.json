@@ -22,15 +22,15 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "The name is <group>.<resource>."
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.StorageVersionSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.StorageVersionSpec",
       "description": "Spec is an empty spec. It is here to comply with Kubernetes API style."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.StorageVersionStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.StorageVersionStatus",
       "description": "API server instances report the version they can decode and the version they encode objects to when persisting objects in the backend."
     }
   },

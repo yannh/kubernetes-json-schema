@@ -2,7 +2,7 @@
   "description": "IngressBackend describes all endpoints for a given service and port.",
   "properties": {
     "resource": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.4/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.4/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
       "description": "Resource is an ObjectRef to another Kubernetes resource in the namespace of the Ingress object. If resource is specified, serviceName and servicePort must not be specified."
     },
     "serviceName": {
@@ -13,7 +13,7 @@
       ]
     },
     "servicePort": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.4/_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.4/_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
       "description": "Specifies the port of the referenced service."
     }
   },

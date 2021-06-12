@@ -4,7 +4,7 @@
     "addresses": {
       "description": "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See http://pr.k8s.io/79391 for an example.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeAddress"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeAddress"
       },
       "type": [
         "array",
@@ -15,7 +15,7 @@
     },
     "allocatable": {
       "additionalProperties": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
       "description": "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.",
       "type": [
@@ -25,7 +25,7 @@
     },
     "capacity": {
       "additionalProperties": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
       "description": "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity",
       "type": [
@@ -36,7 +36,7 @@
     "conditions": {
       "description": "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeCondition"
       },
       "type": [
         "array",
@@ -46,17 +46,17 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "config": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeConfigStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeConfigStatus",
       "description": "Status of the config assigned to the node via the dynamic Kubelet config feature."
     },
     "daemonEndpoints": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeDaemonEndpoints",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeDaemonEndpoints",
       "description": "Endpoints of daemons running on the Node."
     },
     "images": {
       "description": "List of container images on this node",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerImage"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerImage"
       },
       "type": [
         "array",
@@ -64,7 +64,7 @@
       ]
     },
     "nodeInfo": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSystemInfo",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSystemInfo",
       "description": "Set of ids/uuids to uniquely identify the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#info"
     },
     "phase": {
@@ -77,7 +77,7 @@
     "volumesAttached": {
       "description": "List of volumes that are attached to the node.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.AttachedVolume"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.5/_definitions.json#/definitions/io.k8s.api.core.v1.AttachedVolume"
       },
       "type": [
         "array",

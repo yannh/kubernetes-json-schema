@@ -4,7 +4,7 @@
     "policies": {
       "description": "policies is a list of potential scaling polices which can be used during scaling. At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.15/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.HPAScalingPolicy"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.15/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.HPAScalingPolicy"
       },
       "type": [
         "array",

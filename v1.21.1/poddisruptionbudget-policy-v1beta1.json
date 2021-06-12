@@ -22,14 +22,14 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec",
       "description": "Specification of the desired behavior of the PodDisruptionBudget."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.1/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetStatus",
       "description": "Most recently observed status of the PodDisruptionBudget."
     }
   },

@@ -22,14 +22,14 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.9/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.9/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec",
       "description": "The certificate request itself and any additional information."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.9/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequestStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.9/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequestStatus",
       "description": "Derived information about the request."
     }
   },

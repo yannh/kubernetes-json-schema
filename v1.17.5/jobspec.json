@@ -41,11 +41,11 @@
       ]
     },
     "selector": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
       "description": "A label query over pods that should match the pod count. Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors"
     },
     "template": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.5/_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.5/_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
       "description": "Describes the pod that will be created when executing a job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/"
     },
     "ttlSecondsAfterFinished": {

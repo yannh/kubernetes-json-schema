@@ -36,7 +36,7 @@
       ]
     },
     "secretRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.13/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.13/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference",
       "description": "Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it"
     },
     "user": {

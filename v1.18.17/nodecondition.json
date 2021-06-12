@@ -2,11 +2,11 @@
   "description": "NodeCondition contains condition information for a node.",
   "properties": {
     "lastHeartbeatTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time we got an update on a given condition."
     },
     "lastTransitionTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.17/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time the condition transit from one status to another."
     },
     "message": {

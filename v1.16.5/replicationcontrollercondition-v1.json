@@ -2,7 +2,7 @@
   "description": "ReplicationControllerCondition describes the state of a replication controller at a certain point.",
   "properties": {
     "lastTransitionTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.5/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "The last time the condition transitioned from one status to another."
     },
     "message": {

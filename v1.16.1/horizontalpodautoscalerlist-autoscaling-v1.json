@@ -14,7 +14,7 @@
     "items": {
       "description": "list of horizontal pod autoscaler objects.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.1/_definitions.json#/definitions/io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.1/_definitions.json#/definitions/io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata."
     }
   },

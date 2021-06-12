@@ -2,7 +2,7 @@
   "description": "PriorityLevelConfigurationSpec specifies the configuration of a priority level.",
   "properties": {
     "limited": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.LimitedPriorityLevelConfiguration",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.LimitedPriorityLevelConfiguration",
       "description": "`limited` specifies how requests are handled for a Limited priority level. This field must be non-empty if and only if `type` is `\"Limited\"`."
     },
     "type": {

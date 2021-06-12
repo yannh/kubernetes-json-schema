@@ -2,7 +2,7 @@
   "description": "DeploymentStrategy describes how to replace existing pods with new ones.",
   "properties": {
     "rollingUpdate": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.3/_definitions.json#/definitions/io.k8s.api.apps.v1.RollingUpdateDeployment",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.3/_definitions.json#/definitions/io.k8s.api.apps.v1.RollingUpdateDeployment",
       "description": "Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate."
     },
     "type": {

@@ -2,7 +2,7 @@
   "description": "Event represents a single event to a watched resource.",
   "properties": {
     "object": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
       "description": "Object is:\n * If Type is Added or Modified: the new state of the object.\n * If Type is Deleted: the state of the object immediately before deletion.\n * If Type is Error: *Status is recommended; other types may make sense\n   depending on context."
     },
     "type": {

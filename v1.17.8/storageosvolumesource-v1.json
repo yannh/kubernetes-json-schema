@@ -16,7 +16,7 @@
       ]
     },
     "secretRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.8/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.8/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference",
       "description": "SecretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted."
     },
     "volumeName": {

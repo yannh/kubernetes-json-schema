@@ -2,7 +2,7 @@
   "description": "CSINodeDriver holds information about the specification of one CSI driver installed on a node",
   "properties": {
     "allocatable": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.13/_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeNodeResources",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.13/_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeNodeResources",
       "description": "allocatable represents the volume resources of a node that are available for scheduling. This field is beta."
     },
     "name": {

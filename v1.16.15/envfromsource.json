@@ -2,7 +2,7 @@
   "description": "EnvFromSource represents the source of a set of ConfigMaps",
   "properties": {
     "configMapRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.15/_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMapEnvSource",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.15/_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMapEnvSource",
       "description": "The ConfigMap to select from"
     },
     "prefix": {
@@ -13,7 +13,7 @@
       ]
     },
     "secretRef": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.15/_definitions.json#/definitions/io.k8s.api.core.v1.SecretEnvSource",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.15/_definitions.json#/definitions/io.k8s.api.core.v1.SecretEnvSource",
       "description": "The Secret to select from"
     }
   },

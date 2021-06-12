@@ -2,11 +2,11 @@
   "description": "PodCondition contains details for the current condition of this pod.",
   "properties": {
     "lastProbeTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time we probed the condition."
     },
     "lastTransitionTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Last time the condition transitioned from one status to another."
     },
     "message": {

@@ -9,7 +9,7 @@
       ]
     },
     "divisor": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.13/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.13/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
       "description": "Specifies the output format of the exposed resources, defaults to \"1\""
     },
     "resource": {

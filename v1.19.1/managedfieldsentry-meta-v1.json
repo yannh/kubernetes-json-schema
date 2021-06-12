@@ -16,7 +16,7 @@
       ]
     },
     "fieldsV1": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1",
       "description": "FieldsV1 holds the first JSON version format as described in the \"FieldsV1\" type."
     },
     "manager": {
@@ -34,7 +34,7 @@
       ]
     },
     "time": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'"
     }
   },

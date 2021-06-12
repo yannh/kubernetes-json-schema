@@ -40,11 +40,11 @@
       ]
     },
     "seLinuxOptions": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions",
       "description": "The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container."
     },
     "seccompProfile": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.SeccompProfile",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.SeccompProfile",
       "description": "The seccomp options to use by the containers in this pod."
     },
     "supplementalGroups": {
@@ -64,7 +64,7 @@
     "sysctls": {
       "description": "Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.Sysctl"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.Sysctl"
       },
       "type": [
         "array",
@@ -72,7 +72,7 @@
       ]
     },
     "windowsOptions": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.0/_definitions.json#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions",
       "description": "The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence."
     }
   },

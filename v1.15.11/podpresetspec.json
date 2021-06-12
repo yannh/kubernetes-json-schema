@@ -4,7 +4,7 @@
     "env": {
       "description": "Env defines the collection of EnvVar to inject into containers.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVar"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVar"
       },
       "type": [
         "array",
@@ -14,7 +14,7 @@
     "envFrom": {
       "description": "EnvFrom defines the collection of EnvFromSource to inject into containers.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.EnvFromSource"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.EnvFromSource"
       },
       "type": [
         "array",
@@ -22,13 +22,13 @@
       ]
     },
     "selector": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
       "description": "Selector is a label query over a set of resources, in this case pods. Required."
     },
     "volumeMounts": {
       "description": "VolumeMounts defines the collection of VolumeMount to inject into containers.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
       },
       "type": [
         "array",
@@ -38,7 +38,7 @@
     "volumes": {
       "description": "Volumes defines the collection of Volume to inject into the pod.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.Volume"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.Volume"
       },
       "type": [
         "array",

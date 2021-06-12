@@ -21,7 +21,7 @@
     "endpoints": {
       "description": "endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.15/_definitions.json#/definitions/io.k8s.api.discovery.v1alpha1.Endpoint"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.15/_definitions.json#/definitions/io.k8s.api.discovery.v1alpha1.Endpoint"
       },
       "type": [
         "array",
@@ -40,13 +40,13 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.15/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.15/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata."
     },
     "ports": {
       "description": "ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates \"all ports\". Each slice may include a maximum of 100 ports.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.16.15/_definitions.json#/definitions/io.k8s.api.discovery.v1alpha1.EndpointPort"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.15/_definitions.json#/definitions/io.k8s.api.discovery.v1alpha1.EndpointPort"
       },
       "type": [
         "array",

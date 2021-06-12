@@ -41,20 +41,20 @@
       ]
     },
     "rollbackTo": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.12/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.RollbackConfig",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.12/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.RollbackConfig",
       "description": "DEPRECATED. The config this deployment is rolling back to. Will be cleared after rollback is done."
     },
     "selector": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.12/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.12/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
       "description": "Label selector for pods. Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment."
     },
     "strategy": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.12/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.DeploymentStrategy",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.12/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.DeploymentStrategy",
       "description": "The deployment strategy to use to replace existing pods with new ones.",
       "x-kubernetes-patch-strategy": "retainKeys"
     },
     "template": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.12/_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.12/_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
       "description": "Template describes the pods that will be created."
     }
   },

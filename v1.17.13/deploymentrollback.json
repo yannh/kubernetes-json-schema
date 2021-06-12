@@ -26,7 +26,7 @@
       ]
     },
     "rollbackTo": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.13/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.RollbackConfig",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.13/_definitions.json#/definitions/io.k8s.api.extensions.v1beta1.RollbackConfig",
       "description": "The config of this deployment rollback."
     },
     "updatedAnnotations": {

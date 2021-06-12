@@ -14,7 +14,7 @@
     "items": {
       "description": "Items is the list of Deployments.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.9/_definitions.json#/definitions/io.k8s.api.apps.v1beta1.Deployment"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.9/_definitions.json#/definitions/io.k8s.api.apps.v1beta1.Deployment"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.9/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata."
     }
   },

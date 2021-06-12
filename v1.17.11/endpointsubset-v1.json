@@ -4,7 +4,7 @@
     "addresses": {
       "description": "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.EndpointAddress"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.EndpointAddress"
       },
       "type": [
         "array",
@@ -14,7 +14,7 @@
     "notReadyAddresses": {
       "description": "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.EndpointAddress"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.EndpointAddress"
       },
       "type": [
         "array",
@@ -24,7 +24,7 @@
     "ports": {
       "description": "Port numbers available on the related IP addresses.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.EndpointPort"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.11/_definitions.json#/definitions/io.k8s.api.core.v1.EndpointPort"
       },
       "type": [
         "array",

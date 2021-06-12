@@ -9,7 +9,7 @@
       ]
     },
     "port": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.12/_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.12/_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
       "description": "Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
     }
   },

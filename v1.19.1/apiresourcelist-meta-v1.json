@@ -31,7 +31,7 @@
     "resources": {
       "description": "resources contains the name of the resources and if they are namespaced.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.19.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIResource"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIResource"
       },
       "type": [
         "array",

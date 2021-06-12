@@ -13,7 +13,7 @@
     },
     "items": {
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.2/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSet"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.2/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSet"
       },
       "type": [
         "array",
@@ -31,7 +31,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
     }
   },
   "required": [

@@ -27,15 +27,15 @@
       ]
     },
     "eventTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
       "description": "Time when this Event was first observed."
     },
     "firstTimestamp": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)"
     },
     "involvedObject": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
       "description": "The object that this event is about."
     },
     "kind": {
@@ -49,7 +49,7 @@
       ]
     },
     "lastTimestamp": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "The time at which the most recent occurrence of this event was recorded."
     },
     "message": {
@@ -60,7 +60,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "reason": {
@@ -71,7 +71,7 @@
       ]
     },
     "related": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
       "description": "Optional secondary object for more complex actions."
     },
     "reportingComponent": {
@@ -89,11 +89,11 @@
       ]
     },
     "series": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.EventSeries",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.EventSeries",
       "description": "Data about the Event series this event represents or nil if it's a singleton Event."
     },
     "source": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.EventSource",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.17.1/_definitions.json#/definitions/io.k8s.api.core.v1.EventSource",
       "description": "The component reporting this event. Should be a short machine understandable string."
     },
     "type": {

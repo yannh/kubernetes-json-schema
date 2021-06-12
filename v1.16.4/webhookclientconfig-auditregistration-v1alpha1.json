@@ -10,7 +10,7 @@
       ]
     },
     "service": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.16.4/_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.ServiceReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.16.4/_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.ServiceReference",
       "description": "`service` is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`."
     },
     "url": {

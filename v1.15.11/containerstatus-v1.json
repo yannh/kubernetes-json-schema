@@ -23,7 +23,7 @@
       ]
     },
     "lastState": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerState",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerState",
       "description": "Details about the container's last termination condition."
     },
     "name": {
@@ -49,7 +49,7 @@
       ]
     },
     "state": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerState",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.15.11/_definitions.json#/definitions/io.k8s.api.core.v1.ContainerState",
       "description": "Details about the container's current condition."
     }
   },

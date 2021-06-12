@@ -4,7 +4,7 @@
     "forZones": {
       "description": "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.21.0/_definitions.json#/definitions/io.k8s.api.discovery.v1.ForZone"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.0/_definitions.json#/definitions/io.k8s.api.discovery.v1.ForZone"
       },
       "type": [
         "array",
