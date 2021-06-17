@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "lastUpdateTime": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "timestamp for the last update to this condition"
+    },
+    "message": {
+      "description": "human readable message with details about the request state",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "description": "brief reason for the request state",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "request approval state, currently Approved or Denied.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

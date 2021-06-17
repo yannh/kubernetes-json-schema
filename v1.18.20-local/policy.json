@@ -1,0 +1,30 @@
+{
+  "description": "Policy defines the configuration of how audit events are logged",
+  "properties": {
+    "level": {
+      "description": "The Level that all requests are recorded at. available options: None, Metadata, Request, RequestResponse required",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stages": {
+      "description": "Stages is a list of stages for which events are created.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "level"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

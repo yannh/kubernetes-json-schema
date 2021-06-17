@@ -1,0 +1,19 @@
+{
+  "description": "APIServiceStatus contains derived information about an API server",
+  "properties": {
+    "conditions": {
+      "description": "Current service state of apiService.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

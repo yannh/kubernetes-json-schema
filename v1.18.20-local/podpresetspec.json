@@ -1,0 +1,51 @@
+{
+  "description": "PodPresetSpec is a description of a pod preset.",
+  "properties": {
+    "env": {
+      "description": "Env defines the collection of EnvVar to inject into containers.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.EnvVar"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "envFrom": {
+      "description": "EnvFrom defines the collection of EnvFromSource to inject into containers.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.EnvFromSource"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "selector": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "description": "Selector is a label query over a set of resources, in this case pods. Required."
+    },
+    "volumeMounts": {
+      "description": "VolumeMounts defines the collection of VolumeMount to inject into containers.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "volumes": {
+      "description": "Volumes defines the collection of Volume to inject into the pod.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Volume"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

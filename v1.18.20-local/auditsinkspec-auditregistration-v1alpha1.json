@@ -1,0 +1,19 @@
+{
+  "description": "AuditSinkSpec holds the spec for the audit sink",
+  "properties": {
+    "policy": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.Policy",
+      "description": "Policy defines the policy for selecting which events should be sent to the webhook required"
+    },
+    "webhook": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.Webhook",
+      "description": "Webhook to send events required"
+    }
+  },
+  "required": [
+    "policy",
+    "webhook"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

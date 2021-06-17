@@ -1,0 +1,18 @@
+{
+  "description": "DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.",
+  "properties": {
+    "rollingUpdate": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.RollingUpdateDaemonSet",
+      "description": "Rolling update config params. Present only if type = \"RollingUpdate\"."
+    },
+    "type": {
+      "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

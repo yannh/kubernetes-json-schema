@@ -1,0 +1,18 @@
+{
+  "description": "Webhook holds the configuration of the webhook",
+  "properties": {
+    "clientConfig": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.WebhookClientConfig",
+      "description": "ClientConfig holds the connection parameters for the webhook required"
+    },
+    "throttle": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig",
+      "description": "Throttle holds the options for throttling the webhook"
+    }
+  },
+  "required": [
+    "clientConfig"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
