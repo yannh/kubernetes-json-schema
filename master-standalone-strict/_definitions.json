@@ -11714,17 +11714,20 @@
       "description": "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.",
       "properties": {
         "group": {
-          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta1.GroupSubject"
+          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta1.GroupSubject",
+          "description": "`group` matches based on user group name."
         },
         "kind": {
-          "description": "Required",
+          "description": "`kind` indicates which one of the other fields is non-empty. Required",
           "type": "string"
         },
         "serviceAccount": {
-          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta1.ServiceAccountSubject"
+          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta1.ServiceAccountSubject",
+          "description": "`serviceAccount` matches ServiceAccounts."
         },
         "user": {
-          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta1.UserSubject"
+          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta1.UserSubject",
+          "description": "`user` matches based on username."
         }
       },
       "required": [

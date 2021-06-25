@@ -481,7 +481,7 @@
                             "additionalProperties": false
                           },
                           "kind": {
-                            "description": "Required",
+                            "description": "`kind` indicates which one of the other fields is non-empty. Required",
                             "type": "string"
                           },
                           "serviceAccount": {
