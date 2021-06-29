@@ -95,6 +95,7 @@
     }
   },
   "required": [
+    "pathType",
     "backend"
   ],
   "type": "object",
