@@ -273,10 +273,10 @@
       "description": "NodeSpec describes the attributes that a node is created with.",
       "properties": {
         "configSource": {
-          "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+          "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22",
           "properties": {
             "configMap": {
-              "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
+              "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration",
               "properties": {
                 "kubeletConfigKey": {
                   "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
@@ -555,10 +555,10 @@
           "description": "NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.",
           "properties": {
             "active": {
-              "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+              "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22",
               "properties": {
                 "configMap": {
-                  "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
+                  "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration",
                   "properties": {
                     "kubeletConfigKey": {
                       "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
@@ -604,10 +604,10 @@
               ]
             },
             "assigned": {
-              "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+              "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22",
               "properties": {
                 "configMap": {
-                  "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
+                  "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration",
                   "properties": {
                     "kubeletConfigKey": {
                       "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
@@ -660,10 +660,10 @@
               ]
             },
             "lastKnownGood": {
-              "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+              "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22",
               "properties": {
                 "configMap": {
-                  "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
+                  "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration",
                   "properties": {
                     "kubeletConfigKey": {
                       "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",

@@ -376,6 +376,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.JobTemplateSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.UncountedTerminatedPods"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJob"
     },
     {
