@@ -1,0 +1,62 @@
+{
+  "description": "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.",
+  "properties": {
+    "driver": {
+      "description": "Driver is the name of the driver to use for this volume.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fsType": {
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "options": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": "Optional: Extra command options if any.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "readOnly": {
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "secretRef": {
+      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+      "properties": {
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "driver"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

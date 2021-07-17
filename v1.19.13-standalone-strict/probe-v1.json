@@ -1,0 +1,186 @@
+{
+  "description": "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.",
+  "properties": {
+    "exec": {
+      "description": "ExecAction describes a \"run in container\" action.",
+      "properties": {
+        "command": {
+          "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "failureThreshold": {
+      "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "httpGet": {
+      "description": "HTTPGetAction describes an action based on HTTP Get requests.",
+      "properties": {
+        "host": {
+          "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "httpHeaders": {
+          "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+          "items": {
+            "description": "HTTPHeader describes a custom header to be used in HTTP probes",
+            "properties": {
+              "name": {
+                "description": "The header field name",
+                "type": "string"
+              },
+              "value": {
+                "description": "The header field value",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "path": {
+          "description": "Path to access on the HTTP server.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "port": {
+          "oneOf": [
+            {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          ]
+        },
+        "scheme": {
+          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "port"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "initialDelaySeconds": {
+      "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "periodSeconds": {
+      "description": "How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "successThreshold": {
+      "description": "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "tcpSocket": {
+      "description": "TCPSocketAction describes an action based on opening a socket",
+      "properties": {
+        "host": {
+          "description": "Optional: Host name to connect to, defaults to the pod IP.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "port": {
+          "oneOf": [
+            {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "port"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "timeoutSeconds": {
+      "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
