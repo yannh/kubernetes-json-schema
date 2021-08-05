@@ -95,7 +95,7 @@
       ]
     },
     "numberReady": {
-      "description": "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.",
+      "description": "numberReady is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running with a Ready Condition.",
       "format": "int32",
       "type": [
         "integer",
