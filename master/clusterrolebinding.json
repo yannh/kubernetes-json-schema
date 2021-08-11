@@ -1,5 +1,5 @@
 {
-  "description": "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.",
+  "description": "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -23,13 +23,13 @@
       "description": "Standard object's metadata."
     },
     "roleRef": {
-      "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.RoleRef",
+      "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.api.rbac.v1.RoleRef",
       "description": "RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error."
     },
     "subjects": {
       "description": "Subjects holds references to the objects the role applies to.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.Subject"
+        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
       },
       "type": [
         "array",
@@ -45,7 +45,7 @@
     {
       "group": "rbac.authorization.k8s.io",
       "kind": "ClusterRoleBinding",
-      "version": "v1alpha1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

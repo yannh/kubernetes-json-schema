@@ -1,5 +1,5 @@
 {
-  "description": "RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.22.",
+  "description": "RoleBindingList is a collection of RoleBindings",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is a list of RoleBindings",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.RoleBinding"
+        "$ref": "https://kubernetesjsonschema.dev/master/_definitions.json#/definitions/io.k8s.api.rbac.v1.RoleBinding"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "rbac.authorization.k8s.io",
       "kind": "RoleBindingList",
-      "version": "v1alpha1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

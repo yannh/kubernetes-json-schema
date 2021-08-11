@@ -11,7 +11,7 @@
     "items": {
       "description": "items is the list of PriorityClasses",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.PriorityClass"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "PriorityClassList",
-      "version": "v1alpha1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

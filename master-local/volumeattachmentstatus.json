@@ -2,7 +2,7 @@
   "description": "VolumeAttachmentStatus is the status of a VolumeAttachment request.",
   "properties": {
     "attachError": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeError",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeError",
       "description": "The last error encountered during attach operation, if any. This field must only be set by the entity completing the attach operation, i.e. the external-attacher."
     },
     "attached": {
@@ -26,7 +26,7 @@
       ]
     },
     "detachError": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeError",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeError",
       "description": "The last error encountered during detach operation, if any. This field must only be set by the entity completing the detach operation, i.e. the external-attacher."
     }
   },

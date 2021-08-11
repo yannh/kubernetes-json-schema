@@ -1828,7 +1828,7 @@
                 "description": "VolumeError captures an error encountered during a volume operation.",
                 "properties": {
                   "message": {
-                    "description": "String detailing the error encountered during Attach or Detach operation. This string maybe logged, so it should not contain sensitive information.",
+                    "description": "String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
                     "type": [
                       "string",
                       "null"
@@ -1870,7 +1870,7 @@
                 "description": "VolumeError captures an error encountered during a volume operation.",
                 "properties": {
                   "message": {
-                    "description": "String detailing the error encountered during Attach or Detach operation. This string maybe logged, so it should not contain sensitive information.",
+                    "description": "String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
                     "type": [
                       "string",
                       "null"
@@ -1913,7 +1913,7 @@
           {
             "group": "storage.k8s.io",
             "kind": "VolumeAttachment",
-            "version": "v1alpha1"
+            "version": "v1"
           }
         ],
         "additionalProperties": false
@@ -1981,7 +1981,7 @@
     {
       "group": "storage.k8s.io",
       "kind": "VolumeAttachmentList",
-      "version": "v1alpha1"
+      "version": "v1"
     }
   ],
   "additionalProperties": false,
