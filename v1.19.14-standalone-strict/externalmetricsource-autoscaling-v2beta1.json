@@ -1,0 +1,117 @@
+{
+  "description": "ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster). Exactly one \"target\" type should be set.",
+  "properties": {
+    "metricName": {
+      "description": "metricName is the name of the metric in question.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metricSelector": {
+      "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+      "properties": {
+        "matchExpressions": {
+          "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+          "items": {
+            "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+            "properties": {
+              "key": {
+                "description": "key is the label key that the selector applies to.",
+                "type": "string",
+                "x-kubernetes-patch-merge-key": "key",
+                "x-kubernetes-patch-strategy": "merge"
+              },
+              "operator": {
+                "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                "type": "string"
+              },
+              "values": {
+                "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "key",
+              "operator"
+            ],
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "matchLabels": {
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "targetAverageValue": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    },
+    "targetValue": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "metricName"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
