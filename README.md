@@ -31,6 +31,12 @@ $ kubeval --strict --schema-location https://raw.githubusercontent.com/yannh/kub
 PASS - deployment.yaml contains a valid Deployment
 ```
 
+To run `kubeval` against a specific Kubernetes version, pass the `-v` argument
+```sh
+$ kubeval -v 1.19.8 -s  https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master ingress.yaml
+PASS - ingress.yaml contains a valid Ingress (ingress)
+```
+
 ## Building the schemas yourself
 
 The tooling for generating these schemas is [a fork](https://github.com/yannh/openapi2jsonschema)
