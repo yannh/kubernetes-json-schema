@@ -1,0 +1,27 @@
+{
+  "description": "IDRange provides a min/max of an allowed range of IDs.",
+  "properties": {
+    "max": {
+      "description": "max is the end of the range, inclusive.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "min": {
+      "description": "min is the start of the range, inclusive.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "min",
+    "max"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

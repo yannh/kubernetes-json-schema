@@ -1,0 +1,122 @@
+{
+  "description": "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.",
+  "properties": {
+    "commonEncodingVersion": {
+      "description": "If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "conditions": {
+      "description": "The latest available observations of the storageVersion's state.",
+      "items": {
+        "description": "Describes the state of the storageVersion at a certain point.",
+        "properties": {
+          "lastTransitionTime": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "message": {
+            "description": "A human readable message indicating details about the transition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "observedGeneration": {
+            "description": "If set, this represents the .metadata.generation that the condition was set based upon.",
+            "format": "int64",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "The reason for the condition's last transition.",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status of the condition, one of True, False, Unknown.",
+            "type": "string"
+          },
+          "type": {
+            "description": "Type of the condition.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "status",
+          "reason"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "storageVersions": {
+      "description": "The reported versions per API server instance.",
+      "items": {
+        "description": "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.",
+        "properties": {
+          "apiServerID": {
+            "description": "The ID of the reporting API server.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decodableVersions": {
+            "description": "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ],
+            "x-kubernetes-list-type": "set"
+          },
+          "encodingVersion": {
+            "description": "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "apiServerID"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
