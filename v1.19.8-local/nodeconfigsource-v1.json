@@ -1,0 +1,11 @@
+{
+  "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+  "properties": {
+    "configMap": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMapNodeConfigSource",
+      "description": "ConfigMap is a reference to a Node's ConfigMap"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

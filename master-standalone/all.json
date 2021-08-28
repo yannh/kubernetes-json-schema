@@ -1318,52 +1318,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.AggregationRule"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.ClusterRole"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.ClusterRoleBinding"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.ClusterRoleList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.PolicyRule"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.Role"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.RoleBinding"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.RoleBindingList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.RoleList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.RoleRef"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1alpha1.Subject"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClassList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.PriorityClass"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.PriorityClassList"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIDriver"
@@ -1421,24 +1379,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.CSIStorageCapacityList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttachment"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttachmentList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttachmentSource"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttachmentSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttachmentStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeError"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.CSIStorageCapacity"

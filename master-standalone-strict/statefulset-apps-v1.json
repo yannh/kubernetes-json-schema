@@ -10305,7 +10305,7 @@
           ]
         },
         "readyReplicas": {
-          "description": "readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.",
+          "description": "readyReplicas is the number of pods created for this StatefulSet with a Ready Condition.",
           "format": "int32",
           "type": [
             "integer",

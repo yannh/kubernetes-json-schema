@@ -1,5 +1,5 @@
 {
-  "description": "ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.22.",
+  "description": "ClusterRoleBindingList is a collection of ClusterRoleBindings",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is a list of ClusterRoleBindings",
       "items": {
-        "description": "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.",
+        "description": "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.",
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -306,6 +306,7 @@
               "name"
             ],
             "type": "object",
+            "x-kubernetes-map-type": "atomic",
             "additionalProperties": false
           },
           "subjects": {
@@ -313,8 +314,8 @@
             "items": {
               "description": "Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference, or a value for non-objects such as user and group names.",
               "properties": {
-                "apiVersion": {
-                  "description": "APIVersion holds the API group and version of the referenced subject. Defaults to \"v1\" for ServiceAccount subjects. Defaults to \"rbac.authorization.k8s.io/v1alpha1\" for User and Group subjects.",
+                "apiGroup": {
+                  "description": "APIGroup holds the API group of the referenced subject. Defaults to \"\" for ServiceAccount subjects. Defaults to \"rbac.authorization.k8s.io\" for User and Group subjects.",
                   "type": [
                     "string",
                     "null"
@@ -344,6 +345,7 @@
                 "object",
                 "null"
               ],
+              "x-kubernetes-map-type": "atomic",
               "additionalProperties": false
             },
             "type": [
@@ -363,7 +365,7 @@
           {
             "group": "rbac.authorization.k8s.io",
             "kind": "ClusterRoleBinding",
-            "version": "v1alpha1"
+            "version": "v1"
           }
         ],
         "additionalProperties": false
@@ -431,7 +433,7 @@
     {
       "group": "rbac.authorization.k8s.io",
       "kind": "ClusterRoleBindingList",
-      "version": "v1alpha1"
+      "version": "v1"
     }
   ],
   "additionalProperties": false,
