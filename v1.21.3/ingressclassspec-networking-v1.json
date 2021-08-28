@@ -9,7 +9,7 @@
       ]
     },
     "parameters": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.3/_definitions.json#/definitions/io.k8s.api.networking.v1.IngressClassParametersReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.3/_definitions.json#/definitions/io.k8s.api.networking.v1.IngressClassParametersReference",
       "description": "Parameters is a link to a custom resource containing additional configuration for the controller. This is optional if the controller does not require extra parameters."
     }
   },

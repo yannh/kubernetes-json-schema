@@ -27,19 +27,19 @@
       ]
     },
     "deprecatedFirstTimestamp": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type."
     },
     "deprecatedLastTimestamp": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type."
     },
     "deprecatedSource": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.api.core.v1.EventSource",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.api.core.v1.EventSource",
       "description": "deprecatedSource is the deprecated field assuring backward compatibility with core.v1 Event type."
     },
     "eventTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
       "description": "eventTime is the time when this Event was first observed. It is required."
     },
     "kind": {
@@ -53,7 +53,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "note": {
@@ -71,11 +71,11 @@
       ]
     },
     "regarding": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
       "description": "regarding contains the object this Event is about. In most cases it's an Object reporting controller implements, e.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object."
     },
     "related": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
       "description": "related is the optional secondary object for more complex actions. E.g. when regarding object triggers a creation or deletion of related object."
     },
     "reportingController": {
@@ -93,7 +93,7 @@
       ]
     },
     "series": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.2/_definitions.json#/definitions/io.k8s.api.events.v1beta1.EventSeries",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.2/_definitions.json#/definitions/io.k8s.api.events.v1beta1.EventSeries",
       "description": "series is data about the Event series this event represents or nil if it's a singleton Event."
     },
     "type": {

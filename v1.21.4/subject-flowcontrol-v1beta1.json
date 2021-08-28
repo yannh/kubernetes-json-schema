@@ -2,7 +2,7 @@
   "description": "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.",
   "properties": {
     "group": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.GroupSubject"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.GroupSubject"
     },
     "kind": {
       "description": "Required",
@@ -12,10 +12,10 @@
       ]
     },
     "serviceAccount": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.ServiceAccountSubject"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.ServiceAccountSubject"
     },
     "user": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.21.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.UserSubject"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.21.4/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.UserSubject"
     }
   },
   "required": [
