@@ -19,15 +19,15 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec",
       "description": "Specification of the desired behavior of the PodDisruptionBudget."
     },
     "status": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetStatus",
       "description": "Most recently observed status of the PodDisruptionBudget."
     }
   },

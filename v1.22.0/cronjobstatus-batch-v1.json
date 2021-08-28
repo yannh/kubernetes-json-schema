@@ -4,7 +4,7 @@
     "active": {
       "description": "A list of pointers to currently running jobs.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
       },
       "type": [
         "array",
@@ -13,11 +13,11 @@
       "x-kubernetes-list-type": "atomic"
     },
     "lastScheduleTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Information when was the last time the job was successfully scheduled."
     },
     "lastSuccessfulTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "Information when was the last time the job successfully completed."
     }
   },

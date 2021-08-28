@@ -14,7 +14,7 @@
     "items": {
       "description": "Items is the list of stateful sets.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSet"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSet"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     }
   },
