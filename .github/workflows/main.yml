@@ -1,23 +1,28 @@
 name: cron
 on:
   workflow_dispatch:
+    inputs:
+      prefix:
+        description: 'Prefix to regenerate'
+        required: true
+        default: 'master'
   schedule:
     - cron: "10 10 */2 * *"
-inputs:
-  prefix:
-    description: 'Prefix to regenerate'
-    required: true
-    default: 'master'
 jobs:
   gen:
     runs-on: ubuntu-latest
+    env:
+      DEFAULT_PREFIX: master
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
-      # Ensure master* is up-to-date
-      - name: delete master folders
-        run: ls $INPUT_PREFIX*
+      # Override PREFIX if run manually
+      - name: Set PREFIX
+        run: echo "PREFIX=${{ github.event.inputs.prefix || env.DEFAULT_PREFIX }}" >> $GITHUB_ENV
+
+      - name: delete folders to regenerate
+        run: "rm -rf ${{ env.PREFIX }}*"
 
       - name: generate
         run: make gen
