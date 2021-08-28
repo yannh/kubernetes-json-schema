@@ -1,0 +1,293 @@
+{
+  "description": "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.",
+  "properties": {
+    "postStart": {
+      "description": "Handler defines a specific action that should be taken",
+      "properties": {
+        "exec": {
+          "description": "ExecAction describes a \"run in container\" action.",
+          "properties": {
+            "command": {
+              "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "httpGet": {
+          "description": "HTTPGetAction describes an action based on HTTP Get requests.",
+          "properties": {
+            "host": {
+              "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "httpHeaders": {
+              "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+              "items": {
+                "description": "HTTPHeader describes a custom header to be used in HTTP probes",
+                "properties": {
+                  "name": {
+                    "description": "The header field name",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "The header field value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "path": {
+              "description": "Path to access on the HTTP server.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "port": {
+              "oneOf": [
+                {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              ]
+            },
+            "scheme": {
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "port"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "tcpSocket": {
+          "description": "TCPSocketAction describes an action based on opening a socket",
+          "properties": {
+            "host": {
+              "description": "Optional: Host name to connect to, defaults to the pod IP.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "port": {
+              "oneOf": [
+                {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "port"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "preStop": {
+      "description": "Handler defines a specific action that should be taken",
+      "properties": {
+        "exec": {
+          "description": "ExecAction describes a \"run in container\" action.",
+          "properties": {
+            "command": {
+              "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "httpGet": {
+          "description": "HTTPGetAction describes an action based on HTTP Get requests.",
+          "properties": {
+            "host": {
+              "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "httpHeaders": {
+              "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+              "items": {
+                "description": "HTTPHeader describes a custom header to be used in HTTP probes",
+                "properties": {
+                  "name": {
+                    "description": "The header field name",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "The header field value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "path": {
+              "description": "Path to access on the HTTP server.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "port": {
+              "oneOf": [
+                {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              ]
+            },
+            "scheme": {
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "port"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "tcpSocket": {
+          "description": "TCPSocketAction describes an action based on opening a socket",
+          "properties": {
+            "host": {
+              "description": "Optional: Host name to connect to, defaults to the pod IP.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "port": {
+              "oneOf": [
+                {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "port"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
