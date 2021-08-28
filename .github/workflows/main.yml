@@ -1,8 +1,13 @@
-name: ci
+name: cron
 on:
   workflow_dispatch:
   schedule:
     - cron: "10 10 */2 * *"
+inputs:
+  prefix:
+    description: 'Prefix to regenerate'
+    required: true
+    default: 'master'
 jobs:
   gen:
     runs-on: ubuntu-latest
@@ -12,7 +17,7 @@ jobs:
 
       # Ensure master* is up-to-date
       - name: delete master folders
-        run: rm -rf master*
+        run: ls $INPUT_PREFIX*
 
       - name: generate
         run: make gen
