@@ -19,7 +19,7 @@ fi
 
 for K8S_VERSION in $K8S_VERSIONS master; do
   SCHEMA=https://raw.githubusercontent.com/kubernetes/kubernetes/${K8S_VERSION}/api/openapi-spec/swagger.json
-  PREFIX=https://kubernetesjsonschema.dev/${K8S_VERSION}/_definitions.json
+  PREFIX=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/${K8S_VERSION}/_definitions.json
 
   if [ ! -d "${K8S_VERSION}-standalone-strict" ]; then
     $OPENAPI2JSONSCHEMABIN -o "schemas/${K8S_VERSION}-standalone-strict" --expanded --kubernetes --stand-alone --strict "${SCHEMA}"
