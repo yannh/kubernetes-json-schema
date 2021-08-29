@@ -9,7 +9,7 @@
       ]
     },
     "capabilities": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.Capabilities",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.Capabilities",
       "description": "The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime."
     },
     "privileged": {
@@ -57,15 +57,15 @@
       ]
     },
     "seLinuxOptions": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions",
       "description": "The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence."
     },
     "seccompProfile": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.SeccompProfile",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.SeccompProfile",
       "description": "The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options."
     },
     "windowsOptions": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions",
       "description": "The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence."
     }
   },

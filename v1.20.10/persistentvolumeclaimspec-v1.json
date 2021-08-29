@@ -15,15 +15,15 @@
       ]
     },
     "dataSource": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
       "description": "This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) * An existing custom resource that implements data population (Alpha) In order to use custom resource types that implement data population, the AnyVolumeDataSource feature gate must be enabled. If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source."
     },
     "resources": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
       "description": "Resources represents the minimum resources the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"
     },
     "selector": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
       "description": "A label query over volumes to consider for binding."
     },
     "storageClassName": {

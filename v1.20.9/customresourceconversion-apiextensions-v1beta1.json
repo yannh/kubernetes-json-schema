@@ -22,7 +22,7 @@
       ]
     },
     "webhookClientConfig": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.9/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.9/_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig",
       "description": "webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`. Required when `strategy` is set to `Webhook`."
     }
   },

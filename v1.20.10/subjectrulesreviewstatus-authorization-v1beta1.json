@@ -18,7 +18,7 @@
     "nonResourceRules": {
       "description": "NonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.NonResourceRule"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.NonResourceRule"
       },
       "type": [
         "array",
@@ -28,7 +28,7 @@
     "resourceRules": {
       "description": "ResourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.ResourceRule"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.api.authorization.v1beta1.ResourceRule"
       },
       "type": [
         "array",

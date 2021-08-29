@@ -2,11 +2,11 @@
   "description": "ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.",
   "properties": {
     "currentAverageValue": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
       "description": "currentAverageValue is the current value of metric averaged over autoscaled pods."
     },
     "currentValue": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
       "description": "currentValue is the current value of the metric (as a quantity)"
     },
     "metricName": {
@@ -17,7 +17,7 @@
       ]
     },
     "metricSelector": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.19.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.19.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
       "description": "metricSelector is used to identify a specific time series within a given metric."
     }
   },

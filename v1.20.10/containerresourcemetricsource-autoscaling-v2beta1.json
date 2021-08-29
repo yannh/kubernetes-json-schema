@@ -24,7 +24,7 @@
       ]
     },
     "targetAverageValue": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.10/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
       "description": "targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type."
     }
   },

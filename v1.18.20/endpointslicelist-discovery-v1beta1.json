@@ -14,7 +14,7 @@
     "items": {
       "description": "List of endpoint slices",
       "items": {
-        "$ref": "https://kubernetesjsonschema.dev/v1.18.20/_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointSlice"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.20/_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointSlice"
       },
       "type": [
         "array",
@@ -33,7 +33,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.18.20/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.18.20/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata."
     }
   },

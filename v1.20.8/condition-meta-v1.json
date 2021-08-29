@@ -2,7 +2,7 @@
   "description": "Condition contains details for one aspect of the current state of this API Resource.",
   "properties": {
     "lastTransitionTime": {
-      "$ref": "https://kubernetesjsonschema.dev/v1.20.8/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.8/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
       "description": "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable."
     },
     "message": {
