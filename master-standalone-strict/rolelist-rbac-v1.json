@@ -348,7 +348,7 @@
                   ]
                 },
                 "verbs": {
-                  "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. '*' represents all verbs.",
+                  "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.",
                   "items": {
                     "type": [
                       "string",
