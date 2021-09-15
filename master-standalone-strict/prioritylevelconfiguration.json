@@ -447,7 +447,7 @@
     {
       "group": "flowcontrol.apiserver.k8s.io",
       "kind": "PriorityLevelConfiguration",
-      "version": "v1beta1"
+      "version": "v1beta2"
     }
   ],
   "additionalProperties": false,

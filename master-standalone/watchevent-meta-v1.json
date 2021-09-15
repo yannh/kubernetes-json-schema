@@ -182,6 +182,11 @@
       "version": "v1beta1"
     },
     {
+      "group": "flowcontrol.apiserver.k8s.io",
+      "kind": "WatchEvent",
+      "version": "v1beta2"
+    },
+    {
       "group": "imagepolicy.k8s.io",
       "kind": "WatchEvent",
       "version": "v1alpha1"
