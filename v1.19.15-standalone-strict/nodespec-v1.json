@@ -1,0 +1,145 @@
+{
+  "description": "NodeSpec describes the attributes that a node is created with.",
+  "properties": {
+    "configSource": {
+      "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+      "properties": {
+        "configMap": {
+          "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
+          "properties": {
+            "kubeletConfigKey": {
+              "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.",
+              "type": "string"
+            },
+            "resourceVersion": {
+              "description": "ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "uid": {
+              "description": "UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "namespace",
+            "name",
+            "kubeletConfigKey"
+          ],
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "externalID": {
+      "description": "Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "podCIDR": {
+      "description": "PodCIDR represents the pod IP range assigned to the node.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "podCIDRs": {
+      "description": "podCIDRs represents the IP ranges assigned to the node for usage by Pods on that node. If this field is specified, the 0th entry must match the podCIDR field. It may contain at most 1 value for each of IPv4 and IPv6.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "providerID": {
+      "description": "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "taints": {
+      "description": "If specified, the node's taints.",
+      "items": {
+        "description": "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.",
+        "properties": {
+          "effect": {
+            "description": "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.",
+            "type": "string"
+          },
+          "key": {
+            "description": "Required. The taint key to be applied to a node.",
+            "type": "string"
+          },
+          "timeAdded": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "description": "The taint value corresponding to the taint key.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "effect"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "unschedulable": {
+      "description": "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,129 @@
+{
+  "description": "EnvVarSource represents a source for the value of an EnvVar.",
+  "properties": {
+    "configMapKeyRef": {
+      "description": "Selects a key from a ConfigMap.",
+      "properties": {
+        "key": {
+          "description": "The key to select.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "optional": {
+          "description": "Specify whether the ConfigMap or its key must be defined",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "fieldRef": {
+      "description": "ObjectFieldSelector selects an APIVersioned field of an object.",
+      "properties": {
+        "apiVersion": {
+          "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fieldPath": {
+          "description": "Path of the field to select in the specified API version.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fieldPath"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "resourceFieldRef": {
+      "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
+      "properties": {
+        "containerName": {
+          "description": "Container name: required for volumes, optional for env vars",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "divisor": {
+          "oneOf": [
+            {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          ]
+        },
+        "resource": {
+          "description": "Required: resource to select",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "secretKeyRef": {
+      "description": "SecretKeySelector selects a key of a Secret.",
+      "properties": {
+        "key": {
+          "description": "The key of the secret to select from.  Must be a valid secret key.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "optional": {
+          "description": "Specify whether the Secret or its key must be defined",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

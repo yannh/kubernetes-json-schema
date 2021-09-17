@@ -1,0 +1,17 @@
+{
+  "description": "A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.",
+  "properties": {
+    "matchExpressions": {
+      "description": "A list of scope selector requirements by scope of the resources.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ScopedResourceSelectorRequirement"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

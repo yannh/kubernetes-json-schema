@@ -1,0 +1,76 @@
+{
+  "description": "Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.",
+  "properties": {
+    "monitors": {
+      "description": "Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "path": {
+      "description": "Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "readOnly": {
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "secretFile": {
+      "description": "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "secretRef": {
+      "description": "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace",
+      "properties": {
+        "name": {
+          "description": "Name is unique within a namespace to reference a secret resource.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "namespace": {
+          "description": "Namespace defines the space within which the secret name must be unique.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "user": {
+      "description": "Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "monitors"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
