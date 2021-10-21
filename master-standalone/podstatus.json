@@ -342,7 +342,7 @@
       ]
     },
     "ephemeralContainerStatuses": {
-      "description": "Status for any ephemeral containers that have run in this pod. This field is alpha-level and is only populated by servers that enable the EphemeralContainers feature.",
+      "description": "Status for any ephemeral containers that have run in this pod. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.",
       "items": {
         "description": "ContainerStatus contains details for the current status of this container.",
         "properties": {
