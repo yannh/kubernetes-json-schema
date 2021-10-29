@@ -565,8 +565,7 @@
   },
   "required": [
     "currentReplicas",
-    "desiredReplicas",
-    "conditions"
+    "desiredReplicas"
   ],
   "type": "object",
   "additionalProperties": false,

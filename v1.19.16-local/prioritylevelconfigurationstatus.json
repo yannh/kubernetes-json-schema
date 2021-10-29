@@ -1,0 +1,21 @@
+{
+  "description": "PriorityLevelConfigurationStatus represents the current state of a \"request-priority\".",
+  "properties": {
+    "conditions": {
+      "description": "`conditions` is the current state of \"request-priority\".",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

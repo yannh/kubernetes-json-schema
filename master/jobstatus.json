@@ -2,7 +2,7 @@
   "description": "JobStatus represents the current state of a Job.",
   "properties": {
     "active": {
-      "description": "The number of actively running pods.",
+      "description": "The number of pending and running pods.",
       "format": "int32",
       "type": [
         "integer",
@@ -35,6 +35,14 @@
     },
     "failed": {
       "description": "The number of pods which reached phase Failed.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "ready": {
+      "description": "The number of pods which have a Ready condition.\n\nThis field is alpha-level. The job controller populates the field when the feature gate JobReadyPods is enabled (disabled by default).",
       "format": "int32",
       "type": [
         "integer",

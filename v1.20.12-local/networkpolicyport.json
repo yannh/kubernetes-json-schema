@@ -1,0 +1,18 @@
+{
+  "description": "NetworkPolicyPort describes a port to allow traffic on",
+  "properties": {
+    "port": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
+      "description": "The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers."
+    },
+    "protocol": {
+      "description": "The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

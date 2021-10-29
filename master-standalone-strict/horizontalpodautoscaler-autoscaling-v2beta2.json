@@ -1159,7 +1159,10 @@
             ],
             "additionalProperties": false
           },
-          "type": "array"
+          "type": [
+            "array",
+            "null"
+          ]
         },
         "currentMetrics": {
           "description": "currentMetrics is the last read state of the metrics used by this autoscaler.",
@@ -1805,8 +1808,7 @@
       },
       "required": [
         "currentReplicas",
-        "desiredReplicas",
-        "conditions"
+        "desiredReplicas"
       ],
       "type": [
         "object",

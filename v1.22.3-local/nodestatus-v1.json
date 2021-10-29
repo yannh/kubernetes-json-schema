@@ -1,0 +1,103 @@
+{
+  "description": "NodeStatus is information about the current status of a node.",
+  "properties": {
+    "addresses": {
+      "description": "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See http://pr.k8s.io/79391 for an example.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAddress"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "allocatable": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      },
+      "description": "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "capacity": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      },
+      "description": "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "conditions": {
+      "description": "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "config": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeConfigStatus",
+      "description": "Status of the config assigned to the node via the dynamic Kubelet config feature."
+    },
+    "daemonEndpoints": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeDaemonEndpoints",
+      "description": "Endpoints of daemons running on the Node."
+    },
+    "images": {
+      "description": "List of container images on this node",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerImage"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "nodeInfo": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSystemInfo",
+      "description": "Set of ids/uuids to uniquely identify the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#info"
+    },
+    "phase": {
+      "description": "NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "volumesAttached": {
+      "description": "List of volumes that are attached to the node.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AttachedVolume"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "volumesInUse": {
+      "description": "List of attachable volumes in use (mounted) by the node.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

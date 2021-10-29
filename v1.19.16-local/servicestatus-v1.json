@@ -1,0 +1,11 @@
+{
+  "description": "ServiceStatus represents the current status of a service.",
+  "properties": {
+    "loadBalancer": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LoadBalancerStatus",
+      "description": "LoadBalancer contains the current status of the load-balancer, if one is present."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,216 @@
+{
+  "description": "PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.",
+  "properties": {
+    "nonResourceRules": {
+      "description": "`nonResourceRules` is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL.",
+      "items": {
+        "description": "NonResourcePolicyRule is a predicate that matches non-resource requests according to their verb and the target non-resource URL. A NonResourcePolicyRule matches a request if and only if both (a) at least one member of verbs matches the request and (b) at least one member of nonResourceURLs matches the request.",
+        "properties": {
+          "nonResourceURLs": {
+            "description": "`nonResourceURLs` is a set of url prefixes that a user should have access to and may not be empty. For example:\n  - \"/healthz\" is legal\n  - \"/hea*\" is illegal\n  - \"/hea\" is legal but matches nothing\n  - \"/hea/*\" also matches nothing\n  - \"/healthz/*\" matches all per-component health checks.\n\"*\" matches all non-resource urls. if it is present, it must be the only entry. Required.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": "array",
+            "x-kubernetes-list-type": "set"
+          },
+          "verbs": {
+            "description": "`verbs` is a list of matching verbs and may not be empty. \"*\" matches all verbs. If it is present, it must be the only entry. Required.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": "array",
+            "x-kubernetes-list-type": "set"
+          }
+        },
+        "required": [
+          "verbs",
+          "nonResourceURLs"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "resourceRules": {
+      "description": "`resourceRules` is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource. At least one of `resourceRules` and `nonResourceRules` has to be non-empty.",
+      "items": {
+        "description": "ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) least one member of namespaces matches the request.",
+        "properties": {
+          "apiGroups": {
+            "description": "`apiGroups` is a list of matching API groups and may not be empty. \"*\" matches all API groups and, if present, must be the only entry. Required.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": "array",
+            "x-kubernetes-list-type": "set"
+          },
+          "clusterScope": {
+            "description": "`clusterScope` indicates whether to match requests that do not specify a namespace (which happens either because the resource is not namespaced or the request targets all namespaces). If this field is omitted or false then the `namespaces` field must contain a non-empty list.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "namespaces": {
+            "description": "`namespaces` is a list of target namespaces that restricts matches.  A request that specifies a target namespace matches only if either (a) this list contains that target namespace or (b) this list contains \"*\".  Note that \"*\" matches any specified namespace but does not match a request that _does not specify_ a namespace (see the `clusterScope` field for that). This list may be empty, but only if `clusterScope` is true.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ],
+            "x-kubernetes-list-type": "set"
+          },
+          "resources": {
+            "description": "`resources` is a list of matching resources (i.e., lowercase and plural) with, if desired, subresource.  For example, [ \"services\", \"nodes/status\" ].  This list may not be empty. \"*\" matches all resources and, if present, must be the only entry. Required.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": "array",
+            "x-kubernetes-list-type": "set"
+          },
+          "verbs": {
+            "description": "`verbs` is a list of matching verbs and may not be empty. \"*\" matches all verbs and, if present, must be the only entry. Required.",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": "array",
+            "x-kubernetes-list-type": "set"
+          }
+        },
+        "required": [
+          "verbs",
+          "apiGroups",
+          "resources"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "subjects": {
+      "description": "subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.",
+      "items": {
+        "description": "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.",
+        "properties": {
+          "group": {
+            "description": "GroupSubject holds detailed information for group-kind subject.",
+            "properties": {
+              "name": {
+                "description": "name is the user group that matches, or \"*\" to match all user groups. See https://github.com/kubernetes/apiserver/blob/master/pkg/authentication/user/user.go for some well-known group names. Required.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "kind": {
+            "description": "Required",
+            "type": "string"
+          },
+          "serviceAccount": {
+            "description": "ServiceAccountSubject holds detailed information for service-account-kind subject.",
+            "properties": {
+              "name": {
+                "description": "`name` is the name of matching ServiceAccount objects, or \"*\" to match regardless of name. Required.",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "`namespace` is the namespace of matching ServiceAccount objects. Required.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "namespace",
+              "name"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "user": {
+            "description": "UserSubject holds detailed information for user-kind subject.",
+            "properties": {
+              "name": {
+                "description": "`name` is the username that matches, or \"*\" to match all usernames. Required.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "x-kubernetes-unions": [
+          {
+            "discriminator": "kind",
+            "fields-to-discriminateBy": {
+              "group": "Group",
+              "serviceAccount": "ServiceAccount",
+              "user": "User"
+            }
+          }
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "required": [
+    "subjects"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
