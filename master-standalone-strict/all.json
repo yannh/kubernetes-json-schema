@@ -604,9 +604,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HTTPHeader"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Handler"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostAlias"
     },
     {
@@ -623,6 +620,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Lifecycle"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LifecycleHandler"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LimitRange"
