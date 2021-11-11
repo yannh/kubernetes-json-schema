@@ -148,6 +148,11 @@
     {
       "group": "autoscaling",
       "kind": "DeleteOptions",
+      "version": "v2"
+    },
+    {
+      "group": "autoscaling",
+      "kind": "DeleteOptions",
       "version": "v2beta1"
     },
     {
