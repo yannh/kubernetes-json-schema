@@ -516,6 +516,29 @@
             "null"
           ]
         },
+        "allocatedResources": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          },
+          "description": "The storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
         "capacity": {
           "additionalProperties": {
             "oneOf": [
@@ -578,6 +601,11 @@
                 "type": "string"
               },
               "type": {
+                "description": "\n\n\nPossible enum values:\n - `\"FileSystemResizePending\"` - controller resize is finished and a file system resize is pending on node\n - `\"Resizing\"` - a user trigger resize of pvc has been started",
+                "enum": [
+                  "FileSystemResizePending",
+                  "Resizing"
+                ],
                 "type": "string"
               }
             },
@@ -599,7 +627,19 @@
           "x-kubernetes-patch-strategy": "merge"
         },
         "phase": {
-          "description": "Phase represents the current phase of PersistentVolumeClaim.",
+          "description": "Phase represents the current phase of PersistentVolumeClaim.\n\nPossible enum values:\n - `\"Bound\"` used for PersistentVolumeClaims that are bound\n - `\"Lost\"` used for PersistentVolumeClaims that lost their underlying PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any longer and all data on it was lost.\n - `\"Pending\"` used for PersistentVolumeClaims that are not yet bound",
+          "enum": [
+            "Bound",
+            "Lost",
+            "Pending"
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resizeStatus": {
+          "description": "ResizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.",
           "type": [
             "string",
             "null"

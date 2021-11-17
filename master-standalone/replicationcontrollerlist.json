@@ -603,7 +603,15 @@
                                                 "type": "string"
                                               },
                                               "operator": {
-                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\nPossible enum values:\n - `\"DoesNotExist\"`\n - `\"Exists\"`\n - `\"Gt\"`\n - `\"In\"`\n - `\"Lt\"`\n - `\"NotIn\"`",
+                                                "enum": [
+                                                  "DoesNotExist",
+                                                  "Exists",
+                                                  "Gt",
+                                                  "In",
+                                                  "Lt",
+                                                  "NotIn"
+                                                ],
                                                 "type": "string"
                                               },
                                               "values": {
@@ -644,7 +652,15 @@
                                                 "type": "string"
                                               },
                                               "operator": {
-                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\nPossible enum values:\n - `\"DoesNotExist\"`\n - `\"Exists\"`\n - `\"Gt\"`\n - `\"In\"`\n - `\"Lt\"`\n - `\"NotIn\"`",
+                                                "enum": [
+                                                  "DoesNotExist",
+                                                  "Exists",
+                                                  "Gt",
+                                                  "In",
+                                                  "Lt",
+                                                  "NotIn"
+                                                ],
                                                 "type": "string"
                                               },
                                               "values": {
@@ -717,7 +733,15 @@
                                                 "type": "string"
                                               },
                                               "operator": {
-                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\nPossible enum values:\n - `\"DoesNotExist\"`\n - `\"Exists\"`\n - `\"Gt\"`\n - `\"In\"`\n - `\"Lt\"`\n - `\"NotIn\"`",
+                                                "enum": [
+                                                  "DoesNotExist",
+                                                  "Exists",
+                                                  "Gt",
+                                                  "In",
+                                                  "Lt",
+                                                  "NotIn"
+                                                ],
                                                 "type": "string"
                                               },
                                               "values": {
@@ -758,7 +782,15 @@
                                                 "type": "string"
                                               },
                                               "operator": {
-                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                                "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\nPossible enum values:\n - `\"DoesNotExist\"`\n - `\"Exists\"`\n - `\"Gt\"`\n - `\"In\"`\n - `\"Lt\"`\n - `\"NotIn\"`",
+                                                "enum": [
+                                                  "DoesNotExist",
+                                                  "Exists",
+                                                  "Gt",
+                                                  "In",
+                                                  "Lt",
+                                                  "NotIn"
+                                                ],
                                                 "type": "string"
                                               },
                                               "values": {
@@ -1822,7 +1854,12 @@
                               ]
                             },
                             "imagePullPolicy": {
-                              "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images",
+                              "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images\n\nPossible enum values:\n - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.\n - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.\n - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent",
+                                "Never"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -1832,7 +1869,7 @@
                               "description": "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.",
                               "properties": {
                                 "postStart": {
-                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
                                   "properties": {
                                     "exec": {
                                       "description": "ExecAction describes a \"run in container\" action.",
@@ -1918,7 +1955,11 @@
                                           ]
                                         },
                                         "scheme": {
-                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                          "enum": [
+                                            "HTTP",
+                                            "HTTPS"
+                                          ],
                                           "type": [
                                             "string",
                                             "null"
@@ -1975,7 +2016,7 @@
                                   ]
                                 },
                                 "preStop": {
-                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
                                   "properties": {
                                     "exec": {
                                       "description": "ExecAction describes a \"run in container\" action.",
@@ -2061,7 +2102,11 @@
                                           ]
                                         },
                                         "scheme": {
-                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                          "enum": [
+                                            "HTTP",
+                                            "HTTPS"
+                                          ],
                                           "type": [
                                             "string",
                                             "null"
@@ -2218,7 +2263,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -2351,7 +2400,12 @@
                                     ]
                                   },
                                   "protocol": {
-                                    "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
+                                    "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"UDP\"` is the UDP protocol.",
+                                    "enum": [
+                                      "SCTP",
+                                      "TCP",
+                                      "UDP"
+                                    ],
                                     "type": [
                                       "string",
                                       "null"
@@ -2473,7 +2527,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -2761,7 +2819,12 @@
                                       ]
                                     },
                                     "type": {
-                                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.\n\nPossible enum values:\n - `\"Localhost\"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.\n - `\"RuntimeDefault\"` represents the default container runtime seccomp profile.\n - `\"Unconfined\"` indicates no seccomp profile is applied (A.K.A. unconfined).",
+                                      "enum": [
+                                        "Localhost",
+                                        "RuntimeDefault",
+                                        "Unconfined"
+                                      ],
                                       "type": "string"
                                     }
                                   },
@@ -2919,7 +2982,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -3037,7 +3104,11 @@
                               ]
                             },
                             "terminationMessagePolicy": {
-                              "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.",
+                              "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.\n\nPossible enum values:\n - `\"FallbackToLogsOnError\"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.\n - `\"File\"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.",
+                              "enum": [
+                                "FallbackToLogsOnError",
+                                "File"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -3223,7 +3294,13 @@
                         ]
                       },
                       "dnsPolicy": {
-                        "description": "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.",
+                        "description": "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.\n\nPossible enum values:\n - `\"ClusterFirst\"` indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.\n - `\"ClusterFirstWithHostNet\"` indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.\n - `\"Default\"` indicates that the pod should use the default (as determined by kubelet) DNS settings.\n - `\"None\"` indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig.",
+                        "enum": [
+                          "ClusterFirst",
+                          "ClusterFirstWithHostNet",
+                          "Default",
+                          "None"
+                        ],
                         "type": [
                           "string",
                           "null"
@@ -3511,7 +3588,12 @@
                               ]
                             },
                             "imagePullPolicy": {
-                              "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images",
+                              "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images\n\nPossible enum values:\n - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.\n - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.\n - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent",
+                                "Never"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -3521,7 +3603,7 @@
                               "description": "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.",
                               "properties": {
                                 "postStart": {
-                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
                                   "properties": {
                                     "exec": {
                                       "description": "ExecAction describes a \"run in container\" action.",
@@ -3607,7 +3689,11 @@
                                           ]
                                         },
                                         "scheme": {
-                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                          "enum": [
+                                            "HTTP",
+                                            "HTTPS"
+                                          ],
                                           "type": [
                                             "string",
                                             "null"
@@ -3664,7 +3750,7 @@
                                   ]
                                 },
                                 "preStop": {
-                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
                                   "properties": {
                                     "exec": {
                                       "description": "ExecAction describes a \"run in container\" action.",
@@ -3750,7 +3836,11 @@
                                           ]
                                         },
                                         "scheme": {
-                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                          "enum": [
+                                            "HTTP",
+                                            "HTTPS"
+                                          ],
                                           "type": [
                                             "string",
                                             "null"
@@ -3907,7 +3997,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -4040,7 +4134,12 @@
                                     ]
                                   },
                                   "protocol": {
-                                    "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
+                                    "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"UDP\"` is the UDP protocol.",
+                                    "enum": [
+                                      "SCTP",
+                                      "TCP",
+                                      "UDP"
+                                    ],
                                     "type": [
                                       "string",
                                       "null"
@@ -4162,7 +4261,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -4450,7 +4553,12 @@
                                       ]
                                     },
                                     "type": {
-                                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.\n\nPossible enum values:\n - `\"Localhost\"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.\n - `\"RuntimeDefault\"` represents the default container runtime seccomp profile.\n - `\"Unconfined\"` indicates no seccomp profile is applied (A.K.A. unconfined).",
+                                      "enum": [
+                                        "Localhost",
+                                        "RuntimeDefault",
+                                        "Unconfined"
+                                      ],
                                       "type": "string"
                                     }
                                   },
@@ -4608,7 +4716,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -4733,7 +4845,11 @@
                               ]
                             },
                             "terminationMessagePolicy": {
-                              "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.",
+                              "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.\n\nPossible enum values:\n - `\"FallbackToLogsOnError\"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.\n - `\"File\"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.",
+                              "enum": [
+                                "FallbackToLogsOnError",
+                                "File"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -5224,7 +5340,12 @@
                               ]
                             },
                             "imagePullPolicy": {
-                              "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images",
+                              "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images\n\nPossible enum values:\n - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.\n - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.\n - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent",
+                                "Never"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -5234,7 +5355,7 @@
                               "description": "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.",
                               "properties": {
                                 "postStart": {
-                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
                                   "properties": {
                                     "exec": {
                                       "description": "ExecAction describes a \"run in container\" action.",
@@ -5320,7 +5441,11 @@
                                           ]
                                         },
                                         "scheme": {
-                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                          "enum": [
+                                            "HTTP",
+                                            "HTTPS"
+                                          ],
                                           "type": [
                                             "string",
                                             "null"
@@ -5377,7 +5502,7 @@
                                   ]
                                 },
                                 "preStop": {
-                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+                                  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
                                   "properties": {
                                     "exec": {
                                       "description": "ExecAction describes a \"run in container\" action.",
@@ -5463,7 +5588,11 @@
                                           ]
                                         },
                                         "scheme": {
-                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                          "enum": [
+                                            "HTTP",
+                                            "HTTPS"
+                                          ],
                                           "type": [
                                             "string",
                                             "null"
@@ -5620,7 +5749,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -5753,7 +5886,12 @@
                                     ]
                                   },
                                   "protocol": {
-                                    "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
+                                    "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"UDP\"` is the UDP protocol.",
+                                    "enum": [
+                                      "SCTP",
+                                      "TCP",
+                                      "UDP"
+                                    ],
                                     "type": [
                                       "string",
                                       "null"
@@ -5875,7 +6013,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -6163,7 +6305,12 @@
                                       ]
                                     },
                                     "type": {
-                                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.\n\nPossible enum values:\n - `\"Localhost\"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.\n - `\"RuntimeDefault\"` represents the default container runtime seccomp profile.\n - `\"Unconfined\"` indicates no seccomp profile is applied (A.K.A. unconfined).",
+                                      "enum": [
+                                        "Localhost",
+                                        "RuntimeDefault",
+                                        "Unconfined"
+                                      ],
                                       "type": "string"
                                     }
                                   },
@@ -6321,7 +6468,11 @@
                                       ]
                                     },
                                     "scheme": {
-                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                                      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+                                      "enum": [
+                                        "HTTP",
+                                        "HTTPS"
+                                      ],
                                       "type": [
                                         "string",
                                         "null"
@@ -6439,7 +6590,11 @@
                               ]
                             },
                             "terminationMessagePolicy": {
-                              "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.",
+                              "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.\n\nPossible enum values:\n - `\"FallbackToLogsOnError\"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.\n - `\"File\"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.",
+                              "enum": [
+                                "FallbackToLogsOnError",
+                                "File"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -6651,7 +6806,13 @@
                           "description": "PodReadinessGate contains the reference to a pod condition",
                           "properties": {
                             "conditionType": {
-                              "description": "ConditionType refers to a condition in the pod's condition list with matching type.",
+                              "description": "ConditionType refers to a condition in the pod's condition list with matching type.\n\nPossible enum values:\n - `\"ContainersReady\"` indicates whether all containers in the pod are ready.\n - `\"Initialized\"` means that all init containers in the pod have started successfully.\n - `\"PodScheduled\"` represents status of the scheduling process for this pod.\n - `\"Ready\"` means the pod is able to service requests and should be added to the load balancing pools of all matching services.",
+                              "enum": [
+                                "ContainersReady",
+                                "Initialized",
+                                "PodScheduled",
+                                "Ready"
+                              ],
                               "type": "string"
                             }
                           },
@@ -6669,7 +6830,12 @@
                         ]
                       },
                       "restartPolicy": {
-                        "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
+                        "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy\n\nPossible enum values:\n - `\"Always\"`\n - `\"Never\"`\n - `\"OnFailure\"`",
+                        "enum": [
+                          "Always",
+                          "Never",
+                          "OnFailure"
+                        ],
                         "type": [
                           "string",
                           "null"
@@ -6778,7 +6944,12 @@
                                 ]
                               },
                               "type": {
-                                "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                                "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.\n\nPossible enum values:\n - `\"Localhost\"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.\n - `\"RuntimeDefault\"` represents the default container runtime seccomp profile.\n - `\"Unconfined\"` indicates no seccomp profile is applied (A.K.A. unconfined).",
+                                "enum": [
+                                  "Localhost",
+                                  "RuntimeDefault",
+                                  "Unconfined"
+                                ],
                                 "type": "string"
                               }
                             },
@@ -6932,7 +7103,12 @@
                           "description": "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.",
                           "properties": {
                             "effect": {
-                              "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.",
+                              "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.\n\nPossible enum values:\n - `\"NoExecute\"` Evict any already-running pods that do not tolerate the taint. Currently enforced by NodeController.\n - `\"NoSchedule\"` Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.\n - `\"PreferNoSchedule\"` Like TaintEffectNoSchedule, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.",
+                              "enum": [
+                                "NoExecute",
+                                "NoSchedule",
+                                "PreferNoSchedule"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -6946,7 +7122,11 @@
                               ]
                             },
                             "operator": {
-                              "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.",
+                              "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.\n\nPossible enum values:\n - `\"Equal\"`\n - `\"Exists\"`",
+                              "enum": [
+                                "Equal",
+                                "Exists"
+                              ],
                               "type": [
                                 "string",
                                 "null"
@@ -7059,7 +7239,11 @@
                               "type": "string"
                             },
                             "whenUnsatisfiable": {
-                              "description": "WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,\n  but giving higher precedence to topologies that would help reduce the\n  skew.\nA constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assignment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.",
+                              "description": "WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,\n  but giving higher precedence to topologies that would help reduce the\n  skew.\nA constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assignment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.\n\nPossible enum values:\n - `\"DoNotSchedule\"` instructs the scheduler not to schedule the pod when constraints are not satisfied.\n - `\"ScheduleAnyway\"` instructs the scheduler to schedule the pod even if constraints are not satisfied.",
+                              "enum": [
+                                "DoNotSchedule",
+                                "ScheduleAnyway"
+                              ],
                               "type": "string"
                             }
                           },

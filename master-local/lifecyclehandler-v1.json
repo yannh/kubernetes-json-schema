@@ -1,9 +1,9 @@
 {
-  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
   "properties": {
     "exec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ExecAction",
-      "description": "One and only one of the following should be specified. Exec specifies the action to take."
+      "description": "Exec specifies the action to take."
     },
     "httpGet": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HTTPGetAction",
@@ -11,7 +11,7 @@
     },
     "tcpSocket": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.TCPSocketAction",
-      "description": "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported"
+      "description": "Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified."
     }
   },
   "type": "object",

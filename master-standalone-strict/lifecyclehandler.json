@@ -1,5 +1,5 @@
 {
-  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook.  This type has a strong relationship to ProbeHandler - overlapping fields should be identical.",
+  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
   "properties": {
     "exec": {
       "description": "ExecAction describes a \"run in container\" action.",
@@ -87,7 +87,11 @@
           ]
         },
         "scheme": {
-          "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+          "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
+          "enum": [
+            "HTTP",
+            "HTTPS"
+          ],
           "type": [
             "string",
             "null"
