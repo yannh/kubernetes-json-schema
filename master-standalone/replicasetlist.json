@@ -2250,6 +2250,29 @@
                                     "null"
                                   ]
                                 },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ]
+                                },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
                                   "properties": {
@@ -2511,6 +2534,29 @@
                                   "format": "int32",
                                   "type": [
                                     "integer",
+                                    "null"
+                                  ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
                                     "null"
                                   ]
                                 },
@@ -2966,6 +3012,29 @@
                                   "format": "int32",
                                   "type": [
                                     "integer",
+                                    "null"
+                                  ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
                                     "null"
                                   ]
                                 },
@@ -3984,6 +4053,29 @@
                                     "null"
                                   ]
                                 },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ]
+                                },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
                                   "properties": {
@@ -4245,6 +4337,29 @@
                                   "format": "int32",
                                   "type": [
                                     "integer",
+                                    "null"
+                                  ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
                                     "null"
                                   ]
                                 },
@@ -4700,6 +4815,29 @@
                                   "format": "int32",
                                   "type": [
                                     "integer",
+                                    "null"
+                                  ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
                                     "null"
                                   ]
                                 },
@@ -5736,6 +5874,29 @@
                                     "null"
                                   ]
                                 },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ]
+                                },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
                                   "properties": {
@@ -5997,6 +6158,29 @@
                                   "format": "int32",
                                   "type": [
                                     "integer",
+                                    "null"
+                                  ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
                                     "null"
                                   ]
                                 },
@@ -6452,6 +6636,29 @@
                                   "format": "int32",
                                   "type": [
                                     "integer",
+                                    "null"
+                                  ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
                                     "null"
                                   ]
                                 },

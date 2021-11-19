@@ -1,0 +1,67 @@
+{
+  "description": "Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.",
+  "properties": {
+    "monitors": {
+      "description": "Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "path": {
+      "description": "Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "readOnly": {
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "secretFile": {
+      "description": "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "secretRef": {
+      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+      "properties": {
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "user": {
+      "description": "Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "monitors"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

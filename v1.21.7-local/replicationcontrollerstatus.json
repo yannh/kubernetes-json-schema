@@ -1,0 +1,62 @@
+{
+  "description": "ReplicationControllerStatus represents the current status of a replication controller.",
+  "properties": {
+    "availableReplicas": {
+      "description": "The number of available replicas (ready for at least minReadySeconds) for this replication controller.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "conditions": {
+      "description": "Represents the latest available observations of a replication controller's current state.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ReplicationControllerCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "fullyLabeledReplicas": {
+      "description": "The number of pods that have labels matching the labels of the pod template of the replication controller.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "observedGeneration": {
+      "description": "ObservedGeneration reflects the generation of the most recently observed replication controller.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "readyReplicas": {
+      "description": "The number of ready replicas for this replication controller.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "replicas": {
+      "description": "Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "replicas"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

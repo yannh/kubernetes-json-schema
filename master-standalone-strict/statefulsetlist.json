@@ -295,6 +295,30 @@
                   "null"
                 ]
               },
+              "persistentVolumeClaimRetentionPolicy": {
+                "description": "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.",
+                "properties": {
+                  "whenDeleted": {
+                    "description": "WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "whenScaled": {
+                    "description": "WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
               "podManagementPolicy": {
                 "description": "podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.\n\nPossible enum values:\n - `\"OrderedReady\"` will create pods in strictly increasing order on scale up and strictly decreasing order on scale down, progressing only when the previous pod is ready or terminated. At most one pod will be changed at any time.\n - `\"Parallel\"` will create and delete pods as soon as the stateful set replica count is changed, and will not wait for pods to be ready or complete termination.",
                 "enum": [
@@ -2336,6 +2360,30 @@
                                     "null"
                                   ]
                                 },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
+                                },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
                                   "properties": {
@@ -2605,6 +2653,30 @@
                                     "integer",
                                     "null"
                                   ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
@@ -3071,6 +3143,30 @@
                                     "integer",
                                     "null"
                                   ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
@@ -4117,6 +4213,30 @@
                                     "null"
                                   ]
                                 },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
+                                },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
                                   "properties": {
@@ -4386,6 +4506,30 @@
                                     "integer",
                                     "null"
                                   ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
@@ -4852,6 +4996,30 @@
                                     "integer",
                                     "null"
                                   ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
@@ -5916,6 +6084,30 @@
                                     "null"
                                   ]
                                 },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
+                                },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
                                   "properties": {
@@ -6185,6 +6377,30 @@
                                     "integer",
                                     "null"
                                   ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
@@ -6651,6 +6867,30 @@
                                     "integer",
                                     "null"
                                   ]
+                                },
+                                "gRPC": {
+                                  "properties": {
+                                    "port": {
+                                      "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "service": {
+                                      "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "port"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 "httpGet": {
                                   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
