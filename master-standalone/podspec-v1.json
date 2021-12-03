@@ -1631,7 +1631,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -1918,7 +1918,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -2396,7 +2396,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -3437,7 +3437,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -3724,7 +3724,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -4202,7 +4202,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -5258,7 +5258,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -5545,7 +5545,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -6023,7 +6023,7 @@
                   "null"
                 ]
               },
-              "gRPC": {
+              "grpc": {
                 "properties": {
                   "port": {
                     "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
