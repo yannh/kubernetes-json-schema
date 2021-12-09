@@ -1,0 +1,52 @@
+{
+  "description": "current status of a horizontal pod autoscaler",
+  "properties": {
+    "currentCPUUtilizationPercentage": {
+      "description": "current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "currentReplicas": {
+      "description": "current number of replicas of pods managed by this autoscaler.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "desiredReplicas": {
+      "description": "desired number of replicas of pods managed by this autoscaler.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "lastScaleTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "observedGeneration": {
+      "description": "most recent generation observed by this autoscaler.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "currentReplicas",
+    "desiredReplicas"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
