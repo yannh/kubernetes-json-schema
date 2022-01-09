@@ -2,14 +2,14 @@
   "description": "Represents a source location of a volume to mount, managed by an external CSI driver",
   "properties": {
     "driver": {
-      "description": "Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.",
+      "description": "driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.",
       "type": [
         "string",
         "null"
       ]
     },
     "fsType": {
-      "description": "Filesystem type to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.",
+      "description": "fsType to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.",
       "type": [
         "string",
         "null"
@@ -34,7 +34,7 @@
       "additionalProperties": false
     },
     "readOnly": {
-      "description": "Specifies a read-only configuration for the volume. Defaults to false (read/write).",
+      "description": "readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).",
       "type": [
         "boolean",
         "null"
@@ -47,7 +47,7 @@
           "null"
         ]
       },
-      "description": "VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.",
+      "description": "volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.",
       "type": [
         "object",
         "null"
