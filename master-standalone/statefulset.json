@@ -8325,7 +8325,7 @@
                                 "description": "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes",
                                 "properties": {
                                   "accessModes": {
-                                    "description": "AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
+                                    "description": "accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
                                     "items": {
                                       "type": [
                                         "string",
@@ -8517,7 +8517,7 @@
                                     "x-kubernetes-map-type": "atomic"
                                   },
                                   "storageClassName": {
-                                    "description": "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1",
+                                    "description": "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1",
                                     "type": [
                                       "string",
                                       "null"
@@ -8531,7 +8531,7 @@
                                     ]
                                   },
                                   "volumeName": {
-                                    "description": "VolumeName is the binding reference to the PersistentVolume backing this claim.",
+                                    "description": "volumeName is the binding reference to the PersistentVolume backing this claim.",
                                     "type": [
                                       "string",
                                       "null"
@@ -8914,7 +8914,7 @@
                         ]
                       },
                       "name": {
-                        "description": "Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                        "description": "name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                         "type": "string"
                       },
                       "nfs": {
@@ -8949,11 +8949,11 @@
                         "description": "PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace. This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).",
                         "properties": {
                           "claimName": {
-                            "description": "ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
+                            "description": "claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
                             "type": "string"
                           },
                           "readOnly": {
-                            "description": "Will force the ReadOnly setting in VolumeMounts. Default false.",
+                            "description": "readOnly Will force the ReadOnly setting in VolumeMounts. Default false.",
                             "type": [
                               "boolean",
                               "null"
@@ -10020,7 +10020,7 @@
                 "description": "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes",
                 "properties": {
                   "accessModes": {
-                    "description": "AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
+                    "description": "accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
                     "items": {
                       "type": [
                         "string",
@@ -10212,7 +10212,7 @@
                     "x-kubernetes-map-type": "atomic"
                   },
                   "storageClassName": {
-                    "description": "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1",
+                    "description": "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1",
                     "type": [
                       "string",
                       "null"
@@ -10226,7 +10226,7 @@
                     ]
                   },
                   "volumeName": {
-                    "description": "VolumeName is the binding reference to the PersistentVolume backing this claim.",
+                    "description": "volumeName is the binding reference to the PersistentVolume backing this claim.",
                     "type": [
                       "string",
                       "null"
@@ -10242,7 +10242,7 @@
                 "description": "PersistentVolumeClaimStatus is the current status of a persistent volume claim.",
                 "properties": {
                   "accessModes": {
-                    "description": "AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
+                    "description": "accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
                     "items": {
                       "type": [
                         "string",
@@ -10271,7 +10271,7 @@
                         }
                       ]
                     },
-                    "description": "The storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.",
+                    "description": "allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.",
                     "type": [
                       "object",
                       "null"
@@ -10294,14 +10294,14 @@
                         }
                       ]
                     },
-                    "description": "Represents the actual resources of the underlying volume.",
+                    "description": "capacity represents the actual resources of the underlying volume.",
                     "type": [
                       "object",
                       "null"
                     ]
                   },
                   "conditions": {
-                    "description": "Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
+                    "description": "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
                     "items": {
                       "description": "PersistentVolumeClaimCondition contails details about state of pvc",
                       "properties": {
@@ -10322,14 +10322,14 @@
                           ]
                         },
                         "message": {
-                          "description": "Human-readable message indicating details about last transition.",
+                          "description": "message is the human-readable message indicating details about last transition.",
                           "type": [
                             "string",
                             "null"
                           ]
                         },
                         "reason": {
-                          "description": "Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
+                          "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
                           "type": [
                             "string",
                             "null"
@@ -10364,7 +10364,7 @@
                     "x-kubernetes-patch-strategy": "merge"
                   },
                   "phase": {
-                    "description": "Phase represents the current phase of PersistentVolumeClaim.\n\nPossible enum values:\n - `\"Bound\"` used for PersistentVolumeClaims that are bound\n - `\"Lost\"` used for PersistentVolumeClaims that lost their underlying PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any longer and all data on it was lost.\n - `\"Pending\"` used for PersistentVolumeClaims that are not yet bound",
+                    "description": "phase represents the current phase of PersistentVolumeClaim.\n\nPossible enum values:\n - `\"Bound\"` used for PersistentVolumeClaims that are bound\n - `\"Lost\"` used for PersistentVolumeClaims that lost their underlying PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any longer and all data on it was lost.\n - `\"Pending\"` used for PersistentVolumeClaims that are not yet bound",
                     "enum": [
                       "Bound",
                       "Lost",
@@ -10376,7 +10376,7 @@
                     ]
                   },
                   "resizeStatus": {
-                    "description": "ResizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.",
+                    "description": "resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.",
                     "type": [
                       "string",
                       "null"

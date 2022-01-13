@@ -3,7 +3,7 @@
   "properties": {
     "required": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
-      "description": "Required specifies hard node constraints that must be met."
+      "description": "required specifies hard node constraints that must be met."
     }
   },
   "type": "object",

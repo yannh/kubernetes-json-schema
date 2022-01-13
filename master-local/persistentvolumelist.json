@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes",
+      "description": "items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PersistentVolume"
       },
