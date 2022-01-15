@@ -2,49 +2,49 @@
   "description": "ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.",
   "properties": {
     "chapAuthDiscovery": {
-      "description": "whether support iSCSI Discovery CHAP authentication",
+      "description": "chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication",
       "type": [
         "boolean",
         "null"
       ]
     },
     "chapAuthSession": {
-      "description": "whether support iSCSI Session CHAP authentication",
+      "description": "chapAuthSession defines whether support iSCSI Session CHAP authentication",
       "type": [
         "boolean",
         "null"
       ]
     },
     "fsType": {
-      "description": "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi",
+      "description": "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi",
       "type": [
         "string",
         "null"
       ]
     },
     "initiatorName": {
-      "description": "Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.",
+      "description": "initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.",
       "type": [
         "string",
         "null"
       ]
     },
     "iqn": {
-      "description": "Target iSCSI Qualified Name.",
+      "description": "iqn is Target iSCSI Qualified Name.",
       "type": [
         "string",
         "null"
       ]
     },
     "iscsiInterface": {
-      "description": "iSCSI Interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).",
+      "description": "iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).",
       "type": [
         "string",
         "null"
       ]
     },
     "lun": {
-      "description": "iSCSI Target Lun number.",
+      "description": "lun is iSCSI Target Lun number.",
       "format": "int32",
       "type": [
         "integer",
@@ -52,7 +52,7 @@
       ]
     },
     "portals": {
-      "description": "iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).",
+      "description": "portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).",
       "items": {
         "type": [
           "string",
@@ -65,7 +65,7 @@
       ]
     },
     "readOnly": {
-      "description": "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
+      "description": "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
       "type": [
         "boolean",
         "null"
@@ -75,14 +75,14 @@
       "description": "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace",
       "properties": {
         "name": {
-          "description": "Name is unique within a namespace to reference a secret resource.",
+          "description": "name is unique within a namespace to reference a secret resource.",
           "type": [
             "string",
             "null"
           ]
         },
         "namespace": {
-          "description": "Namespace defines the space within which the secret name must be unique.",
+          "description": "namespace defines the space within which the secret name must be unique.",
           "type": [
             "string",
             "null"
@@ -97,7 +97,7 @@
       "additionalProperties": false
     },
     "targetPortal": {
-      "description": "iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).",
+      "description": "targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).",
       "type": [
         "string",
         "null"
