@@ -1,0 +1,28 @@
+{
+  "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
+  "properties": {
+    "containerName": {
+      "description": "Container name: required for volumes, optional for env vars",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "divisor": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "Specifies the output format of the exposed resources, defaults to \"1\""
+    },
+    "resource": {
+      "description": "Required: resource to select",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "resource"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
