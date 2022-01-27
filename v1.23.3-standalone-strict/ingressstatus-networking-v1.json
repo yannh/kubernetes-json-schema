@@ -1,0 +1,91 @@
+{
+  "description": "IngressStatus describe the current state of the Ingress.",
+  "properties": {
+    "loadBalancer": {
+      "description": "LoadBalancerStatus represents the status of a load-balancer.",
+      "properties": {
+        "ingress": {
+          "description": "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.",
+          "items": {
+            "description": "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.",
+            "properties": {
+              "hostname": {
+                "description": "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ip": {
+                "description": "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ports": {
+                "description": "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it",
+                "items": {
+                  "properties": {
+                    "error": {
+                      "description": "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "port": {
+                      "description": "Port is the port number of the service port of which status is recorded here",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "protocol": {
+                      "description": "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"UDP\"` is the UDP protocol.",
+                      "enum": [
+                        "SCTP",
+                        "TCP",
+                        "UDP"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "port",
+                    "protocol"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
