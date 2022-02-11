@@ -1323,7 +1323,7 @@
             "description": "A single application container that you want to run within a pod.",
             "properties": {
               "args": {
-                "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+                "description": "Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
                 "items": {
                   "type": [
                     "string",
@@ -1336,7 +1336,7 @@
                 ]
               },
               "command": {
-                "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+                "description": "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
                 "items": {
                   "type": [
                     "string",
@@ -1594,7 +1594,7 @@
                 ]
               },
               "image": {
-                "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
+                "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
                 "type": [
                   "string",
                   "null"
@@ -3176,7 +3176,7 @@
             "description": "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.\n\nTo add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.\n\nThis is a beta feature available on clusters that haven't disabled the EphemeralContainers feature gate.",
             "properties": {
               "args": {
-                "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+                "description": "Arguments to the entrypoint. The image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
                 "items": {
                   "type": [
                     "string",
@@ -3189,7 +3189,7 @@
                 ]
               },
               "command": {
-                "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+                "description": "Entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
                 "items": {
                   "type": [
                     "string",
@@ -3447,7 +3447,7 @@
                 ]
               },
               "image": {
-                "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images",
+                "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images",
                 "type": [
                   "string",
                   "null"
@@ -5047,7 +5047,7 @@
             "description": "A single application container that you want to run within a pod.",
             "properties": {
               "args": {
-                "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+                "description": "Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
                 "items": {
                   "type": [
                     "string",
@@ -5060,7 +5060,7 @@
                 ]
               },
               "command": {
-                "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+                "description": "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
                 "items": {
                   "type": [
                     "string",
@@ -5318,7 +5318,7 @@
                 ]
               },
               "image": {
-                "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
+                "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
                 "type": [
                   "string",
                   "null"
@@ -9652,12 +9652,12 @@
           "x-kubernetes-patch-strategy": "merge"
         },
         "containerStatuses": {
-          "description": "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
+          "description": "The list has one entry per container in the manifest. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
           "items": {
             "description": "ContainerStatus contains details for the current status of this container.",
             "properties": {
               "containerID": {
-                "description": "Container's ID in the format 'docker://<container_id>'.",
+                "description": "Container's ID in the format '<type>://<container_id>'.",
                 "type": [
                   "string",
                   "null"
@@ -9696,7 +9696,7 @@
                     "description": "ContainerStateTerminated is a terminated state of a container.",
                     "properties": {
                       "containerID": {
-                        "description": "Container's ID in the format 'docker://<container_id>'",
+                        "description": "Container's ID in the format '<type>://<container_id>'",
                         "type": [
                           "string",
                           "null"
@@ -9831,7 +9831,7 @@
                     "description": "ContainerStateTerminated is a terminated state of a container.",
                     "properties": {
                       "containerID": {
-                        "description": "Container's ID in the format 'docker://<container_id>'",
+                        "description": "Container's ID in the format '<type>://<container_id>'",
                         "type": [
                           "string",
                           "null"
@@ -9946,7 +9946,7 @@
             "description": "ContainerStatus contains details for the current status of this container.",
             "properties": {
               "containerID": {
-                "description": "Container's ID in the format 'docker://<container_id>'.",
+                "description": "Container's ID in the format '<type>://<container_id>'.",
                 "type": [
                   "string",
                   "null"
@@ -9985,7 +9985,7 @@
                     "description": "ContainerStateTerminated is a terminated state of a container.",
                     "properties": {
                       "containerID": {
-                        "description": "Container's ID in the format 'docker://<container_id>'",
+                        "description": "Container's ID in the format '<type>://<container_id>'",
                         "type": [
                           "string",
                           "null"
@@ -10120,7 +10120,7 @@
                     "description": "ContainerStateTerminated is a terminated state of a container.",
                     "properties": {
                       "containerID": {
-                        "description": "Container's ID in the format 'docker://<container_id>'",
+                        "description": "Container's ID in the format '<type>://<container_id>'",
                         "type": [
                           "string",
                           "null"
@@ -10242,7 +10242,7 @@
             "description": "ContainerStatus contains details for the current status of this container.",
             "properties": {
               "containerID": {
-                "description": "Container's ID in the format 'docker://<container_id>'.",
+                "description": "Container's ID in the format '<type>://<container_id>'.",
                 "type": [
                   "string",
                   "null"
@@ -10281,7 +10281,7 @@
                     "description": "ContainerStateTerminated is a terminated state of a container.",
                     "properties": {
                       "containerID": {
-                        "description": "Container's ID in the format 'docker://<container_id>'",
+                        "description": "Container's ID in the format '<type>://<container_id>'",
                         "type": [
                           "string",
                           "null"
@@ -10416,7 +10416,7 @@
                     "description": "ContainerStateTerminated is a terminated state of a container.",
                     "properties": {
                       "containerID": {
-                        "description": "Container's ID in the format 'docker://<container_id>'",
+                        "description": "Container's ID in the format '<type>://<container_id>'",
                         "type": [
                           "string",
                           "null"

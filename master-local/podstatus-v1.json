@@ -14,7 +14,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "containerStatuses": {
-      "description": "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
+      "description": "The list has one entry per container in the manifest. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
       },

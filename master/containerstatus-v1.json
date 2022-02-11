@@ -2,7 +2,7 @@
   "description": "ContainerStatus contains details for the current status of this container.",
   "properties": {
     "containerID": {
-      "description": "Container's ID in the format 'docker://<container_id>'.",
+      "description": "Container's ID in the format '<type>://<container_id>'.",
       "type": [
         "string",
         "null"
