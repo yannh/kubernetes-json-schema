@@ -264,7 +264,7 @@
                 ]
               },
               "selfLink": {
-                "description": "selfLink is DEPRECATED read-only field that is no longer populated by the system.",
+                "description": "Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.",
                 "type": [
                   "string",
                   "null"
@@ -539,7 +539,7 @@
                         ]
                       },
                       "selfLink": {
-                        "description": "selfLink is DEPRECATED read-only field that is no longer populated by the system.",
+                        "description": "Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.",
                         "type": [
                           "string",
                           "null"
@@ -920,7 +920,7 @@
                                 ]
                               },
                               "selfLink": {
-                                "description": "selfLink is DEPRECATED read-only field that is no longer populated by the system.",
+                                "description": "Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.",
                                 "type": [
                                   "string",
                                   "null"
@@ -8802,7 +8802,7 @@
                                                   ]
                                                 },
                                                 "selfLink": {
-                                                  "description": "selfLink is DEPRECATED read-only field that is no longer populated by the system.",
+                                                  "description": "Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.",
                                                   "type": [
                                                     "string",
                                                     "null"
@@ -10462,7 +10462,7 @@
           ]
         },
         "selfLink": {
-          "description": "selfLink is DEPRECATED read-only field that is no longer populated by the system.",
+          "description": "Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.",
           "type": [
             "string",
             "null"
