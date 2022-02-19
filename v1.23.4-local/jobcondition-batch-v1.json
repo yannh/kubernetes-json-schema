@@ -1,0 +1,52 @@
+{
+  "description": "JobCondition describes current state of a job.",
+  "properties": {
+    "lastProbeTime": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "Last time the condition was checked."
+    },
+    "lastTransitionTime": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "Last time the condition transit from one status to another."
+    },
+    "message": {
+      "description": "Human readable message indicating details about last transition.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "description": "(brief) reason for the condition's last transition.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "description": "Status of the condition, one of True, False, Unknown.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "Type of job condition, Complete or Failed.\n\nPossible enum values:\n - `\"Complete\"` means the job has completed its execution.\n - `\"Failed\"` means the job has failed its execution.\n - `\"Suspended\"` means the job has been suspended.",
+      "enum": [
+        "Complete",
+        "Failed",
+        "Suspended"
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "status"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

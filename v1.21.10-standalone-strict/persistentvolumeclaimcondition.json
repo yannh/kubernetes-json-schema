@@ -1,0 +1,54 @@
+{
+  "description": "PersistentVolumeClaimCondition contails details about state of pvc",
+  "properties": {
+    "lastProbeTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastTransitionTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "description": "Human-readable message indicating details about last transition.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "description": "Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "status"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
