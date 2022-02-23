@@ -1333,21 +1333,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1.Scheduling"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1alpha1.Overhead"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1alpha1.RuntimeClass"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1alpha1.RuntimeClassList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1alpha1.RuntimeClassSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1alpha1.Scheduling"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1beta1.Overhead"
     },
     {
