@@ -1477,6 +1477,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIStorageCapacity"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIStorageCapacityList"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageClass"
     },
     {
