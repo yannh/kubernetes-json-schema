@@ -1,0 +1,15 @@
+{
+  "description": "HostIP address information for entries in the (plural) HostIPs field.",
+  "properties": {
+    "ip": {
+      "description": "IP is the IP address assigned to the host",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

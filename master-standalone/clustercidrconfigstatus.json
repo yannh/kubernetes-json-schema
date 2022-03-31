@@ -1,0 +1,5 @@
+{
+  "description": "ClusterCIDRConfigStatus defines the observed state of ClusterCIDRConfig.",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

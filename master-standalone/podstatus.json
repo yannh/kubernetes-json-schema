@@ -622,11 +622,37 @@
       ]
     },
     "hostIP": {
-      "description": "IP address of the host to which the pod is assigned. Empty if not yet scheduled.",
+      "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is node is assigned to pod",
       "type": [
         "string",
         "null"
       ]
+    },
+    "hostIPs": {
+      "description": "hostIPs holds the IP addresses allocated to the host. If this field is specified, the first entry must match the hostIP field. This list is empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.",
+      "items": {
+        "description": "HostIP address information for entries in the (plural) HostIPs field.",
+        "properties": {
+          "ip": {
+            "description": "IP is the IP address assigned to the host",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set",
+      "x-kubernetes-patch-merge-key": "ip",
+      "x-kubernetes-patch-strategy": "merge"
     },
     "initContainerStatuses": {
       "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
@@ -937,7 +963,7 @@
       ]
     },
     "podIP": {
-      "description": "IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.",
+      "description": "podIP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.",
       "type": [
         "string",
         "null"
@@ -946,10 +972,10 @@
     "podIPs": {
       "description": "podIPs holds the IP addresses allocated to the pod. If this field is specified, the 0th entry must match the podIP field. Pods may be allocated at most 1 value for each of IPv4 and IPv6. This list is empty if no IPs have been allocated yet.",
       "items": {
-        "description": "IP address information for entries in the (plural) PodIPs field. Each entry includes:\n   IP: An IP address allocated to the pod. Routable at least within the cluster.",
+        "description": "PodIP address information for entries in the (plural) PodIPs field.",
         "properties": {
           "ip": {
-            "description": "ip is an IP address (IPv4 or IPv6) assigned to the pod",
+            "description": "IP is the IP address assigned to the pod",
             "type": [
               "string",
               "null"

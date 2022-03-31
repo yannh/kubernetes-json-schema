@@ -4318,6 +4318,10 @@
         "suspend": {
           "description": "This flag tells the controller to suspend subsequent executions, it does not apply to already started executions.  Defaults to false.",
           "type": "boolean"
+        },
+        "timeZone": {
+          "description": "The time zone for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will rely on the time zone of the kube-controller-manager process. ALPHA: This field is in alpha and must be enabled via the `CronJobTimeZone` feature gate.",
+          "type": "string"
         }
       },
       "required": [
@@ -4548,7 +4552,7 @@
           "type": "integer"
         },
         "ready": {
-          "description": "The number of pods which have a Ready condition.\n\nThis field is alpha-level. The job controller populates the field when the feature gate JobReadyPods is enabled (disabled by default).",
+          "description": "The number of pods which have a Ready condition.\n\nThis field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default).",
           "format": "int32",
           "type": "integer"
         },
@@ -4716,6 +4720,10 @@
         "suspend": {
           "description": "This flag tells the controller to suspend subsequent executions, it does not apply to already started executions.  Defaults to false.",
           "type": "boolean"
+        },
+        "timeZone": {
+          "description": "The time zone for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will rely on the time zone of the kube-controller-manager process. ALPHA: This field is in alpha and must be enabled via the `CronJobTimeZone` feature gate.",
+          "type": "string"
         }
       },
       "required": [
@@ -7089,6 +7097,17 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.core.v1.HostIP": {
+      "description": "HostIP address information for entries in the (plural) HostIPs field.",
+      "properties": {
+        "ip": {
+          "description": "IP is the IP address assigned to the host",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.core.v1.HostPathVolumeSource": {
       "description": "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.",
       "properties": {
@@ -8321,7 +8340,7 @@
         },
         "dataSourceRef": {
           "$ref": "#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
-          "description": "dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef\n  allows any non-core object, as well as PersistentVolumeClaim objects.\n* While DataSource ignores disallowed values (dropping them), DataSourceRef\n  preserves all values, and generates an error if a disallowed value is\n  specified.\n(Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled."
+          "description": "dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef\n  allows any non-core object, as well as PersistentVolumeClaim objects.\n* While DataSource ignores disallowed values (dropping them), DataSourceRef\n  preserves all values, and generates an error if a disallowed value is\n  specified.\n(Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled."
         },
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements",
@@ -8843,10 +8862,10 @@
       "additionalProperties": false
     },
     "io.k8s.api.core.v1.PodIP": {
-      "description": "IP address information for entries in the (plural) PodIPs field. Each entry includes:\n   IP: An IP address allocated to the pod. Routable at least within the cluster.",
+      "description": "PodIP address information for entries in the (plural) PodIPs field.",
       "properties": {
         "ip": {
-          "description": "ip is an IP address (IPv4 or IPv6) assigned to the pod",
+          "description": "IP is the IP address assigned to the pod",
           "type": "string"
         }
       },
@@ -9225,8 +9244,18 @@
           "type": "array"
         },
         "hostIP": {
-          "description": "IP address of the host to which the pod is assigned. Empty if not yet scheduled.",
+          "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is node is assigned to pod",
           "type": "string"
+        },
+        "hostIPs": {
+          "description": "hostIPs holds the IP addresses allocated to the host. If this field is specified, the first entry must match the hostIP field. This list is empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.HostIP"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "set",
+          "x-kubernetes-patch-merge-key": "ip",
+          "x-kubernetes-patch-strategy": "merge"
         },
         "initContainerStatuses": {
           "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
@@ -9255,7 +9284,7 @@
           "type": "string"
         },
         "podIP": {
-          "description": "IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.",
+          "description": "podIP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.",
           "type": "string"
         },
         "podIPs": {
@@ -13867,6 +13896,110 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.networking.v1alpha1.ClusterCIDRConfig": {
+      "description": "ClusterCIDRConfig is the Schema for the clustercidrconfigs API.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ClusterCIDRConfig"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRConfigSpec",
+          "description": "Spec is the desired state of the ClusterCIDRConfig. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRConfigStatus",
+          "description": "Status is the current state of the ClusterCIDRConfig. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+        }
+      },
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "networking.k8s.io",
+          "kind": "ClusterCIDRConfig",
+          "version": "v1alpha1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.networking.v1alpha1.ClusterCIDRConfigList": {
+      "description": "ClusterCIDRConfigList contains a list of ClusterCIDRConfig.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of ClusterCIDRConfigs.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRConfig"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ClusterCIDRConfigList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "networking.k8s.io",
+          "kind": "ClusterCIDRConfigList",
+          "version": "v1alpha1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.networking.v1alpha1.ClusterCIDRConfigSpec": {
+      "description": "ClusterCIDRConfigSpec defines the desired state of ClusterCIDRConfig.",
+      "properties": {
+        "ipv4CIDR": {
+          "description": "IPv4CIDR defines an IPv4 IP block in CIDR notation(e.g. \"10.0.0.0/8\"). This field is immutable.",
+          "type": "string"
+        },
+        "ipv6CIDR": {
+          "description": "IPv6CIDR defines an IPv6 IP block in CIDR notation(e.g. \"fd12:3456:789a:1::/64\"). This field is immutable.",
+          "type": "string"
+        },
+        "nodeSelector": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
+          "description": "NodeSelector defines which nodes the config is applicable to. An empty or nil NodeSelector functions as a default that applies to all nodes. This field is immutable."
+        },
+        "perNodeHostBits": {
+          "description": "PerNodeHostBits defines the number of host bits to be configured per node. A subnet mask determines how much of the address is used for network bits and host bits. For example and IPv4 address of 192.168.0.0/24, splits the address into 24 bits for the network portion and 8 bits for the host portion. For a /24 mask for IPv4 or a /120 for IPv6, configure PerNodeHostBits=8 This field is immutable.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.networking.v1alpha1.ClusterCIDRConfigStatus": {
+      "description": "ClusterCIDRConfigStatus defines the observed state of ClusterCIDRConfig.",
+      "type": "object"
+    },
     "io.k8s.api.node.v1.Overhead": {
       "description": "Overhead structure represents the resource overhead associated with running a pod.",
       "properties": {
@@ -17391,6 +17524,11 @@
         {
           "group": "networking.k8s.io",
           "kind": "DeleteOptions",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "networking.k8s.io",
+          "kind": "DeleteOptions",
           "version": "v1beta1"
         },
         {
@@ -18080,6 +18218,11 @@
           "group": "networking.k8s.io",
           "kind": "WatchEvent",
           "version": "v1"
+        },
+        {
+          "group": "networking.k8s.io",
+          "kind": "WatchEvent",
+          "version": "v1alpha1"
         },
         {
           "group": "networking.k8s.io",
