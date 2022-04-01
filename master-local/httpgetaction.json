@@ -30,11 +30,7 @@
       "description": "Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
     },
     "scheme": {
-      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-      "enum": [
-        "HTTP",
-        "HTTPS"
-      ],
+      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
       "type": [
         "string",
         "null"

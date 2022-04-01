@@ -685,9 +685,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostAlias"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostIP"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostPathVolumeSource"
     },
     {
@@ -1529,12 +1526,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeNodeResources"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.CSIStorageCapacity"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.CSIStorageCapacityList"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.CSIStorageCapacity"

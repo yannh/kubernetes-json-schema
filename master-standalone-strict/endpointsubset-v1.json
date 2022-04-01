@@ -224,12 +224,7 @@
             "type": "integer"
           },
           "protocol": {
-            "description": "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"UDP\"` is the UDP protocol.",
-            "enum": [
-              "SCTP",
-              "TCP",
-              "UDP"
-            ],
+            "description": "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.\n\n",
             "type": [
               "string",
               "null"

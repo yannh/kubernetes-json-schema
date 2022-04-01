@@ -271,12 +271,7 @@
       ]
     },
     "imagePullPolicy": {
-      "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images\n\nPossible enum values:\n - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.\n - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.\n - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present",
-      "enum": [
-        "Always",
-        "IfNotPresent",
-        "Never"
-      ],
+      "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images\n\n",
       "type": [
         "string",
         "null"
@@ -372,11 +367,7 @@
                   ]
                 },
                 "scheme": {
-                  "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-                  "enum": [
-                    "HTTP",
-                    "HTTPS"
-                  ],
+                  "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
                   "type": [
                     "string",
                     "null"
@@ -519,11 +510,7 @@
                   ]
                 },
                 "scheme": {
-                  "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-                  "enum": [
-                    "HTTP",
-                    "HTTPS"
-                  ],
+                  "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
                   "type": [
                     "string",
                     "null"
@@ -703,11 +690,7 @@
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-              "enum": [
-                "HTTP",
-                "HTTPS"
-              ],
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
               "type": [
                 "string",
                 "null"
@@ -843,12 +826,7 @@
             ]
           },
           "protocol": {
-            "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"UDP\"` is the UDP protocol.",
-            "enum": [
-              "SCTP",
-              "TCP",
-              "UDP"
-            ],
+            "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".\n\n",
             "type": [
               "string",
               "null"
@@ -993,11 +971,7 @@
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-              "enum": [
-                "HTTP",
-                "HTTPS"
-              ],
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
               "type": [
                 "string",
                 "null"
@@ -1285,12 +1259,7 @@
               ]
             },
             "type": {
-              "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.\n\nPossible enum values:\n - `\"Localhost\"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.\n - `\"RuntimeDefault\"` represents the default container runtime seccomp profile.\n - `\"Unconfined\"` indicates no seccomp profile is applied (A.K.A. unconfined).",
-              "enum": [
-                "Localhost",
-                "RuntimeDefault",
-                "Unconfined"
-              ],
+              "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.\n\n",
               "type": "string"
             }
           },
@@ -1471,11 +1440,7 @@
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-              "enum": [
-                "HTTP",
-                "HTTPS"
-              ],
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
               "type": [
                 "string",
                 "null"
@@ -1593,11 +1558,7 @@
       ]
     },
     "terminationMessagePolicy": {
-      "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.\n\nPossible enum values:\n - `\"FallbackToLogsOnError\"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.\n - `\"File\"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.",
-      "enum": [
-        "FallbackToLogsOnError",
-        "File"
-      ],
+      "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.\n\n",
       "type": [
         "string",
         "null"

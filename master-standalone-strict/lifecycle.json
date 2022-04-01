@@ -90,11 +90,7 @@
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-              "enum": [
-                "HTTP",
-                "HTTPS"
-              ],
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
               "type": [
                 "string",
                 "null"
@@ -242,11 +238,7 @@
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\nPossible enum values:\n - `\"HTTP\"` means that the scheme used will be http://\n - `\"HTTPS\"` means that the scheme used will be https://",
-              "enum": [
-                "HTTP",
-                "HTTPS"
-              ],
+              "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
               "type": [
                 "string",
                 "null"
