@@ -1531,8 +1531,7 @@
         }
       },
       "required": [
-        "replicas",
-        "availableReplicas"
+        "replicas"
       ],
       "type": "object",
       "additionalProperties": false
