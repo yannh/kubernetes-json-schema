@@ -150,13 +150,6 @@
                 "null"
               ]
             },
-            "clusterName": {
-              "description": "Deprecated: ClusterName is a legacy field that was always cleared by the system and never used; it will be removed completely in 1.25.\n\nThe name in the go struct is changed to help clients detect accidental use.",
-              "type": [
-                "string",
-                "null"
-              ]
-            },
             "creationTimestamp": {
               "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
               "format": "date-time",
@@ -7856,13 +7849,6 @@
                                   "null"
                                 ]
                               },
-                              "clusterName": {
-                                "description": "Deprecated: ClusterName is a legacy field that was always cleared by the system and never used; it will be removed completely in 1.25.\n\nThe name in the go struct is changed to help clients detect accidental use.",
-                                "type": [
-                                  "string",
-                                  "null"
-                                ]
-                              },
                               "creationTimestamp": {
                                 "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
                                 "format": "date-time",
@@ -9614,13 +9600,6 @@
                 "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations",
                 "type": [
                   "object",
-                  "null"
-                ]
-              },
-              "clusterName": {
-                "description": "Deprecated: ClusterName is a legacy field that was always cleared by the system and never used; it will be removed completely in 1.25.\n\nThe name in the go struct is changed to help clients detect accidental use.",
-                "type": [
-                  "string",
                   "null"
                 ]
               },
