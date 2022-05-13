@@ -11,7 +11,7 @@
     "items": {
       "description": "items is the list of CronJobs.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJob"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.CronJob"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "batch",
       "kind": "CronJobList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

@@ -2,14 +2,14 @@
   "description": "CronJobSpec describes how the job execution will look like and when it will actually run.",
   "properties": {
     "concurrencyPolicy": {
-      "description": "Specifies how to treat concurrent executions of a Job. Valid values are: - \"Allow\" (default): allows CronJobs to run concurrently; - \"Forbid\": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - \"Replace\": cancels currently running job and replaces it with a new one",
+      "description": "Specifies how to treat concurrent executions of a Job. Valid values are: - \"Allow\" (default): allows CronJobs to run concurrently; - \"Forbid\": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - \"Replace\": cancels currently running job and replaces it with a new one\n\n",
       "type": [
         "string",
         "null"
       ]
     },
     "failedJobsHistoryLimit": {
-      "description": "The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.",
+      "description": "The number of failed finished jobs to retain. Value must be non-negative integer. Defaults to 1.",
       "format": "int32",
       "type": [
         "integer",
@@ -9825,7 +9825,7 @@
       ]
     },
     "successfulJobsHistoryLimit": {
-      "description": "The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 3.",
+      "description": "The number of successful finished jobs to retain. Value must be non-negative integer. Defaults to 3.",
       "format": "int32",
       "type": [
         "integer",

@@ -23,11 +23,11 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1.PodDisruptionBudgetSpec",
       "description": "Specification of the desired behavior of the PodDisruptionBudget."
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetStatus",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1.PodDisruptionBudgetStatus",
       "description": "Most recently observed status of the PodDisruptionBudget."
     }
   },
@@ -36,7 +36,7 @@
     {
       "group": "policy",
       "kind": "PodDisruptionBudget",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

@@ -2,7 +2,7 @@
   "description": "EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.",
   "properties": {
     "addressType": {
-      "description": "addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.",
+      "description": "addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.\n\n",
       "type": [
         "string",
         "null"
@@ -62,11 +62,24 @@
             ],
             "additionalProperties": false
           },
+          "deprecatedTopology": {
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": "deprecatedTopology contains topology information part of the v1beta1 API. This field is deprecated, and will be removed when the v1beta1 API is removed (no sooner than kubernetes v1.24).  While this field can hold values, it is not writable through the v1 API, and any attempts to write to it will be silently ignored. Topology information can be found in the zone and nodeName fields instead.",
+            "type": [
+              "object",
+              "null"
+            ]
+          },
           "hints": {
             "description": "EndpointHints provides hints describing how an endpoint should be consumed.",
             "properties": {
               "forZones": {
-                "description": "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing. May contain a maximum of 8 entries.",
+                "description": "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.",
                 "items": {
                   "description": "ForZone provides information about which zones should consume this endpoint.",
                   "properties": {
@@ -171,16 +184,10 @@
             "x-kubernetes-map-type": "atomic",
             "additionalProperties": false
           },
-          "topology": {
-            "additionalProperties": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "description": "topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node\n  where the endpoint is located. This should match the corresponding\n  node label.\n* topology.kubernetes.io/zone: the value indicates the zone where the\n  endpoint is located. This should match the corresponding node label.\n* topology.kubernetes.io/region: the value indicates the region where the\n  endpoint is located. This should match the corresponding node label.\nThis field is deprecated and will be removed in future api versions.",
+          "zone": {
+            "description": "zone is the name of the Zone this endpoint exists in.",
             "type": [
-              "object",
+              "string",
               "null"
             ]
           }
@@ -496,6 +503,7 @@
           "object",
           "null"
         ],
+        "x-kubernetes-map-type": "atomic",
         "additionalProperties": false
       },
       "type": [
@@ -514,7 +522,7 @@
     {
       "group": "discovery.k8s.io",
       "kind": "EndpointSlice",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "additionalProperties": false,

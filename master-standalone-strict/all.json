@@ -292,60 +292,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2.ResourceMetricStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricSource"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ExternalMetricSource"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ExternalMetricStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerCondition"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.MetricSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.MetricStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ObjectMetricSource"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ObjectMetricStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.PodsMetricSource"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.PodsMetricStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ResourceMetricSource"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.ResourceMetricStatus"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.ContainerResourceMetricSource"
     },
     {
@@ -449,21 +395,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.UncountedTerminatedPods"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJob"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.CronJobStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1beta1.JobTemplateSpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequest"
@@ -1081,27 +1012,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1.ForZone"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.Endpoint"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointConditions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointHints"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointPort"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointSlice"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointSliceList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.ForZone"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1.Event"
     },
     {
@@ -1109,15 +1019,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1.EventSeries"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1beta1.Event"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1beta1.EventList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1beta1.EventSeries"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.FlowDistinguisherMethod"
@@ -1336,18 +1237,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1.Scheduling"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1beta1.Overhead"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1beta1.RuntimeClass"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1beta1.RuntimeClassList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1beta1.Scheduling"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1.Eviction"
     },
     {
@@ -1361,60 +1250,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1.PodDisruptionBudgetStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedCSIDriver"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedFlexVolume"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.AllowedHostPath"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.FSGroupStrategyOptions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.HostPortRange"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.IDRange"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudget"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodDisruptionBudgetStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodSecurityPolicy"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodSecurityPolicyList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.PodSecurityPolicySpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.SELinuxStrategyOptions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.AggregationRule"

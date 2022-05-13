@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "items list individual PodDisruptionBudget objects",
+      "description": "Items is a list of PodDisruptionBudgets",
       "items": {
         "description": "PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods",
         "properties": {
@@ -514,7 +514,7 @@
           {
             "group": "policy",
             "kind": "PodDisruptionBudget",
-            "version": "v1beta1"
+            "version": "v1"
           }
         ],
         "additionalProperties": false
@@ -582,7 +582,7 @@
     {
       "group": "policy",
       "kind": "PodDisruptionBudgetList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "additionalProperties": false,

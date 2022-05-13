@@ -2,7 +2,7 @@
   "description": "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.",
   "properties": {
     "action": {
-      "description": "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field can have at most 128 characters.",
+      "description": "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.",
       "type": [
         "string",
         "null"
@@ -61,7 +61,7 @@
       ]
     },
     "reason": {
-      "description": "reason is why the action was taken. It is human-readable. This field can have at most 128 characters.",
+      "description": "reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.",
       "type": [
         "string",
         "null"
@@ -90,11 +90,11 @@
       ]
     },
     "series": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1beta1.EventSeries",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1.EventSeries",
       "description": "series is data about the Event series this event represents or nil if it's a singleton Event."
     },
     "type": {
-      "description": "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable.",
+      "description": "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.",
       "type": [
         "string",
         "null"
@@ -109,7 +109,7 @@
     {
       "group": "events.k8s.io",
       "kind": "Event",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

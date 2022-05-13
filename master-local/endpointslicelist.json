@@ -11,7 +11,7 @@
     "items": {
       "description": "List of endpoint slices",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1beta1.EndpointSlice"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1.EndpointSlice"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "discovery.k8s.io",
       "kind": "EndpointSliceList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

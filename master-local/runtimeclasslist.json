@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is a list of schema objects.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1beta1.RuntimeClass"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1.RuntimeClass"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "node.k8s.io",
       "kind": "RuntimeClassList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
