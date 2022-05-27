@@ -1,0 +1,31 @@
+{
+  "description": "StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates. It includes any additional parameters necessary to perform the update for the indicated strategy.",
+  "properties": {
+    "rollingUpdate": {
+      "description": "RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.",
+      "properties": {
+        "partition": {
+          "description": "Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.",
+          "format": "int32",
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
