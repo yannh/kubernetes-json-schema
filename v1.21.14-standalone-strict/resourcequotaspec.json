@@ -1,0 +1,96 @@
+{
+  "description": "ResourceQuotaSpec defines the desired hard limits to enforce for Quota.",
+  "properties": {
+    "hard": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "hard is the set of desired hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "scopeSelector": {
+      "description": "A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.",
+      "properties": {
+        "matchExpressions": {
+          "description": "A list of scope selector requirements by scope of the resources.",
+          "items": {
+            "description": "A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.",
+            "properties": {
+              "operator": {
+                "description": "Represents a scope's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist.",
+                "type": "string"
+              },
+              "scopeName": {
+                "description": "The name of the scope that the selector applies to.",
+                "type": "string"
+              },
+              "values": {
+                "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "scopeName",
+              "operator"
+            ],
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "scopes": {
+      "description": "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
