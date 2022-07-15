@@ -2,7 +2,7 @@
   "description": "StatefulSetStatus represents the current state of a StatefulSet.",
   "properties": {
     "availableReplicas": {
-      "description": "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.",
+      "description": "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset.",
       "format": "int32",
       "type": [
         "integer",
