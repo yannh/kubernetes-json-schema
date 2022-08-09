@@ -1,423 +1,12 @@
 {
-  "description": "Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.",
+  "description": "ClusterCIDR represents a single configuration for per-Node Pod CIDR allocations when the MultiCIDRRangeAllocator is enabled (see the config for kube-controller-manager).  A cluster may have any number of ClusterCIDR resources, all of which will be considered when allocating a CIDR for a Node.  A ClusterCIDR is eligible to be used for a given Node when the node selector matches the node in question and has free CIDRs to allocate.  In case of multiple matching ClusterCIDR resources, the allocator will attempt to break ties using internal heuristics, but any ClusterCIDR whose node selector matches the Node may be used.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "type": [
         "string",
         "null"
-      ],
-      "enum": [
-        "policy/v1"
       ]
-    },
-    "deleteOptions": {
-      "description": "DeleteOptions may be provided when deleting an API object.",
-      "properties": {
-        "apiVersion": {
-          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "v1",
-            "admission.k8s.io/v1",
-            "admission.k8s.io/v1beta1",
-            "admissionregistration.k8s.io/v1",
-            "admissionregistration.k8s.io/v1beta1",
-            "apiextensions.k8s.io/v1",
-            "apiextensions.k8s.io/v1beta1",
-            "apiregistration.k8s.io/v1",
-            "apiregistration.k8s.io/v1beta1",
-            "apps/v1",
-            "apps/v1beta1",
-            "apps/v1beta2",
-            "authentication.k8s.io/v1",
-            "authentication.k8s.io/v1beta1",
-            "authorization.k8s.io/v1",
-            "authorization.k8s.io/v1beta1",
-            "autoscaling/v1",
-            "autoscaling/v2",
-            "autoscaling/v2beta1",
-            "autoscaling/v2beta2",
-            "batch/v1",
-            "batch/v1beta1",
-            "certificates.k8s.io/v1",
-            "certificates.k8s.io/v1beta1",
-            "coordination.k8s.io/v1",
-            "coordination.k8s.io/v1beta1",
-            "discovery.k8s.io/v1",
-            "discovery.k8s.io/v1beta1",
-            "events.k8s.io/v1",
-            "events.k8s.io/v1beta1",
-            "extensions/v1beta1",
-            "flowcontrol.apiserver.k8s.io/v1alpha1",
-            "flowcontrol.apiserver.k8s.io/v1beta1",
-            "flowcontrol.apiserver.k8s.io/v1beta2",
-            "imagepolicy.k8s.io/v1alpha1",
-            "internal.apiserver.k8s.io/v1alpha1",
-            "networking.k8s.io/v1",
-            "networking.k8s.io/v1alpha1",
-            "networking.k8s.io/v1beta1",
-            "node.k8s.io/v1",
-            "node.k8s.io/v1alpha1",
-            "node.k8s.io/v1beta1",
-            "policy/v1",
-            "policy/v1beta1",
-            "rbac.authorization.k8s.io/v1",
-            "rbac.authorization.k8s.io/v1alpha1",
-            "rbac.authorization.k8s.io/v1beta1",
-            "scheduling.k8s.io/v1",
-            "scheduling.k8s.io/v1alpha1",
-            "scheduling.k8s.io/v1beta1",
-            "storage.k8s.io/v1",
-            "storage.k8s.io/v1alpha1",
-            "storage.k8s.io/v1beta1"
-          ]
-        },
-        "dryRun": {
-          "description": "When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed",
-          "items": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "type": [
-            "array",
-            "null"
-          ]
-        },
-        "gracePeriodSeconds": {
-          "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.",
-          "format": "int64",
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "kind": {
-          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "DeleteOptions"
-          ]
-        },
-        "orphanDependents": {
-          "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.",
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "preconditions": {
-          "description": "Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.",
-          "properties": {
-            "resourceVersion": {
-              "description": "Specifies the target ResourceVersion",
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "uid": {
-              "description": "Specifies the target UID.",
-              "type": [
-                "string",
-                "null"
-              ]
-            }
-          },
-          "type": [
-            "object",
-            "null"
-          ],
-          "additionalProperties": false
-        },
-        "propagationPolicy": {
-          "description": "Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.",
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "type": [
-        "object",
-        "null"
-      ],
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "admission.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "admission.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "admissionregistration.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "admissionregistration.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "apiextensions.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "apiextensions.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "apps",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "apps",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "apps",
-          "kind": "DeleteOptions",
-          "version": "v1beta2"
-        },
-        {
-          "group": "authentication.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "authentication.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "authorization.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "authorization.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "autoscaling",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "autoscaling",
-          "kind": "DeleteOptions",
-          "version": "v2"
-        },
-        {
-          "group": "autoscaling",
-          "kind": "DeleteOptions",
-          "version": "v2beta1"
-        },
-        {
-          "group": "autoscaling",
-          "kind": "DeleteOptions",
-          "version": "v2beta2"
-        },
-        {
-          "group": "batch",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "batch",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "certificates.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "certificates.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "coordination.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "coordination.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "discovery.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "discovery.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "events.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "events.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "extensions",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "flowcontrol.apiserver.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "flowcontrol.apiserver.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "flowcontrol.apiserver.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta2"
-        },
-        {
-          "group": "imagepolicy.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "internal.apiserver.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "networking.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "networking.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "networking.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "node.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "node.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "node.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "policy",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "policy",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "rbac.authorization.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "rbac.authorization.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "rbac.authorization.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "scheduling.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "scheduling.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "scheduling.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "storage.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "storage.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "storage.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        }
-      ],
-      "additionalProperties": false
     },
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -426,7 +15,7 @@
         "null"
       ],
       "enum": [
-        "Eviction"
+        "ClusterCIDR"
       ]
     },
     "metadata": {
@@ -675,14 +264,159 @@
         "null"
       ],
       "additionalProperties": false
+    },
+    "spec": {
+      "description": "ClusterCIDRSpec defines the desired state of ClusterCIDR.",
+      "properties": {
+        "ipv4": {
+          "description": "IPv4 defines an IPv4 IP block in CIDR notation(e.g. \"10.0.0.0/8\"). At least one of IPv4 and IPv6 must be specified. This field is immutable.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipv6": {
+          "description": "IPv6 defines an IPv6 IP block in CIDR notation(e.g. \"fd12:3456:789a:1::/64\"). At least one of IPv4 and IPv6 must be specified. This field is immutable.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nodeSelector": {
+          "description": "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.",
+          "properties": {
+            "nodeSelectorTerms": {
+              "description": "Required. A list of node selector terms. The terms are ORed.",
+              "items": {
+                "description": "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+                "properties": {
+                  "matchExpressions": {
+                    "description": "A list of node selector requirements by node's labels.",
+                    "items": {
+                      "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                      "properties": {
+                        "key": {
+                          "description": "The label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\n",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": [
+                            "array",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  },
+                  "matchFields": {
+                    "description": "A list of node selector requirements by node's fields.",
+                    "items": {
+                      "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                      "properties": {
+                        "key": {
+                          "description": "The label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\n",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": [
+                            "array",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "x-kubernetes-map-type": "atomic",
+                "additionalProperties": false
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "nodeSelectorTerms"
+          ],
+          "type": [
+            "object",
+            "null"
+          ],
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        },
+        "perNodeHostBits": {
+          "description": "PerNodeHostBits defines the number of host bits to be configured per node. A subnet mask determines how much of the address is used for network bits and host bits. For example an IPv4 address of 192.168.0.0/24, splits the address into 24 bits for the network portion and 8 bits for the host portion. To allocate 256 IPs, set this field to 8 (a /24 mask for IPv4 or a /120 for IPv6). Minimum value is 4 (16 IPs). This field is immutable.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "perNodeHostBits"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
     }
   },
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
-      "group": "policy",
-      "kind": "Eviction",
-      "version": "v1"
+      "group": "networking.k8s.io",
+      "kind": "ClusterCIDR",
+      "version": "v1alpha1"
     }
   ],
   "additionalProperties": false,
