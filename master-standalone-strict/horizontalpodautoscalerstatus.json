@@ -50,7 +50,13 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
     },
     "currentMetrics": {
       "description": "currentMetrics is the last read state of the metrics used by this autoscaler.",
@@ -331,7 +337,7 @@
                     ]
                   },
                   "kind": {
-                    "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+                    "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                     "type": "string"
                   },
                   "name": {
@@ -665,7 +671,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "currentReplicas": {
       "description": "currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.",
@@ -701,7 +708,6 @@
     }
   },
   "required": [
-    "currentReplicas",
     "desiredReplicas"
   ],
   "type": "object",

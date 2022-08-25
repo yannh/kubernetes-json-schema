@@ -316,10 +316,11 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "selectPolicy": {
-                        "description": "selectPolicy is used to specify which policy should be used. If not set, the default value MaxPolicySelect is used.",
+                        "description": "selectPolicy is used to specify which policy should be used. If not set, the default value Max is used.",
                         "type": [
                           "string",
                           "null"
@@ -375,10 +376,11 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "selectPolicy": {
-                        "description": "selectPolicy is used to specify which policy should be used. If not set, the default value MaxPolicySelect is used.",
+                        "description": "selectPolicy is used to specify which policy should be used. If not set, the default value Max is used.",
                         "type": [
                           "string",
                           "null"
@@ -648,7 +650,7 @@
                               ]
                             },
                             "kind": {
-                              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+                              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                               "type": "string"
                             },
                             "name": {
@@ -1036,7 +1038,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "minReplicas": {
                 "description": "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.",
@@ -1057,7 +1060,7 @@
                     ]
                   },
                   "kind": {
-                    "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+                    "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                     "type": "string"
                   },
                   "name": {
@@ -1132,7 +1135,13 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-map-keys": [
+                  "type"
+                ],
+                "x-kubernetes-list-type": "map",
+                "x-kubernetes-patch-merge-key": "type",
+                "x-kubernetes-patch-strategy": "merge"
               },
               "currentMetrics": {
                 "description": "currentMetrics is the last read state of the metrics used by this autoscaler.",
@@ -1405,7 +1414,7 @@
                               ]
                             },
                             "kind": {
-                              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+                              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                               "type": "string"
                             },
                             "name": {
@@ -1726,12 +1735,16 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "currentReplicas": {
                 "description": "currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.",
                 "format": "int32",
-                "type": "integer"
+                "type": [
+                  "integer",
+                  "null"
+                ]
               },
               "desiredReplicas": {
                 "description": "desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.",
@@ -1756,7 +1769,6 @@
               }
             },
             "required": [
-              "currentReplicas",
               "desiredReplicas"
             ],
             "type": [
@@ -1773,7 +1785,7 @@
           {
             "group": "autoscaling",
             "kind": "HorizontalPodAutoscaler",
-            "version": "v2beta2"
+            "version": "v2"
           }
         ]
       },
@@ -1839,7 +1851,7 @@
     {
       "group": "autoscaling",
       "kind": "HorizontalPodAutoscalerList",
-      "version": "v2beta2"
+      "version": "v2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

@@ -4,22 +4,29 @@
     "conditions": {
       "description": "conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerCondition"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerCondition"
       },
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
     },
     "currentMetrics": {
       "description": "currentMetrics is the last read state of the metrics used by this autoscaler.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.MetricStatus"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.autoscaling.v2.MetricStatus"
       },
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "currentReplicas": {
       "description": "currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.",
@@ -51,7 +58,6 @@
     }
   },
   "required": [
-    "currentReplicas",
     "desiredReplicas"
   ],
   "type": "object",

@@ -41,10 +41,11 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "selectPolicy": {
-              "description": "selectPolicy is used to specify which policy should be used. If not set, the default value MaxPolicySelect is used.",
+              "description": "selectPolicy is used to specify which policy should be used. If not set, the default value Max is used.",
               "type": [
                 "string",
                 "null"
@@ -102,10 +103,11 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "selectPolicy": {
-              "description": "selectPolicy is used to specify which policy should be used. If not set, the default value MaxPolicySelect is used.",
+              "description": "selectPolicy is used to specify which policy should be used. If not set, the default value Max is used.",
               "type": [
                 "string",
                 "null"
@@ -387,7 +389,7 @@
                     ]
                   },
                   "kind": {
-                    "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+                    "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                     "type": "string"
                   },
                   "name": {
@@ -789,7 +791,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "minReplicas": {
       "description": "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.",
@@ -810,7 +813,7 @@
           ]
         },
         "kind": {
-          "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+          "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
           "type": "string"
         },
         "name": {

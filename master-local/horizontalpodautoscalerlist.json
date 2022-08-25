@@ -11,7 +11,7 @@
     "items": {
       "description": "items is the list of horizontal pod autoscaler objects.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "autoscaling",
       "kind": "HorizontalPodAutoscalerList",
-      "version": "v2beta2"
+      "version": "v2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
