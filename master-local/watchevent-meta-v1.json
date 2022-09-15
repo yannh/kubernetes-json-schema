@@ -86,6 +86,11 @@
     {
       "group": "authentication.k8s.io",
       "kind": "WatchEvent",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "authentication.k8s.io",
+      "kind": "WatchEvent",
       "version": "v1beta1"
     },
     {
