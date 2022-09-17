@@ -1,0 +1,161 @@
+{
+  "description": "PersistentVolumeSpec is the specification of a persistent volume.",
+  "properties": {
+    "accessModes": {
+      "description": "accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "awsElasticBlockStore": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource",
+      "description": "awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore"
+    },
+    "azureDisk": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AzureDiskVolumeSource",
+      "description": "azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod."
+    },
+    "azureFile": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AzureFilePersistentVolumeSource",
+      "description": "azureFile represents an Azure File Service mount on the host and bind mount to the pod."
+    },
+    "capacity": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      },
+      "description": "capacity is the description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "cephfs": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CephFSPersistentVolumeSource",
+      "description": "cephFS represents a Ceph FS mount on the host that shares a pod's lifetime"
+    },
+    "cinder": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CinderPersistentVolumeSource",
+      "description": "cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md"
+    },
+    "claimRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
+      "description": "claimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#binding",
+      "x-kubernetes-map-type": "granular"
+    },
+    "csi": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CSIPersistentVolumeSource",
+      "description": "csi represents storage that is handled by an external CSI driver (Beta feature)."
+    },
+    "fc": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FCVolumeSource",
+      "description": "fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod."
+    },
+    "flexVolume": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FlexPersistentVolumeSource",
+      "description": "flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin."
+    },
+    "flocker": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FlockerVolumeSource",
+      "description": "flocker represents a Flocker volume attached to a kubelet's host machine and exposed to the pod for its usage. This depends on the Flocker control service being running"
+    },
+    "gcePersistentDisk": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.GCEPersistentDiskVolumeSource",
+      "description": "gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk"
+    },
+    "glusterfs": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.GlusterfsPersistentVolumeSource",
+      "description": "glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: https://examples.k8s.io/volumes/glusterfs/README.md"
+    },
+    "hostPath": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostPathVolumeSource",
+      "description": "hostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath"
+    },
+    "iscsi": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ISCSIPersistentVolumeSource",
+      "description": "iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin."
+    },
+    "local": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LocalVolumeSource",
+      "description": "local represents directly-attached storage with node affinity"
+    },
+    "mountOptions": {
+      "description": "mountOptions is the list of mount options, e.g. [\"ro\", \"soft\"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "nfs": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NFSVolumeSource",
+      "description": "nfs represents an NFS mount on the host. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
+    },
+    "nodeAffinity": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeNodeAffinity",
+      "description": "nodeAffinity defines constraints that limit what nodes this volume can be accessed from. This field influences the scheduling of pods that use this volume."
+    },
+    "persistentVolumeReclaimPolicy": {
+      "description": "persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming\n\n",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "photonPersistentDisk": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource",
+      "description": "photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine"
+    },
+    "portworxVolume": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PortworxVolumeSource",
+      "description": "portworxVolume represents a portworx volume attached and mounted on kubelets host machine"
+    },
+    "quobyte": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.QuobyteVolumeSource",
+      "description": "quobyte represents a Quobyte mount on the host that shares a pod's lifetime"
+    },
+    "rbd": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.RBDPersistentVolumeSource",
+      "description": "rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md"
+    },
+    "scaleIO": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ScaleIOPersistentVolumeSource",
+      "description": "scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes."
+    },
+    "storageClassName": {
+      "description": "storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "storageos": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.StorageOSPersistentVolumeSource",
+      "description": "storageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod More info: https://examples.k8s.io/volumes/storageos/README.md"
+    },
+    "volumeMode": {
+      "description": "volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "vsphereVolume": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource",
+      "description": "vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
