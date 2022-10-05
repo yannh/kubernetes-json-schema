@@ -23,11 +23,11 @@
       "description": "`metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaSpec",
       "description": "`spec` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchemaStatus",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaStatus",
       "description": "`status` is the current status of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },
@@ -36,7 +36,7 @@
     {
       "group": "flowcontrol.apiserver.k8s.io",
       "kind": "FlowSchema",
-      "version": "v1beta2"
+      "version": "v1beta3"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

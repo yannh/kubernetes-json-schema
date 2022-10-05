@@ -617,7 +617,9 @@
                 "x-kubernetes-list-map-keys": [
                   "type"
                 ],
-                "x-kubernetes-list-type": "map"
+                "x-kubernetes-list-type": "map",
+                "x-kubernetes-patch-merge-key": "type",
+                "x-kubernetes-patch-strategy": "merge"
               }
             },
             "type": [
@@ -635,7 +637,7 @@
           {
             "group": "flowcontrol.apiserver.k8s.io",
             "kind": "FlowSchema",
-            "version": "v1beta2"
+            "version": "v1beta3"
           }
         ],
         "additionalProperties": false
@@ -703,7 +705,7 @@
     {
       "group": "flowcontrol.apiserver.k8s.io",
       "kind": "FlowSchemaList",
-      "version": "v1beta2"
+      "version": "v1beta3"
     }
   ],
   "additionalProperties": false,
