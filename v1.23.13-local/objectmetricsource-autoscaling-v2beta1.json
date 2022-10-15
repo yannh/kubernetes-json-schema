@@ -1,0 +1,35 @@
+{
+  "description": "ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).",
+  "properties": {
+    "averageValue": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "averageValue is the target value of the average of the metric across all relevant pods (as a quantity)"
+    },
+    "metricName": {
+      "description": "metricName is the name of the metric in question.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "selector": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "description": "selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping When unset, just the metricName will be used to gather metrics."
+    },
+    "target": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference",
+      "description": "target is the described Kubernetes object."
+    },
+    "targetValue": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "targetValue is the target value of the metric (as a quantity)."
+    }
+  },
+  "required": [
+    "target",
+    "metricName",
+    "targetValue"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
