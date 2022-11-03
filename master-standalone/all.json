@@ -1129,6 +1129,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressLoadBalancerIngress"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressLoadBalancerStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressPortStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressRule"
     },
     {

@@ -2,30 +2,31 @@
   "description": "IngressStatus describe the current state of the Ingress.",
   "properties": {
     "loadBalancer": {
-      "description": "LoadBalancerStatus represents the status of a load-balancer.",
+      "description": "IngressLoadBalancerStatus represents the status of a load-balancer.",
       "properties": {
         "ingress": {
-          "description": "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.",
+          "description": "Ingress is a list containing ingress points for the load-balancer.",
           "items": {
-            "description": "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.",
+            "description": "IngressLoadBalancerIngress represents the status of a load-balancer ingress point.",
             "properties": {
               "hostname": {
-                "description": "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)",
+                "description": "Hostname is set for load-balancer ingress points that are DNS based.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "ip": {
-                "description": "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)",
+                "description": "IP is set for load-balancer ingress points that are IP based.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "ports": {
-                "description": "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it",
+                "description": "Ports provides information about the ports exposed by this LoadBalancer.",
                 "items": {
+                  "description": "IngressPortStatus represents the error condition of a service port",
                   "properties": {
                     "error": {
                       "description": "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
@@ -35,12 +36,12 @@
                       ]
                     },
                     "port": {
-                      "description": "Port is the port number of the service port of which status is recorded here",
+                      "description": "Port is the port number of the ingress port.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "protocol": {
-                      "description": "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"\n\n",
+                      "description": "Protocol is the protocol of the ingress port. The supported values are: \"TCP\", \"UDP\", \"SCTP\"\n\n",
                       "type": "string"
                     }
                   },
