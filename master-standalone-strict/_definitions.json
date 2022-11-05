@@ -7664,6 +7664,20 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.core.v1.PodSchedulingGate": {
+      "description": "PodSchedulingGate is associated to a Pod to guard its scheduling.",
+      "properties": {
+        "name": {
+          "description": "Name of the scheduling gate. Each scheduling gate must have a unique name field.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.core.v1.PodSecurityContext": {
       "description": "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.",
       "properties": {
@@ -7868,6 +7882,19 @@
         "schedulerName": {
           "description": "If specified, the pod will be dispatched by specified scheduler. If not specified, the pod will be dispatched by default scheduler.",
           "type": "string"
+        },
+        "schedulingGates": {
+          "description": "SchedulingGates is an opaque list of values that if specified will block scheduling the pod. More info:  https://git.k8s.io/enhancements/keps/sig-scheduling/3521-pod-scheduling-readiness.\n\nThis is an alpha-level feature enabled by PodSchedulingReadiness feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.PodSchedulingGate"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "name",
+          "x-kubernetes-patch-strategy": "merge"
         },
         "securityContext": {
           "$ref": "#/definitions/io.k8s.api.core.v1.PodSecurityContext",
@@ -10122,11 +10149,11 @@
           "type": "boolean"
         },
         "serving": {
-          "description": "serving is identical to ready except that it is set regardless of the terminating state of endpoints. This condition should be set to true for a ready endpoint that is terminating. If nil, consumers should defer to the ready condition. This field can be enabled with the EndpointSliceTerminatingCondition feature gate.",
+          "description": "serving is identical to ready except that it is set regardless of the terminating state of endpoints. This condition should be set to true for a ready endpoint that is terminating. If nil, consumers should defer to the ready condition.",
           "type": "boolean"
         },
         "terminating": {
-          "description": "terminating indicates that this endpoint is terminating. A nil value indicates an unknown state. Consumers should interpret this unknown state to mean that the endpoint is not terminating. This field can be enabled with the EndpointSliceTerminatingCondition feature gate.",
+          "description": "terminating indicates that this endpoint is terminating. A nil value indicates an unknown state. Consumers should interpret this unknown state to mean that the endpoint is not terminating.",
           "type": "boolean"
         }
       },
