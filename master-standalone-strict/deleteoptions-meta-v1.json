@@ -12,6 +12,7 @@
         "admission.k8s.io/v1",
         "admission.k8s.io/v1beta1",
         "admissionregistration.k8s.io/v1",
+        "admissionregistration.k8s.io/v1alpha1",
         "admissionregistration.k8s.io/v1beta1",
         "apiextensions.k8s.io/v1",
         "apiextensions.k8s.io/v1beta1",
@@ -156,6 +157,11 @@
       "group": "admissionregistration.k8s.io",
       "kind": "DeleteOptions",
       "version": "v1"
+    },
+    {
+      "group": "admissionregistration.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
     },
     {
       "group": "admissionregistration.k8s.io",
