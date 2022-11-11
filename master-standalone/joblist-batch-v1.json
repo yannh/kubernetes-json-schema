@@ -8342,7 +8342,6 @@
                                           "x-kubernetes-map-type": "atomic"
                                         },
                                         "dataSourceRef": {
-                                          "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
                                           "properties": {
                                             "apiGroup": {
                                               "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
@@ -8358,6 +8357,13 @@
                                             "name": {
                                               "description": "Name is the name of resource being referenced",
                                               "type": "string"
+                                            },
+                                            "namespace": {
+                                              "description": "Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.",
+                                              "type": [
+                                                "string",
+                                                "null"
+                                              ]
                                             }
                                           },
                                           "required": [
@@ -8367,8 +8373,7 @@
                                           "type": [
                                             "object",
                                             "null"
-                                          ],
-                                          "x-kubernetes-map-type": "atomic"
+                                          ]
                                         },
                                         "resources": {
                                           "description": "ResourceRequirements describes the compute resource requirements.",

@@ -154,6 +154,9 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetList"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetOrdinals"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetPersistentVolumeClaimRetentionPolicy"
     },
     {
@@ -947,6 +950,9 @@
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.TypedObjectReference"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.Volume"

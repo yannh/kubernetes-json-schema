@@ -154,6 +154,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetOrdinals"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetPersistentVolumeClaimRetentionPolicy"
     },
     {
@@ -947,6 +950,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.TypedObjectReference"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Volume"
