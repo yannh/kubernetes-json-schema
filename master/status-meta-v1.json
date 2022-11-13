@@ -8,7 +8,8 @@
         "null"
       ],
       "enum": [
-        "v1"
+        "v1",
+        "resource.k8s.io/v1alpha1"
       ]
     },
     "code": {
@@ -65,6 +66,11 @@
       "group": "",
       "kind": "Status",
       "version": "v1"
+    },
+    {
+      "group": "resource.k8s.io",
+      "kind": "Status",
+      "version": "v1alpha1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

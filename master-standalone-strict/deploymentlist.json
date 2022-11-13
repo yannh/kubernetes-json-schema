@@ -2810,6 +2810,31 @@
                             "resources": {
                               "description": "ResourceRequirements describes the compute resource requirements.",
                               "properties": {
+                                "claims": {
+                                  "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+                                  "items": {
+                                    "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                                    "properties": {
+                                      "name": {
+                                        "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "type": [
+                                    "array",
+                                    "null"
+                                  ],
+                                  "x-kubernetes-list-type": "set"
+                                },
                                 "limits": {
                                   "additionalProperties": {
                                     "oneOf": [
@@ -4618,6 +4643,31 @@
                             "resources": {
                               "description": "ResourceRequirements describes the compute resource requirements.",
                               "properties": {
+                                "claims": {
+                                  "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+                                  "items": {
+                                    "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                                    "properties": {
+                                      "name": {
+                                        "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "type": [
+                                    "array",
+                                    "null"
+                                  ],
+                                  "x-kubernetes-list-type": "set"
+                                },
                                 "limits": {
                                   "additionalProperties": {
                                     "oneOf": [
@@ -6457,6 +6507,31 @@
                             "resources": {
                               "description": "ResourceRequirements describes the compute resource requirements.",
                               "properties": {
+                                "claims": {
+                                  "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+                                  "items": {
+                                    "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                                    "properties": {
+                                      "name": {
+                                        "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "type": [
+                                    "array",
+                                    "null"
+                                  ],
+                                  "x-kubernetes-list-type": "set"
+                                },
                                 "limits": {
                                   "additionalProperties": {
                                     "oneOf": [
@@ -7190,6 +7265,60 @@
                           "array",
                           "null"
                         ]
+                      },
+                      "resourceClaims": {
+                        "description": "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+                        "items": {
+                          "description": "PodResourceClaim references exactly one ResourceClaim through a ClaimSource. It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.",
+                          "properties": {
+                            "name": {
+                              "description": "Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.",
+                              "type": "string"
+                            },
+                            "source": {
+                              "description": "ClaimSource describes a reference to a ResourceClaim.\n\nExactly one of these fields should be set.  Consumers of this type must treat an empty object as if it has an unknown value.",
+                              "properties": {
+                                "resourceClaimName": {
+                                  "description": "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "resourceClaimTemplateName": {
+                                  "description": "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The name of the ResourceClaim will be <pod name>-<resource name>, where <resource name> is the PodResourceClaim.Name. Pod validation will reject the pod if the concatenated name is not valid for a ResourceClaim (e.g. too long).\n\nAn existing ResourceClaim with that name that is not owned by the pod will not be used for the pod to avoid using an unrelated resource by mistake. Scheduling and pod startup are then blocked until the unrelated ResourceClaim is removed.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "x-kubernetes-list-map-keys": [
+                          "name"
+                        ],
+                        "x-kubernetes-list-type": "map",
+                        "x-kubernetes-patch-merge-key": "name",
+                        "x-kubernetes-patch-strategy": "merge,retainKeys"
                       },
                       "restartPolicy": {
                         "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy\n\n",
@@ -8541,6 +8670,31 @@
                                         "resources": {
                                           "description": "ResourceRequirements describes the compute resource requirements.",
                                           "properties": {
+                                            "claims": {
+                                              "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+                                              "items": {
+                                                "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                                                "properties": {
+                                                  "name": {
+                                                    "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name"
+                                                ],
+                                                "type": [
+                                                  "object",
+                                                  "null"
+                                                ],
+                                                "additionalProperties": false
+                                              },
+                                              "type": [
+                                                "array",
+                                                "null"
+                                              ],
+                                              "x-kubernetes-list-type": "set"
+                                            },
                                             "limits": {
                                               "additionalProperties": {
                                                 "oneOf": [

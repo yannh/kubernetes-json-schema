@@ -445,6 +445,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CinderVolumeSource"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClaimSource"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClientIPConfig"
     },
     {
@@ -775,6 +778,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodReadinessGate"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodResourceClaim"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodSchedulingGate"
     },
     {
@@ -833,6 +839,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ReplicationControllerStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceClaim"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceFieldSelector"
@@ -1292,6 +1301,60 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.AllocationResult"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodScheduling"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimConsumerReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimParametersReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSchedulingStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplateList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplateSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClass"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClassParametersReference"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"

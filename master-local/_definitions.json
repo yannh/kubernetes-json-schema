@@ -4492,6 +4492,20 @@
       ],
       "type": "object"
     },
+    "io.k8s.api.core.v1.ClaimSource": {
+      "description": "ClaimSource describes a reference to a ResourceClaim.\n\nExactly one of these fields should be set.  Consumers of this type must treat an empty object as if it has an unknown value.",
+      "properties": {
+        "resourceClaimName": {
+          "description": "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.",
+          "type": "string"
+        },
+        "resourceClaimTemplateName": {
+          "description": "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The name of the ResourceClaim will be <pod name>-<resource name>, where <resource name> is the PodResourceClaim.Name. Pod validation will reject the pod if the concatenated name is not valid for a ResourceClaim (e.g. too long).\n\nAn existing ResourceClaim with that name that is not owned by the pod will not be used for the pod to avoid using an unrelated resource by mistake. Scheduling and pod startup are then blocked until the unrelated ResourceClaim is removed.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "io.k8s.api.core.v1.ClientIPConfig": {
       "description": "ClientIPConfig represents the configurations of Client IP based session affinity.",
       "properties": {
@@ -7756,6 +7770,23 @@
       ],
       "type": "object"
     },
+    "io.k8s.api.core.v1.PodResourceClaim": {
+      "description": "PodResourceClaim references exactly one ResourceClaim through a ClaimSource. It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.",
+      "properties": {
+        "name": {
+          "description": "Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.ClaimSource",
+          "description": "Source describes where to find the ResourceClaim."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
     "io.k8s.api.core.v1.PodSchedulingGate": {
       "description": "PodSchedulingGate is associated to a Pod to guard its scheduling.",
       "properties": {
@@ -7960,6 +7991,19 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.PodReadinessGate"
           },
           "type": "array"
+        },
+        "resourceClaims": {
+          "description": "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.PodResourceClaim"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "name",
+          "x-kubernetes-patch-strategy": "merge,retainKeys"
         },
         "restartPolicy": {
           "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy\n\n",
@@ -8643,6 +8687,19 @@
       ],
       "type": "object"
     },
+    "io.k8s.api.core.v1.ResourceClaim": {
+      "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+      "properties": {
+        "name": {
+          "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
     "io.k8s.api.core.v1.ResourceFieldSelector": {
       "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
       "properties": {
@@ -8786,6 +8843,14 @@
     "io.k8s.api.core.v1.ResourceRequirements": {
       "description": "ResourceRequirements describes the compute resource requirements.",
       "properties": {
+        "claims": {
+          "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.ResourceClaim"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "set"
+        },
         "limits": {
           "additionalProperties": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
@@ -12599,6 +12664,10 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
           "description": "Label query over pods whose evictions are managed by the disruption budget. A null selector will match no pods, while an empty ({}) selector will select all pods within the namespace.",
           "x-kubernetes-patch-strategy": "replace"
+        },
+        "unhealthyPodEvictionPolicy": {
+          "description": "UnhealthyPodEvictionPolicy defines the criteria for when unhealthy pods should be considered for eviction. Current implementation considers healthy pods, as pods that have status.conditions item with type=\"Ready\",status=\"True\".\n\nValid policies are IfHealthyBudget and AlwaysAllow. If no policy is specified, the default behavior will be used, which corresponds to the IfHealthyBudget policy.\n\nIfHealthyBudget policy means that running pods (status.phase=\"Running\"), but not yet healthy can be evicted only if the guarded application is not disrupted (status.currentHealthy is at least equal to status.desiredHealthy). Healthy pods will be subject to the PDB for eviction.\n\nAlwaysAllow policy means that all running pods (status.phase=\"Running\"), but not yet healthy are considered disrupted and can be evicted regardless of whether the criteria in a PDB is met. This means perspective running pods of a disrupted application might not get a chance to become healthy. Healthy pods will be subject to the PDB for eviction.\n\nAdditional policies may be added in the future. Clients making eviction decisions should disallow eviction of unhealthy pods if they encounter an unrecognized policy in this field.\n\nThis field is alpha-level. The eviction API uses this field when the feature gate PDBUnhealthyPodEvictionPolicy is enabled (disabled by default).",
+          "type": "string"
         }
       },
       "type": "object"
@@ -13077,6 +13146,524 @@
       ],
       "type": "object",
       "x-kubernetes-map-type": "atomic"
+    },
+    "io.k8s.api.resource.v1alpha1.AllocationResult": {
+      "description": "AllocationResult contains attributed of an allocated resource.",
+      "properties": {
+        "availableOnNodes": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
+          "description": "This field will get set by the resource driver after it has allocated the resource driver to inform the scheduler where it can schedule Pods using the ResourceClaim.\n\nSetting this field is optional. If null, the resource is available everywhere."
+        },
+        "resourceHandle": {
+          "description": "ResourceHandle contains arbitrary data returned by the driver after a successful allocation. This is opaque for Kubernetes. Driver documentation may explain to users how to interpret this data if needed.\n\nThe maximum size of this field is 16KiB. This may get increased in the future, but not reduced.",
+          "type": "string"
+        },
+        "shareable": {
+          "description": "Shareable determines whether the resource supports more than one consumer at a time.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.PodScheduling": {
+      "description": "PodScheduling objects hold information that is needed to schedule a Pod with ResourceClaims that use \"WaitForFirstConsumer\" allocation mode.\n\nThis is an alpha type and requires enabling the DynamicResourceAllocation feature gate.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "PodScheduling"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingSpec",
+          "description": "Spec describes where resources for the Pod are needed."
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingStatus",
+          "description": "Status describes where resources for the Pod can be allocated."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "PodScheduling",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.PodSchedulingList": {
+      "description": "PodSchedulingList is a collection of Pod scheduling objects.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of PodScheduling objects.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.PodScheduling"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "PodSchedulingList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "PodSchedulingList",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.PodSchedulingSpec": {
+      "description": "PodSchedulingSpec describes where resources for the Pod are needed.",
+      "properties": {
+        "potentialNodes": {
+          "description": "PotentialNodes lists nodes where the Pod might be able to run.\n\nThe size of this field is limited to 128. This is large enough for many clusters. Larger clusters may need more attempts to find a node that suits all pending resources. This may get increased in the future, but not reduced.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "set"
+        },
+        "selectedNode": {
+          "description": "SelectedNode is the node for which allocation of ResourceClaims that are referenced by the Pod and that use \"WaitForFirstConsumer\" allocation is to be attempted.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.PodSchedulingStatus": {
+      "description": "PodSchedulingStatus describes where resources for the Pod can be allocated.",
+      "properties": {
+        "resourceClaims": {
+          "description": "ResourceClaims describes resource availability for each pod.spec.resourceClaim entry where the corresponding ResourceClaim uses \"WaitForFirstConsumer\" allocation mode.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSchedulingStatus"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaim": {
+      "description": "ResourceClaim describes which resources are needed by a resource consumer. Its status tracks whether the resource has been allocated and what the resulting attributes are.\n\nThis is an alpha type and requires enabling the DynamicResourceAllocation feature gate.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClaim"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSpec",
+          "description": "Spec describes the desired attributes of a resource that then needs to be allocated. It can only be set once when creating the ResourceClaim."
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimStatus",
+          "description": "Status describes whether the resource is available and with which attributes."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClaim",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimConsumerReference": {
+      "description": "ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.",
+      "properties": {
+        "apiGroup": {
+          "description": "APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name is the name of resource being referenced.",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Resource is the type of resource being referenced, for example \"pods\".",
+          "type": "string"
+        },
+        "uid": {
+          "description": "UID identifies exactly one incarnation of the resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resource",
+        "name",
+        "uid"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimList": {
+      "description": "ResourceClaimList is a collection of claims.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of resource claims.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaim"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClaimList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClaimList",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimParametersReference": {
+      "description": "ResourceClaimParametersReference contains enough information to let you locate the parameters for a ResourceClaim. The object must be in the same namespace as the ResourceClaim.",
+      "properties": {
+        "apiGroup": {
+          "description": "APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is the type of resource being referenced. This is the same value as in the parameter object's metadata, for example \"ConfigMap\".",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name is the name of resource being referenced.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "name"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimSchedulingStatus": {
+      "description": "ResourceClaimSchedulingStatus contains information about one particular ResourceClaim with \"WaitForFirstConsumer\" allocation mode.",
+      "properties": {
+        "name": {
+          "description": "Name matches the pod.spec.resourceClaims[*].Name field.",
+          "type": "string"
+        },
+        "unsuitableNodes": {
+          "description": "UnsuitableNodes lists nodes that the ResourceClaim cannot be allocated for.\n\nThe size of this field is limited to 128, the same as for PodSchedulingSpec.PotentialNodes. This may get increased in the future, but not reduced.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "set"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimSpec": {
+      "description": "ResourceClaimSpec defines how a resource is to be allocated.",
+      "properties": {
+        "allocationMode": {
+          "description": "Allocation can start immediately or when a Pod wants to use the resource. \"WaitForFirstConsumer\" is the default.",
+          "type": "string"
+        },
+        "parametersRef": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimParametersReference",
+          "description": "ParametersRef references a separate object with arbitrary parameters that will be used by the driver when allocating a resource for the claim.\n\nThe object must be in the same namespace as the ResourceClaim."
+        },
+        "resourceClassName": {
+          "description": "ResourceClassName references the driver and additional parameters via the name of a ResourceClass that was created as part of the driver deployment.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceClassName"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimStatus": {
+      "description": "ResourceClaimStatus tracks whether the resource has been allocated and what the resulting attributes are.",
+      "properties": {
+        "allocation": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.AllocationResult",
+          "description": "Allocation is set by the resource driver once a resource has been allocated successfully. If this is not specified, the resource is not yet allocated."
+        },
+        "deallocationRequested": {
+          "description": "DeallocationRequested indicates that a ResourceClaim is to be deallocated.\n\nThe driver then must deallocate this claim and reset the field together with clearing the Allocation field.\n\nWhile DeallocationRequested is set, no new consumers may be added to ReservedFor.",
+          "type": "boolean"
+        },
+        "driverName": {
+          "description": "DriverName is a copy of the driver name from the ResourceClass at the time when allocation started.",
+          "type": "string"
+        },
+        "reservedFor": {
+          "description": "ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started.\n\nThere can be at most 32 such reservations. This may get increased in the future, but not reduced.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimConsumerReference"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "set"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimTemplate": {
+      "description": "ResourceClaimTemplate is used to produce ResourceClaim objects.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClaimTemplate"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplateSpec",
+          "description": "Describes the ResourceClaim that is to be generated.\n\nThis field is immutable. A ResourceClaim will get created by the control plane for a Pod when needed and then not get updated anymore."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClaimTemplate",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimTemplateList": {
+      "description": "ResourceClaimTemplateList is a collection of claim templates.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of resource claim templates.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplate"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClaimTemplateList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClaimTemplateList",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClaimTemplateSpec": {
+      "description": "ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "ObjectMeta may contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation."
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSpec",
+          "description": "Spec for the ResourceClaim. The entire content is copied unchanged into the ResourceClaim that gets created from this template. The same fields as in a ResourceClaim are also valid here."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClass": {
+      "description": "ResourceClass is used by administrators to influence how resources are allocated.\n\nThis is an alpha type and requires enabling the DynamicResourceAllocation feature gate.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "driverName": {
+          "description": "DriverName defines the name of the dynamic resource driver that is used for allocation of a ResourceClaim that uses this class.\n\nResource drivers have a unique name in forward domain order (acme.example.com).",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClass"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "parametersRef": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClassParametersReference",
+          "description": "ParametersRef references an arbitrary separate object that may hold parameters that will be used by the driver when allocating a resource that uses this class. A dynamic resource driver can distinguish between parameters stored here and and those stored in ResourceClaimSpec."
+        },
+        "suitableNodes": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
+          "description": "Only nodes matching the selector will be considered by the scheduler when trying to find a Node that fits a Pod when that Pod uses a ResourceClaim that has not been allocated yet.\n\nSetting this field is optional. If null, all nodes are candidates."
+        }
+      },
+      "required": [
+        "driverName"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClass",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClassList": {
+      "description": "ResourceClassList is a collection of classes.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of resource classes.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha1.ResourceClass"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClassList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClassList",
+          "version": "v1alpha1"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha1.ResourceClassParametersReference": {
+      "description": "ResourceClassParametersReference contains enough information to let you locate the parameters for a ResourceClass.",
+      "properties": {
+        "apiGroup": {
+          "description": "APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is the type of resource being referenced. This is the same value as in the parameter object's metadata.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name is the name of resource being referenced.",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Namespace that contains the referenced resource. Must be empty for cluster-scoped resources and non-empty for namespaced resources.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "name"
+      ],
+      "type": "object"
     },
     "io.k8s.api.scheduling.v1.PriorityClass": {
       "description": "PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.",
@@ -15105,6 +15692,11 @@
           "version": "v1beta1"
         },
         {
+          "group": "resource.k8s.io",
+          "kind": "DeleteOptions",
+          "version": "v1alpha1"
+        },
+        {
           "group": "scheduling.k8s.io",
           "kind": "DeleteOptions",
           "version": "v1"
@@ -15473,6 +16065,11 @@
           "group": "",
           "kind": "Status",
           "version": "v1"
+        },
+        {
+          "group": "resource.k8s.io",
+          "kind": "Status",
+          "version": "v1alpha1"
         }
       ]
     },
@@ -15799,6 +16396,11 @@
           "group": "rbac.authorization.k8s.io",
           "kind": "WatchEvent",
           "version": "v1beta1"
+        },
+        {
+          "group": "resource.k8s.io",
+          "kind": "WatchEvent",
+          "version": "v1alpha1"
         },
         {
           "group": "scheduling.k8s.io",

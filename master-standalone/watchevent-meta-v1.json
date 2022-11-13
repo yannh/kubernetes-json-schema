@@ -272,6 +272,11 @@
       "version": "v1beta1"
     },
     {
+      "group": "resource.k8s.io",
+      "kind": "WatchEvent",
+      "version": "v1alpha1"
+    },
+    {
       "group": "scheduling.k8s.io",
       "kind": "WatchEvent",
       "version": "v1"

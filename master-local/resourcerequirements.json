@@ -1,6 +1,17 @@
 {
   "description": "ResourceRequirements describes the compute resource requirements.",
   "properties": {
+    "claims": {
+      "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceClaim"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set"
+    },
     "limits": {
       "additionalProperties": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
