@@ -1,0 +1,33 @@
+{
+  "description": "PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of OnExitCodes and onPodConditions, but not both, can be used in each rule.",
+  "properties": {
+    "action": {
+      "description": "Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are: - FailJob: indicates that the pod's job is marked as Failed and all\n  running pods are terminated.\n- Ignore: indicates that the counter towards the .backoffLimit is not\n  incremented and a replacement pod is created.\n- Count: indicates that the pod is handled in the default way - the\n  counter towards the .backoffLimit is incremented.\nAdditional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.\n\n",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "onExitCodes": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.PodFailurePolicyOnExitCodesRequirement",
+      "description": "Represents the requirement on the container exit codes."
+    },
+    "onPodConditions": {
+      "description": "Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.PodFailurePolicyOnPodConditionsPattern"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "required": [
+    "action",
+    "onPodConditions"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,23 @@
+{
+  "description": "ObjectMetricStatus indicates the current value of a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).",
+  "properties": {
+    "current": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.MetricValueStatus",
+      "description": "current contains the current value for the given metric"
+    },
+    "describedObject": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference"
+    },
+    "metric": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2beta2.MetricIdentifier",
+      "description": "metric identifies the target metric by name and selector"
+    }
+  },
+  "required": [
+    "metric",
+    "current",
+    "describedObject"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

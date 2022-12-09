@@ -1,0 +1,201 @@
+{
+  "description": "ResourceClaimStatus tracks whether the resource has been allocated and what the resulting attributes are.",
+  "properties": {
+    "allocation": {
+      "description": "AllocationResult contains attributed of an allocated resource.",
+      "properties": {
+        "availableOnNodes": {
+          "description": "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.",
+          "properties": {
+            "nodeSelectorTerms": {
+              "description": "Required. A list of node selector terms. The terms are ORed.",
+              "items": {
+                "description": "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+                "properties": {
+                  "matchExpressions": {
+                    "description": "A list of node selector requirements by node's labels.",
+                    "items": {
+                      "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                      "properties": {
+                        "key": {
+                          "description": "The label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\n",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": [
+                            "array",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  },
+                  "matchFields": {
+                    "description": "A list of node selector requirements by node's fields.",
+                    "items": {
+                      "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                      "properties": {
+                        "key": {
+                          "description": "The label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.\n\n",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": [
+                            "array",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "x-kubernetes-map-type": "atomic",
+                "additionalProperties": false
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "nodeSelectorTerms"
+          ],
+          "type": [
+            "object",
+            "null"
+          ],
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        },
+        "resourceHandle": {
+          "description": "ResourceHandle contains arbitrary data returned by the driver after a successful allocation. This is opaque for Kubernetes. Driver documentation may explain to users how to interpret this data if needed.\n\nThe maximum size of this field is 16KiB. This may get increased in the future, but not reduced.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shareable": {
+          "description": "Shareable determines whether the resource supports more than one consumer at a time.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "deallocationRequested": {
+      "description": "DeallocationRequested indicates that a ResourceClaim is to be deallocated.\n\nThe driver then must deallocate this claim and reset the field together with clearing the Allocation field.\n\nWhile DeallocationRequested is set, no new consumers may be added to ReservedFor.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "driverName": {
+      "description": "DriverName is a copy of the driver name from the ResourceClass at the time when allocation started.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reservedFor": {
+      "description": "ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started.\n\nThere can be at most 32 such reservations. This may get increased in the future, but not reduced.",
+      "items": {
+        "description": "ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.",
+        "properties": {
+          "apiGroup": {
+            "description": "APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "Name is the name of resource being referenced.",
+            "type": "string"
+          },
+          "resource": {
+            "description": "Resource is the type of resource being referenced, for example \"pods\".",
+            "type": "string"
+          },
+          "uid": {
+            "description": "UID identifies exactly one incarnation of the resource.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "resource",
+          "name",
+          "uid"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set"
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
