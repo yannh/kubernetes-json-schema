@@ -23,7 +23,7 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "metadata.name must be the Kubernetes node name."
+      "description": "Standard object's metadata. metadata.name must be the Kubernetes node name."
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeSpec",

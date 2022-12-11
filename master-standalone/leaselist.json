@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "Items is a list of schema objects.",
+      "description": "items is a list of schema objects.",
       "items": {
         "description": "Lease defines a lease concept.",
         "properties": {
@@ -293,7 +293,7 @@
                 ]
               },
               "leaseDurationSeconds": {
-                "description": "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed RenewTime.",
+                "description": "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.",
                 "format": "int32",
                 "type": [
                   "integer",

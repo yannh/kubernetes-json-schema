@@ -27,7 +27,7 @@
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIDriverSpec",
-      "description": "Specification of the CSI Driver."
+      "description": "spec represents the specification of the CSI Driver."
     }
   },
   "required": [

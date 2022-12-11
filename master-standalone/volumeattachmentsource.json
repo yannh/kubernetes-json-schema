@@ -1489,7 +1489,7 @@
       ]
     },
     "persistentVolumeName": {
-      "description": "Name of the persistent volume to attach.",
+      "description": "persistentVolumeName represents the name of the persistent volume to attach.",
       "type": [
         "string",
         "null"

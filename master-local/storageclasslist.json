@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "Items is the list of StorageClasses",
+      "description": "items is the list of StorageClasses",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageClass"
       },

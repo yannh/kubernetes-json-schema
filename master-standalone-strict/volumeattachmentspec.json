@@ -2,14 +2,14 @@
   "description": "VolumeAttachmentSpec is the specification of a VolumeAttachment request.",
   "properties": {
     "attacher": {
-      "description": "Attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().",
+      "description": "attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().",
       "type": [
         "string",
         "null"
       ]
     },
     "nodeName": {
-      "description": "The node that the volume should be attached to.",
+      "description": "nodeName represents the node that the volume should be attached to.",
       "type": [
         "string",
         "null"
@@ -1547,7 +1547,7 @@
           "additionalProperties": false
         },
         "persistentVolumeName": {
-          "description": "Name of the persistent volume to attach.",
+          "description": "persistentVolumeName represents the name of the persistent volume to attach.",
           "type": [
             "string",
             "null"

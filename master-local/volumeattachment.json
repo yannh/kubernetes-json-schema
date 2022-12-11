@@ -24,11 +24,11 @@
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeAttachmentSpec",
-      "description": "Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system."
+      "description": "spec represents specification of the desired attach/detach volume behavior. Populated by the Kubernetes system."
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeAttachmentStatus",
-      "description": "Status of the VolumeAttachment request. Populated by the entity completing the attach or detach operation, i.e. the external-attacher."
+      "description": "status represents status of the VolumeAttachment request. Populated by the entity completing the attach or detach operation, i.e. the external-attacher."
     }
   },
   "required": [

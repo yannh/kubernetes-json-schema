@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "Items is the list of VolumeAttachments",
+      "description": "items is the list of VolumeAttachments",
       "items": {
         "description": "VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.\n\nVolumeAttachment objects are non-namespaced.",
         "properties": {
@@ -278,11 +278,11 @@
             "description": "VolumeAttachmentSpec is the specification of a VolumeAttachment request.",
             "properties": {
               "attacher": {
-                "description": "Attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().",
+                "description": "attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().",
                 "type": "string"
               },
               "nodeName": {
-                "description": "The node that the volume should be attached to.",
+                "description": "nodeName represents the node that the volume should be attached to.",
                 "type": "string"
               },
               "source": {
@@ -1776,7 +1776,7 @@
                     ]
                   },
                   "persistentVolumeName": {
-                    "description": "Name of the persistent volume to attach.",
+                    "description": "persistentVolumeName represents the name of the persistent volume to attach.",
                     "type": [
                       "string",
                       "null"
@@ -1800,7 +1800,7 @@
                 "description": "VolumeError captures an error encountered during a volume operation.",
                 "properties": {
                   "message": {
-                    "description": "String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
+                    "description": "message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
                     "type": [
                       "string",
                       "null"
@@ -1821,7 +1821,7 @@
                 ]
               },
               "attached": {
-                "description": "Indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.",
+                "description": "attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.",
                 "type": "boolean"
               },
               "attachmentMetadata": {
@@ -1831,7 +1831,7 @@
                     "null"
                   ]
                 },
-                "description": "Upon successful attach, this field is populated with any information returned by the attach operation that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.",
+                "description": "attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.",
                 "type": [
                   "object",
                   "null"
@@ -1841,7 +1841,7 @@
                 "description": "VolumeError captures an error encountered during a volume operation.",
                 "properties": {
                   "message": {
-                    "description": "String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
+                    "description": "message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
                     "type": [
                       "string",
                       "null"

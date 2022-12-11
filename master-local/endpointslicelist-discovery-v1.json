@@ -12,7 +12,7 @@
       ]
     },
     "items": {
-      "description": "List of endpoint slices",
+      "description": "items is the list of endpoint slices",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1.EndpointSlice"
       },
