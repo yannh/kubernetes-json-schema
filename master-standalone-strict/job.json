@@ -2879,7 +2879,10 @@
                               "array",
                               "null"
                             ],
-                            "x-kubernetes-list-type": "set"
+                            "x-kubernetes-list-map-keys": [
+                              "name"
+                            ],
+                            "x-kubernetes-list-type": "map"
                           },
                           "limits": {
                             "additionalProperties": {
@@ -4712,7 +4715,10 @@
                               "array",
                               "null"
                             ],
-                            "x-kubernetes-list-type": "set"
+                            "x-kubernetes-list-map-keys": [
+                              "name"
+                            ],
+                            "x-kubernetes-list-type": "map"
                           },
                           "limits": {
                             "additionalProperties": {
@@ -6576,7 +6582,10 @@
                               "array",
                               "null"
                             ],
-                            "x-kubernetes-list-type": "set"
+                            "x-kubernetes-list-map-keys": [
+                              "name"
+                            ],
+                            "x-kubernetes-list-type": "map"
                           },
                           "limits": {
                             "additionalProperties": {
@@ -8739,7 +8748,10 @@
                                           "array",
                                           "null"
                                         ],
-                                        "x-kubernetes-list-type": "set"
+                                        "x-kubernetes-list-map-keys": [
+                                          "name"
+                                        ],
+                                        "x-kubernetes-list-type": "map"
                                       },
                                       "limits": {
                                         "additionalProperties": {
