@@ -649,7 +649,7 @@
                 "x-kubernetes-patch-strategy": "merge"
               },
               "phase": {
-                "description": "phase represents the current phase of PersistentVolumeClaim.\n\n",
+                "description": "phase represents the current phase of PersistentVolumeClaim.",
                 "type": [
                   "string",
                   "null"

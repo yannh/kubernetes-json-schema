@@ -6,7 +6,7 @@
       "description": "Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate."
     },
     "type": {
-      "description": "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.\n\n",
+      "description": "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.",
       "type": [
         "string",
         "null"

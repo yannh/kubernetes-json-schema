@@ -36,7 +36,7 @@
       "additionalProperties": false
     },
     "type": {
-      "description": "Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.\n\n",
+      "description": "Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.",
       "type": [
         "string",
         "null"

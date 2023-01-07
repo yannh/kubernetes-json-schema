@@ -32,7 +32,7 @@
       ]
     },
     "protocol": {
-      "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".\n\n",
+      "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
       "type": [
         "string",
         "null"

@@ -24,7 +24,7 @@
       ]
     },
     "protocol": {
-      "description": "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.\n\n",
+      "description": "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.",
       "type": [
         "string",
         "null"

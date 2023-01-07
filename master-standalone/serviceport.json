@@ -32,7 +32,7 @@
       ]
     },
     "protocol": {
-      "description": "The IP protocol for this port. Supports \"TCP\", \"UDP\", and \"SCTP\". Default is TCP.\n\n",
+      "description": "The IP protocol for this port. Supports \"TCP\", \"UDP\", and \"SCTP\". Default is TCP.",
       "type": [
         "string",
         "null"

@@ -9,7 +9,7 @@
       ]
     },
     "phase": {
-      "description": "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase\n\n",
+      "description": "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase",
       "type": [
         "string",
         "null"

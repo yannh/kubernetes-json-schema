@@ -6,7 +6,7 @@
       "description": "Rolling update config params. Present only if type = \"RollingUpdate\"."
     },
     "type": {
-      "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.\n\n",
+      "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.",
       "type": [
         "string",
         "null"
