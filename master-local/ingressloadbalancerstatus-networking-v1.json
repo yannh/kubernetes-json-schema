@@ -2,7 +2,7 @@
   "description": "IngressLoadBalancerStatus represents the status of a load-balancer.",
   "properties": {
     "ingress": {
-      "description": "Ingress is a list containing ingress points for the load-balancer.",
+      "description": "ingress is a list containing ingress points for the load-balancer.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressLoadBalancerIngress"
       },

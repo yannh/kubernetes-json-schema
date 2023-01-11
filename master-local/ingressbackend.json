@@ -3,11 +3,11 @@
   "properties": {
     "resource": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
-      "description": "Resource is an ObjectRef to another Kubernetes resource in the namespace of the Ingress object. If resource is specified, a service.Name and service.Port must not be specified. This is a mutually exclusive setting with \"Service\"."
+      "description": "resource is an ObjectRef to another Kubernetes resource in the namespace of the Ingress object. If resource is specified, a service.Name and service.Port must not be specified. This is a mutually exclusive setting with \"Service\"."
     },
     "service": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressServiceBackend",
-      "description": "Service references a Service as a Backend. This is a mutually exclusive setting with \"Resource\"."
+      "description": "service references a service as a backend. This is a mutually exclusive setting with \"Resource\"."
     }
   },
   "type": "object",

@@ -27,7 +27,7 @@
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressClassSpec",
-      "description": "Spec is the desired state of the IngressClass. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+      "description": "spec is the desired state of the IngressClass. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },
   "type": "object",

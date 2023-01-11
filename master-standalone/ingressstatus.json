@@ -5,43 +5,43 @@
       "description": "IngressLoadBalancerStatus represents the status of a load-balancer.",
       "properties": {
         "ingress": {
-          "description": "Ingress is a list containing ingress points for the load-balancer.",
+          "description": "ingress is a list containing ingress points for the load-balancer.",
           "items": {
             "description": "IngressLoadBalancerIngress represents the status of a load-balancer ingress point.",
             "properties": {
               "hostname": {
-                "description": "Hostname is set for load-balancer ingress points that are DNS based.",
+                "description": "hostname is set for load-balancer ingress points that are DNS based.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "ip": {
-                "description": "IP is set for load-balancer ingress points that are IP based.",
+                "description": "ip is set for load-balancer ingress points that are IP based.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "ports": {
-                "description": "Ports provides information about the ports exposed by this LoadBalancer.",
+                "description": "ports provides information about the ports exposed by this LoadBalancer.",
                 "items": {
                   "description": "IngressPortStatus represents the error condition of a service port",
                   "properties": {
                     "error": {
-                      "description": "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
+                      "description": "error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "port": {
-                      "description": "Port is the port number of the ingress port.",
+                      "description": "port is the port number of the ingress port.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "protocol": {
-                      "description": "Protocol is the protocol of the ingress port. The supported values are: \"TCP\", \"UDP\", \"SCTP\"",
+                      "description": "protocol is the protocol of the ingress port. The supported values are: \"TCP\", \"UDP\", \"SCTP\"",
                       "type": "string"
                     }
                   },

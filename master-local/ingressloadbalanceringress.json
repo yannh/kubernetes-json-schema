@@ -2,21 +2,21 @@
   "description": "IngressLoadBalancerIngress represents the status of a load-balancer ingress point.",
   "properties": {
     "hostname": {
-      "description": "Hostname is set for load-balancer ingress points that are DNS based.",
+      "description": "hostname is set for load-balancer ingress points that are DNS based.",
       "type": [
         "string",
         "null"
       ]
     },
     "ip": {
-      "description": "IP is set for load-balancer ingress points that are IP based.",
+      "description": "ip is set for load-balancer ingress points that are IP based.",
       "type": [
         "string",
         "null"
       ]
     },
     "ports": {
-      "description": "Ports provides information about the ports exposed by this LoadBalancer.",
+      "description": "ports provides information about the ports exposed by this LoadBalancer.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressPortStatus"
       },

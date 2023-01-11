@@ -1,8 +1,8 @@
 {
-  "description": "NetworkPolicyStatus describe the current state of the NetworkPolicy.",
+  "description": "NetworkPolicyStatus describes the current state of the NetworkPolicy.",
   "properties": {
     "conditions": {
-      "description": "Conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state",
+      "description": "conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state",
       "items": {
         "description": "Condition contains details for one aspect of the current state of this API Resource.",
         "properties": {

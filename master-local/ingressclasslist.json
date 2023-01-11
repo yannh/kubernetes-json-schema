@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "Items is the list of IngressClasses.",
+      "description": "items is the list of IngressClasses.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressClass"
       },

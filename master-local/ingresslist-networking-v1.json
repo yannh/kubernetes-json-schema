@@ -12,7 +12,7 @@
       ]
     },
     "items": {
-      "description": "Items is the list of Ingress.",
+      "description": "items is the list of Ingress.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.Ingress"
       },

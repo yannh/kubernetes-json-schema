@@ -2,7 +2,7 @@
   "description": "HTTPIngressRuleValue is a list of http selectors pointing to backends. In the example: http://<host>/<path>?<searchpart> -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.",
   "properties": {
     "paths": {
-      "description": "A collection of paths that map requests to backends.",
+      "description": "paths is a collection of paths that map requests to backends.",
       "items": {
         "description": "HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.",
         "properties": {
@@ -43,21 +43,21 @@
                 "description": "IngressServiceBackend references a Kubernetes Service as a Backend.",
                 "properties": {
                   "name": {
-                    "description": "Name is the referenced service. The service must exist in the same namespace as the Ingress object.",
+                    "description": "name is the referenced service. The service must exist in the same namespace as the Ingress object.",
                     "type": "string"
                   },
                   "port": {
                     "description": "ServiceBackendPort is the service port being referenced.",
                     "properties": {
                       "name": {
-                        "description": "Name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".",
+                        "description": "name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".",
                         "type": [
                           "string",
                           "null"
                         ]
                       },
                       "number": {
-                        "description": "Number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".",
+                        "description": "number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".",
                         "format": "int32",
                         "type": [
                           "integer",
@@ -86,14 +86,14 @@
             "additionalProperties": false
           },
           "path": {
-            "description": "Path is matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional \"path\" part of a URL as defined by RFC 3986. Paths must begin with a '/' and must be present when using PathType with value \"Exact\" or \"Prefix\".",
+            "description": "path is matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional \"path\" part of a URL as defined by RFC 3986. Paths must begin with a '/' and must be present when using PathType with value \"Exact\" or \"Prefix\".",
             "type": [
               "string",
               "null"
             ]
           },
           "pathType": {
-            "description": "PathType determines the interpretation of the Path matching. PathType can be one of the following values: * Exact: Matches the URL path exactly. * Prefix: Matches based on a URL path prefix split by '/'. Matching is\n  done on a path element by element basis. A path element refers is the\n  list of labels in the path split by the '/' separator. A request is a\n  match for path p if every p is an element-wise prefix of p of the\n  request path. Note that if the last element of the path is a substring\n  of the last element in request path, it is not a match (e.g. /foo/bar\n  matches /foo/bar/baz, but does not match /foo/barbaz).\n* ImplementationSpecific: Interpretation of the Path matching is up to\n  the IngressClass. Implementations can treat this as a separate PathType\n  or treat it identically to Prefix or Exact path types.\nImplementations are required to support all path types.",
+            "description": "pathType determines the interpretation of the path matching. PathType can be one of the following values: * Exact: Matches the URL path exactly. * Prefix: Matches based on a URL path prefix split by '/'. Matching is\n  done on a path element by element basis. A path element refers is the\n  list of labels in the path split by the '/' separator. A request is a\n  match for path p if every p is an element-wise prefix of p of the\n  request path. Note that if the last element of the path is a substring\n  of the last element in request path, it is not a match (e.g. /foo/bar\n  matches /foo/bar/baz, but does not match /foo/barbaz).\n* ImplementationSpecific: Interpretation of the Path matching is up to\n  the IngressClass. Implementations can treat this as a separate PathType\n  or treat it identically to Prefix or Exact path types.\nImplementations are required to support all path types.",
             "type": "string"
           }
         },

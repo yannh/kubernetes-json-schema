@@ -18,7 +18,7 @@
           }
         ]
       },
-      "description": "PodFixed represents the fixed resource overhead associated with running a pod.",
+      "description": "podFixed represents the fixed resource overhead associated with running a pod.",
       "type": [
         "object",
         "null"

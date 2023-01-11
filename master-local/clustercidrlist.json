@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "Items is the list of ClusterCIDRs.",
+      "description": "items is the list of ClusterCIDRs.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDR"
       },

@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "Items is a list of schema objects.",
+      "description": "items is a list of schema objects.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.NetworkPolicy"
       },
