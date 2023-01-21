@@ -1,0 +1,35 @@
+{
+  "description": "UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't been accounted in Job status counters.",
+  "properties": {
+    "failed": {
+      "description": "Failed holds UIDs of failed Pods.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set"
+    },
+    "succeeded": {
+      "description": "Succeeded holds UIDs of succeeded Pods.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
