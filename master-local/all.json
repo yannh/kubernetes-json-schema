@@ -490,6 +490,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerPort"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerResizePolicy"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerState"
     },
     {

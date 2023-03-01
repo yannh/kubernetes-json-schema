@@ -272,7 +272,7 @@
       "description": "specification of a horizontal pod autoscaler.",
       "properties": {
         "maxReplicas": {
-          "description": "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.",
+          "description": "maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.",
           "format": "int32",
           "type": "integer"
         },
@@ -288,18 +288,18 @@
           "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
           "properties": {
             "apiVersion": {
-              "description": "API version of the referent",
+              "description": "apiVersion is the API version of the referent",
               "type": [
                 "string",
                 "null"
               ]
             },
             "kind": {
-              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+              "description": "kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
               "type": "string"
             },
             "name": {
-              "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+              "description": "name is the name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
               "type": "string"
             }
           },
@@ -312,7 +312,7 @@
           "additionalProperties": false
         },
         "targetCPUUtilizationPercentage": {
-          "description": "target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.",
+          "description": "targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.",
           "format": "int32",
           "type": [
             "integer",
@@ -334,7 +334,7 @@
       "description": "current status of a horizontal pod autoscaler",
       "properties": {
         "currentCPUUtilizationPercentage": {
-          "description": "current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.",
+          "description": "currentCPUUtilizationPercentage is the current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.",
           "format": "int32",
           "type": [
             "integer",
@@ -342,12 +342,12 @@
           ]
         },
         "currentReplicas": {
-          "description": "current number of replicas of pods managed by this autoscaler.",
+          "description": "currentReplicas is the current number of replicas of pods managed by this autoscaler.",
           "format": "int32",
           "type": "integer"
         },
         "desiredReplicas": {
-          "description": "desired number of replicas of pods managed by this autoscaler.",
+          "description": "desiredReplicas is the  desired number of replicas of pods managed by this autoscaler.",
           "format": "int32",
           "type": "integer"
         },
@@ -360,7 +360,7 @@
           ]
         },
         "observedGeneration": {
-          "description": "most recent generation observed by this autoscaler.",
+          "description": "observedGeneration is the most recent generation observed by this autoscaler.",
           "format": "int64",
           "type": [
             "integer",

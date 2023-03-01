@@ -1081,7 +1081,7 @@
         },
         "template": {
           "$ref": "#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
-          "description": "An object that describes the pod that will be created. The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template"
+          "description": "An object that describes the pod that will be created. The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). The only allowed template.spec.restartPolicy value is \"Always\". More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template"
         },
         "updateStrategy": {
           "$ref": "#/definitions/io.k8s.api.apps.v1.DaemonSetUpdateStrategy",
@@ -1326,7 +1326,7 @@
         },
         "template": {
           "$ref": "#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
-          "description": "Template describes the pods that will be created."
+          "description": "Template describes the pods that will be created. The only allowed template.spec.restartPolicy value is \"Always\"."
         }
       },
       "required": [
@@ -1801,7 +1801,7 @@
         },
         "template": {
           "$ref": "#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
-          "description": "template is the object that describes the pod that will be created if insufficient replicas are detected. Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet. Each pod will be named with the format <statefulsetname>-<podindex>. For example, a pod in a StatefulSet named \"web\" with index number \"3\" would be named \"web-3\"."
+          "description": "template is the object that describes the pod that will be created if insufficient replicas are detected. Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet. Each pod will be named with the format <statefulsetname>-<podindex>. For example, a pod in a StatefulSet named \"web\" with index number \"3\" would be named \"web-3\". The only allowed template.spec.restartPolicy value is \"Always\"."
         },
         "updateStrategy": {
           "$ref": "#/definitions/io.k8s.api.apps.v1.StatefulSetUpdateStrategy",
@@ -2570,15 +2570,15 @@
       "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
       "properties": {
         "apiVersion": {
-          "description": "API version of the referent",
+          "description": "apiVersion is the API version of the referent",
           "type": "string"
         },
         "kind": {
-          "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "description": "kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
           "type": "string"
         },
         "name": {
-          "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+          "description": "name is the name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
           "type": "string"
         }
       },
@@ -2610,11 +2610,11 @@
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerSpec",
-          "description": "behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
+          "description": "spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
         },
         "status": {
           "$ref": "#/definitions/io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerStatus",
-          "description": "current information about the autoscaler."
+          "description": "status is the current information about the autoscaler."
         }
       },
       "type": "object",
@@ -2635,7 +2635,7 @@
           "type": "string"
         },
         "items": {
-          "description": "list of horizontal pod autoscaler objects.",
+          "description": "items is the list of horizontal pod autoscaler objects.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler"
           },
@@ -2670,7 +2670,7 @@
       "description": "specification of a horizontal pod autoscaler.",
       "properties": {
         "maxReplicas": {
-          "description": "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.",
+          "description": "maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.",
           "format": "int32",
           "type": "integer"
         },
@@ -2684,7 +2684,7 @@
           "description": "reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption and will set the desired number of pods by using its Scale subresource."
         },
         "targetCPUUtilizationPercentage": {
-          "description": "target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.",
+          "description": "targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.",
           "format": "int32",
           "type": "integer"
         }
@@ -2700,26 +2700,26 @@
       "description": "current status of a horizontal pod autoscaler",
       "properties": {
         "currentCPUUtilizationPercentage": {
-          "description": "current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.",
+          "description": "currentCPUUtilizationPercentage is the current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.",
           "format": "int32",
           "type": "integer"
         },
         "currentReplicas": {
-          "description": "current number of replicas of pods managed by this autoscaler.",
+          "description": "currentReplicas is the current number of replicas of pods managed by this autoscaler.",
           "format": "int32",
           "type": "integer"
         },
         "desiredReplicas": {
-          "description": "desired number of replicas of pods managed by this autoscaler.",
+          "description": "desiredReplicas is the  desired number of replicas of pods managed by this autoscaler.",
           "format": "int32",
           "type": "integer"
         },
         "lastScaleTime": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
-          "description": "last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed."
+          "description": "lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed."
         },
         "observedGeneration": {
-          "description": "most recent generation observed by this autoscaler.",
+          "description": "observedGeneration is the most recent generation observed by this autoscaler.",
           "format": "int64",
           "type": "integer"
         }
@@ -2751,11 +2751,11 @@
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.autoscaling.v1.ScaleSpec",
-          "description": "defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
+          "description": "spec defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
         },
         "status": {
           "$ref": "#/definitions/io.k8s.api.autoscaling.v1.ScaleStatus",
-          "description": "current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only."
+          "description": "status is the current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only."
         }
       },
       "type": "object",
@@ -2772,7 +2772,7 @@
       "description": "ScaleSpec describes the attributes of a scale subresource.",
       "properties": {
         "replicas": {
-          "description": "desired number of instances for the scaled object.",
+          "description": "replicas is the desired number of instances for the scaled object.",
           "format": "int32",
           "type": "integer"
         }
@@ -2784,12 +2784,12 @@
       "description": "ScaleStatus represents the current status of a scale subresource.",
       "properties": {
         "replicas": {
-          "description": "actual number of observed instances of the scaled object.",
+          "description": "replicas is the actual number of observed instances of the scaled object.",
           "format": "int32",
           "type": "integer"
         },
         "selector": {
-          "description": "label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors",
+          "description": "selector is the label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors",
           "type": "string"
         }
       },
@@ -2827,7 +2827,7 @@
       "description": "ContainerResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing a single container in each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.",
       "properties": {
         "container": {
-          "description": "Container is the name of the container in the pods of the scaling target",
+          "description": "container is the name of the container in the pods of the scaling target",
           "type": "string"
         },
         "current": {
@@ -2835,7 +2835,7 @@
           "description": "current contains the current value for the given metric"
         },
         "name": {
-          "description": "Name is the name of the resource in question.",
+          "description": "name is the name of the resource in question.",
           "type": "string"
         }
       },
@@ -2851,15 +2851,15 @@
       "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
       "properties": {
         "apiVersion": {
-          "description": "API version of the referent",
+          "description": "apiVersion is the API version of the referent",
           "type": "string"
         },
         "kind": {
-          "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "description": "kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
           "type": "string"
         },
         "name": {
-          "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+          "description": "name is the name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
           "type": "string"
         }
       },
@@ -2912,16 +2912,16 @@
       "description": "HPAScalingPolicy is a single policy which must hold true for a specified past interval.",
       "properties": {
         "periodSeconds": {
-          "description": "PeriodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).",
+          "description": "periodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).",
           "format": "int32",
           "type": "integer"
         },
         "type": {
-          "description": "Type is used to specify the scaling policy.",
+          "description": "type is used to specify the scaling policy.",
           "type": "string"
         },
         "value": {
-          "description": "Value contains the amount of change which is permitted by the policy. It must be greater than zero",
+          "description": "value contains the amount of change which is permitted by the policy. It must be greater than zero",
           "format": "int32",
           "type": "integer"
         }
@@ -2950,7 +2950,7 @@
           "type": "string"
         },
         "stabilizationWindowSeconds": {
-          "description": "StabilizationWindowSeconds is the number of seconds for which past recommendations should be considered while scaling up or scaling down. StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).",
+          "description": "stabilizationWindowSeconds is the number of seconds for which past recommendations should be considered while scaling up or scaling down. StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).",
           "format": "int32",
           "type": "integer"
         }
@@ -3413,7 +3413,7 @@
           "description": "current contains the current value for the given metric"
         },
         "name": {
-          "description": "Name is the name of the resource in question.",
+          "description": "name is the name of the resource in question.",
           "type": "string"
         }
       },
@@ -3725,7 +3725,7 @@
         },
         "template": {
           "$ref": "#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
-          "description": "Describes the pod that will be created when executing a job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/"
+          "description": "Describes the pod that will be created when executing a job. The only allowed template.spec.restartPolicy values are \"Never\" or \"OnFailure\". More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/"
         },
         "ttlSecondsAfterFinished": {
           "description": "ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes.",
@@ -5047,6 +5047,14 @@
           "$ref": "#/definitions/io.k8s.api.core.v1.Probe",
           "description": "Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes"
         },
+        "resizePolicy": {
+          "description": "Resources resize policy for the container.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.ContainerResizePolicy"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements",
           "description": "Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
@@ -5155,6 +5163,25 @@
       },
       "required": [
         "containerPort"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.core.v1.ContainerResizePolicy": {
+      "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+      "properties": {
+        "policy": {
+          "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+          "type": "string"
+        },
+        "resourceName": {
+          "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceName",
+        "policy"
       ],
       "type": "object",
       "additionalProperties": false
@@ -5270,6 +5297,17 @@
         "ready": {
           "description": "Specifies whether the container has passed its readiness probe.",
           "type": "boolean"
+        },
+        "resources": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements",
+          "description": "Resources represents the compute resource requests and limits that have been successfully enacted on the running container after it has been started or has been successfully resized."
+        },
+        "resourcesAllocated": {
+          "additionalProperties": {
+            "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+          },
+          "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+          "type": "object"
         },
         "restartCount": {
           "description": "The number of times the container has been restarted.",
@@ -5677,6 +5715,14 @@
         "readinessProbe": {
           "$ref": "#/definitions/io.k8s.api.core.v1.Probe",
           "description": "Probes are not allowed for ephemeral containers."
+        },
+        "resizePolicy": {
+          "description": "Resources resize policy for the container.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.ContainerResizePolicy"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements",
@@ -8267,7 +8313,7 @@
           "x-kubernetes-patch-strategy": "merge,retainKeys"
         },
         "restartPolicy": {
-          "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
+          "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
           "type": "string"
         },
         "runtimeClassName": {
@@ -8425,6 +8471,10 @@
         },
         "reason": {
           "description": "A brief CamelCase message indicating details about why the pod is in this state. e.g. 'Evicted'",
+          "type": "string"
+        },
+        "resize": {
+          "description": "Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \"Proposed\"",
           "type": "string"
         },
         "startTime": {
@@ -8916,7 +8966,7 @@
         },
         "template": {
           "$ref": "#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
-          "description": "Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template"
+          "description": "Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. The only allowed template.spec.restartPolicy value is \"Always\". More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template"
         }
       },
       "type": "object",

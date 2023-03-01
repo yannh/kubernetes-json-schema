@@ -1,0 +1,25 @@
+{
+  "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+  "properties": {
+    "policy": {
+      "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resourceName": {
+      "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "resourceName",
+    "policy"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

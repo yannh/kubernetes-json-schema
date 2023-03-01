@@ -2382,6 +2382,36 @@
                 ],
                 "additionalProperties": false
               },
+              "resizePolicy": {
+                "description": "Resources resize policy for the container.",
+                "items": {
+                  "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+                  "properties": {
+                    "policy": {
+                      "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+                      "type": "string"
+                    },
+                    "resourceName": {
+                      "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "resourceName",
+                    "policy"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
+              },
               "resources": {
                 "description": "ResourceRequirements describes the compute resource requirements.",
                 "properties": {
@@ -4217,6 +4247,36 @@
                   "null"
                 ],
                 "additionalProperties": false
+              },
+              "resizePolicy": {
+                "description": "Resources resize policy for the container.",
+                "items": {
+                  "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+                  "properties": {
+                    "policy": {
+                      "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+                      "type": "string"
+                    },
+                    "resourceName": {
+                      "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "resourceName",
+                    "policy"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "resources": {
                 "description": "ResourceRequirements describes the compute resource requirements.",
@@ -6085,6 +6145,36 @@
                 ],
                 "additionalProperties": false
               },
+              "resizePolicy": {
+                "description": "Resources resize policy for the container.",
+                "items": {
+                  "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+                  "properties": {
+                    "policy": {
+                      "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+                      "type": "string"
+                    },
+                    "resourceName": {
+                      "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "resourceName",
+                    "policy"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
+              },
               "resources": {
                 "description": "ResourceRequirements describes the compute resource requirements.",
                 "properties": {
@@ -6905,7 +6995,7 @@
           "x-kubernetes-patch-strategy": "merge,retainKeys"
         },
         "restartPolicy": {
-          "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
+          "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
           "type": [
             "string",
             "null"
@@ -9837,6 +9927,113 @@
                 "description": "Specifies whether the container has passed its readiness probe.",
                 "type": "boolean"
               },
+              "resources": {
+                "description": "ResourceRequirements describes the compute resource requirements.",
+                "properties": {
+                  "claims": {
+                    "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+                    "items": {
+                      "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                      "properties": {
+                        "name": {
+                          "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map"
+                  },
+                  "limits": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "requests": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
+              "resourcesAllocated": {
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  ]
+                },
+                "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
               "restartCount": {
                 "description": "The number of times the container has been restarted.",
                 "format": "int32",
@@ -10125,6 +10322,113 @@
               "ready": {
                 "description": "Specifies whether the container has passed its readiness probe.",
                 "type": "boolean"
+              },
+              "resources": {
+                "description": "ResourceRequirements describes the compute resource requirements.",
+                "properties": {
+                  "claims": {
+                    "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+                    "items": {
+                      "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                      "properties": {
+                        "name": {
+                          "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map"
+                  },
+                  "limits": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "requests": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
+              "resourcesAllocated": {
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  ]
+                },
+                "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+                "type": [
+                  "object",
+                  "null"
+                ]
               },
               "restartCount": {
                 "description": "The number of times the container has been restarted.",
@@ -10422,6 +10726,113 @@
                 "description": "Specifies whether the container has passed its readiness probe.",
                 "type": "boolean"
               },
+              "resources": {
+                "description": "ResourceRequirements describes the compute resource requirements.",
+                "properties": {
+                  "claims": {
+                    "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+                    "items": {
+                      "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                      "properties": {
+                        "name": {
+                          "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map"
+                  },
+                  "limits": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "requests": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
+              "resourcesAllocated": {
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  ]
+                },
+                "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
               "restartCount": {
                 "description": "The number of times the container has been restarted.",
                 "format": "int32",
@@ -10631,6 +11042,13 @@
         },
         "reason": {
           "description": "A brief CamelCase message indicating details about why the pod is in this state. e.g. 'Evicted'",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resize": {
+          "description": "Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \"Proposed\"",
           "type": [
             "string",
             "null"

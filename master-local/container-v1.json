@@ -99,6 +99,17 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Probe",
       "description": "Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes"
     },
+    "resizePolicy": {
+      "description": "Resources resize policy for the container.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerResizePolicy"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
     "resources": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
       "description": "Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"

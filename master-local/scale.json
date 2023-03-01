@@ -24,11 +24,11 @@
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v1.ScaleSpec",
-      "description": "defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
+      "description": "spec defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v1.ScaleStatus",
-      "description": "current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only."
+      "description": "status is the current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only."
     }
   },
   "type": "object",

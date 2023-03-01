@@ -40,6 +40,20 @@
         "null"
       ]
     },
+    "resources": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
+      "description": "Resources represents the compute resource requests and limits that have been successfully enacted on the running container after it has been started or has been successfully resized."
+    },
+    "resourcesAllocated": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      },
+      "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
     "restartCount": {
       "description": "The number of times the container has been restarted.",
       "format": "int32",

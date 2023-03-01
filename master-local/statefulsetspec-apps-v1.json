@@ -53,7 +53,7 @@
     },
     "template": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec",
-      "description": "template is the object that describes the pod that will be created if insufficient replicas are detected. Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet. Each pod will be named with the format <statefulsetname>-<podindex>. For example, a pod in a StatefulSet named \"web\" with index number \"3\" would be named \"web-3\"."
+      "description": "template is the object that describes the pod that will be created if insufficient replicas are detected. Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet. Each pod will be named with the format <statefulsetname>-<podindex>. For example, a pod in a StatefulSet named \"web\" with index number \"3\" would be named \"web-3\". The only allowed template.spec.restartPolicy value is \"Always\"."
     },
     "updateStrategy": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetUpdateStrategy",

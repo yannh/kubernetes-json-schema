@@ -52,7 +52,7 @@
       "additionalProperties": false
     },
     "name": {
-      "description": "Name is the name of the resource in question.",
+      "description": "name is the name of the resource in question.",
       "type": [
         "string",
         "null"

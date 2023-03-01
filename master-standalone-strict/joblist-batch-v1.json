@@ -2871,6 +2871,36 @@
                               ],
                               "additionalProperties": false
                             },
+                            "resizePolicy": {
+                              "description": "Resources resize policy for the container.",
+                              "items": {
+                                "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+                                "properties": {
+                                  "policy": {
+                                    "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+                                    "type": "string"
+                                  },
+                                  "resourceName": {
+                                    "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "resourceName",
+                                  "policy"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "x-kubernetes-list-type": "atomic"
+                            },
                             "resources": {
                               "description": "ResourceRequirements describes the compute resource requirements.",
                               "properties": {
@@ -4706,6 +4736,36 @@
                                 "null"
                               ],
                               "additionalProperties": false
+                            },
+                            "resizePolicy": {
+                              "description": "Resources resize policy for the container.",
+                              "items": {
+                                "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+                                "properties": {
+                                  "policy": {
+                                    "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+                                    "type": "string"
+                                  },
+                                  "resourceName": {
+                                    "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "resourceName",
+                                  "policy"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "x-kubernetes-list-type": "atomic"
                             },
                             "resources": {
                               "description": "ResourceRequirements describes the compute resource requirements.",
@@ -6574,6 +6634,36 @@
                               ],
                               "additionalProperties": false
                             },
+                            "resizePolicy": {
+                              "description": "Resources resize policy for the container.",
+                              "items": {
+                                "description": "ContainerResizePolicy represents resource resize policy for a single container.",
+                                "properties": {
+                                  "policy": {
+                                    "description": "Resource resize policy applicable to the specified resource name. If not specified, it defaults to RestartNotRequired.",
+                                    "type": "string"
+                                  },
+                                  "resourceName": {
+                                    "description": "Name of the resource type to which this resource resize policy applies. Supported values: cpu, memory.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "resourceName",
+                                  "policy"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "x-kubernetes-list-type": "atomic"
+                            },
                             "resources": {
                               "description": "ResourceRequirements describes the compute resource requirements.",
                               "properties": {
@@ -7394,7 +7484,7 @@
                         "x-kubernetes-patch-strategy": "merge,retainKeys"
                       },
                       "restartPolicy": {
-                        "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
+                        "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
                         "type": [
                           "string",
                           "null"
