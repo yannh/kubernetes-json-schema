@@ -28,6 +28,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.WebhookClientConfig"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.AuditAnnotation"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MatchResources"
     },
     {

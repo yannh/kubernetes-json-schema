@@ -1,8 +1,19 @@
 {
   "description": "ValidatingAdmissionPolicySpec is the specification of the desired behavior of the AdmissionPolicy.",
   "properties": {
+    "auditAnnotations": {
+      "description": "auditAnnotations contains CEL expressions which are used to produce audit annotations for the audit event of the API request. validations and auditAnnotations may not both be empty; a least one of validations or auditAnnotations is required.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.AuditAnnotation"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
     "failurePolicy": {
-      "description": "FailurePolicy defines how to handle failures for the admission policy. Failures can occur from invalid or mis-configured policy definitions or bindings. A policy is invalid if spec.paramKind refers to a non-existent Kind. A binding is invalid if spec.paramRef.name refers to a non-existent resource. Allowed values are Ignore or Fail. Defaults to Fail.",
+      "description": "failurePolicy defines how to handle failures for the admission policy. Failures can occur from CEL expression parse errors, type check errors, runtime errors and invalid or mis-configured policy definitions or bindings.\n\nA policy is invalid if spec.paramKind refers to a non-existent Kind. A binding is invalid if spec.paramRef.name refers to a non-existent resource.\n\nfailurePolicy does not define how validations that evaluate to false are handled.\n\nWhen failurePolicy is set to Fail, ValidatingAdmissionPolicyBinding validationActions define how failures are enforced.\n\nAllowed values are Ignore or Fail. Defaults to Fail.",
       "type": [
         "string",
         "null"
@@ -17,7 +28,7 @@
       "description": "ParamKind specifies the kind of resources used to parameterize this policy. If absent, there are no parameters for this policy and the param CEL variable will not be provided to validation expressions. If ParamKind refers to a non-existent kind, this policy definition is mis-configured and the FailurePolicy is applied. If paramKind is specified but paramRef is unset in ValidatingAdmissionPolicyBinding, the params variable will be null."
     },
     "validations": {
-      "description": "Validations contain CEL expressions which is used to apply the validation. A minimum of one validation is required for a policy definition. Required.",
+      "description": "Validations contain CEL expressions which is used to apply the validation. Validations and AuditAnnotations may not both be empty; a minimum of one Validations or AuditAnnotations is required.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Validation"
       },
@@ -28,9 +39,6 @@
       "x-kubernetes-list-type": "atomic"
     }
   },
-  "required": [
-    "validations"
-  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

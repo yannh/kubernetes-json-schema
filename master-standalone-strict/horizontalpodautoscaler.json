@@ -657,7 +657,7 @@
                         "type": "string"
                       },
                       "name": {
-                        "description": "name is the name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+                        "description": "name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                         "type": "string"
                       }
                     },
@@ -1081,7 +1081,7 @@
               "type": "string"
             },
             "name": {
-              "description": "name is the name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+              "description": "name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": "string"
             }
           },
@@ -1446,7 +1446,7 @@
                         "type": "string"
                       },
                       "name": {
-                        "description": "name is the name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+                        "description": "name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                         "type": "string"
                       }
                     },
