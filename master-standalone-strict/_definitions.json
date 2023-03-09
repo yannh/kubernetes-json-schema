@@ -2157,7 +2157,7 @@
       "additionalProperties": false
     },
     "io.k8s.api.authentication.v1alpha1.SelfSubjectReview": {
-      "description": "SelfSubjectReview contains the user information that the kube-apiserver has about the user making this request. When using impersonation, users will receive the user info of the user being impersonated.",
+      "description": "SelfSubjectReview contains the user information that the kube-apiserver has about the user making this request. When using impersonation, users will receive the user info of the user being impersonated.  If impersonation or request header authentication is used, any extra keys will have their case ignored and returned as lowercase.",
       "properties": {
         "apiVersion": {
           "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -2190,6 +2190,50 @@
       "additionalProperties": false
     },
     "io.k8s.api.authentication.v1alpha1.SelfSubjectReviewStatus": {
+      "description": "SelfSubjectReviewStatus is filled by the kube-apiserver and sent back to a user.",
+      "properties": {
+        "userInfo": {
+          "$ref": "#/definitions/io.k8s.api.authentication.v1.UserInfo",
+          "description": "User attributes of the user making this request."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.authentication.v1beta1.SelfSubjectReview": {
+      "description": "SelfSubjectReview contains the user information that the kube-apiserver has about the user making this request. When using impersonation, users will receive the user info of the user being impersonated.  If impersonation or request header authentication is used, any extra keys will have their case ignored and returned as lowercase.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "SelfSubjectReview"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.authentication.v1beta1.SelfSubjectReviewStatus",
+          "description": "Status is filled in by the server with the user attributes."
+        }
+      },
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "authentication.k8s.io",
+          "kind": "SelfSubjectReview",
+          "version": "v1beta1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.authentication.v1beta1.SelfSubjectReviewStatus": {
       "description": "SelfSubjectReviewStatus is filled by the kube-apiserver and sent back to a user.",
       "properties": {
         "userInfo": {
@@ -3567,7 +3611,7 @@
           "type": "boolean"
         },
         "timeZone": {
-          "description": "The time zone name for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will default to the time zone of the kube-controller-manager process. The set of valid time zone names and the time zone offset is loaded from the system-wide time zone database by the API server during CronJob validation and the controller manager during execution. If no system-wide time zone database can be found a bundled version of the database is used instead. If the time zone name becomes invalid during the lifetime of a CronJob or due to a change in host configuration, the controller will stop creating new new Jobs and will create a system event with the reason UnknownTimeZone. More information can be found in https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones This is beta field and must be enabled via the `CronJobTimeZone` feature gate.",
+          "description": "The time zone name for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will default to the time zone of the kube-controller-manager process. The set of valid time zone names and the time zone offset is loaded from the system-wide time zone database by the API server during CronJob validation and the controller manager during execution. If no system-wide time zone database can be found a bundled version of the database is used instead. If the time zone name becomes invalid during the lifetime of a CronJob or due to a change in host configuration, the controller will stop creating new new Jobs and will create a system event with the reason UnknownTimeZone. More information can be found in https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones",
           "type": "string"
         }
       },

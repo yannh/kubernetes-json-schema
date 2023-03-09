@@ -8,7 +8,7 @@
         "null"
       ],
       "enum": [
-        "authentication.k8s.io/v1alpha1"
+        "authentication.k8s.io/v1beta1"
       ]
     },
     "kind": {
@@ -162,7 +162,8 @@
             "type": [
               "object",
               "null"
-            ]
+            ],
+            "additionalProperties": false
           },
           "type": [
             "array",
@@ -229,7 +230,8 @@
               "object",
               "null"
             ],
-            "x-kubernetes-map-type": "atomic"
+            "x-kubernetes-map-type": "atomic",
+            "additionalProperties": false
           },
           "type": [
             "array",
@@ -263,7 +265,8 @@
       "type": [
         "object",
         "null"
-      ]
+      ],
+      "additionalProperties": false
     },
     "status": {
       "description": "SelfSubjectReviewStatus is filled by the kube-apiserver and sent back to a user.",
@@ -321,13 +324,15 @@
           "type": [
             "object",
             "null"
-          ]
+          ],
+          "additionalProperties": false
         }
       },
       "type": [
         "object",
         "null"
-      ]
+      ],
+      "additionalProperties": false
     }
   },
   "type": "object",
@@ -335,8 +340,9 @@
     {
       "group": "authentication.k8s.io",
       "kind": "SelfSubjectReview",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }
