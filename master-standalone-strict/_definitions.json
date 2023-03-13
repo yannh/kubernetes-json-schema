@@ -5350,6 +5350,13 @@
     "io.k8s.api.core.v1.ContainerStatus": {
       "description": "ContainerStatus contains details for the current status of this container.",
       "properties": {
+        "allocatedResources": {
+          "additionalProperties": {
+            "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+          },
+          "description": "AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+          "type": "object"
+        },
         "containerID": {
           "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",
           "type": "string"
@@ -5377,13 +5384,6 @@
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements",
           "description": "Resources represents the compute resource requests and limits that have been successfully enacted on the running container after it has been started or has been successfully resized."
-        },
-        "resourcesAllocated": {
-          "additionalProperties": {
-            "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
-          },
-          "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
-          "type": "object"
         },
         "restartCount": {
           "description": "RestartCount holds the number of times the container has been restarted. Kubelet makes an effort to always increment the value, but there are cases when the state may be lost due to node restarts and then the value may be reset to 0. The value is never negative.",

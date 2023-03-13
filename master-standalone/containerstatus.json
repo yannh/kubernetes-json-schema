@@ -1,6 +1,29 @@
 {
   "description": "ContainerStatus contains details for the current status of this container.",
   "properties": {
+    "allocatedResources": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
     "containerID": {
       "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",
       "type": [
@@ -224,29 +247,6 @@
           ]
         }
       },
-      "type": [
-        "object",
-        "null"
-      ]
-    },
-    "resourcesAllocated": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          {
-            "type": [
-              "number",
-              "null"
-            ]
-          }
-        ]
-      },
-      "description": "ResourcesAllocated represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
       "type": [
         "object",
         "null"
