@@ -23,7 +23,7 @@
       "description": "Standard object metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplateSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateSpec",
       "description": "Describes the ResourceClaim that is to be generated.\n\nThis field is immutable. A ResourceClaim will get created by the control plane for a Pod when needed and then not get updated anymore."
     }
   },
@@ -35,7 +35,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceClaimTemplate",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

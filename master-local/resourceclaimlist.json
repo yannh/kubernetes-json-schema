@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is the list of resource claims.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaim"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaim"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceClaimList",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

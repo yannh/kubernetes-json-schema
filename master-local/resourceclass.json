@@ -30,7 +30,7 @@
       "description": "Standard object metadata"
     },
     "parametersRef": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClassParametersReference",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference",
       "description": "ParametersRef references an arbitrary separate object that may hold parameters that will be used by the driver when allocating a resource that uses this class. A dynamic resource driver can distinguish between parameters stored here and and those stored in ResourceClaimSpec."
     },
     "suitableNodes": {
@@ -46,7 +46,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceClass",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

@@ -1,6 +1,9 @@
 {
   "oneOf": [
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchCondition"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhook"
     },
     {
@@ -31,6 +34,9 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.AuditAnnotation"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ExpressionWarning"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MatchResources"
     },
     {
@@ -41,6 +47,9 @@
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ParamRef"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.TypeChecking"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicy"
@@ -59,6 +68,9 @@
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicySpec"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyStatus"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Validation"
@@ -1252,6 +1264,18 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRSpec"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressSpec"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ParentReference"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.node.v1.Overhead"
     },
     {
@@ -1315,58 +1339,61 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.AllocationResult"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.AllocationResult"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodScheduling"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContext"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingList"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextList"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingSpec"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextSpec"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.PodSchedulingStatus"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextStatus"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaim"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaim"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimConsumerReference"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimConsumerReference"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimList"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimList"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimParametersReference"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersReference"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSchedulingStatus"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSchedulingStatus"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSpec"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSpec"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimStatus"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimStatus"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplate"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplate"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplateList"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateList"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimTemplateSpec"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateSpec"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClass"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClass"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClassList"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassList"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClassParametersReference"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceHandle"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"

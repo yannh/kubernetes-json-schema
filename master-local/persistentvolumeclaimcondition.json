@@ -1,5 +1,5 @@
 {
-  "description": "PersistentVolumeClaimCondition contails details about state of pvc",
+  "description": "PersistentVolumeClaimCondition contains details about state of pvc",
   "properties": {
     "lastProbeTime": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",

@@ -23,11 +23,11 @@
       "description": "Standard object metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSpec",
       "description": "Spec describes the desired attributes of a resource that then needs to be allocated. It can only be set once when creating the ResourceClaim."
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha1.ResourceClaimStatus",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimStatus",
       "description": "Status describes whether the resource is available and with which attributes."
     }
   },
@@ -39,7 +39,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceClaim",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

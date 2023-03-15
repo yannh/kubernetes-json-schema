@@ -25,6 +25,22 @@
         "null"
       ]
     },
+    "matchConditions": {
+      "description": "MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped\n\nThis is an alpha feature and managed by the AdmissionWebhookMatchConditions feature gate.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
     "matchPolicy": {
       "description": "matchPolicy defines how the \"rules\" list is used to match incoming requests. Allowed values are \"Exact\" or \"Equivalent\".\n\n- Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.\n\n- Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.\n\nDefaults to \"Equivalent\"",
       "type": [

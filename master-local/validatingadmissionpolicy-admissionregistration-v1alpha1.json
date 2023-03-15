@@ -28,6 +28,10 @@
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicySpec",
       "description": "Specification of the desired behavior of the ValidatingAdmissionPolicy."
+    },
+    "status": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyStatus",
+      "description": "The status of the ValidatingAdmissionPolicy, including warnings that are useful to determine if the policy behaves in the expected way. Populated by the system. Read-only."
     }
   },
   "type": "object",

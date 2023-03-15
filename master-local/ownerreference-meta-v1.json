@@ -30,14 +30,14 @@
       ]
     },
     "name": {
-      "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+      "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
       "type": [
         "string",
         "null"
       ]
     },
     "uid": {
-      "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids",
+      "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids",
       "type": [
         "string",
         "null"

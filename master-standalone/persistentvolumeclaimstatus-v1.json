@@ -63,7 +63,7 @@
     "conditions": {
       "description": "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
       "items": {
-        "description": "PersistentVolumeClaimCondition contails details about state of pvc",
+        "description": "PersistentVolumeClaimCondition contains details about state of pvc",
         "properties": {
           "lastProbeTime": {
             "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
