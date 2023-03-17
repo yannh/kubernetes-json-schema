@@ -376,7 +376,7 @@
     {
       "group": "storage.k8s.io",
       "kind": "CSIStorageCapacity",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

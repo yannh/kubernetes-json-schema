@@ -393,7 +393,7 @@
           {
             "group": "storage.k8s.io",
             "kind": "CSIStorageCapacity",
-            "version": "v1beta1"
+            "version": "v1"
           }
         ],
         "additionalProperties": false
@@ -465,7 +465,7 @@
     {
       "group": "storage.k8s.io",
       "kind": "CSIStorageCapacityList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "additionalProperties": false,
