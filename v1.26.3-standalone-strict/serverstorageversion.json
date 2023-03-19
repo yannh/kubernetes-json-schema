@@ -1,0 +1,36 @@
+{
+  "description": "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.",
+  "properties": {
+    "apiServerID": {
+      "description": "The ID of the reporting API server.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decodableVersions": {
+      "description": "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set"
+    },
+    "encodingVersion": {
+      "description": "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
