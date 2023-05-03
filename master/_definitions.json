@@ -10552,7 +10552,7 @@
           "type": "string"
         },
         "hostProcess": {
-          "description": "HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.",
+          "description": "HostProcess determines if a container should be run as a 'Host Process' container. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.",
           "type": "boolean"
         },
         "runAsUserName": {
@@ -12488,10 +12488,6 @@
         "spec": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicySpec",
           "description": "spec represents the specification of the desired behavior for this NetworkPolicy."
-        },
-        "status": {
-          "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyStatus",
-          "description": "status represents the current state of the NetworkPolicy. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
         }
       },
       "type": "object",
@@ -12650,25 +12646,6 @@
       "required": [
         "podSelector"
       ],
-      "type": "object"
-    },
-    "io.k8s.api.networking.v1.NetworkPolicyStatus": {
-      "description": "NetworkPolicyStatus describes the current state of the NetworkPolicy.",
-      "properties": {
-        "conditions": {
-          "description": "conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state",
-          "items": {
-            "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
-          },
-          "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "type"
-          ],
-          "x-kubernetes-list-type": "map",
-          "x-kubernetes-patch-merge-key": "type",
-          "x-kubernetes-patch-strategy": "merge"
-        }
-      },
       "type": "object"
     },
     "io.k8s.api.networking.v1.ServiceBackendPort": {

@@ -25,10 +25,6 @@
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.NetworkPolicySpec",
       "description": "spec represents the specification of the desired behavior for this NetworkPolicy."
-    },
-    "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.NetworkPolicyStatus",
-      "description": "status represents the current state of the NetworkPolicy. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },
   "type": "object",
