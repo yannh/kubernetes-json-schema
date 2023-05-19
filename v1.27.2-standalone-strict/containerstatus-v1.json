@@ -1,0 +1,402 @@
+{
+  "description": "ContainerStatus contains details for the current status of this container.",
+  "properties": {
+    "allocatedResources": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "containerID": {
+      "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "image": {
+      "description": "Image is the name of container image that the container is running. The container image may not match the image used in the PodSpec, as it may have been resolved by the runtime. More info: https://kubernetes.io/docs/concepts/containers/images.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "imageID": {
+      "description": "ImageID is the image ID of the container's image. The image ID may not match the image ID of the image used in the PodSpec, as it may have been resolved by the runtime.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastState": {
+      "description": "ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.",
+      "properties": {
+        "running": {
+          "description": "ContainerStateRunning is a running state of a container.",
+          "properties": {
+            "startedAt": {
+              "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        },
+        "terminated": {
+          "description": "ContainerStateTerminated is a terminated state of a container.",
+          "properties": {
+            "containerID": {
+              "description": "Container's ID in the format '<type>://<container_id>'",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "exitCode": {
+              "description": "Exit status from the last termination of the container",
+              "format": "int32",
+              "type": "integer"
+            },
+            "finishedAt": {
+              "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "message": {
+              "description": "Message regarding the last termination of the container",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reason": {
+              "description": "(brief) reason from the last termination of the container",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "signal": {
+              "description": "Signal from the last termination of the container",
+              "format": "int32",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "startedAt": {
+              "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "exitCode"
+          ],
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        },
+        "waiting": {
+          "description": "ContainerStateWaiting is a waiting state of a container.",
+          "properties": {
+            "message": {
+              "description": "Message regarding why the container is not yet running.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reason": {
+              "description": "(brief) reason the container is not yet running.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "description": "Name is a DNS_LABEL representing the unique name of the container. Each container in a pod must have a unique name across all container types. Cannot be updated.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ready": {
+      "description": "Ready specifies whether the container is currently passing its readiness check. The value will change as readiness probes keep executing. If no readiness probes are specified, this field defaults to true once the container is fully started (see Started field).\n\nThe value is typically used to determine whether a container is ready to accept traffic.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "resources": {
+      "description": "ResourceRequirements describes the compute resource requirements.",
+      "properties": {
+        "claims": {
+          "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+          "items": {
+            "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+            "properties": {
+              "name": {
+                "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "limits": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          },
+          "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "requests": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          },
+          "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "restartCount": {
+      "description": "RestartCount holds the number of times the container has been restarted. Kubelet makes an effort to always increment the value, but there are cases when the state may be lost due to node restarts and then the value may be reset to 0. The value is never negative.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "started": {
+      "description": "Started indicates whether the container has finished its postStart lifecycle hook and passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. In both cases, startup probes will run again. Is always true when no startupProbe is defined and container is running and has passed the postStart lifecycle hook. The null value must be treated the same as false.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "state": {
+      "description": "ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.",
+      "properties": {
+        "running": {
+          "description": "ContainerStateRunning is a running state of a container.",
+          "properties": {
+            "startedAt": {
+              "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        },
+        "terminated": {
+          "description": "ContainerStateTerminated is a terminated state of a container.",
+          "properties": {
+            "containerID": {
+              "description": "Container's ID in the format '<type>://<container_id>'",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "exitCode": {
+              "description": "Exit status from the last termination of the container",
+              "format": "int32",
+              "type": "integer"
+            },
+            "finishedAt": {
+              "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "message": {
+              "description": "Message regarding the last termination of the container",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reason": {
+              "description": "(brief) reason from the last termination of the container",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "signal": {
+              "description": "Signal from the last termination of the container",
+              "format": "int32",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "startedAt": {
+              "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "exitCode"
+          ],
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        },
+        "waiting": {
+          "description": "ContainerStateWaiting is a waiting state of a container.",
+          "properties": {
+            "message": {
+              "description": "Message regarding why the container is not yet running.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reason": {
+              "description": "(brief) reason the container is not yet running.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "name",
+    "ready",
+    "restartCount",
+    "image",
+    "imageID"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
