@@ -545,9 +545,7 @@
                                       "properties": {
                                         "key": {
                                           "description": "key is the label key that the selector applies to.",
-                                          "type": "string",
-                                          "x-kubernetes-patch-merge-key": "key",
-                                          "x-kubernetes-patch-strategy": "merge"
+                                          "type": "string"
                                         },
                                         "operator": {
                                           "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -611,9 +609,7 @@
                                       "properties": {
                                         "key": {
                                           "description": "key is the label key that the selector applies to.",
-                                          "type": "string",
-                                          "x-kubernetes-patch-merge-key": "key",
-                                          "x-kubernetes-patch-strategy": "merge"
+                                          "type": "string"
                                         },
                                         "operator": {
                                           "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -725,9 +721,7 @@
                                   "properties": {
                                     "key": {
                                       "description": "key is the label key that the selector applies to.",
-                                      "type": "string",
-                                      "x-kubernetes-patch-merge-key": "key",
-                                      "x-kubernetes-patch-strategy": "merge"
+                                      "type": "string"
                                     },
                                     "operator": {
                                       "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -791,9 +785,7 @@
                                   "properties": {
                                     "key": {
                                       "description": "key is the label key that the selector applies to.",
-                                      "type": "string",
-                                      "x-kubernetes-patch-merge-key": "key",
-                                      "x-kubernetes-patch-strategy": "merge"
+                                      "type": "string"
                                     },
                                     "operator": {
                                       "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -905,9 +897,7 @@
                                       "properties": {
                                         "key": {
                                           "description": "key is the label key that the selector applies to.",
-                                          "type": "string",
-                                          "x-kubernetes-patch-merge-key": "key",
-                                          "x-kubernetes-patch-strategy": "merge"
+                                          "type": "string"
                                         },
                                         "operator": {
                                           "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -971,9 +961,7 @@
                                       "properties": {
                                         "key": {
                                           "description": "key is the label key that the selector applies to.",
-                                          "type": "string",
-                                          "x-kubernetes-patch-merge-key": "key",
-                                          "x-kubernetes-patch-strategy": "merge"
+                                          "type": "string"
                                         },
                                         "operator": {
                                           "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -1085,9 +1073,7 @@
                                   "properties": {
                                     "key": {
                                       "description": "key is the label key that the selector applies to.",
-                                      "type": "string",
-                                      "x-kubernetes-patch-merge-key": "key",
-                                      "x-kubernetes-patch-strategy": "merge"
+                                      "type": "string"
                                     },
                                     "operator": {
                                       "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -1151,9 +1137,7 @@
                                   "properties": {
                                     "key": {
                                       "description": "key is the label key that the selector applies to.",
-                                      "type": "string",
-                                      "x-kubernetes-patch-merge-key": "key",
-                                      "x-kubernetes-patch-strategy": "merge"
+                                      "type": "string"
                                     },
                                     "operator": {
                                       "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -7166,9 +7150,7 @@
                           "properties": {
                             "key": {
                               "description": "key is the label key that the selector applies to.",
-                              "type": "string",
-                              "x-kubernetes-patch-merge-key": "key",
-                              "x-kubernetes-patch-strategy": "merge"
+                              "type": "string"
                             },
                             "operator": {
                               "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
@@ -8220,9 +8202,7 @@
                                       "properties": {
                                         "key": {
                                           "description": "key is the label key that the selector applies to.",
-                                          "type": "string",
-                                          "x-kubernetes-patch-merge-key": "key",
-                                          "x-kubernetes-patch-strategy": "merge"
+                                          "type": "string"
                                         },
                                         "operator": {
                                           "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
