@@ -1,0 +1,145 @@
+{
+  "description": "ServiceStatus represents the current status of a service.",
+  "properties": {
+    "conditions": {
+      "description": "Current service state",
+      "items": {
+        "description": "Condition contains details for one aspect of the current state of this API Resource.",
+        "properties": {
+          "lastTransitionTime": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "message": {
+            "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+            "type": "string"
+          },
+          "observedGeneration": {
+            "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+            "format": "int64",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+            "type": "string"
+          },
+          "status": {
+            "description": "status of the condition, one of True, False, Unknown.",
+            "type": "string"
+          },
+          "type": {
+            "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "status",
+          "lastTransitionTime",
+          "reason",
+          "message"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "loadBalancer": {
+      "description": "LoadBalancerStatus represents the status of a load-balancer.",
+      "properties": {
+        "ingress": {
+          "description": "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.",
+          "items": {
+            "description": "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.",
+            "properties": {
+              "hostname": {
+                "description": "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ip": {
+                "description": "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ports": {
+                "description": "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it",
+                "items": {
+                  "properties": {
+                    "error": {
+                      "description": "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "port": {
+                      "description": "Port is the port number of the service port of which status is recorded here",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "protocol": {
+                      "description": "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"\n\n",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "port",
+                    "protocol"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
