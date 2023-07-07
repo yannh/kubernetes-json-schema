@@ -28,6 +28,20 @@
         "string",
         "null"
       ]
+    },
+    "servedVersions": {
+      "description": "The API server can serve these versions. DecodableVersions must include all ServedVersions.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "set"
     }
   },
   "type": "object",
