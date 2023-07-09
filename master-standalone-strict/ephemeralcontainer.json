@@ -1214,6 +1214,13 @@
       ],
       "additionalProperties": false
     },
+    "restartPolicy": {
+      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "securityContext": {
       "description": "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.",
       "properties": {
