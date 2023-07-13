@@ -823,6 +823,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodResourceClaim"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodResourceClaimStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodSchedulingGate"
     },
     {
