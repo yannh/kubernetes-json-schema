@@ -817,6 +817,19 @@
           },
           "type": "array",
           "x-kubernetes-list-type": "atomic"
+        },
+        "variables": {
+          "description": "Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.admissionregistration.v1alpha1.Variable"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "name",
+          "x-kubernetes-patch-strategy": "merge"
         }
       },
       "type": "object",
@@ -853,7 +866,7 @@
       "description": "Validation specifies the CEL expression which is used to apply the validation.",
       "properties": {
         "expression": {
-          "description": "Expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:\n\t  \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",\n\t  \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\".\nExamples:\n  - Expression accessing a property named \"namespace\": {\"Expression\": \"object.__namespace__ > 0\"}\n  - Expression accessing a property named \"x-prop\": {\"Expression\": \"object.x__dash__prop > 0\"}\n  - Expression accessing a property named \"redact__d\": {\"Expression\": \"object.redact__underscores__d > 0\"}\n\nEquality on arrays with list type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:\n  - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and\n    non-intersecting elements in `Y` are appended, retaining their partial order.\n  - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values\n    are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with\n    non-intersecting keys are appended, retaining their partial order.\nRequired.",
+          "description": "Expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:\n\t  \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",\n\t  \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\".\nExamples:\n  - Expression accessing a property named \"namespace\": {\"Expression\": \"object.__namespace__ > 0\"}\n  - Expression accessing a property named \"x-prop\": {\"Expression\": \"object.x__dash__prop > 0\"}\n  - Expression accessing a property named \"redact__d\": {\"Expression\": \"object.redact__underscores__d > 0\"}\n\nEquality on arrays with list type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:\n  - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and\n    non-intersecting elements in `Y` are appended, retaining their partial order.\n  - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values\n    are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with\n    non-intersecting keys are appended, retaining their partial order.\nRequired.",
           "type": "string"
         },
         "message": {
@@ -870,6 +883,25 @@
         }
       },
       "required": [
+        "expression"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.admissionregistration.v1alpha1.Variable": {
+      "description": "Variable is the definition of a variable that is used for composition.",
+      "properties": {
+        "expression": {
+          "description": "Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "expression"
       ],
       "type": "object",
@@ -6650,6 +6682,17 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.core.v1.HostIP": {
+      "description": "HostIP represents a single IP address allocated to the host.",
+      "properties": {
+        "ip": {
+          "description": "IP is the IP address assigned to the host",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.core.v1.HostPathVolumeSource": {
       "description": "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.",
       "properties": {
@@ -8371,10 +8414,10 @@
       "additionalProperties": false
     },
     "io.k8s.api.core.v1.PodIP": {
-      "description": "IP address information for entries in the (plural) PodIPs field. Each entry includes:\n\n\tIP: An IP address allocated to the pod. Routable at least within the cluster.",
+      "description": "PodIP represents a single IP address allocated to the pod.",
       "properties": {
         "ip": {
-          "description": "ip is an IP address (IPv4 or IPv6) assigned to the pod",
+          "description": "IP is the IP address assigned to the pod",
           "type": "string"
         }
       },
@@ -8822,8 +8865,18 @@
           "type": "array"
         },
         "hostIP": {
-          "description": "IP address of the host to which the pod is assigned. Empty if not yet scheduled.",
+          "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod",
           "type": "string"
+        },
+        "hostIPs": {
+          "description": "hostIPs holds the IP addresses allocated to the host. If this field is specified, the first entry must match the hostIP field. This list is empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.HostIP"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic",
+          "x-kubernetes-patch-merge-key": "ip",
+          "x-kubernetes-patch-strategy": "merge"
         },
         "initContainerStatuses": {
           "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status",
@@ -8845,7 +8898,7 @@
           "type": "string"
         },
         "podIP": {
-          "description": "IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.",
+          "description": "podIP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.",
           "type": "string"
         },
         "podIPs": {
@@ -11355,6 +11408,23 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.flowcontrol.v1beta2.ExemptPriorityLevelConfiguration": {
+      "description": "ExemptPriorityLevelConfiguration describes the configurable aspects of the handling of exempt requests. In the mandatory exempt configuration object the values in the fields here can be modified by authorized users, unlike the rest of the `spec`.",
+      "properties": {
+        "lendablePercent": {
+          "description": "`lendablePercent` prescribes the fraction of the level's NominalCL that can be borrowed by other priority levels.  This value of this field must be between 0 and 100, inclusive, and it defaults to 0. The number of seats that other levels can borrow from this level, known as this level's LendableConcurrencyLimit (LendableCL), is defined as follows.\n\nLendableCL(i) = round( NominalCL(i) * lendablePercent(i)/100.0 )",
+          "format": "int32",
+          "type": "integer"
+        },
+        "nominalConcurrencyShares": {
+          "description": "`nominalConcurrencyShares` (NCS) contributes to the computation of the NominalConcurrencyLimit (NominalCL) of this level. This is the number of execution seats nominally reserved for this priority level. This DOES NOT limit the dispatching from this priority level but affects the other priority levels through the borrowing mechanism. The server's concurrency limit (ServerCL) is divided among all the priority levels in proportion to their NCS values:\n\nNominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs = sum[priority level k] NCS(k)\n\nBigger numbers mean a larger nominal concurrency limit, at the expense of every other priority level. This field has a default value of zero.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.flowcontrol.v1beta2.FlowDistinguisherMethod": {
       "description": "FlowDistinguisherMethod specifies the method of a flow distinguisher.",
       "properties": {
@@ -11768,6 +11838,10 @@
     "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationSpec": {
       "description": "PriorityLevelConfigurationSpec specifies the configuration of a priority level.",
       "properties": {
+        "exempt": {
+          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta2.ExemptPriorityLevelConfiguration",
+          "description": "`exempt` specifies how requests are handled for an exempt priority level. This field MUST be empty if `type` is `\"Limited\"`. This field MAY be non-empty if `type` is `\"Exempt\"`. If empty and `type` is `\"Exempt\"` then the default values for `ExemptPriorityLevelConfiguration` apply."
+        },
         "limited": {
           "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta2.LimitedPriorityLevelConfiguration",
           "description": "`limited` specifies how requests are handled for a Limited priority level. This field must be non-empty if and only if `type` is `\"Limited\"`."
@@ -11785,6 +11859,7 @@
         {
           "discriminator": "type",
           "fields-to-discriminateBy": {
+            "exempt": "Exempt",
             "limited": "Limited"
           }
         }
@@ -11945,6 +12020,23 @@
       "required": [
         "name"
       ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.flowcontrol.v1beta3.ExemptPriorityLevelConfiguration": {
+      "description": "ExemptPriorityLevelConfiguration describes the configurable aspects of the handling of exempt requests. In the mandatory exempt configuration object the values in the fields here can be modified by authorized users, unlike the rest of the `spec`.",
+      "properties": {
+        "lendablePercent": {
+          "description": "`lendablePercent` prescribes the fraction of the level's NominalCL that can be borrowed by other priority levels.  This value of this field must be between 0 and 100, inclusive, and it defaults to 0. The number of seats that other levels can borrow from this level, known as this level's LendableConcurrencyLimit (LendableCL), is defined as follows.\n\nLendableCL(i) = round( NominalCL(i) * lendablePercent(i)/100.0 )",
+          "format": "int32",
+          "type": "integer"
+        },
+        "nominalConcurrencyShares": {
+          "description": "`nominalConcurrencyShares` (NCS) contributes to the computation of the NominalConcurrencyLimit (NominalCL) of this level. This is the number of execution seats nominally reserved for this priority level. This DOES NOT limit the dispatching from this priority level but affects the other priority levels through the borrowing mechanism. The server's concurrency limit (ServerCL) is divided among all the priority levels in proportion to their NCS values:\n\nNominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs = sum[priority level k] NCS(k)\n\nBigger numbers mean a larger nominal concurrency limit, at the expense of every other priority level. This field has a default value of zero.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
       "type": "object",
       "additionalProperties": false
     },
@@ -12174,7 +12266,7 @@
           "description": "`limitResponse` indicates what to do with requests that can not be executed right now"
         },
         "nominalConcurrencyShares": {
-          "description": "`nominalConcurrencyShares` (NCS) contributes to the computation of the NominalConcurrencyLimit (NominalCL) of this level. This is the number of execution seats available at this priority level. This is used both for requests dispatched from this priority level as well as requests dispatched from other priority levels borrowing seats from this level. The server's concurrency limit (ServerCL) is divided among the Limited priority levels in proportion to their NCS values:\n\nNominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs = sum[limited priority level k] NCS(k)\n\nBigger numbers mean a larger nominal concurrency limit, at the expense of every other Limited priority level. This field has a default value of 30.",
+          "description": "`nominalConcurrencyShares` (NCS) contributes to the computation of the NominalConcurrencyLimit (NominalCL) of this level. This is the number of execution seats available at this priority level. This is used both for requests dispatched from this priority level as well as requests dispatched from other priority levels borrowing seats from this level. The server's concurrency limit (ServerCL) is divided among the Limited priority levels in proportion to their NCS values:\n\nNominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs = sum[priority level k] NCS(k)\n\nBigger numbers mean a larger nominal concurrency limit, at the expense of every other priority level. This field has a default value of 30.",
           "format": "int32",
           "type": "integer"
         }
@@ -12363,6 +12455,10 @@
     "io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationSpec": {
       "description": "PriorityLevelConfigurationSpec specifies the configuration of a priority level.",
       "properties": {
+        "exempt": {
+          "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta3.ExemptPriorityLevelConfiguration",
+          "description": "`exempt` specifies how requests are handled for an exempt priority level. This field MUST be empty if `type` is `\"Limited\"`. This field MAY be non-empty if `type` is `\"Exempt\"`. If empty and `type` is `\"Exempt\"` then the default values for `ExemptPriorityLevelConfiguration` apply."
+        },
         "limited": {
           "$ref": "#/definitions/io.k8s.api.flowcontrol.v1beta3.LimitedPriorityLevelConfiguration",
           "description": "`limited` specifies how requests are handled for a Limited priority level. This field must be non-empty if and only if `type` is `\"Limited\"`."
@@ -12380,6 +12476,7 @@
         {
           "discriminator": "type",
           "fields-to-discriminateBy": {
+            "exempt": "Exempt",
             "limited": "Limited"
           }
         }

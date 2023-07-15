@@ -79,6 +79,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Validation"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Variable"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.ServerStorageVersion"
     },
     {
@@ -643,6 +646,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostAlias"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostIP"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostPathVolumeSource"
     },
     {
@@ -1063,6 +1069,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1.EventSeries"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.ExemptPriorityLevelConfiguration"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowDistinguisherMethod"
     },
     {
@@ -1127,6 +1136,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.UserSubject"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.ExemptPriorityLevelConfiguration"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowDistinguisherMethod"

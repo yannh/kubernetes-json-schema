@@ -53,6 +53,22 @@
         "null"
       ],
       "x-kubernetes-list-type": "atomic"
+    },
+    "variables": {
+      "description": "Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Variable"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
     }
   },
   "type": "object",
