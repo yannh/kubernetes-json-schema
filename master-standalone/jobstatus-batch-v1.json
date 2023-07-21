@@ -124,6 +124,14 @@
         "null"
       ]
     },
+    "terminating": {
+      "description": "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).\n\nThis field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "uncountedTerminatedPods": {
       "description": "UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't been accounted in Job status counters.",
       "properties": {

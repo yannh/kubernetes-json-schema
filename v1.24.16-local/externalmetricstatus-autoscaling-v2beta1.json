@@ -1,0 +1,30 @@
+{
+  "description": "ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.",
+  "properties": {
+    "currentAverageValue": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "currentAverageValue is the current value of metric averaged over autoscaled pods."
+    },
+    "currentValue": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "currentValue is the current value of the metric (as a quantity)"
+    },
+    "metricName": {
+      "description": "metricName is the name of a metric used for autoscaling in metric system.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metricSelector": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+      "description": "metricSelector is used to identify a specific time series within a given metric."
+    }
+  },
+  "required": [
+    "metricName",
+    "currentValue"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
