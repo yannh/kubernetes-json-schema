@@ -11,7 +11,7 @@
     "items": {
       "description": "List of ValidatingAdmissionPolicy.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicy"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1beta1.ValidatingAdmissionPolicy"
       },
       "type": [
         "array",
@@ -38,7 +38,7 @@
     {
       "group": "admissionregistration.k8s.io",
       "kind": "ValidatingAdmissionPolicyList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
