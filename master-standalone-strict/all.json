@@ -1081,6 +1081,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeProjection"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeResourceRequirements"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource"
     },
     {

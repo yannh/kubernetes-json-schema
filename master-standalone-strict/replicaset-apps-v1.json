@@ -8677,36 +8677,8 @@
                                     "additionalProperties": false
                                   },
                                   "resources": {
-                                    "description": "ResourceRequirements describes the compute resource requirements.",
+                                    "description": "VolumeResourceRequirements describes the storage resource requirements for a volume.",
                                     "properties": {
-                                      "claims": {
-                                        "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
-                                        "items": {
-                                          "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
-                                          "properties": {
-                                            "name": {
-                                              "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "name"
-                                          ],
-                                          "type": [
-                                            "object",
-                                            "null"
-                                          ],
-                                          "additionalProperties": false
-                                        },
-                                        "type": [
-                                          "array",
-                                          "null"
-                                        ],
-                                        "x-kubernetes-list-map-keys": [
-                                          "name"
-                                        ],
-                                        "x-kubernetes-list-type": "map"
-                                      },
                                       "limits": {
                                         "additionalProperties": {
                                           "oneOf": [
