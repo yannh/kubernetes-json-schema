@@ -25,7 +25,7 @@
               "array",
               "null"
             ],
-            "x-kubernetes-list-type": "set"
+            "x-kubernetes-list-type": "atomic"
           }
         },
         "type": [
