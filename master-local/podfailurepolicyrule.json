@@ -25,8 +25,7 @@
     }
   },
   "required": [
-    "action",
-    "onPodConditions"
+    "action"
   ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"

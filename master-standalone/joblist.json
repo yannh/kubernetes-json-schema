@@ -410,13 +410,15 @@
                               "null"
                             ]
                           },
-                          "type": "array",
+                          "type": [
+                            "array",
+                            "null"
+                          ],
                           "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
-                        "action",
-                        "onPodConditions"
+                        "action"
                       ],
                       "type": [
                         "object",
