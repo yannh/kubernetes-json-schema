@@ -1,0 +1,47 @@
+{
+  "description": "LeaseSpec is a specification of a Lease.",
+  "properties": {
+    "acquireTime": {
+      "description": "MicroTime is version of Time with microsecond level precision.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "holderIdentity": {
+      "description": "holderIdentity contains the identity of the holder of a current lease.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "leaseDurationSeconds": {
+      "description": "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed RenewTime.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "leaseTransitions": {
+      "description": "leaseTransitions is the number of transitions of a lease between holders.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "renewTime": {
+      "description": "MicroTime is version of Time with microsecond level precision.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
