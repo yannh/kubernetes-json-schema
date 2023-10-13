@@ -307,13 +307,6 @@
                       "string",
                       "null"
                     ]
-                  },
-                  "uid": {
-                    "description": "UID is the uid of the object being referenced.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
                   }
                 },
                 "type": [
