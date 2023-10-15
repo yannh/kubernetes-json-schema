@@ -1339,15 +1339,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.ServiceBackendPort"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDR"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRSpec"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
     },
     {
