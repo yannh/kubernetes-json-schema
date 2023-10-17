@@ -9,6 +9,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HTTPGetAction",
       "description": "HTTPGet specifies the http request to perform."
     },
+    "sleep": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SleepAction",
+      "description": "Sleep represents the duration that the container should sleep before being terminated."
+    },
     "tcpSocket": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.TCPSocketAction",
       "description": "Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified."

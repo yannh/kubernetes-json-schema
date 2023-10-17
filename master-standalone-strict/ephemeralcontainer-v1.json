@@ -394,6 +394,24 @@
               ],
               "additionalProperties": false
             },
+            "sleep": {
+              "description": "SleepAction describes a \"sleep\" action.",
+              "properties": {
+                "seconds": {
+                  "description": "Seconds is the number of seconds to sleep.",
+                  "format": "int64",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "seconds"
+              ],
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false
+            },
             "tcpSocket": {
               "description": "TCPSocketAction describes an action based on opening a socket",
               "properties": {
@@ -535,6 +553,24 @@
               },
               "required": [
                 "port"
+              ],
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false
+            },
+            "sleep": {
+              "description": "SleepAction describes a \"sleep\" action.",
+              "properties": {
+                "seconds": {
+                  "description": "Seconds is the number of seconds to sleep.",
+                  "format": "int64",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "seconds"
               ],
               "type": [
                 "object",
