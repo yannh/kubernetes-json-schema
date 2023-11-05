@@ -1,6 +1,10 @@
 {
   "description": "Projection that may be projected along with other supported volume types",
   "properties": {
+    "clusterTrustBundle": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClusterTrustBundleProjection",
+      "description": "ClusterTrustBundle allows a pod to access the `.spec.trustBundle` field of ClusterTrustBundle objects in an auto-updating file.\n\nAlpha, gated by the ClusterTrustBundleProjection feature gate.\n\nClusterTrustBundle objects can either be selected by name, or by the combination of signer name and a label selector.\n\nKubelet performs aggressive normalization of the PEM contents written into the pod filesystem.  Esoteric PEM features such as inter-block comments and block headers are stripped.  Certificates are deduplicated. The ordering of certificates within the file is arbitrary, and Kubelet may change the order over time."
+    },
     "configMap": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMapProjection",
       "description": "configMap information about the configMap data to project"
