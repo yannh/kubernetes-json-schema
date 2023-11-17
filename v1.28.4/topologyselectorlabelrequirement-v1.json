@@ -1,0 +1,31 @@
+{
+  "description": "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.",
+  "properties": {
+    "key": {
+      "description": "The label key that the selector applies to.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "values": {
+      "description": "An array of string values. One value must match the label to be selected. Each entry in Values is ORed.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "key",
+    "values"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
