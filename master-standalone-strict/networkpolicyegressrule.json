@@ -47,7 +47,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "to": {
       "description": "to is a list of destinations for outgoing traffic of pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all destinations (traffic not restricted by destination). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the to list.",
@@ -72,7 +73,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               }
             },
             "required": [
@@ -111,7 +113,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -127,7 +130,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "matchLabels": {
                 "additionalProperties": {
@@ -177,7 +181,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -193,7 +198,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "matchLabels": {
                 "additionalProperties": {
@@ -226,7 +232,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object",

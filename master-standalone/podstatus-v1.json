@@ -58,6 +58,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -444,7 +448,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "ephemeralContainerStatuses": {
       "description": "Status for any ephemeral containers that have run in this pod.",
@@ -829,7 +834,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "hostIP": {
       "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod",
@@ -1247,7 +1253,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "message": {
       "description": "A human readable message indicating details about why the pod is in this condition.",
@@ -1299,6 +1306,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "ip"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "ip",
       "x-kubernetes-patch-strategy": "merge"
     },

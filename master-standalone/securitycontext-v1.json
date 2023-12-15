@@ -22,7 +22,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "drop": {
           "description": "Removed capabilities",
@@ -35,7 +36,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": [

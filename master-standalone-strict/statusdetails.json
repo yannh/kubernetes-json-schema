@@ -37,7 +37,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "group": {
       "description": "The group attribute of the resource associated with the status StatusReason.",

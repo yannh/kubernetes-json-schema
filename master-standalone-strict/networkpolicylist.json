@@ -82,6 +82,7 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-type": "set",
                 "x-kubernetes-patch-strategy": "merge"
               },
               "generateName": {
@@ -177,7 +178,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "name": {
                 "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -246,6 +248,10 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-map-keys": [
+                  "uid"
+                ],
+                "x-kubernetes-list-type": "map",
                 "x-kubernetes-patch-merge-key": "uid",
                 "x-kubernetes-patch-strategy": "merge"
               },
@@ -331,7 +337,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     },
                     "to": {
                       "description": "to is a list of destinations for outgoing traffic of pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all destinations (traffic not restricted by destination). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the to list.",
@@ -356,7 +363,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "required": [
@@ -395,7 +403,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -411,7 +420,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -461,7 +471,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -477,7 +488,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -510,7 +522,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "type": [
@@ -522,7 +535,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "ingress": {
                 "description": "ingress is a list of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic source is the pod's local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default)",
@@ -552,7 +566,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "required": [
@@ -591,7 +606,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -607,7 +623,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -657,7 +674,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -673,7 +691,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -706,7 +725,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     },
                     "ports": {
                       "description": "ports is a list of ports which should be made accessible on the pods selected for this rule. Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.",
@@ -754,7 +774,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "type": [
@@ -766,7 +787,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "podSelector": {
                 "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
@@ -795,7 +817,8 @@
                           "type": [
                             "array",
                             "null"
-                          ]
+                          ],
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -811,7 +834,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "matchLabels": {
                     "additionalProperties": {
@@ -842,7 +866,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               }
             },
             "required": [

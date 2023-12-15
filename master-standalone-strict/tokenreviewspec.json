@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "token": {
       "description": "Token is the opaque bearer token.",

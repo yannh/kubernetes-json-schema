@@ -31,7 +31,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "nonResourceAttributes": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.NonResourceAttributes",

@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "dataSource": {
       "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
@@ -159,7 +160,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               }
             },
             "required": [
@@ -174,7 +176,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "matchLabels": {
           "additionalProperties": {

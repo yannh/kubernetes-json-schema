@@ -40,7 +40,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "versions": {
       "description": "versions are the versions supported in this group.",
@@ -50,7 +51,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "required": [

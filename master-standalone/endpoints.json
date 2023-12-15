@@ -70,6 +70,7 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
         "generateName": {
@@ -164,7 +165,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -232,6 +234,10 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-map-keys": [
+            "uid"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "uid",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -362,7 +368,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           },
           "notReadyAddresses": {
             "description": "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.",
@@ -459,7 +466,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           },
           "ports": {
             "description": "Port numbers available on the related IP addresses.",
@@ -505,7 +513,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           }
         },
         "type": [
@@ -516,7 +525,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object",

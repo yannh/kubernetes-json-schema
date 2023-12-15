@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "awsElasticBlockStore": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource",
@@ -96,7 +97,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "nfs": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NFSVolumeSource",

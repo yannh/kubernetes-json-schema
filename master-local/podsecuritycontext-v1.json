@@ -59,7 +59,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "sysctls": {
       "description": "Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.",
@@ -69,7 +70,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "windowsOptions": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions",

@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "authenticated": {
       "description": "Authenticated indicates that the token was associated with a known user.",

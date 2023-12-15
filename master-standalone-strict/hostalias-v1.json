@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "ip": {
       "description": "IP address of the host file entry.",

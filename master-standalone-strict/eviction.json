@@ -29,7 +29,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "gracePeriodSeconds": {
           "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.",
@@ -448,6 +449,7 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
         "generateName": {
@@ -543,7 +545,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -612,6 +615,10 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-map-keys": [
+            "uid"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "uid",
           "x-kubernetes-patch-strategy": "merge"
         },

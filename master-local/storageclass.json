@@ -51,7 +51,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "parameters": {
       "additionalProperties": {

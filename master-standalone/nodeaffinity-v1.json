@@ -33,7 +33,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -48,7 +49,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "matchFields": {
                 "description": "A list of node selector requirements by node's fields.",
@@ -74,7 +76,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -89,7 +92,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               }
             },
             "type": "object",
@@ -113,7 +117,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "requiredDuringSchedulingIgnoredDuringExecution": {
       "description": "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.",
@@ -147,7 +152,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -162,7 +168,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "matchFields": {
                 "description": "A list of node selector requirements by node's fields.",
@@ -188,7 +195,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -203,7 +211,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               }
             },
             "type": [
@@ -212,7 +221,8 @@
             ],
             "x-kubernetes-map-type": "atomic"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [

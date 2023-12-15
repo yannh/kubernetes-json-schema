@@ -36,7 +36,8 @@
                           "type": [
                             "array",
                             "null"
-                          ]
+                          ],
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -52,7 +53,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "matchFields": {
                     "description": "A list of node selector requirements by node's fields.",
@@ -78,7 +80,8 @@
                           "type": [
                             "array",
                             "null"
-                          ]
+                          ],
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -94,7 +97,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   }
                 },
                 "type": [
@@ -104,7 +108,8 @@
                 "x-kubernetes-map-type": "atomic",
                 "additionalProperties": false
               },
-              "type": "array"
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "required": [

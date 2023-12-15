@@ -31,7 +31,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   }
                 },
                 "required": [
@@ -46,7 +47,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "matchLabels": {
               "additionalProperties": {
@@ -139,7 +141,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
@@ -257,7 +260,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": [
@@ -302,7 +306,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",

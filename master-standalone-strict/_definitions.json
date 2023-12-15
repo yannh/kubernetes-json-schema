@@ -27,7 +27,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "clientConfig": {
           "$ref": "#/definitions/io.k8s.api.admissionregistration.v1.WebhookClientConfig",
@@ -75,7 +76,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.admissionregistration.v1.RuleWithOperations"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "sideEffects": {
           "description": "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.",
@@ -120,6 +122,10 @@
             "$ref": "#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhook"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         }
@@ -252,7 +258,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "clientConfig": {
           "$ref": "#/definitions/io.k8s.api.admissionregistration.v1.WebhookClientConfig",
@@ -296,7 +303,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.admissionregistration.v1.RuleWithOperations"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "sideEffects": {
           "description": "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.",
@@ -341,6 +349,10 @@
             "$ref": "#/definitions/io.k8s.api.admissionregistration.v1.ValidatingWebhook"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         }
@@ -1837,6 +1849,10 @@
             "$ref": "#/definitions/io.k8s.api.apps.v1.DaemonSetCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -2083,6 +2099,10 @@
             "$ref": "#/definitions/io.k8s.api.apps.v1.DeploymentCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -2279,6 +2299,10 @@
             "$ref": "#/definitions/io.k8s.api.apps.v1.ReplicaSetCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -2540,7 +2564,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PersistentVolumeClaim"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -2570,6 +2595,10 @@
             "$ref": "#/definitions/io.k8s.api.apps.v1.StatefulSetCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -2743,7 +2772,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "boundObjectRef": {
           "$ref": "#/definitions/io.k8s.api.authentication.v1.BoundObjectReference",
@@ -2828,7 +2858,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "token": {
           "description": "Token is the opaque bearer token.",
@@ -2846,7 +2877,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "authenticated": {
           "description": "Authenticated indicates that the token was associated with a known user.",
@@ -2882,7 +2914,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "uid": {
           "description": "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
@@ -3047,14 +3080,16 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "verbs": {
           "description": "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -3106,28 +3141,32 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resourceNames": {
           "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resources": {
           "description": "Resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.\n \"*/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "verbs": {
           "description": "Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -3300,7 +3339,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "nonResourceAttributes": {
           "$ref": "#/definitions/io.k8s.api.authorization.v1.NonResourceAttributes",
@@ -3364,14 +3404,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.authorization.v1.NonResourceRule"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resourceRules": {
           "description": "ResourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.authorization.v1.ResourceRule"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -5431,14 +5473,16 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "drop": {
           "description": "Removed capabilities",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -5452,7 +5496,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "path": {
           "description": "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
@@ -5489,7 +5534,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "path": {
           "description": "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
@@ -5667,6 +5713,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ComponentCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -5896,7 +5946,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.KeyToPath"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
@@ -5923,7 +5974,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.KeyToPath"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
@@ -5945,14 +5997,16 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "command": {
           "description": "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "env": {
           "description": "List of environment variables to set in the container. Cannot be updated.",
@@ -5960,6 +6014,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.EnvVar"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -5968,7 +6026,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.EnvFromSource"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "image": {
           "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
@@ -6058,6 +6117,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.VolumeDevice"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "devicePath"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "devicePath",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -6067,6 +6130,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.VolumeMount"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "mountPath"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "mountPath",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -6089,7 +6156,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "sizeBytes": {
           "description": "The size of the image in bytes.",
@@ -6321,7 +6389,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.DownwardAPIVolumeFile"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -6367,7 +6436,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.DownwardAPIVolumeFile"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -6451,21 +6521,24 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.EndpointAddress"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "notReadyAddresses": {
           "description": "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.EndpointAddress"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "ports": {
           "description": "Port numbers available on the related IP addresses.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.EndpointPort"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -6494,7 +6567,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.EndpointSubset"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -6618,14 +6692,16 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "command": {
           "description": "Entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "env": {
           "description": "List of environment variables to set in the container. Cannot be updated.",
@@ -6633,6 +6709,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.EnvVar"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -6641,7 +6721,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.EnvFromSource"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "image": {
           "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images",
@@ -6735,6 +6816,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.VolumeDevice"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "devicePath"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "devicePath",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -6744,6 +6829,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.VolumeMount"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "mountPath"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "mountPath",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -6937,7 +7026,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -6964,14 +7054,16 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "wwids": {
           "description": "wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -7187,7 +7279,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.HTTPHeader"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "path": {
           "description": "Path to access on the HTTP server.",
@@ -7235,7 +7328,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "ip": {
           "description": "IP address of the host file entry.",
@@ -7311,7 +7405,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "readOnly": {
           "description": "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
@@ -7371,7 +7466,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "readOnly": {
           "description": "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
@@ -7585,7 +7681,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.LimitRangeItem"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -7629,7 +7726,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.LoadBalancerIngress"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -7818,7 +7916,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -7833,6 +7932,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.NamespaceCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -7908,7 +8011,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PreferredSchedulingTerm"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "requiredDuringSchedulingIgnoredDuringExecution": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
@@ -8045,7 +8149,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelectorTerm"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -8071,7 +8176,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -8089,14 +8195,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelectorRequirement"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "matchFields": {
           "description": "A list of node selector requirements by node's fields.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelectorRequirement"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -8124,6 +8232,7 @@
             "type": "string"
           },
           "type": "array",
+          "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
         "providerID": {
@@ -8135,7 +8244,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.Taint"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "unschedulable": {
           "description": "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration",
@@ -8154,6 +8264,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeAddress"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -8177,6 +8291,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -8193,7 +8311,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerImage"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "nodeInfo": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeSystemInfo",
@@ -8208,14 +8327,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.AttachedVolume"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "volumesInUse": {
           "description": "List of attachable volumes in use (mounted) by the node.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -8425,7 +8546,7 @@
           "type": "string"
         },
         "reason": {
-          "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
+          "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"Resizing\" that means the underlying persistent volume is being resized.",
           "type": "string"
         },
         "status": {
@@ -8489,7 +8610,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "dataSource": {
           "$ref": "#/definitions/io.k8s.api.core.v1.TypedLocalObjectReference",
@@ -8535,7 +8657,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "allocatedResourceStatuses": {
           "additionalProperties": {
@@ -8560,11 +8683,15 @@
           "type": "object"
         },
         "conditions": {
-          "description": "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
+          "description": "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'Resizing'.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PersistentVolumeClaimCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -8667,7 +8794,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "awsElasticBlockStore": {
           "$ref": "#/definitions/io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource",
@@ -8742,7 +8870,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "nfs": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NFSVolumeSource",
@@ -8886,14 +9015,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.WeightedPodAffinityTerm"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "requiredDuringSchedulingIgnoredDuringExecution": {
           "description": "If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PodAffinityTerm"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -8931,7 +9062,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "topologyKey": {
           "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
@@ -8952,14 +9084,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.WeightedPodAffinityTerm"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "requiredDuringSchedulingIgnoredDuringExecution": {
           "description": "If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PodAffinityTerm"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -9008,21 +9142,24 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "options": {
           "description": "A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PodDNSConfigOption"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "searches": {
           "description": "A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -9210,14 +9347,16 @@
             "format": "int64",
             "type": "integer"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "sysctls": {
           "description": "Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.Sysctl"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "windowsOptions": {
           "$ref": "#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions",
@@ -9249,6 +9388,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.Container"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9270,6 +9413,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.EphemeralContainer"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9279,6 +9426,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.HostAlias"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "ip"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "ip",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9308,6 +9459,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.LocalObjectReference"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9317,6 +9472,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.Container"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9361,7 +9520,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.PodReadinessGate"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resourceClaims": {
           "description": "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
@@ -9435,7 +9595,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.Toleration"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "topologySpreadConstraints": {
           "description": "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed.",
@@ -9457,6 +9618,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge,retainKeys"
         }
@@ -9476,6 +9641,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.PodCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9484,14 +9653,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerStatus"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "ephemeralContainerStatuses": {
           "description": "Status for any ephemeral containers that have run in this pod.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerStatus"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "hostIP": {
           "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod",
@@ -9512,7 +9683,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerStatus"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "message": {
           "description": "A human readable message indicating details about why the pod is in this condition.",
@@ -9536,6 +9708,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.PodIP"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "ip"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "ip",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -9790,7 +9966,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.VolumeProjection"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -9851,7 +10028,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "pool": {
           "description": "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it",
@@ -9897,7 +10075,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "pool": {
           "description": "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it",
@@ -10073,6 +10252,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ReplicationControllerCondition"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -10235,7 +10418,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -10429,7 +10613,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.ScopedResourceSelectorRequirement"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -10452,7 +10637,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -10625,7 +10811,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.KeyToPath"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
@@ -10668,7 +10855,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.KeyToPath"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "optional": {
           "description": "optional field specify whether the Secret or its keys must be defined",
@@ -10788,7 +10976,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.LocalObjectReference"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "kind": {
           "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -10807,6 +10996,10 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ObjectReference"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         }
@@ -10982,7 +11175,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "externalName": {
           "description": "externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires `type` to be \"ExternalName\".",
@@ -11026,7 +11220,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "ports": {
           "description": "The list of ports that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
@@ -11278,7 +11473,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -11296,7 +11492,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.TopologySelectorLabelRequirement"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -13368,7 +13565,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -13617,7 +13815,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.IngressLoadBalancerIngress"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -13781,14 +13980,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyPort"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "to": {
           "description": "to is a list of destinations for outgoing traffic of pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all destinations (traffic not restricted by destination). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the to list.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyPeer"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -13802,14 +14003,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyPeer"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "ports": {
           "description": "ports is a list of ports which should be made accessible on the pods selected for this rule. Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyPort"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -13901,14 +14104,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyEgressRule"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "ingress": {
           "description": "ingress is a list of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic source is the pod's local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default)",
           "items": {
             "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicyIngressRule"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "podSelector": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
@@ -13919,7 +14124,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -14134,7 +14340,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -14479,7 +14686,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -14512,7 +14720,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.rbac.v1.PolicyRule"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -14552,7 +14761,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.rbac.v1.Subject"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -14654,35 +14864,40 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "nonResourceURLs": {
           "description": "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resourceNames": {
           "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "resources": {
           "description": "Resources is a list of resources this rule applies to. '*' represents all resources.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "verbs": {
           "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -14714,7 +14929,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.rbac.v1.PolicyRule"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -14754,7 +14970,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.rbac.v1.Subject"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -15630,11 +15847,11 @@
           "type": "boolean"
         },
         "fsGroupPolicy": {
-          "description": "fsGroupPolicy defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to the specific FSGroupPolicy values for additional details.\n\nThis field is immutable.\n\nDefaults to ReadWriteOnceWithFSType, which will examine each volume to determine if Kubernetes should modify ownership and permissions of the volume. With the default policy the defined fsGroup will only be applied if a fstype is defined and the volume's access mode contains ReadWriteOnce.",
+          "description": "fsGroupPolicy defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to the specific FSGroupPolicy values for additional details.\n\nThis field was immutable in Kubernetes < 1.29 and now is mutable.\n\nDefaults to ReadWriteOnceWithFSType, which will examine each volume to determine if Kubernetes should modify ownership and permissions of the volume. With the default policy the defined fsGroup will only be applied if a fstype is defined and the volume's access mode contains ReadWriteOnce.",
           "type": "string"
         },
         "podInfoOnMount": {
-          "description": "podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations, if set to true. If set to false, pod information will not be passed on mount. Default is false.\n\nThe CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext.\n\nThe following VolumeContext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. \"csi.storage.k8s.io/pod.name\": pod.Name \"csi.storage.k8s.io/pod.namespace\": pod.Namespace \"csi.storage.k8s.io/pod.uid\": string(pod.UID) \"csi.storage.k8s.io/ephemeral\": \"true\" if the volume is an ephemeral inline volume\n                                defined by a CSIVolumeSource, otherwise \"false\"\n\n\"csi.storage.k8s.io/ephemeral\" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the \"Persistent\" and \"Ephemeral\" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.\n\nThis field is immutable.",
+          "description": "podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations, if set to true. If set to false, pod information will not be passed on mount. Default is false.\n\nThe CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext.\n\nThe following VolumeContext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. \"csi.storage.k8s.io/pod.name\": pod.Name \"csi.storage.k8s.io/pod.namespace\": pod.Namespace \"csi.storage.k8s.io/pod.uid\": string(pod.UID) \"csi.storage.k8s.io/ephemeral\": \"true\" if the volume is an ephemeral inline volume\n                                defined by a CSIVolumeSource, otherwise \"false\"\n\n\"csi.storage.k8s.io/ephemeral\" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the \"Persistent\" and \"Ephemeral\" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.\n\nThis field was immutable in Kubernetes < 1.29 and now is mutable.",
           "type": "boolean"
         },
         "requiresRepublish": {
@@ -15725,7 +15942,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -15783,6 +16001,10 @@
             "$ref": "#/definitions/io.k8s.api.storage.v1.CSINodeDriver"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
         }
@@ -15853,11 +16075,7 @@
           "items": {
             "$ref": "#/definitions/io.k8s.api.storage.v1.CSIStorageCapacity"
           },
-          "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "name"
-          ],
-          "x-kubernetes-list-type": "map"
+          "type": "array"
         },
         "kind": {
           "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -15919,7 +16137,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "parameters": {
           "additionalProperties": {
@@ -16441,7 +16660,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "kind": {
           "description": "kind is the serialized kind of the resource. It is normally CamelCase and singular. Custom resource instances will use this value as the `kind` attribute in API calls.",
@@ -16460,7 +16680,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "singular": {
           "description": "singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.",
@@ -16502,7 +16723,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -16537,7 +16759,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object",
@@ -16551,7 +16774,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "deprecated": {
           "description": "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.",
@@ -16678,13 +16902,15 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "anyOf": {
           "items": {
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "default": {
           "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSON",
@@ -16709,7 +16935,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSON"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "example": {
           "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSON"
@@ -16779,7 +17006,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "pattern": {
           "type": "string"
@@ -16800,7 +17028,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "title": {
           "type": "string"
@@ -16824,7 +17053,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "x-kubernetes-list-type": {
           "description": "x-kubernetes-list-type annotates an array to further describe its topology. This extension must only be used on lists and may have 3 possible values:\n\n1) `atomic`: the list is treated as a single entity, like a scalar.\n     Atomic lists will be entirely replaced when updated. This extension\n     may be used on any type of list (struct, scalar, ...).\n2) `set`:\n     Sets are lists that must not have multiple items with the same value. Each\n     value must be a scalar, an object with x-kubernetes-map-type `atomic` or an\n     array with x-kubernetes-list-type `atomic`.\n3) `map`:\n     These lists are like maps in that their elements have a non-index key\n     used to identify them. Order is preserved upon merge. The map tag\n     must only be used on a list with elements of type object.\nDefaults to atomic for arrays.",
@@ -16958,7 +17188,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -17004,14 +17235,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ServerAddressByClientCIDR"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "versions": {
           "description": "versions are the versions supported in this group.",
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -17040,7 +17273,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIGroup"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "kind": {
           "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -17071,7 +17305,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "group": {
           "description": "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\".",
@@ -17094,7 +17329,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "singularName": {
           "description": "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.",
@@ -17149,7 +17385,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIResource"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -17185,14 +17422,16 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ServerAddressByClientCIDR"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "versions": {
           "description": "versions are the api versions that are available.",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -17260,7 +17499,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "gracePeriodSeconds": {
           "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.",
@@ -17613,7 +17853,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "matchLabels": {
           "additionalProperties": {
@@ -17643,7 +17884,8 @@
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -17746,6 +17988,7 @@
             "type": "string"
           },
           "type": "array",
+          "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
         "generateName": {
@@ -17769,7 +18012,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -17785,6 +18029,10 @@
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference"
           },
           "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "uid"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "uid",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -17894,7 +18142,8 @@
         },
         "details": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails",
-          "description": "Extended data associated with the reason.  Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type."
+          "description": "Extended data associated with the reason.  Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type.",
+          "x-kubernetes-list-type": "atomic"
         },
         "kind": {
           "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -17962,7 +18211,8 @@
           "items": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause"
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "group": {
           "description": "The group attribute of the resource associated with the status StatusReason.",

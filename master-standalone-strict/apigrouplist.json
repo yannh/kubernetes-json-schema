@@ -83,7 +83,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           },
           "versions": {
             "description": "versions are the versions supported in this group.",
@@ -109,7 +110,8 @@
               ],
               "additionalProperties": false
             },
-            "type": "array"
+            "type": "array",
+            "x-kubernetes-list-type": "atomic"
           }
         },
         "required": [
@@ -132,7 +134,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",

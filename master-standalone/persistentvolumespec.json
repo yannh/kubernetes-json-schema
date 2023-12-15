@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "awsElasticBlockStore": {
       "description": "Represents a Persistent Disk resource in AWS.\n\nAn AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.",
@@ -170,7 +171,8 @@
               "null"
             ]
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "path": {
           "description": "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
@@ -550,7 +552,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "wwids": {
           "description": "wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.",
@@ -563,7 +566,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": [
@@ -815,7 +819,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "readOnly": {
           "description": "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
@@ -897,7 +902,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "nfs": {
       "description": "Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.",
@@ -962,7 +968,8 @@
                           "type": [
                             "array",
                             "null"
-                          ]
+                          ],
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -977,7 +984,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "matchFields": {
                     "description": "A list of node selector requirements by node's fields.",
@@ -1003,7 +1011,8 @@
                           "type": [
                             "array",
                             "null"
-                          ]
+                          ],
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -1018,7 +1027,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   }
                 },
                 "type": [
@@ -1027,7 +1037,8 @@
                 ],
                 "x-kubernetes-map-type": "atomic"
               },
-              "type": "array"
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "required": [
@@ -1183,7 +1194,8 @@
               "null"
             ]
           },
-          "type": "array"
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         },
         "pool": {
           "description": "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it",

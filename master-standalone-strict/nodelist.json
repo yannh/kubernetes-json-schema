@@ -82,6 +82,7 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-type": "set",
                 "x-kubernetes-patch-strategy": "merge"
               },
               "generateName": {
@@ -177,7 +178,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "name": {
                 "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -246,6 +248,10 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-map-keys": [
+                  "uid"
+                ],
+                "x-kubernetes-list-type": "map",
                 "x-kubernetes-patch-merge-key": "uid",
                 "x-kubernetes-patch-strategy": "merge"
               },
@@ -357,6 +363,7 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-type": "set",
                 "x-kubernetes-patch-strategy": "merge"
               },
               "providerID": {
@@ -408,7 +415,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "unschedulable": {
                 "description": "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration",
@@ -455,6 +463,10 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-map-keys": [
+                  "type"
+                ],
+                "x-kubernetes-list-type": "map",
                 "x-kubernetes-patch-merge-key": "type",
                 "x-kubernetes-patch-strategy": "merge"
               },
@@ -562,6 +574,10 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-map-keys": [
+                  "type"
+                ],
+                "x-kubernetes-list-type": "map",
                 "x-kubernetes-patch-merge-key": "type",
                 "x-kubernetes-patch-strategy": "merge"
               },
@@ -779,7 +795,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     },
                     "sizeBytes": {
                       "description": "The size of the image in bytes.",
@@ -799,7 +816,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "nodeInfo": {
                 "description": "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.",
@@ -897,7 +915,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "volumesInUse": {
                 "description": "List of attachable volumes in use (mounted) by the node.",
@@ -910,7 +929,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               }
             },
             "type": [

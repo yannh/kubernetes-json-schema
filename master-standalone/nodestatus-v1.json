@@ -28,6 +28,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -134,6 +138,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -342,7 +350,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           },
           "sizeBytes": {
             "description": "The size of the image in bytes.",
@@ -361,7 +370,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "nodeInfo": {
       "description": "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.",
@@ -457,7 +467,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "volumesInUse": {
       "description": "List of attachable volumes in use (mounted) by the node.",
@@ -470,7 +481,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object",

@@ -82,6 +82,7 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-type": "set",
                 "x-kubernetes-patch-strategy": "merge"
               },
               "generateName": {
@@ -177,7 +178,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "name": {
                 "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -246,6 +248,10 @@
                   "array",
                   "null"
                 ],
+                "x-kubernetes-list-map-keys": [
+                  "uid"
+                ],
+                "x-kubernetes-list-type": "map",
                 "x-kubernetes-patch-merge-key": "uid",
                 "x-kubernetes-patch-strategy": "merge"
               },
@@ -319,7 +325,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "externalName": {
                 "description": "externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires `type` to be \"ExternalName\".",
@@ -396,7 +403,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "ports": {
                 "description": "The list of ports that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
@@ -683,7 +691,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   }
                 },
                 "type": [

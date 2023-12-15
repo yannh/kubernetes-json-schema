@@ -70,6 +70,7 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
         "generateName": {
@@ -164,7 +165,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -232,6 +234,10 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-map-keys": [
+            "uid"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "uid",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -275,7 +281,8 @@
                 "null"
               ]
             },
-            "type": "array"
+            "type": "array",
+            "x-kubernetes-list-type": "atomic"
           },
           "clientConfig": {
             "description": "WebhookClientConfig contains the information to make a TLS connection with the webhook",
@@ -413,7 +420,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -428,7 +436,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "matchLabels": {
                 "additionalProperties": {
@@ -477,7 +486,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "required": [
@@ -492,7 +502,8 @@
                 "type": [
                   "array",
                   "null"
-                ]
+                ],
+                "x-kubernetes-list-type": "atomic"
               },
               "matchLabels": {
                 "additionalProperties": {
@@ -598,7 +609,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           },
           "sideEffects": {
             "description": "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.",
@@ -628,6 +640,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     }

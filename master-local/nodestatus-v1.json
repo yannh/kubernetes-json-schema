@@ -10,6 +10,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -42,6 +46,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -61,7 +69,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "nodeInfo": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSystemInfo",
@@ -82,7 +91,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "volumesInUse": {
       "description": "List of attachable volumes in use (mounted) by the node.",
@@ -95,7 +105,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object",

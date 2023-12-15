@@ -9,7 +9,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "requiredDuringSchedulingIgnoredDuringExecution": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",

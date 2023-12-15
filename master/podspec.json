@@ -29,6 +29,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -59,6 +63,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -71,6 +79,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "ip"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "ip",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -118,6 +130,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -130,6 +146,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -198,7 +218,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "resourceClaims": {
       "description": "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
@@ -308,7 +329,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "topologySpreadConstraints": {
       "description": "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed.",
@@ -336,6 +358,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge,retainKeys"
     }

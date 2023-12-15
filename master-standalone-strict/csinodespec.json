@@ -43,7 +43,8 @@
             "type": [
               "array",
               "null"
-            ]
+            ],
+            "x-kubernetes-list-type": "atomic"
           }
         },
         "required": [
@@ -60,6 +61,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     }

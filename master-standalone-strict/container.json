@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "command": {
       "description": "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
@@ -25,7 +26,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "env": {
       "description": "List of environment variables to set in the container. Cannot be updated.",
@@ -197,6 +199,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -270,7 +276,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "image": {
       "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
@@ -306,7 +313,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 }
               },
               "type": [
@@ -352,7 +360,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "path": {
                   "description": "Path to access on the HTTP server.",
@@ -472,7 +481,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 }
               },
               "type": [
@@ -518,7 +528,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "path": {
                   "description": "Path to access on the HTTP server.",
@@ -645,7 +656,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": [
@@ -723,7 +735,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "path": {
               "description": "Path to access on the HTTP server.",
@@ -933,7 +946,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": [
@@ -1011,7 +1025,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "path": {
               "description": "Path to access on the HTTP server.",
@@ -1281,7 +1296,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "drop": {
               "description": "Removed capabilities",
@@ -1294,7 +1310,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": [
@@ -1479,7 +1496,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": [
@@ -1557,7 +1575,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "path": {
               "description": "Path to access on the HTTP server.",
@@ -1745,6 +1764,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "devicePath"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "devicePath",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -1804,6 +1827,10 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "mountPath"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "mountPath",
       "x-kubernetes-patch-strategy": "merge"
     },
