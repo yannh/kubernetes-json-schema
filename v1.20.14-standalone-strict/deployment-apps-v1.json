@@ -1695,8 +1695,7 @@
                       "image": {
                         "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
                         "type": [
-                          "string",
-                          "null"
+                          "string"
                         ]
                       },
                       "imagePullPolicy": {
@@ -3029,7 +3028,8 @@
                       }
                     },
                     "required": [
-                      "name"
+                      "name",
+                      "image"
                     ],
                     "type": [
                       "object",
@@ -5113,8 +5113,7 @@
                       "image": {
                         "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
                         "type": [
-                          "string",
-                          "null"
+                          "string"
                         ]
                       },
                       "imagePullPolicy": {
@@ -6447,7 +6446,8 @@
                       }
                     },
                     "required": [
-                      "name"
+                      "name",
+                      "image"
                     ],
                     "type": [
                       "object",
