@@ -1,0 +1,93 @@
+{
+  "description": "ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.",
+  "properties": {
+    "chapAuthDiscovery": {
+      "description": "chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "chapAuthSession": {
+      "description": "chapAuthSession defines whether support iSCSI Session CHAP authentication",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "fsType": {
+      "description": "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "initiatorName": {
+      "description": "initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "iqn": {
+      "description": "iqn is Target iSCSI Qualified Name.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "iscsiInterface": {
+      "description": "iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lun": {
+      "description": "lun is iSCSI Target Lun number.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "portals": {
+      "description": "portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "readOnly": {
+      "description": "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "secretRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",
+      "description": "secretRef is the CHAP Secret for iSCSI target and initiator authentication"
+    },
+    "targetPortal": {
+      "description": "targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "targetPortal",
+    "iqn",
+    "lun"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
