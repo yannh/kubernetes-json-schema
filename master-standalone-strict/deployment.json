@@ -8037,7 +8037,7 @@
                   "additionalProperties": false
                 },
                 "serviceAccount": {
-                  "description": "DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.",
+                  "description": "DeprecatedServiceAccount is a deprecated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.",
                   "type": [
                     "string",
                     "null"
