@@ -37,6 +37,17 @@
       "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceValidation",
       "description": "schema describes the schema used for validation, pruning, and defaulting of this version of the custom resource."
     },
+    "selectableFields": {
+      "description": "selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.SelectableField"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
     "served": {
       "description": "served is a flag enabling/disabling this version from being served via REST APIs",
       "type": [
