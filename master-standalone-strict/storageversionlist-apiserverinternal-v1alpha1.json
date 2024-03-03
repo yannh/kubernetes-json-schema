@@ -318,10 +318,7 @@
                     },
                     "message": {
                       "description": "A human readable message indicating details about the transition.",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string"
                     },
                     "observedGeneration": {
                       "description": "If set, this represents the .metadata.generation that the condition was set based upon.",
@@ -347,7 +344,8 @@
                   "required": [
                     "type",
                     "status",
-                    "reason"
+                    "reason",
+                    "message"
                   ],
                   "type": [
                     "object",

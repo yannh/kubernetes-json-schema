@@ -1534,7 +1534,8 @@
       "required": [
         "type",
         "status",
-        "reason"
+        "reason",
+        "message"
       ],
       "type": "object",
       "additionalProperties": false
@@ -14230,6 +14231,9 @@
           "description": "ParentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
         }
       },
+      "required": [
+        "parentRef"
+      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -14253,6 +14257,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "resource",
+        "name"
+      ],
       "type": "object",
       "additionalProperties": false
     },

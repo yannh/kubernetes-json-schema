@@ -30,6 +30,10 @@
       ]
     }
   },
+  "required": [
+    "resource",
+    "name"
+  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

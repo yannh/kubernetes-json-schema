@@ -13,10 +13,7 @@
         },
         "name": {
           "description": "Name is the name of the object being referenced.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "namespace": {
           "description": "Namespace is the namespace of the object being referenced.",
@@ -27,18 +24,22 @@
         },
         "resource": {
           "description": "Resource is the resource of the object being referenced.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         }
       },
+      "required": [
+        "resource",
+        "name"
+      ],
       "type": [
         "object",
         "null"
       ]
     }
   },
+  "required": [
+    "parentRef"
+  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

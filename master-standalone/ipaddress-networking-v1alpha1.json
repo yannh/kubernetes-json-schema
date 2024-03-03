@@ -286,10 +286,7 @@
             },
             "name": {
               "description": "Name is the name of the object being referenced.",
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             },
             "namespace": {
               "description": "Namespace is the namespace of the object being referenced.",
@@ -300,18 +297,19 @@
             },
             "resource": {
               "description": "Resource is the resource of the object being referenced.",
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             }
           },
-          "type": [
-            "object",
-            "null"
-          ]
+          "required": [
+            "resource",
+            "name"
+          ],
+          "type": "object"
         }
       },
+      "required": [
+        "parentRef"
+      ],
       "type": [
         "object",
         "null"
