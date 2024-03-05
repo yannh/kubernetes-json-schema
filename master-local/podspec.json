@@ -71,7 +71,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "hostAliases": {
-      "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified. This is only valid for non-hostNetwork pods.",
+      "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HostAlias"
       },
@@ -259,7 +259,7 @@
       ]
     },
     "schedulingGates": {
-      "description": "SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.\n\nSchedulingGates can only be set at pod creation time, and be removed only afterwards.\n\nThis is a beta feature enabled by the PodSchedulingReadiness feature gate.",
+      "description": "SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.\n\nSchedulingGates can only be set at pod creation time, and be removed only afterwards.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodSchedulingGate"
       },
