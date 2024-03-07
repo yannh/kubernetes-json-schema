@@ -590,6 +590,13 @@
                     "null"
                   ]
                 },
+                "managedBy": {
+                  "description": "ManagedBy field indicates the controller that manages a Job. The k8s Job controller reconciles jobs which don't have this field at all or the field value is the reserved string `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first \"/\" must be a valid subdomain as defined by RFC 1123. All characters trailing the first \"/\" must be valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.\n\nThis field is alpha-level. The job controller accepts setting the field when the feature gate JobManagedBy is enabled (disabled by default).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
                 "manualSelector": {
                   "description": "manualSelector controls generation of pod labels and pod selectors. Leave `manualSelector` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in jobs that were created with the old `extensions/v1beta1` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector",
                   "type": [
@@ -3479,6 +3486,38 @@
                                       "null"
                                     ]
                                   },
+                                  "appArmorProfile": {
+                                    "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                                    "properties": {
+                                      "localhostProfile": {
+                                        "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      "type": {
+                                        "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type"
+                                    ],
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "x-kubernetes-unions": [
+                                      {
+                                        "discriminator": "type",
+                                        "fields-to-discriminateBy": {
+                                          "localhostProfile": "LocalhostProfile"
+                                        }
+                                      }
+                                    ],
+                                    "additionalProperties": false
+                                  },
                                   "capabilities": {
                                     "description": "Adds and removes POSIX capabilities from running containers.",
                                     "properties": {
@@ -5421,6 +5460,38 @@
                                       "boolean",
                                       "null"
                                     ]
+                                  },
+                                  "appArmorProfile": {
+                                    "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                                    "properties": {
+                                      "localhostProfile": {
+                                        "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      "type": {
+                                        "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type"
+                                    ],
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "x-kubernetes-unions": [
+                                      {
+                                        "discriminator": "type",
+                                        "fields-to-discriminateBy": {
+                                          "localhostProfile": "LocalhostProfile"
+                                        }
+                                      }
+                                    ],
+                                    "additionalProperties": false
                                   },
                                   "capabilities": {
                                     "description": "Adds and removes POSIX capabilities from running containers.",
@@ -7402,6 +7473,38 @@
                                       "null"
                                     ]
                                   },
+                                  "appArmorProfile": {
+                                    "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                                    "properties": {
+                                      "localhostProfile": {
+                                        "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      "type": {
+                                        "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type"
+                                    ],
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "x-kubernetes-unions": [
+                                      {
+                                        "discriminator": "type",
+                                        "fields-to-discriminateBy": {
+                                          "localhostProfile": "LocalhostProfile"
+                                        }
+                                      }
+                                    ],
+                                    "additionalProperties": false
+                                  },
                                   "capabilities": {
                                     "description": "Adds and removes POSIX capabilities from running containers.",
                                     "properties": {
@@ -8198,6 +8301,38 @@
                         "securityContext": {
                           "description": "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.",
                           "properties": {
+                            "appArmorProfile": {
+                              "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                              "properties": {
+                                "localhostProfile": {
+                                  "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "type": {
+                                  "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type"
+                              ],
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "x-kubernetes-unions": [
+                                {
+                                  "discriminator": "type",
+                                  "fields-to-discriminateBy": {
+                                    "localhostProfile": "LocalhostProfile"
+                                  }
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
                             "fsGroup": {
                               "description": "A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:\n\n1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----\n\nIf unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.",
                               "format": "int64",

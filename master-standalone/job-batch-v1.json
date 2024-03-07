@@ -313,6 +313,13 @@
             "null"
           ]
         },
+        "managedBy": {
+          "description": "ManagedBy field indicates the controller that manages a Job. The k8s Job controller reconciles jobs which don't have this field at all or the field value is the reserved string `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first \"/\" must be a valid subdomain as defined by RFC 1123. All characters trailing the first \"/\" must be valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.\n\nThis field is alpha-level. The job controller accepts setting the field when the feature gate JobManagedBy is enabled (disabled by default).",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "manualSelector": {
           "description": "manualSelector controls generation of pod labels and pod selectors. Leave `manualSelector` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in jobs that were created with the old `extensions/v1beta1` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector",
           "type": [
@@ -3121,6 +3128,37 @@
                               "null"
                             ]
                           },
+                          "appArmorProfile": {
+                            "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                            "properties": {
+                              "localhostProfile": {
+                                "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "type": {
+                                "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "x-kubernetes-unions": [
+                              {
+                                "discriminator": "type",
+                                "fields-to-discriminateBy": {
+                                  "localhostProfile": "LocalhostProfile"
+                                }
+                              }
+                            ]
+                          },
                           "capabilities": {
                             "description": "Adds and removes POSIX capabilities from running containers.",
                             "properties": {
@@ -5008,6 +5046,37 @@
                             "type": [
                               "boolean",
                               "null"
+                            ]
+                          },
+                          "appArmorProfile": {
+                            "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                            "properties": {
+                              "localhostProfile": {
+                                "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "type": {
+                                "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "x-kubernetes-unions": [
+                              {
+                                "discriminator": "type",
+                                "fields-to-discriminateBy": {
+                                  "localhostProfile": "LocalhostProfile"
+                                }
+                              }
                             ]
                           },
                           "capabilities": {
@@ -6936,6 +7005,37 @@
                               "null"
                             ]
                           },
+                          "appArmorProfile": {
+                            "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                            "properties": {
+                              "localhostProfile": {
+                                "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "type": {
+                                "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "x-kubernetes-unions": [
+                              {
+                                "discriminator": "type",
+                                "fields-to-discriminateBy": {
+                                  "localhostProfile": "LocalhostProfile"
+                                }
+                              }
+                            ]
+                          },
                           "capabilities": {
                             "description": "Adds and removes POSIX capabilities from running containers.",
                             "properties": {
@@ -7713,6 +7813,37 @@
                 "securityContext": {
                   "description": "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.",
                   "properties": {
+                    "appArmorProfile": {
+                      "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                      "properties": {
+                        "localhostProfile": {
+                          "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "type": {
+                          "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "x-kubernetes-unions": [
+                        {
+                          "discriminator": "type",
+                          "fields-to-discriminateBy": {
+                            "localhostProfile": "LocalhostProfile"
+                          }
+                        }
+                      ]
+                    },
                     "fsGroup": {
                       "description": "A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:\n\n1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----\n\nIf unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.",
                       "format": "int64",
@@ -10444,7 +10575,7 @@
       "description": "JobStatus represents the current state of a Job.",
       "properties": {
         "active": {
-          "description": "The number of pending and running pods which are not terminating (without a deletionTimestamp).",
+          "description": "The number of pending and running pods which are not terminating (without a deletionTimestamp). The value is zero for finished jobs.",
           "format": "int32",
           "type": [
             "integer",
@@ -10467,7 +10598,7 @@
           ]
         },
         "conditions": {
-          "description": "The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/",
+          "description": "The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true.\n\nA job is considered finished when it is in a terminal condition, either \"Complete\" or \"Failed\". At that point, all pods of the job are in terminal phase. Job cannot be both in the \"Complete\" and \"Failed\" conditions. Additionally, it cannot be in the \"Complete\" and \"FailureTarget\" conditions. The \"Complete\", \"Failed\" and \"FailureTarget\" conditions cannot be disabled.\n\nMore info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/",
           "items": {
             "description": "JobCondition describes current state of a job.",
             "properties": {
@@ -10528,7 +10659,7 @@
           "x-kubernetes-patch-strategy": "merge"
         },
         "failed": {
-          "description": "The number of pods which reached phase Failed.",
+          "description": "The number of pods which reached phase Failed. The value increases monotonically.",
           "format": "int32",
           "type": [
             "integer",
@@ -10536,14 +10667,14 @@
           ]
         },
         "failedIndexes": {
-          "description": "FailedIndexes holds the failed indexes when backoffLimitPerIndex=true. The indexes are represented in the text format analogous as for the `completedIndexes` field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\". This field is beta-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default).",
+          "description": "FailedIndexes holds the failed indexes when spec.backoffLimitPerIndex is set. The indexes are represented in the text format analogous as for the `completedIndexes` field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\". The set of failed indexes cannot overlap with the set of completed indexes.\n\nThis field is beta-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default).",
           "type": [
             "string",
             "null"
           ]
         },
         "ready": {
-          "description": "The number of pods which have a Ready condition.",
+          "description": "The number of pods which have a Ready condition. The value is zero (or null) for finished jobs.",
           "format": "int32",
           "type": [
             "integer",
@@ -10559,7 +10690,7 @@
           ]
         },
         "succeeded": {
-          "description": "The number of pods which reached phase Succeeded.",
+          "description": "The number of pods which reached phase Succeeded. The value increases monotonically for a given spec. However, it may decrease in reaction to scale down of elastic indexed jobs.",
           "format": "int32",
           "type": [
             "integer",
@@ -10567,7 +10698,7 @@
           ]
         },
         "terminating": {
-          "description": "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).\n\nThis field is beta-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (enabled by default).",
+          "description": "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp). The value is zero (or null) for finished jobs.\n\nThis field is beta-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (enabled by default).",
           "format": "int32",
           "type": [
             "integer",
