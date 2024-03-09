@@ -5080,6 +5080,10 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
           "description": "A label query over pods that should match the pod count. Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors"
         },
+        "successPolicy": {
+          "$ref": "#/definitions/io.k8s.api.batch.v1.SuccessPolicy",
+          "description": "successPolicy specifies the policy when the Job can be declared as succeeded. If empty, the default behavior applies - the Job is declared as succeeded only when the number of succeeded pods equals to the completions. When the field is specified, it must be immutable and works only for the Indexed Jobs. Once the Job meets the SuccessPolicy, the lingering pods are terminated.\n\nThis field  is alpha-level. To use this field, you must enable the `JobSuccessPolicy` feature gate (disabled by default)."
+        },
         "suspend": {
           "description": "suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.",
           "type": "boolean"
@@ -5265,6 +5269,40 @@
       "required": [
         "action"
       ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.batch.v1.SuccessPolicy": {
+      "description": "SuccessPolicy describes when a Job can be declared as succeeded based on the success of some indexes.",
+      "properties": {
+        "rules": {
+          "description": "rules represents the list of alternative rules for the declaring the Jobs as successful before `.status.succeeded >= .spec.completions`. Once any of the rules are met, the \"SucceededCriteriaMet\" condition is added, and the lingering pods are removed. The terminal state for such a Job has the \"Complete\" condition. Additionally, these rules are evaluated in order; Once the Job meets one of the rules, other rules are ignored. At most 20 elements are allowed.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.batch.v1.SuccessPolicyRule"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "rules"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.batch.v1.SuccessPolicyRule": {
+      "description": "SuccessPolicyRule describes rule for declaring a Job as succeeded. Each rule must have at least one of the \"succeededIndexes\" or \"succeededCount\" specified.",
+      "properties": {
+        "succeededCount": {
+          "description": "succeededCount specifies the minimal required size of the actual set of the succeeded indexes for the Job. When succeededCount is used along with succeededIndexes, the check is constrained only to the set of indexes specified by succeededIndexes. For example, given that succeededIndexes is \"1-4\", succeededCount is \"3\", and completed indexes are \"1\", \"3\", and \"5\", the Job isn't declared as succeeded because only \"1\" and \"3\" indexes are considered in that rules. When this field is null, this doesn't default to any value and is never evaluated at any time. When specified it needs to be a positive integer.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "succeededIndexes": {
+          "description": "succeededIndexes specifies the set of indexes which need to be contained in the actual set of the succeeded indexes for the Job. The list of indexes must be within 0 to \".spec.completions-1\" and must not contain duplicates. At least one element is required. The indexes are represented as intervals separated by commas. The intervals can be a decimal integer or a pair of decimal integers separated by a hyphen. The number are listed in represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\". When this field is null, this field doesn't default to any value and is never evaluated at any time.",
+          "type": "string"
+        }
+      },
       "type": "object",
       "additionalProperties": false
     },
@@ -15675,6 +15713,206 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.resource.v1alpha2.DriverAllocationResult": {
+      "description": "DriverAllocationResult contains vendor parameters and the allocation result for one request.",
+      "properties": {
+        "namedResources": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesAllocationResult",
+          "description": "NamedResources describes the allocation result when using the named resources model."
+        },
+        "vendorRequestParameters": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+          "description": "VendorRequestParameters are the per-request configuration parameters from the time that the claim was allocated."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.DriverRequests": {
+      "description": "DriverRequests describes all resources that are needed from one particular driver.",
+      "properties": {
+        "driverName": {
+          "description": "DriverName is the name used by the DRA driver kubelet plugin.",
+          "type": "string"
+        },
+        "requests": {
+          "description": "Requests describes all resources that are needed from the driver.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceRequest"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "vendorParameters": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+          "description": "VendorParameters are arbitrary setup parameters for all requests of the claim. They are ignored while allocating the claim."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesAllocationResult": {
+      "description": "NamedResourcesAllocationResult is used in AllocationResultModel.",
+      "properties": {
+        "name": {
+          "description": "Name is the name of the selected resource instance.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesAttribute": {
+      "description": "NamedResourcesAttribute is a combination of an attribute name and its value.",
+      "properties": {
+        "bool": {
+          "description": "BoolValue is a true/false value.",
+          "type": "boolean"
+        },
+        "int": {
+          "description": "IntValue is a 64-bit integer.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "intSlice": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesIntSlice",
+          "description": "IntSliceValue is an array of 64-bit integers."
+        },
+        "name": {
+          "description": "Name is unique identifier among all resource instances managed by the driver on the node. It must be a DNS subdomain.",
+          "type": "string"
+        },
+        "quantity": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+          "description": "QuantityValue is a quantity."
+        },
+        "string": {
+          "description": "StringValue is a string.",
+          "type": "string"
+        },
+        "stringSlice": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesStringSlice",
+          "description": "StringSliceValue is an array of strings."
+        },
+        "version": {
+          "description": "VersionValue is a semantic version according to semver.org spec 2.0.0.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesFilter": {
+      "description": "NamedResourcesFilter is used in ResourceFilterModel.",
+      "properties": {
+        "selector": {
+          "description": "Selector is a CEL expression which must evaluate to true if a resource instance is suitable. The language is as defined in https://kubernetes.io/docs/reference/using-api/cel/\n\nIn addition, for each type NamedResourcesin AttributeValue there is a map that resolves to the corresponding value of the instance under evaluation. For example:\n\n   attributes.quantity[\"a\"].isGreaterThan(quantity(\"0\")) &&\n   attributes.stringslice[\"b\"].isSorted()",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesInstance": {
+      "description": "NamedResourcesInstance represents one individual hardware instance that can be selected based on its attributes.",
+      "properties": {
+        "attributes": {
+          "description": "Attributes defines the attributes of this resource instance. The name of each attribute must be unique.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesAttribute"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "name": {
+          "description": "Name is unique identifier among all resource instances managed by the driver on the node. It must be a DNS subdomain.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesIntSlice": {
+      "description": "NamedResourcesIntSlice contains a slice of 64-bit integers.",
+      "properties": {
+        "ints": {
+          "description": "Ints is the slice of 64-bit integers.",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "ints"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesRequest": {
+      "description": "NamedResourcesRequest is used in ResourceRequestModel.",
+      "properties": {
+        "selector": {
+          "description": "Selector is a CEL expression which must evaluate to true if a resource instance is suitable. The language is as defined in https://kubernetes.io/docs/reference/using-api/cel/\n\nIn addition, for each type NamedResourcesin AttributeValue there is a map that resolves to the corresponding value of the instance under evaluation. For example:\n\n   attributes.quantity[\"a\"].isGreaterThan(quantity(\"0\")) &&\n   attributes.stringslice[\"b\"].isSorted()",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesResources": {
+      "description": "NamedResourcesResources is used in NodeResourceModel.",
+      "properties": {
+        "instances": {
+          "description": "The list of all individual resources instances currently available.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesInstance"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "instances"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.NamedResourcesStringSlice": {
+      "description": "NamedResourcesStringSlice contains a slice of strings.",
+      "properties": {
+        "strings": {
+          "description": "Strings is the slice of strings.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "strings"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.resource.v1alpha2.PodSchedulingContext": {
       "description": "PodSchedulingContext objects hold information that is needed to schedule a Pod with ResourceClaims that use \"WaitForFirstConsumer\" allocation mode.\n\nThis is an alpha type and requires enabling the DynamicResourceAllocation feature gate.",
       "properties": {
@@ -15898,6 +16136,90 @@
       ],
       "additionalProperties": false
     },
+    "io.k8s.api.resource.v1alpha2.ResourceClaimParameters": {
+      "description": "ResourceClaimParameters defines resource requests for a ResourceClaim in an in-tree format understood by Kubernetes.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "driverRequests": {
+          "description": "DriverRequests describes all resources that are needed for the allocated claim. A single claim may use resources coming from different drivers. For each driver, this array has at most one entry which then may have one or more per-driver requests.\n\nMay be empty, in which case the claim can always be allocated.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.DriverRequests"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "generatedFrom": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersReference",
+          "description": "If this object was created from some other resource, then this links back to that resource. This field is used to find the in-tree representation of the claim parameters when the parameter reference of the claim refers to some unknown type."
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClaimParameters"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "shareable": {
+          "description": "Shareable indicates whether the allocated claim is meant to be shareable by multiple consumers at the same time.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClaimParameters",
+          "version": "v1alpha2"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.ResourceClaimParametersList": {
+      "description": "ResourceClaimParametersList is a collection of ResourceClaimParameters.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of node resource capacity objects.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParameters"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClaimParametersList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClaimParametersList",
+          "version": "v1alpha2"
+        }
+      ],
+      "additionalProperties": false
+    },
     "io.k8s.api.resource.v1alpha2.ResourceClaimParametersReference": {
       "description": "ResourceClaimParametersReference contains enough information to let you locate the parameters for a ResourceClaim. The object must be in the same namespace as the ResourceClaim.",
       "properties": {
@@ -16113,6 +16435,10 @@
           "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference",
           "description": "ParametersRef references an arbitrary separate object that may hold parameters that will be used by the driver when allocating a resource that uses this class. A dynamic resource driver can distinguish between parameters stored here and and those stored in ResourceClaimSpec."
         },
+        "structuredParameters": {
+          "description": "If and only if allocation of claims using this class is handled via structured parameters, then StructuredParameters must be set to true.",
+          "type": "boolean"
+        },
         "suitableNodes": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
           "description": "Only nodes matching the selector will be considered by the scheduler when trying to find a Node that fits a Pod when that Pod uses a ResourceClaim that has not been allocated yet.\n\nSetting this field is optional. If null, all nodes are candidates."
@@ -16170,6 +16496,94 @@
       ],
       "additionalProperties": false
     },
+    "io.k8s.api.resource.v1alpha2.ResourceClassParameters": {
+      "description": "ResourceClassParameters defines resource requests for a ResourceClass in an in-tree format understood by Kubernetes.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "filters": {
+          "description": "Filters describes additional contraints that must be met when using the class.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceFilter"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "generatedFrom": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference",
+          "description": "If this object was created from some other resource, then this links back to that resource. This field is used to find the in-tree representation of the class parameters when the parameter reference of the class refers to some unknown type."
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClassParameters"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "vendorParameters": {
+          "description": "VendorParameters are arbitrary setup parameters for all claims using this class. They are ignored while allocating the claim. There must not be more than one entry per driver.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.VendorParameters"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClassParameters",
+          "version": "v1alpha2"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.ResourceClassParametersList": {
+      "description": "ResourceClassParametersList is a collection of ResourceClassParameters.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of node resource capacity objects.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParameters"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceClassParametersList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceClassParametersList",
+          "version": "v1alpha2"
+        }
+      ],
+      "additionalProperties": false
+    },
     "io.k8s.api.resource.v1alpha2.ResourceClassParametersReference": {
       "description": "ResourceClassParametersReference contains enough information to let you locate the parameters for a ResourceClass.",
       "properties": {
@@ -16197,6 +16611,21 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.resource.v1alpha2.ResourceFilter": {
+      "description": "ResourceFilter is a filter for resources from one particular driver.",
+      "properties": {
+        "driverName": {
+          "description": "DriverName is the name used by the DRA driver kubelet plugin.",
+          "type": "string"
+        },
+        "namedResources": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesFilter",
+          "description": "NamedResources describes a resource filter using the named resources model."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.resource.v1alpha2.ResourceHandle": {
       "description": "ResourceHandle holds opaque resource data for processing by a specific kubelet plugin.",
       "properties": {
@@ -16207,6 +16636,153 @@
         "driverName": {
           "description": "DriverName specifies the name of the resource driver whose kubelet plugin should be invoked to process this ResourceHandle's data once it lands on a node. This may differ from the DriverName set in ResourceClaimStatus this ResourceHandle is embedded in.",
           "type": "string"
+        },
+        "structuredData": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.StructuredResourceHandle",
+          "description": "If StructuredData is set, then it needs to be used instead of Data."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.ResourceRequest": {
+      "description": "ResourceRequest is a request for resources from one particular driver.",
+      "properties": {
+        "namedResources": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesRequest",
+          "description": "NamedResources describes a request for resources with the named resources model."
+        },
+        "vendorParameters": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+          "description": "VendorParameters are arbitrary setup parameters for the requested resource. They are ignored while allocating a claim."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.ResourceSlice": {
+      "description": "ResourceSlice provides information about available resources on individual nodes.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "driverName": {
+          "description": "DriverName identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceSlice"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "namedResources": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesResources",
+          "description": "NamedResources describes available resources using the named resources model."
+        },
+        "nodeName": {
+          "description": "NodeName identifies the node which provides the resources if they are local to a node.\n\nA field selector can be used to list only ResourceSlice objects with a certain node name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "driverName"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceSlice",
+          "version": "v1alpha2"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.ResourceSliceList": {
+      "description": "ResourceSliceList is a collection of ResourceSlices.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of node resource capacity objects.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.ResourceSlice"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ResourceSliceList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "ResourceSliceList",
+          "version": "v1alpha2"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.StructuredResourceHandle": {
+      "description": "StructuredResourceHandle is the in-tree representation of the allocation result.",
+      "properties": {
+        "nodeName": {
+          "description": "NodeName is the name of the node providing the necessary resources if the resources are local to a node.",
+          "type": "string"
+        },
+        "results": {
+          "description": "Results lists all allocated driver resources.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha2.DriverAllocationResult"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "vendorClaimParameters": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+          "description": "VendorClaimParameters are the per-claim configuration parameters from the resource claim parameters at the time that the claim was allocated."
+        },
+        "vendorClassParameters": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+          "description": "VendorClassParameters are the per-claim configuration parameters from the resource class at the time that the claim was allocated."
+        }
+      },
+      "required": [
+        "results"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.resource.v1alpha2.VendorParameters": {
+      "description": "VendorParameters are opaque parameters for one particular driver.",
+      "properties": {
+        "driverName": {
+          "description": "DriverName is the name used by the DRA driver kubelet plugin.",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension",
+          "description": "Parameters can be arbitrary setup parameters. They are ignored while allocating a claim."
         }
       },
       "type": "object",
@@ -17021,6 +17597,180 @@
           "version": "v1alpha1"
         }
       ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.storagemigration.v1alpha1.GroupVersionResource": {
+      "description": "The names of the group, the version, and the resource.",
+      "properties": {
+        "group": {
+          "description": "The name of the group.",
+          "type": "string"
+        },
+        "resource": {
+          "description": "The name of the resource.",
+          "type": "string"
+        },
+        "version": {
+          "description": "The name of the version.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.storagemigration.v1alpha1.MigrationCondition": {
+      "description": "Describes the state of a migration at a certain point.",
+      "properties": {
+        "lastUpdateTime": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+          "description": "The last time this condition was updated."
+        },
+        "message": {
+          "description": "A human readable message indicating details about the transition.",
+          "type": "string"
+        },
+        "reason": {
+          "description": "The reason for the condition's last transition.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the condition, one of True, False, Unknown.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the condition.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "status"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration": {
+      "description": "StorageVersionMigration represents a migration of stored data to the latest storage version.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "StorageVersionMigration"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec",
+          "description": "Specification of the migration."
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus",
+          "description": "Status of the migration."
+        }
+      },
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "storagemigration.k8s.io",
+          "kind": "StorageVersionMigration",
+          "version": "v1alpha1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationList": {
+      "description": "StorageVersionMigrationList is a collection of storage version migrations.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of StorageVersionMigration",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "type",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "StorageVersionMigrationList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "storagemigration.k8s.io",
+          "kind": "StorageVersionMigrationList",
+          "version": "v1alpha1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec": {
+      "description": "Spec of the storage version migration.",
+      "properties": {
+        "continueToken": {
+          "description": "The token used in the list options to get the next chunk of objects to migrate. When the .status.conditions indicates the migration is \"Running\", users can use this token to check the progress of the migration.",
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.GroupVersionResource",
+          "description": "The resource that is being migrated. The migrator sends requests to the endpoint serving the resource. Immutable."
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus": {
+      "description": "Status of the storage version migration.",
+      "properties": {
+        "conditions": {
+          "description": "The latest available observations of the migration's current state.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.MigrationCondition"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "type",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "resourceVersion": {
+          "description": "ResourceVersion to compare with the GC cache for performing the migration. This is the current resource version of given group, version and resource when kube-controller-manager first observes this StorageVersionMigration resource.",
+          "type": "string"
+        }
+      },
+      "type": "object",
       "additionalProperties": false
     },
     "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition": {
@@ -18376,6 +19126,11 @@
           "group": "storage.k8s.io",
           "kind": "DeleteOptions",
           "version": "v1beta1"
+        },
+        {
+          "group": "storagemigration.k8s.io",
+          "kind": "DeleteOptions",
+          "version": "v1alpha1"
         }
       ],
       "additionalProperties": false
@@ -19108,6 +19863,11 @@
           "group": "storage.k8s.io",
           "kind": "WatchEvent",
           "version": "v1beta1"
+        },
+        {
+          "group": "storagemigration.k8s.io",
+          "kind": "WatchEvent",
+          "version": "v1alpha1"
         }
       ],
       "additionalProperties": false

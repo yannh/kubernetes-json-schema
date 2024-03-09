@@ -36,6 +36,13 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference",
       "description": "ParametersRef references an arbitrary separate object that may hold parameters that will be used by the driver when allocating a resource that uses this class. A dynamic resource driver can distinguish between parameters stored here and and those stored in ResourceClaimSpec."
     },
+    "structuredParameters": {
+      "description": "If and only if allocation of claims using this class is handled via structured parameters, then StructuredParameters must be set to true.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
     "suitableNodes": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
       "description": "Only nodes matching the selector will be considered by the scheduler when trying to find a Node that fits a Pod when that Pod uses a ResourceClaim that has not been allocated yet.\n\nSetting this field is optional. If null, all nodes are candidates."

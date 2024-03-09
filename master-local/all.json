@@ -508,6 +508,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.PodFailurePolicyRule"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.SuccessPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.SuccessPolicyRule"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.UncountedTerminatedPods"
     },
     {
@@ -1489,6 +1495,36 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.AllocationResult"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.DriverAllocationResult"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.DriverRequests"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesAllocationResult"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesAttribute"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesFilter"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesInstance"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesIntSlice"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesResources"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesStringSlice"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContext"
     },
     {
@@ -1508,6 +1544,12 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParameters"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersList"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersReference"
@@ -1537,10 +1579,34 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParameters"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersList"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceFilter"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceHandle"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceSlice"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceSliceList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.StructuredResourceHandle"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.VendorParameters"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"
@@ -1610,6 +1676,24 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttributesClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.GroupVersionResource"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.MigrationCondition"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition"

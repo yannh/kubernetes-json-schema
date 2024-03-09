@@ -14,6 +14,10 @@
         "string",
         "null"
       ]
+    },
+    "structuredData": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.StructuredResourceHandle",
+      "description": "If StructuredData is set, then it needs to be used instead of Data."
     }
   },
   "type": "object",
