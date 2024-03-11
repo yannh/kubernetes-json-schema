@@ -83,6 +83,17 @@
         "null"
       ]
     },
+    "runtimeClasses": {
+      "description": "The available runtime classes.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeClass"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
     "volumesAttached": {
       "description": "List of volumes that are attached to the node.",
       "items": {

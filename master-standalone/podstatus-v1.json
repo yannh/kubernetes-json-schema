@@ -431,6 +431,54 @@
               "object",
               "null"
             ]
+          },
+          "volumeMounts": {
+            "description": "Status of volume mounts.",
+            "items": {
+              "description": "VolumeMountStatus shows status of volume mounts.",
+              "properties": {
+                "mountPath": {
+                  "description": "MountPath corresponds to the original VolumeMount.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name corresponds to the name of the original VolumeMount.",
+                  "type": "string"
+                },
+                "readOnly": {
+                  "description": "ReadOnly corresponds to the original VolumeMount.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "recursiveReadOnly": {
+                  "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "mountPath"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ],
+            "x-kubernetes-list-map-keys": [
+              "mountPath"
+            ],
+            "x-kubernetes-list-type": "map",
+            "x-kubernetes-patch-merge-key": "mountPath",
+            "x-kubernetes-patch-strategy": "merge"
           }
         },
         "required": [
@@ -817,6 +865,54 @@
               "object",
               "null"
             ]
+          },
+          "volumeMounts": {
+            "description": "Status of volume mounts.",
+            "items": {
+              "description": "VolumeMountStatus shows status of volume mounts.",
+              "properties": {
+                "mountPath": {
+                  "description": "MountPath corresponds to the original VolumeMount.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name corresponds to the name of the original VolumeMount.",
+                  "type": "string"
+                },
+                "readOnly": {
+                  "description": "ReadOnly corresponds to the original VolumeMount.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "recursiveReadOnly": {
+                  "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "mountPath"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ],
+            "x-kubernetes-list-map-keys": [
+              "mountPath"
+            ],
+            "x-kubernetes-list-type": "map",
+            "x-kubernetes-patch-merge-key": "mountPath",
+            "x-kubernetes-patch-strategy": "merge"
           }
         },
         "required": [
@@ -1236,6 +1332,54 @@
               "object",
               "null"
             ]
+          },
+          "volumeMounts": {
+            "description": "Status of volume mounts.",
+            "items": {
+              "description": "VolumeMountStatus shows status of volume mounts.",
+              "properties": {
+                "mountPath": {
+                  "description": "MountPath corresponds to the original VolumeMount.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name corresponds to the name of the original VolumeMount.",
+                  "type": "string"
+                },
+                "readOnly": {
+                  "description": "ReadOnly corresponds to the original VolumeMount.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "recursiveReadOnly": {
+                  "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "mountPath"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ],
+            "x-kubernetes-list-map-keys": [
+              "mountPath"
+            ],
+            "x-kubernetes-list-type": "map",
+            "x-kubernetes-patch-merge-key": "mountPath",
+            "x-kubernetes-patch-strategy": "merge"
           }
         },
         "required": [

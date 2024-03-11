@@ -847,6 +847,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeClass"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeClassFeatures"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector"
     },
     {
@@ -1139,6 +1145,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMountStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeNodeAffinity"

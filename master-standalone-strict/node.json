@@ -876,6 +876,48 @@
             "null"
           ]
         },
+        "runtimeClasses": {
+          "description": "The available runtime classes.",
+          "items": {
+            "description": "NodeRuntimeClass is a set of runtime class information.",
+            "properties": {
+              "features": {
+                "description": "NodeRuntimeClassFeatures is a set of runtime features.",
+                "properties": {
+                  "recursiveReadOnlyMounts": {
+                    "description": "RecursiveReadOnlyMounts is set to true if the runtime class supports RecursiveReadOnlyMounts.",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
+              "name": {
+                "description": "Runtime class name. Empty for the default runtime class.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "x-kubernetes-list-type": "atomic"
+        },
         "volumesAttached": {
           "description": "List of volumes that are attached to the node.",
           "items": {
