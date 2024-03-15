@@ -83,10 +83,10 @@
         "null"
       ]
     },
-    "runtimeClasses": {
-      "description": "The available runtime classes.",
+    "runtimeHandlers": {
+      "description": "The available runtime handlers.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeClass"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeHandler"
       },
       "type": [
         "array",

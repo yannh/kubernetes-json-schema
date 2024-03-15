@@ -859,16 +859,16 @@
             "null"
           ]
         },
-        "runtimeClasses": {
-          "description": "The available runtime classes.",
+        "runtimeHandlers": {
+          "description": "The available runtime handlers.",
           "items": {
-            "description": "NodeRuntimeClass is a set of runtime class information.",
+            "description": "NodeRuntimeHandler is a set of runtime handler information.",
             "properties": {
               "features": {
-                "description": "NodeRuntimeClassFeatures is a set of runtime features.",
+                "description": "NodeRuntimeHandlerFeatures is a set of runtime features.",
                 "properties": {
                   "recursiveReadOnlyMounts": {
-                    "description": "RecursiveReadOnlyMounts is set to true if the runtime class supports RecursiveReadOnlyMounts.",
+                    "description": "RecursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.",
                     "type": [
                       "boolean",
                       "null"
@@ -881,7 +881,7 @@
                 ]
               },
               "name": {
-                "description": "Runtime class name. Empty for the default runtime class.",
+                "description": "Runtime handler name. Empty for the default runtime handler.",
                 "type": [
                   "string",
                   "null"

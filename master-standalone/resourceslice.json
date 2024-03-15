@@ -276,7 +276,7 @@
       ]
     },
     "namedResources": {
-      "description": "NamedResourcesResources is used in NodeResourceModel.",
+      "description": "NamedResourcesResources is used in ResourceModel.",
       "properties": {
         "instances": {
           "description": "The list of all individual resources instances currently available.",
