@@ -136,10 +136,7 @@
               },
               "driverName": {
                 "description": "DriverName specifies the name of the resource driver whose kubelet plugin should be invoked to process this ResourceHandle's data once it lands on a node. This may differ from the DriverName set in ResourceClaimStatus this ResourceHandle is embedded in.",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               },
               "structuredData": {
                 "description": "StructuredResourceHandle is the in-tree representation of the allocation result.",
@@ -215,6 +212,9 @@
                 "additionalProperties": false
               }
             },
+            "required": [
+              "driverName"
+            ],
             "type": [
               "object",
               "null"
