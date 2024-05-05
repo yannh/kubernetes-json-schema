@@ -23,6 +23,9 @@
       ]
     }
   },
+  "required": [
+    "ip"
+  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }
