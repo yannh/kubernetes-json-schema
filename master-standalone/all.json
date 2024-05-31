@@ -661,6 +661,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerUser"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.DaemonEndpoint"
     },
     {
@@ -788,6 +791,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LimitRangeSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LinuxContainerUser"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LoadBalancerIngress"
