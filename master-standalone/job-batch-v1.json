@@ -10743,7 +10743,7 @@
           ]
         },
         "ready": {
-          "description": "The number of pods which have a Ready condition.",
+          "description": "The number of active pods which have a Ready condition and are not terminating (without a deletionTimestamp).",
           "format": "int32",
           "type": [
             "integer",
