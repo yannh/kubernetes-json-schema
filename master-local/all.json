@@ -595,9 +595,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CinderVolumeSource"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClaimSource"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClientIPConfig"
     },
     {
