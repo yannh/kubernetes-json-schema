@@ -338,7 +338,7 @@
           {
             "group": "networking.k8s.io",
             "kind": "IPAddress",
-            "version": "v1alpha1"
+            "version": "v1beta1"
           }
         ],
         "additionalProperties": false
@@ -406,7 +406,7 @@
     {
       "group": "networking.k8s.io",
       "kind": "IPAddressList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "additionalProperties": false,

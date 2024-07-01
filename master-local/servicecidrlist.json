@@ -11,7 +11,7 @@
     "items": {
       "description": "items is the list of ServiceCIDRs.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDR"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDR"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "networking.k8s.io",
       "kind": "ServiceCIDRList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

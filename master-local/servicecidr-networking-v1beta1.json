@@ -1,5 +1,5 @@
 {
-  "description": "IPAddressList contains a list of IPAddress.",
+  "description": "ServiceCIDR defines a range of IP addresses using CIDR format (e.g. 192.168.0.0/24 or 2001:db2::/64). This range is used to allocate ClusterIPs to Service objects.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -8,17 +8,7 @@
         "null"
       ],
       "enum": [
-        "networking.k8s.io/v1alpha1"
-      ]
-    },
-    "items": {
-      "description": "items is the list of IPAddresses.",
-      "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
-      },
-      "type": [
-        "array",
-        "null"
+        "networking.k8s.io/v1beta1"
       ]
     },
     "kind": {
@@ -28,23 +18,28 @@
         "null"
       ],
       "enum": [
-        "IPAddressList"
+        "ServiceCIDR"
       ]
     },
     "metadata": {
-      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRSpec",
+      "description": "spec is the desired state of the ServiceCIDR. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+    },
+    "status": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRStatus",
+      "description": "status represents the current state of the ServiceCIDR. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },
-  "required": [
-    "items"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
       "group": "networking.k8s.io",
-      "kind": "IPAddressList",
-      "version": "v1alpha1"
+      "kind": "ServiceCIDR",
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

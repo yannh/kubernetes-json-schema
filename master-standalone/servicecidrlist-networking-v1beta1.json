@@ -8,7 +8,7 @@
         "null"
       ],
       "enum": [
-        "networking.k8s.io/v1alpha1"
+        "networking.k8s.io/v1beta1"
       ]
     },
     "items": {
@@ -23,7 +23,7 @@
               "null"
             ],
             "enum": [
-              "networking.k8s.io/v1alpha1"
+              "networking.k8s.io/v1beta1"
             ]
           },
           "kind": {
@@ -178,8 +178,7 @@
                   "type": [
                     "object",
                     "null"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "array",
@@ -247,8 +246,7 @@
                     "object",
                     "null"
                   ],
-                  "x-kubernetes-map-type": "atomic",
-                  "additionalProperties": false
+                  "x-kubernetes-map-type": "atomic"
                 },
                 "type": [
                   "array",
@@ -286,14 +284,13 @@
             "type": [
               "object",
               "null"
-            ],
-            "additionalProperties": false
+            ]
           },
           "spec": {
             "description": "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.",
             "properties": {
               "cidrs": {
-                "description": "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. The network address of each CIDR, the address that identifies the subnet of a host, is reserved and will not be allocated. The broadcast address for IPv4 CIDRs is also reserved and will not be allocated. This field is immutable.",
+                "description": "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.",
                 "items": {
                   "type": [
                     "string",
@@ -310,8 +307,7 @@
             "type": [
               "object",
               "null"
-            ],
-            "additionalProperties": false
+            ]
           },
           "status": {
             "description": "ServiceCIDRStatus describes the current state of the ServiceCIDR.",
@@ -361,8 +357,7 @@
                   "type": [
                     "object",
                     "null"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "array",
@@ -379,8 +374,7 @@
             "type": [
               "object",
               "null"
-            ],
-            "additionalProperties": false
+            ]
           }
         },
         "type": [
@@ -391,10 +385,9 @@
           {
             "group": "networking.k8s.io",
             "kind": "ServiceCIDR",
-            "version": "v1alpha1"
+            "version": "v1beta1"
           }
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "array",
@@ -447,8 +440,7 @@
       "type": [
         "object",
         "null"
-      ],
-      "additionalProperties": false
+      ]
     }
   },
   "required": [
@@ -459,9 +451,8 @@
     {
       "group": "networking.k8s.io",
       "kind": "ServiceCIDRList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

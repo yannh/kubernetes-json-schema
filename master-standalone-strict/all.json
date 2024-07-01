@@ -1417,28 +1417,28 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.ServiceBackendPort"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddress"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ParentReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ParentReference"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDR"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDR"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDRList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDRSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDRStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1.Overhead"

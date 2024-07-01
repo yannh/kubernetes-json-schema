@@ -23,7 +23,7 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressSpec",
       "description": "spec is the desired state of the IPAddress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },
@@ -32,7 +32,7 @@
     {
       "group": "networking.k8s.io",
       "kind": "IPAddress",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

@@ -2,7 +2,7 @@
   "description": "IPAddressSpec describe the attributes in an IP Address.",
   "properties": {
     "parentRef": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ParentReference",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ParentReference",
       "description": "ParentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
     }
   },

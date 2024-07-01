@@ -8,7 +8,7 @@
         "null"
       ],
       "enum": [
-        "networking.k8s.io/v1alpha1"
+        "networking.k8s.io/v1beta1"
       ]
     },
     "items": {
@@ -23,7 +23,7 @@
               "null"
             ],
             "enum": [
-              "networking.k8s.io/v1alpha1"
+              "networking.k8s.io/v1beta1"
             ]
           },
           "kind": {
@@ -178,8 +178,7 @@
                   "type": [
                     "object",
                     "null"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "array",
@@ -247,8 +246,7 @@
                     "object",
                     "null"
                   ],
-                  "x-kubernetes-map-type": "atomic",
-                  "additionalProperties": false
+                  "x-kubernetes-map-type": "atomic"
                 },
                 "type": [
                   "array",
@@ -286,8 +284,7 @@
             "type": [
               "object",
               "null"
-            ],
-            "additionalProperties": false
+            ]
           },
           "spec": {
             "description": "IPAddressSpec describe the attributes in an IP Address.",
@@ -322,8 +319,7 @@
                   "resource",
                   "name"
                 ],
-                "type": "object",
-                "additionalProperties": false
+                "type": "object"
               }
             },
             "required": [
@@ -332,8 +328,7 @@
             "type": [
               "object",
               "null"
-            ],
-            "additionalProperties": false
+            ]
           }
         },
         "type": [
@@ -344,10 +339,9 @@
           {
             "group": "networking.k8s.io",
             "kind": "IPAddress",
-            "version": "v1alpha1"
+            "version": "v1beta1"
           }
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "array",
@@ -400,8 +394,7 @@
       "type": [
         "object",
         "null"
-      ],
-      "additionalProperties": false
+      ]
     }
   },
   "required": [
@@ -412,9 +405,8 @@
     {
       "group": "networking.k8s.io",
       "kind": "IPAddressList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

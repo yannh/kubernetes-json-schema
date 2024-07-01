@@ -11,7 +11,7 @@
     "items": {
       "description": "items is the list of IPAddresses.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddress"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "networking.k8s.io",
       "kind": "IPAddressList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

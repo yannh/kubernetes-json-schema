@@ -14834,7 +14834,7 @@
       "type": "object",
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.IPAddress": {
+    "io.k8s.api.networking.v1beta1.IPAddress": {
       "description": "IPAddress represents a single IP of a single IP Family. The object is designed to be used by APIs that operate on IP addresses. The object is used by the Service core API for allocation of IP addresses. An IP address can be represented in different formats, to guarantee the uniqueness of the IP, the name of the object is the IP address in canonical format, four decimal digits separated by dots suppressing leading zeros for IPv4 and the representation defined by RFC 5952 for IPv6. Valid: 192.168.1.5 or 2001:db8::1 or 2001:db8:aaaa:bbbb:cccc:dddd:eeee:1 Invalid: 10.01.2.3 or 2001:db8:0:0:0::1",
       "properties": {
         "apiVersion": {
@@ -14853,7 +14853,7 @@
           "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
-          "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.IPAddressSpec",
+          "$ref": "#/definitions/io.k8s.api.networking.v1beta1.IPAddressSpec",
           "description": "spec is the desired state of the IPAddress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
         }
       },
@@ -14862,12 +14862,12 @@
         {
           "group": "networking.k8s.io",
           "kind": "IPAddress",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ],
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.IPAddressList": {
+    "io.k8s.api.networking.v1beta1.IPAddressList": {
       "description": "IPAddressList contains a list of IPAddress.",
       "properties": {
         "apiVersion": {
@@ -14877,7 +14877,7 @@
         "items": {
           "description": "items is the list of IPAddresses.",
           "items": {
-            "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
+            "$ref": "#/definitions/io.k8s.api.networking.v1beta1.IPAddress"
           },
           "type": "array"
         },
@@ -14901,16 +14901,16 @@
         {
           "group": "networking.k8s.io",
           "kind": "IPAddressList",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ],
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.IPAddressSpec": {
+    "io.k8s.api.networking.v1beta1.IPAddressSpec": {
       "description": "IPAddressSpec describe the attributes in an IP Address.",
       "properties": {
         "parentRef": {
-          "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ParentReference",
+          "$ref": "#/definitions/io.k8s.api.networking.v1beta1.ParentReference",
           "description": "ParentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
         }
       },
@@ -14920,7 +14920,7 @@
       "type": "object",
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.ParentReference": {
+    "io.k8s.api.networking.v1beta1.ParentReference": {
       "description": "ParentReference describes a reference to a parent object.",
       "properties": {
         "group": {
@@ -14947,7 +14947,7 @@
       "type": "object",
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.ServiceCIDR": {
+    "io.k8s.api.networking.v1beta1.ServiceCIDR": {
       "description": "ServiceCIDR defines a range of IP addresses using CIDR format (e.g. 192.168.0.0/24 or 2001:db2::/64). This range is used to allocate ClusterIPs to Service objects.",
       "properties": {
         "apiVersion": {
@@ -14966,11 +14966,11 @@
           "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
-          "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDRSpec",
+          "$ref": "#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRSpec",
           "description": "spec is the desired state of the ServiceCIDR. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
         },
         "status": {
-          "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDRStatus",
+          "$ref": "#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRStatus",
           "description": "status represents the current state of the ServiceCIDR. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
         }
       },
@@ -14979,12 +14979,12 @@
         {
           "group": "networking.k8s.io",
           "kind": "ServiceCIDR",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ],
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.ServiceCIDRList": {
+    "io.k8s.api.networking.v1beta1.ServiceCIDRList": {
       "description": "ServiceCIDRList contains a list of ServiceCIDR objects.",
       "properties": {
         "apiVersion": {
@@ -14994,7 +14994,7 @@
         "items": {
           "description": "items is the list of ServiceCIDRs.",
           "items": {
-            "$ref": "#/definitions/io.k8s.api.networking.v1alpha1.ServiceCIDR"
+            "$ref": "#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDR"
           },
           "type": "array"
         },
@@ -15018,16 +15018,16 @@
         {
           "group": "networking.k8s.io",
           "kind": "ServiceCIDRList",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ],
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.ServiceCIDRSpec": {
+    "io.k8s.api.networking.v1beta1.ServiceCIDRSpec": {
       "description": "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.",
       "properties": {
         "cidrs": {
-          "description": "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. The network address of each CIDR, the address that identifies the subnet of a host, is reserved and will not be allocated. The broadcast address for IPv4 CIDRs is also reserved and will not be allocated. This field is immutable.",
+          "description": "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.",
           "items": {
             "type": "string"
           },
@@ -15038,7 +15038,7 @@
       "type": "object",
       "additionalProperties": false
     },
-    "io.k8s.api.networking.v1alpha1.ServiceCIDRStatus": {
+    "io.k8s.api.networking.v1beta1.ServiceCIDRStatus": {
       "description": "ServiceCIDRStatus describes the current state of the ServiceCIDR.",
       "properties": {
         "conditions": {
