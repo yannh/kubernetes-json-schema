@@ -11420,12 +11420,12 @@
             "properties": {
               "ip": {
                 "description": "IP is the IP address assigned to the host",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               }
             },
+            "required": [
+              "ip"
+            ],
             "type": [
               "object",
               "null"
@@ -11970,12 +11970,12 @@
             "properties": {
               "ip": {
                 "description": "IP is the IP address assigned to the pod",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               }
             },
+            "required": [
+              "ip"
+            ],
             "type": [
               "object",
               "null"
