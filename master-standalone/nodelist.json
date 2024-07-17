@@ -761,6 +761,22 @@
                   "null"
                 ]
               },
+              "features": {
+                "description": "NodeFeatures describes the set of features implemented by the CRI implementation. The features contained in the NodeFeatures should depend only on the cri implementation independent of runtime handlers.",
+                "properties": {
+                  "supplementalGroupsPolicy": {
+                    "description": "SupplementalGroupsPolicy is set to true if the runtime supports SupplementalGroupsPolicy and ContainerUser.",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
               "images": {
                 "description": "List of container images on this node",
                 "items": {
@@ -874,10 +890,17 @@
                   "description": "NodeRuntimeHandler is a set of runtime handler information.",
                   "properties": {
                     "features": {
-                      "description": "NodeRuntimeHandlerFeatures is a set of runtime features.",
+                      "description": "NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.",
                       "properties": {
                         "recursiveReadOnlyMounts": {
                           "description": "RecursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.",
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "userNamespaces": {
+                          "description": "UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.",
                           "type": [
                             "boolean",
                             "null"

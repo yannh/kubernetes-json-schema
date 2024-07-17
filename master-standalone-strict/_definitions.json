@@ -527,6 +527,9 @@
           "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
         }
       },
+      "required": [
+        "items"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -590,6 +593,9 @@
           "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
         }
       },
+      "required": [
+        "items"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -1205,6 +1211,9 @@
           "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
         }
       },
+      "required": [
+        "items"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -1268,6 +1277,9 @@
           "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
         }
       },
+      "required": [
+        "items"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -1707,6 +1719,9 @@
           "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
         }
       },
+      "required": [
+        "items"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -1770,6 +1785,9 @@
           "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
         }
       },
+      "required": [
+        "items"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -8704,6 +8722,17 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.core.v1.NodeFeatures": {
+      "description": "NodeFeatures describes the set of features implemented by the CRI implementation. The features contained in the NodeFeatures should depend only on the cri implementation independent of runtime handlers.",
+      "properties": {
+        "supplementalGroupsPolicy": {
+          "description": "SupplementalGroupsPolicy is set to true if the runtime supports SupplementalGroupsPolicy and ContainerUser.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.core.v1.NodeList": {
       "description": "NodeList is the whole list of all Nodes which have been registered with master.",
       "properties": {
@@ -8759,10 +8788,14 @@
       "additionalProperties": false
     },
     "io.k8s.api.core.v1.NodeRuntimeHandlerFeatures": {
-      "description": "NodeRuntimeHandlerFeatures is a set of runtime features.",
+      "description": "NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.",
       "properties": {
         "recursiveReadOnlyMounts": {
           "description": "RecursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.",
+          "type": "boolean"
+        },
+        "userNamespaces": {
+          "description": "UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.",
           "type": "boolean"
         }
       },
@@ -8933,6 +8966,10 @@
         "daemonEndpoints": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeDaemonEndpoints",
           "description": "Endpoints of daemons running on the Node."
+        },
+        "features": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodeFeatures",
+          "description": "Features describes the set of features implemented by the CRI implementation."
         },
         "images": {
           "description": "List of container images on this node",
