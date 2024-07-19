@@ -18,5 +18,6 @@
     }
   },
   "type": "object",
+  "x-kubernetes-map-type": "atomic",
   "$schema": "http://json-schema.org/schema#"
 }

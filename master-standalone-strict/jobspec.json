@@ -3057,7 +3057,7 @@
                         ]
                       },
                       "procMount": {
-                        "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+                        "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
                         "type": [
                           "string",
                           "null"
@@ -5039,7 +5039,7 @@
                         ]
                       },
                       "procMount": {
-                        "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+                        "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
                         "type": [
                           "string",
                           "null"
@@ -7058,7 +7058,7 @@
                         ]
                       },
                       "procMount": {
-                        "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+                        "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
                         "type": [
                           "string",
                           "null"
@@ -9592,6 +9592,30 @@
                     ],
                     "additionalProperties": false
                   },
+                  "image": {
+                    "description": "ImageVolumeSource represents a image volume resource.",
+                    "properties": {
+                      "pullPolicy": {
+                        "description": "Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "reference": {
+                        "description": "Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": false
+                  },
                   "iscsi": {
                     "description": "Represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.",
                     "properties": {
@@ -9818,9 +9842,9 @@
                         ]
                       },
                       "sources": {
-                        "description": "sources is the list of volume projections",
+                        "description": "sources is the list of volume projections. Each entry in this list handles one source.",
                         "items": {
-                          "description": "Projection that may be projected along with other supported volume types",
+                          "description": "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.",
                           "properties": {
                             "clusterTrustBundle": {
                               "description": "ClusterTrustBundleProjection describes how to select a set of ClusterTrustBundle objects and project their contents into the pod filesystem.",

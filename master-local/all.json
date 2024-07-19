@@ -769,6 +769,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ISCSIVolumeSource"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ImageVolumeSource"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.KeyToPath"
     },
     {

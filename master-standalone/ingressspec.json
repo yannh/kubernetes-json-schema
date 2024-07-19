@@ -62,7 +62,8 @@
               "type": [
                 "object",
                 "null"
-              ]
+              ],
+              "x-kubernetes-map-type": "atomic"
             }
           },
           "required": [
@@ -167,7 +168,8 @@
                               "type": [
                                 "object",
                                 "null"
-                              ]
+                              ],
+                              "x-kubernetes-map-type": "atomic"
                             }
                           },
                           "required": [

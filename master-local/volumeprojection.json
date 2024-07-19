@@ -1,5 +1,5 @@
 {
-  "description": "Projection that may be projected along with other supported volume types",
+  "description": "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.",
   "properties": {
     "clusterTrustBundle": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClusterTrustBundleProjection",

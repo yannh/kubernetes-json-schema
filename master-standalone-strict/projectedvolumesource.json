@@ -10,9 +10,9 @@
       ]
     },
     "sources": {
-      "description": "sources is the list of volume projections",
+      "description": "sources is the list of volume projections. Each entry in this list handles one source.",
       "items": {
-        "description": "Projection that may be projected along with other supported volume types",
+        "description": "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.",
         "properties": {
           "clusterTrustBundle": {
             "description": "ClusterTrustBundleProjection describes how to select a set of ClusterTrustBundle objects and project their contents into the pod filesystem.",
