@@ -331,6 +331,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1beta1.SelfSubjectReviewStatus"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.FieldSelectorAttributes"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.LabelSelectorAttributes"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.LocalSubjectAccessReview"
     },
     {
@@ -1808,6 +1814,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.FieldSelectorRequirement"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1"
