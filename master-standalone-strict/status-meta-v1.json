@@ -8,8 +8,7 @@
         "null"
       ],
       "enum": [
-        "v1",
-        "resource.k8s.io/v1alpha2"
+        "v1"
       ]
     },
     "code": {
@@ -182,11 +181,6 @@
       "group": "",
       "kind": "Status",
       "version": "v1"
-    },
-    {
-      "group": "resource.k8s.io",
-      "kind": "Status",
-      "version": "v1alpha2"
     }
   ],
   "additionalProperties": false,

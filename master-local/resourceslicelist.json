@@ -9,9 +9,9 @@
       ]
     },
     "items": {
-      "description": "Items is the list of node resource capacity objects.",
+      "description": "Items is the list of resource ResourceSlices.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceSlice"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSlice"
       },
       "type": [
         "array",
@@ -28,7 +28,7 @@
         "ResourceSliceList"
       ]
     },
-    "metadata": {
+    "listMeta": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata"
     }
@@ -41,7 +41,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceSliceList",
-      "version": "v1alpha2"
+      "version": "v1alpha3"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

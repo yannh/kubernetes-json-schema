@@ -279,7 +279,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "WatchEvent",
-      "version": "v1alpha2"
+      "version": "v1alpha3"
     },
     {
       "group": "scheduling.k8s.io",

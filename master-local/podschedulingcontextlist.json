@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is the list of PodSchedulingContext objects.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContext"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContext"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "PodSchedulingContextList",
-      "version": "v1alpha2"
+      "version": "v1alpha3"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

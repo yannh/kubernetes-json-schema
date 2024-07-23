@@ -1516,121 +1516,109 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.AllocationResult"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocationResult"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.DriverAllocationResult"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.BasicDevice"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.DriverRequests"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.CELDeviceSelector"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesAllocationResult"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.Device"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesAttribute"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesFilter"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationResult"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesInstance"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAttribute"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesIntSlice"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaim"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesRequest"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaimConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesResources"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClass"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.NamedResourcesStringSlice"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContext"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceConstraint"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceRequest"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaim"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceRequestAllocationResult"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimConsumerReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.OpaqueDeviceConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParameters"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContext"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSchedulingStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaim"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimConsumerReference"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplate"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSchedulingStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClass"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplate"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParameters"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplateList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplateSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePool"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceFilter"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSlice"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceHandle"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceRequest"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceSlice"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceSliceList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.StructuredResourceHandle"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.VendorParameters"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceSpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"

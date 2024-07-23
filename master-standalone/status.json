@@ -175,11 +175,6 @@
       "group": "",
       "kind": "Status",
       "version": "v1"
-    },
-    {
-      "group": "resource.k8s.io",
-      "kind": "Status",
-      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

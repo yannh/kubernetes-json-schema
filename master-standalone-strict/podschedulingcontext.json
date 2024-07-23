@@ -1,5 +1,5 @@
 {
-  "description": "PodSchedulingContext objects hold information that is needed to schedule a Pod with ResourceClaims that use \"WaitForFirstConsumer\" allocation mode.\n\nThis is an alpha type and requires enabling the DynamicResourceAllocation feature gate.",
+  "description": "PodSchedulingContext objects hold information that is needed to schedule a Pod with ResourceClaims that use \"WaitForFirstConsumer\" allocation mode.\n\nThis is an alpha type and requires enabling the DRAControlPlaneController feature gate.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -312,10 +312,7 @@
             "properties": {
               "name": {
                 "description": "Name matches the pod.spec.resourceClaims[*].Name field.",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               },
               "unsuitableNodes": {
                 "description": "UnsuitableNodes lists nodes that the ResourceClaim cannot be allocated for.\n\nThe size of this field is limited to 128, the same as for PodSchedulingSpec.PotentialNodes. This may get increased in the future, but not reduced.",
@@ -332,6 +329,9 @@
                 "x-kubernetes-list-type": "atomic"
               }
             },
+            "required": [
+              "name"
+            ],
             "type": [
               "object",
               "null"
@@ -363,7 +363,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "PodSchedulingContext",
-      "version": "v1alpha2"
+      "version": "v1alpha3"
     }
   ],
   "additionalProperties": false,
