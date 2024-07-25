@@ -11,7 +11,7 @@
     "items": {
       "description": "items is the list of VolumeAttributesClass objects.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttributesClass"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClass"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "storage.k8s.io",
       "kind": "VolumeAttributesClassList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

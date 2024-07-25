@@ -8783,7 +8783,7 @@
                             ]
                           },
                           "volumeAttributesClassName": {
-                            "description": "volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled.",
+                            "description": "volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field requires the VolumeAttributesClass feature gate to be enabled (off by default).",
                             "type": [
                               "string",
                               "null"
@@ -10203,6 +10203,68 @@
                   "null"
                 ]
               },
+              "allocatedResourcesStatus": {
+                "description": "AllocatedResourcesStatus represents the status of various resources allocated for this Pod.",
+                "items": {
+                  "properties": {
+                    "name": {
+                      "description": "Name of the resource. Must be unique within the pod and match one of the resources from the pod spec.",
+                      "type": "string"
+                    },
+                    "resources": {
+                      "description": "List of unique Resources health. Each element in the list contains an unique resource ID and resource health. At a minimum, ResourceID must uniquely identify the Resource allocated to the Pod on the Node for the lifetime of a Pod. See ResourceID type for it's definition.",
+                      "items": {
+                        "description": "ResourceHealth represents the health of a resource. It has the latest device health information. This is a part of KEP https://kep.k8s.io/4680 and historical health changes are planned to be added in future iterations of a KEP.",
+                        "properties": {
+                          "health": {
+                            "description": "Health of the resource. can be one of:\n - Healthy: operates as normal\n - Unhealthy: reported unhealthy. We consider this a temporary health issue\n              since we do not have a mechanism today to distinguish\n              temporary and permanent issues.\n - Unknown: The status cannot be determined.\n            For example, Device Plugin got unregistered and hasn't been re-registered since.\n\nIn future we may want to introduce the PermanentlyUnhealthy Status.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "resourceID": {
+                            "description": "ResourceID is the unique identifier of the resource. See the ResourceID type for more information.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "resourceID"
+                        ],
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-map-keys": [
+                        "resourceID"
+                      ],
+                      "x-kubernetes-list-type": "map"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-map-keys": [
+                  "name"
+                ],
+                "x-kubernetes-list-type": "map",
+                "x-kubernetes-patch-merge-key": "name",
+                "x-kubernetes-patch-strategy": "merge"
+              },
               "containerID": {
                 "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",
                 "type": [
@@ -10690,6 +10752,68 @@
                   "object",
                   "null"
                 ]
+              },
+              "allocatedResourcesStatus": {
+                "description": "AllocatedResourcesStatus represents the status of various resources allocated for this Pod.",
+                "items": {
+                  "properties": {
+                    "name": {
+                      "description": "Name of the resource. Must be unique within the pod and match one of the resources from the pod spec.",
+                      "type": "string"
+                    },
+                    "resources": {
+                      "description": "List of unique Resources health. Each element in the list contains an unique resource ID and resource health. At a minimum, ResourceID must uniquely identify the Resource allocated to the Pod on the Node for the lifetime of a Pod. See ResourceID type for it's definition.",
+                      "items": {
+                        "description": "ResourceHealth represents the health of a resource. It has the latest device health information. This is a part of KEP https://kep.k8s.io/4680 and historical health changes are planned to be added in future iterations of a KEP.",
+                        "properties": {
+                          "health": {
+                            "description": "Health of the resource. can be one of:\n - Healthy: operates as normal\n - Unhealthy: reported unhealthy. We consider this a temporary health issue\n              since we do not have a mechanism today to distinguish\n              temporary and permanent issues.\n - Unknown: The status cannot be determined.\n            For example, Device Plugin got unregistered and hasn't been re-registered since.\n\nIn future we may want to introduce the PermanentlyUnhealthy Status.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "resourceID": {
+                            "description": "ResourceID is the unique identifier of the resource. See the ResourceID type for more information.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "resourceID"
+                        ],
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-map-keys": [
+                        "resourceID"
+                      ],
+                      "x-kubernetes-list-type": "map"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-map-keys": [
+                  "name"
+                ],
+                "x-kubernetes-list-type": "map",
+                "x-kubernetes-patch-merge-key": "name",
+                "x-kubernetes-patch-strategy": "merge"
               },
               "containerID": {
                 "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",
@@ -11211,6 +11335,68 @@
                   "object",
                   "null"
                 ]
+              },
+              "allocatedResourcesStatus": {
+                "description": "AllocatedResourcesStatus represents the status of various resources allocated for this Pod.",
+                "items": {
+                  "properties": {
+                    "name": {
+                      "description": "Name of the resource. Must be unique within the pod and match one of the resources from the pod spec.",
+                      "type": "string"
+                    },
+                    "resources": {
+                      "description": "List of unique Resources health. Each element in the list contains an unique resource ID and resource health. At a minimum, ResourceID must uniquely identify the Resource allocated to the Pod on the Node for the lifetime of a Pod. See ResourceID type for it's definition.",
+                      "items": {
+                        "description": "ResourceHealth represents the health of a resource. It has the latest device health information. This is a part of KEP https://kep.k8s.io/4680 and historical health changes are planned to be added in future iterations of a KEP.",
+                        "properties": {
+                          "health": {
+                            "description": "Health of the resource. can be one of:\n - Healthy: operates as normal\n - Unhealthy: reported unhealthy. We consider this a temporary health issue\n              since we do not have a mechanism today to distinguish\n              temporary and permanent issues.\n - Unknown: The status cannot be determined.\n            For example, Device Plugin got unregistered and hasn't been re-registered since.\n\nIn future we may want to introduce the PermanentlyUnhealthy Status.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "resourceID": {
+                            "description": "ResourceID is the unique identifier of the resource. See the ResourceID type for more information.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "resourceID"
+                        ],
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-map-keys": [
+                        "resourceID"
+                      ],
+                      "x-kubernetes-list-type": "map"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-map-keys": [
+                  "name"
+                ],
+                "x-kubernetes-list-type": "map",
+                "x-kubernetes-patch-merge-key": "name",
+                "x-kubernetes-patch-strategy": "merge"
               },
               "containerID": {
                 "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",

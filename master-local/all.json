@@ -1033,6 +1033,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceFieldSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceHealth"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceQuota"
     },
     {
@@ -1046,6 +1049,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions"
@@ -1688,6 +1694,12 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttributesClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClass"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClassList"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.GroupVersionResource"

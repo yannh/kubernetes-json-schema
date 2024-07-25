@@ -11,6 +11,22 @@
         "null"
       ]
     },
+    "allocatedResourcesStatus": {
+      "description": "AllocatedResourcesStatus represents the status of various resources allocated for this Pod.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceStatus"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
     "containerID": {
       "description": "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").",
       "type": [
