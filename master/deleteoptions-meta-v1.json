@@ -36,6 +36,7 @@
         "certificates.k8s.io/v1alpha1",
         "certificates.k8s.io/v1beta1",
         "coordination.k8s.io/v1",
+        "coordination.k8s.io/v1alpha1",
         "coordination.k8s.io/v1beta1",
         "discovery.k8s.io/v1",
         "discovery.k8s.io/v1beta1",
@@ -261,6 +262,11 @@
       "group": "coordination.k8s.io",
       "kind": "DeleteOptions",
       "version": "v1"
+    },
+    {
+      "group": "coordination.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
     },
     {
       "group": "coordination.k8s.io",
