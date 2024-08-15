@@ -1,0 +1,51 @@
+{
+  "description": "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.",
+  "properties": {
+    "allNodes": {
+      "description": "AllNodes indicates that all nodes have access to the resources in the pool.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "devices": {
+      "description": "Devices lists some or all of the devices in this pool.\n\nMust not have more than 128 entries.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.31.0/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.Device"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "driver": {
+      "description": "Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.\n\nMust be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeName": {
+      "description": "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.\n\nThis field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeSelector": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.31.0/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
+      "description": "NodeSelector defines which nodes have access to the resources in the pool, when that pool is not limited to a single node.\n\nMust use exactly one term.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set."
+    },
+    "pool": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.31.0/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePool",
+      "description": "Pool describes the pool that this ResourceSlice belongs to."
+    }
+  },
+  "required": [
+    "driver",
+    "pool"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
