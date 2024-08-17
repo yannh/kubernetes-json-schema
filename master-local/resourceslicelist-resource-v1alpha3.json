@@ -31,7 +31,7 @@
         "ResourceSliceList"
       ]
     },
-    "listMeta": {
+    "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata"
     }
