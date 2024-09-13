@@ -1,0 +1,112 @@
+{
+  "description": "NamedResourcesAttribute is a combination of an attribute name and its value.",
+  "properties": {
+    "bool": {
+      "description": "BoolValue is a true/false value.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "int": {
+      "description": "IntValue is a 64-bit integer.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "intSlice": {
+      "description": "NamedResourcesIntSlice contains a slice of 64-bit integers.",
+      "properties": {
+        "ints": {
+          "description": "Ints is the slice of 64-bit integers.",
+          "items": {
+            "format": "int64",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "ints"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "description": "Name is unique identifier among all resource instances managed by the driver on the node. It must be a DNS subdomain.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quantity": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    },
+    "string": {
+      "description": "StringValue is a string.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stringSlice": {
+      "description": "NamedResourcesStringSlice contains a slice of strings.",
+      "properties": {
+        "strings": {
+          "description": "Strings is the slice of strings.",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "strings"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "version": {
+      "description": "VersionValue is a semantic version according to semver.org spec 2.0.0.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

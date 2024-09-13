@@ -1,0 +1,61 @@
+{
+  "description": "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+  "properties": {
+    "extra": {
+      "additionalProperties": {
+        "items": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "description": "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "groups": {
+      "description": "Groups is the groups you're testing for.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "nonResourceAttributes": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.NonResourceAttributes",
+      "description": "NonResourceAttributes describes information for a non-resource access request"
+    },
+    "resourceAttributes": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.ResourceAttributes",
+      "description": "ResourceAuthorizationAttributes describes information for a resource access request"
+    },
+    "uid": {
+      "description": "UID information about the requesting user.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "user": {
+      "description": "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
