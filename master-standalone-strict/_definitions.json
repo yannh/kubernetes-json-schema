@@ -5115,7 +5115,7 @@
           "type": "integer"
         },
         "managedBy": {
-          "description": "ManagedBy field indicates the controller that manages a Job. The k8s Job controller reconciles jobs which don't have this field at all or the field value is the reserved string `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first \"/\" must be a valid subdomain as defined by RFC 1123. All characters trailing the first \"/\" must be valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 63 characters. This field is immutable.\n\nThis field is alpha-level. The job controller accepts setting the field when the feature gate JobManagedBy is enabled (disabled by default).",
+          "description": "ManagedBy field indicates the controller that manages a Job. The k8s Job controller reconciles jobs which don't have this field at all or the field value is the reserved string `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first \"/\" must be a valid subdomain as defined by RFC 1123. All characters trailing the first \"/\" must be valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 63 characters. This field is immutable.\n\nThis field is beta-level. The job controller accepts setting the field when the feature gate JobManagedBy is enabled (enabled by default).",
           "type": "string"
         },
         "manualSelector": {
@@ -9113,7 +9113,7 @@
       "description": "NodeStatus is information about the current status of a node.",
       "properties": {
         "addresses": {
-          "description": "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).",
+          "description": "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/reference/node/node-status/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeAddress"
           },
@@ -9140,7 +9140,7 @@
           "type": "object"
         },
         "conditions": {
-          "description": "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition",
+          "description": "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeCondition"
           },
@@ -9174,7 +9174,7 @@
         },
         "nodeInfo": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeSystemInfo",
-          "description": "Set of ids/uuids to uniquely identify the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#info"
+          "description": "Set of ids/uuids to uniquely identify the node. More info: https://kubernetes.io/docs/reference/node/node-status/#info"
         },
         "phase": {
           "description": "NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.",
@@ -16099,10 +16099,6 @@
     "io.k8s.api.resource.v1alpha3.AllocationResult": {
       "description": "AllocationResult contains attributes of an allocated resource.",
       "properties": {
-        "controller": {
-          "description": "Controller is the name of the DRA driver which handled the allocation. That driver is also responsible for deallocating the claim. It is empty when the claim can be deallocated without involving a driver.\n\nA driver may allocate devices provided by other drivers, so this driver name here can be different from the driver names listed for the results.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-          "type": "string"
-        },
         "devices": {
           "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationResult",
           "description": "Devices is the result of allocating devices."
@@ -16395,10 +16391,6 @@
           },
           "type": "array",
           "x-kubernetes-list-type": "atomic"
-        },
-        "suitableNodes": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
-          "description": "Only nodes matching the selector will be considered by the scheduler when trying to find a Node that fits a Pod when that Pod uses a claim that has not been allocated yet *and* that claim gets allocated through a control plane controller. It is ignored when the claim does not use a control plane controller for allocation.\n\nSetting this field is optional. If unset, all Nodes are candidates.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate."
         }
       },
       "type": "object",
@@ -16522,122 +16514,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "io.k8s.api.resource.v1alpha3.PodSchedulingContext": {
-      "description": "PodSchedulingContext objects hold information that is needed to schedule a Pod with ResourceClaims that use \"WaitForFirstConsumer\" allocation mode.\n\nThis is an alpha type and requires enabling the DRAControlPlaneController feature gate.",
-      "properties": {
-        "apiVersion": {
-          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-          "type": "string"
-        },
-        "kind": {
-          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-          "type": "string",
-          "enum": [
-            "PodSchedulingContext"
-          ]
-        },
-        "metadata": {
-          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object metadata"
-        },
-        "spec": {
-          "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextSpec",
-          "description": "Spec describes where resources for the Pod are needed."
-        },
-        "status": {
-          "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextStatus",
-          "description": "Status describes where resources for the Pod can be allocated."
-        }
-      },
-      "required": [
-        "spec"
-      ],
-      "type": "object",
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "resource.k8s.io",
-          "kind": "PodSchedulingContext",
-          "version": "v1alpha3"
-        }
-      ],
-      "additionalProperties": false
-    },
-    "io.k8s.api.resource.v1alpha3.PodSchedulingContextList": {
-      "description": "PodSchedulingContextList is a collection of Pod scheduling objects.",
-      "properties": {
-        "apiVersion": {
-          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-          "type": "string"
-        },
-        "items": {
-          "description": "Items is the list of PodSchedulingContext objects.",
-          "items": {
-            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContext"
-          },
-          "type": "array"
-        },
-        "kind": {
-          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-          "type": "string",
-          "enum": [
-            "PodSchedulingContextList"
-          ]
-        },
-        "metadata": {
-          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
-          "description": "Standard list metadata"
-        }
-      },
-      "required": [
-        "items"
-      ],
-      "type": "object",
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "resource.k8s.io",
-          "kind": "PodSchedulingContextList",
-          "version": "v1alpha3"
-        }
-      ],
-      "additionalProperties": false
-    },
-    "io.k8s.api.resource.v1alpha3.PodSchedulingContextSpec": {
-      "description": "PodSchedulingContextSpec describes where resources for the Pod are needed.",
-      "properties": {
-        "potentialNodes": {
-          "description": "PotentialNodes lists nodes where the Pod might be able to run.\n\nThe size of this field is limited to 128. This is large enough for many clusters. Larger clusters may need more attempts to find a node that suits all pending resources. This may get increased in the future, but not reduced.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "x-kubernetes-list-type": "atomic"
-        },
-        "selectedNode": {
-          "description": "SelectedNode is the node for which allocation of ResourceClaims that are referenced by the Pod and that use \"WaitForFirstConsumer\" allocation is to be attempted.",
-          "type": "string"
-        }
-      },
-      "type": "object",
-      "additionalProperties": false
-    },
-    "io.k8s.api.resource.v1alpha3.PodSchedulingContextStatus": {
-      "description": "PodSchedulingContextStatus describes where resources for the Pod can be allocated.",
-      "properties": {
-        "resourceClaims": {
-          "description": "ResourceClaims describes resource availability for each pod.spec.resourceClaim entry where the corresponding ResourceClaim uses \"WaitForFirstConsumer\" allocation mode.",
-          "items": {
-            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSchedulingStatus"
-          },
-          "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "name"
-          ],
-          "x-kubernetes-list-type": "map"
-        }
-      },
-      "type": "object",
-      "additionalProperties": false
-    },
     "io.k8s.api.resource.v1alpha3.ResourceClaim": {
       "description": "ResourceClaim describes a request for access to resources in the cluster, for use by workloads. For example, if a workload needs an accelerator device with specific properties, this is how that request is expressed. The status stanza tracks whether this claim has been satisfied and what specific resources have been allocated.\n\nThis is an alpha type and requires enabling the DynamicResourceAllocation feature gate.",
       "properties": {
@@ -16745,35 +16621,9 @@
       ],
       "additionalProperties": false
     },
-    "io.k8s.api.resource.v1alpha3.ResourceClaimSchedulingStatus": {
-      "description": "ResourceClaimSchedulingStatus contains information about one particular ResourceClaim with \"WaitForFirstConsumer\" allocation mode.",
-      "properties": {
-        "name": {
-          "description": "Name matches the pod.spec.resourceClaims[*].Name field.",
-          "type": "string"
-        },
-        "unsuitableNodes": {
-          "description": "UnsuitableNodes lists nodes that the ResourceClaim cannot be allocated for.\n\nThe size of this field is limited to 128, the same as for PodSchedulingSpec.PotentialNodes. This may get increased in the future, but not reduced.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "x-kubernetes-list-type": "atomic"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "type": "object",
-      "additionalProperties": false
-    },
     "io.k8s.api.resource.v1alpha3.ResourceClaimSpec": {
       "description": "ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.",
       "properties": {
-        "controller": {
-          "description": "Controller is the name of the DRA driver that is meant to handle allocation of this claim. If empty, allocation is handled by the scheduler while scheduling a pod.\n\nMust be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-          "type": "string"
-        },
         "devices": {
           "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaim",
           "description": "Devices defines how to request devices."
@@ -16788,10 +16638,6 @@
         "allocation": {
           "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.AllocationResult",
           "description": "Allocation is set once the claim has been allocated successfully."
-        },
-        "deallocationRequested": {
-          "description": "Indicates that a claim is to be deallocated. While this is set, no new consumers may be added to ReservedFor.\n\nThis is only used if the claim needs to be deallocated by a DRA driver. That driver then must deallocate this claim and reset the field together with clearing the Allocation field.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-          "type": "boolean"
         },
         "reservedFor": {
           "description": "ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started. A claim that is in use or might be in use because it has been reserved must not get deallocated.\n\nIn a cluster with multiple scheduler instances, two pods might get scheduled concurrently by different schedulers. When they reference the same ResourceClaim which already has reached its maximum number of consumers, only one pod can be scheduled.\n\nBoth schedulers try to add their pod to the claim.status.reservedFor field, but only the update that reaches the API server first gets stored. The other one fails with an error and the scheduler which issued it knows that it must put the pod back into the queue, waiting for the ResourceClaim to become usable again.\n\nThere can be at most 32 such reservations. This may get increased in the future, but not reduced.",

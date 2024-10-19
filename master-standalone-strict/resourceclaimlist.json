@@ -286,13 +286,6 @@
           "spec": {
             "description": "ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.",
             "properties": {
-              "controller": {
-                "description": "Controller is the name of the DRA driver that is meant to handle allocation of this claim. If empty, allocation is handled by the scheduler while scheduling a pod.\n\nMust be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
               "devices": {
                 "description": "DeviceClaim defines how to request devices with a ResourceClaim.",
                 "properties": {
@@ -493,13 +486,6 @@
               "allocation": {
                 "description": "AllocationResult contains attributes of an allocated resource.",
                 "properties": {
-                  "controller": {
-                    "description": "Controller is the name of the DRA driver which handled the allocation. That driver is also responsible for deallocating the claim. It is empty when the claim can be deallocated without involving a driver.\n\nA driver may allocate devices provided by other drivers, so this driver name here can be different from the driver names listed for the results.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
                   "devices": {
                     "description": "DeviceAllocationResult is the result of allocating devices.",
                     "properties": {
@@ -735,13 +721,6 @@
                   "null"
                 ],
                 "additionalProperties": false
-              },
-              "deallocationRequested": {
-                "description": "Indicates that a claim is to be deallocated. While this is set, no new consumers may be added to ReservedFor.\n\nThis is only used if the claim needs to be deallocated by a DRA driver. That driver then must deallocate this claim and reset the field together with clearing the Allocation field.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-                "type": [
-                  "boolean",
-                  "null"
-                ]
               },
               "reservedFor": {
                 "description": "ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started. A claim that is in use or might be in use because it has been reserved must not get deallocated.\n\nIn a cluster with multiple scheduler instances, two pods might get scheduled concurrently by different schedulers. When they reference the same ResourceClaim which already has reached its maximum number of consumers, only one pod can be scheduled.\n\nBoth schedulers try to add their pod to the claim.status.reservedFor field, but only the update that reaches the API server first gets stored. The other one fails with an error and the scheduler which issued it knows that it must put the pod back into the queue, waiting for the ResourceClaim to become usable again.\n\nThere can be at most 32 such reservations. This may get increased in the future, but not reduced.",

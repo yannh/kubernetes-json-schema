@@ -1585,18 +1585,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.OpaqueDeviceConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContext"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PodSchedulingContextStatus"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaim"
     },
     {
@@ -1604,9 +1592,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSchedulingStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSpec"

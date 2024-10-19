@@ -4,13 +4,6 @@
     "allocation": {
       "description": "AllocationResult contains attributes of an allocated resource.",
       "properties": {
-        "controller": {
-          "description": "Controller is the name of the DRA driver which handled the allocation. That driver is also responsible for deallocating the claim. It is empty when the claim can be deallocated without involving a driver.\n\nA driver may allocate devices provided by other drivers, so this driver name here can be different from the driver names listed for the results.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "devices": {
           "description": "DeviceAllocationResult is the result of allocating devices.",
           "properties": {
@@ -235,13 +228,6 @@
       },
       "type": [
         "object",
-        "null"
-      ]
-    },
-    "deallocationRequested": {
-      "description": "Indicates that a claim is to be deallocated. While this is set, no new consumers may be added to ReservedFor.\n\nThis is only used if the claim needs to be deallocated by a DRA driver. That driver then must deallocate this claim and reset the field together with clearing the Allocation field.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-      "type": [
-        "boolean",
         "null"
       ]
     },

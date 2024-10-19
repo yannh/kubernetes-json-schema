@@ -548,13 +548,6 @@
               "spec": {
                 "description": "ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.",
                 "properties": {
-                  "controller": {
-                    "description": "Controller is the name of the DRA driver that is meant to handle allocation of this claim. If empty, allocation is handled by the scheduler while scheduling a pod.\n\nMust be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
                   "devices": {
                     "description": "DeviceClaim defines how to request devices with a ResourceClaim.",
                     "properties": {

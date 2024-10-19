@@ -22,10 +22,6 @@
         "null"
       ],
       "x-kubernetes-list-type": "atomic"
-    },
-    "suitableNodes": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
-      "description": "Only nodes matching the selector will be considered by the scheduler when trying to find a Node that fits a Pod when that Pod uses a claim that has not been allocated yet *and* that claim gets allocated through a control plane controller. It is ignored when the claim does not use a control plane controller for allocation.\n\nSetting this field is optional. If unset, all Nodes are candidates.\n\nThis is an alpha field and requires enabling the DRAControlPlaneController feature gate."
     }
   },
   "type": "object",
