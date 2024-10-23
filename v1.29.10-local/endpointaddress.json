@@ -1,0 +1,36 @@
+{
+  "description": "EndpointAddress is a tuple that describes single IP address.",
+  "properties": {
+    "hostname": {
+      "description": "The Hostname of this endpoint",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ip": {
+      "description": "The IP of this endpoint. May not be loopback (127.0.0.0/8 or ::1), link-local (169.254.0.0/16 or fe80::/10), or link-local multicast (224.0.0.0/24 or ff02::/16).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeName": {
+      "description": "Optional: Node hosting this endpoint. This can be used to determine endpoints local to a node.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "targetRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference",
+      "description": "Reference to object providing the endpoint."
+    }
+  },
+  "required": [
+    "ip"
+  ],
+  "type": "object",
+  "x-kubernetes-map-type": "atomic",
+  "$schema": "http://json-schema.org/schema#"
+}

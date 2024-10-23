@@ -1,0 +1,35 @@
+{
+  "description": "ParentReference describes a reference to a parent object.",
+  "properties": {
+    "group": {
+      "description": "Group is the group of the object being referenced.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Name is the name of the object being referenced.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "namespace": {
+      "description": "Namespace is the namespace of the object being referenced.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resource": {
+      "description": "Resource is the resource of the object being referenced.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
