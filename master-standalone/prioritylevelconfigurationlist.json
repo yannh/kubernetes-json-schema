@@ -385,7 +385,7 @@
                     ]
                   },
                   "nominalConcurrencyShares": {
-                    "description": "`nominalConcurrencyShares` (NCS) contributes to the computation of the NominalConcurrencyLimit (NominalCL) of this level. This is the number of execution seats available at this priority level. This is used both for requests dispatched from this priority level as well as requests dispatched from other priority levels borrowing seats from this level. The server's concurrency limit (ServerCL) is divided among the Limited priority levels in proportion to their NCS values:\n\nNominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs = sum[priority level k] NCS(k)\n\nBigger numbers mean a larger nominal concurrency limit, at the expense of every other priority level. This field has a default value of 30.",
+                    "description": "`nominalConcurrencyShares` (NCS) contributes to the computation of the NominalConcurrencyLimit (NominalCL) of this level. This is the number of execution seats available at this priority level. This is used both for requests dispatched from this priority level as well as requests dispatched from other priority levels borrowing seats from this level. The server's concurrency limit (ServerCL) is divided among the Limited priority levels in proportion to their NCS values:\n\nNominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs = sum[priority level k] NCS(k)\n\nBigger numbers mean a larger nominal concurrency limit, at the expense of every other priority level.\n\nIf not specified, this field defaults to a value of 30.\n\nSetting this field to zero supports the construction of a \"jail\" for this priority level that is used to hold some request(s)",
                     "format": "int32",
                     "type": [
                       "integer",
@@ -496,7 +496,7 @@
           {
             "group": "flowcontrol.apiserver.k8s.io",
             "kind": "PriorityLevelConfiguration",
-            "version": "v1beta3"
+            "version": "v1"
           }
         ]
       },
@@ -562,7 +562,7 @@
     {
       "group": "flowcontrol.apiserver.k8s.io",
       "kind": "PriorityLevelConfigurationList",
-      "version": "v1beta3"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

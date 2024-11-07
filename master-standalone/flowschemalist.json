@@ -628,7 +628,7 @@
           {
             "group": "flowcontrol.apiserver.k8s.io",
             "kind": "FlowSchema",
-            "version": "v1beta3"
+            "version": "v1"
           }
         ]
       },
@@ -694,7 +694,7 @@
     {
       "group": "flowcontrol.apiserver.k8s.io",
       "kind": "FlowSchemaList",
-      "version": "v1beta3"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

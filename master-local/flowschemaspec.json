@@ -2,7 +2,7 @@
   "description": "FlowSchemaSpec describes how the FlowSchema's specification looks like.",
   "properties": {
     "distinguisherMethod": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowDistinguisherMethod",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowDistinguisherMethod",
       "description": "`distinguisherMethod` defines how to compute the flow distinguisher for requests that match this schema. `nil` specifies that the distinguisher is disabled and thus will always be the empty string."
     },
     "matchingPrecedence": {
@@ -14,13 +14,13 @@
       ]
     },
     "priorityLevelConfiguration": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationReference",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationReference",
       "description": "`priorityLevelConfiguration` should reference a PriorityLevelConfiguration in the cluster. If the reference cannot be resolved, the FlowSchema will be ignored and marked as invalid in its status. Required."
     },
     "rules": {
       "description": "`rules` describes which requests will match this flow schema. This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be no requests matching the FlowSchema.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PolicyRulesWithSubjects"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PolicyRulesWithSubjects"
       },
       "type": [
         "array",

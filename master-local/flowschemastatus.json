@@ -4,7 +4,7 @@
     "conditions": {
       "description": "`conditions` is a list of the current states of FlowSchema.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaCondition"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowSchemaCondition"
       },
       "type": [
         "array",

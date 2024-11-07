@@ -1,5 +1,5 @@
 {
-  "description": "Represents storage that is managed by an external CSI volume driver (Beta feature)",
+  "description": "Represents storage that is managed by an external CSI volume driver",
   "properties": {
     "controllerExpandSecretRef": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",

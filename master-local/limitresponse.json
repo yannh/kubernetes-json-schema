@@ -2,7 +2,7 @@
   "description": "LimitResponse defines how to handle requests that can not be executed right now.",
   "properties": {
     "queuing": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.QueuingConfiguration",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.QueuingConfiguration",
       "description": "`queuing` holds the configuration parameters for queuing. This field may be non-empty only if `type` is `\"Queue\"`."
     },
     "type": {

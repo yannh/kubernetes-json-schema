@@ -1,5 +1,5 @@
 {
-  "description": "Represents storage that is managed by an external CSI volume driver (Beta feature)",
+  "description": "Represents storage that is managed by an external CSI volume driver",
   "properties": {
     "controllerExpandSecretRef": {
       "description": "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace",

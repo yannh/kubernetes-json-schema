@@ -740,7 +740,7 @@
           {
             "group": "resource.k8s.io",
             "kind": "ResourceClaimTemplate",
-            "version": "v1alpha3"
+            "version": "v1beta1"
           }
         ]
       },
@@ -806,7 +806,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceClaimTemplateList",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

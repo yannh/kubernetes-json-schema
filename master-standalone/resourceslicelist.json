@@ -345,19 +345,31 @@
                         },
                         "capacity": {
                           "additionalProperties": {
-                            "oneOf": [
-                              {
-                                "type": [
-                                  "string",
-                                  "null"
-                                ]
-                              },
-                              {
-                                "type": [
-                                  "number",
-                                  "null"
+                            "description": "DeviceCapacity describes a quantity associated with a device.",
+                            "properties": {
+                              "value": {
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  {
+                                    "type": [
+                                      "number",
+                                      "null"
+                                    ]
+                                  }
                                 ]
                               }
+                            },
+                            "required": [
+                              "value"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
                             ]
                           },
                           "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
@@ -560,7 +572,7 @@
           {
             "group": "resource.k8s.io",
             "kind": "ResourceSlice",
-            "version": "v1alpha3"
+            "version": "v1beta1"
           }
         ]
       },
@@ -626,7 +638,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceSliceList",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

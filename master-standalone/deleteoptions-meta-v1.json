@@ -61,6 +61,7 @@
         "rbac.authorization.k8s.io/v1alpha1",
         "rbac.authorization.k8s.io/v1beta1",
         "resource.k8s.io/v1alpha3",
+        "resource.k8s.io/v1beta1",
         "scheduling.k8s.io/v1",
         "scheduling.k8s.io/v1alpha1",
         "scheduling.k8s.io/v1beta1",
@@ -406,6 +407,11 @@
       "group": "resource.k8s.io",
       "kind": "DeleteOptions",
       "version": "v1alpha3"
+    },
+    {
+      "group": "resource.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
     },
     {
       "group": "scheduling.k8s.io",
