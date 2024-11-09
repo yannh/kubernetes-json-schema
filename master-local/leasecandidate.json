@@ -23,7 +23,7 @@
       "description": "More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha1.LeaseCandidateSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidateSpec",
       "description": "spec contains the specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
     }
   },
@@ -32,7 +32,7 @@
     {
       "group": "coordination.k8s.io",
       "kind": "LeaseCandidate",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

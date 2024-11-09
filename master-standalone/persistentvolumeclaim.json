@@ -315,6 +315,7 @@
           "x-kubernetes-map-type": "atomic"
         },
         "dataSourceRef": {
+          "description": "TypedObjectReference contains enough information to let you locate the typed referenced object",
           "properties": {
             "apiGroup": {
               "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
@@ -616,9 +617,11 @@
                 ]
               },
               "status": {
+                "description": "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=state%20of%20pvc-,conditions.status,-(string)%2C%20required",
                 "type": "string"
               },
               "type": {
+                "description": "Type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about",
                 "type": "string"
               }
             },

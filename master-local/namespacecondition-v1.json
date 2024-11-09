@@ -2,15 +2,18 @@
   "description": "NamespaceCondition contains details about state of namespace.",
   "properties": {
     "lastTransitionTime": {
-      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "Last time the condition transitioned from one status to another."
     },
     "message": {
+      "description": "Human-readable message indicating details about last transition.",
       "type": [
         "string",
         "null"
       ]
     },
     "reason": {
+      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
       "type": [
         "string",
         "null"

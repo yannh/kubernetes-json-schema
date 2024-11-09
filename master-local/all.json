@@ -526,6 +526,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequestStatus"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundle"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleSpec"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1.Lease"
     },
     {
@@ -535,13 +544,13 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1.LeaseSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha1.LeaseCandidate"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidate"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha1.LeaseCandidateList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidateList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha1.LeaseCandidateSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidateSpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource"
@@ -1441,6 +1450,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocatedDeviceStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocationResult"
     },
     {
@@ -1492,6 +1504,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.NetworkDeviceData"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.OpaqueDeviceConfiguration"
     },
     {
@@ -1529,6 +1544,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocatedDeviceStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocationResult"
@@ -1583,6 +1601,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceSelector"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NetworkDeviceData"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.OpaqueDeviceConfiguration"

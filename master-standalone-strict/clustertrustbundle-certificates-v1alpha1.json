@@ -1,5 +1,5 @@
 {
-  "description": "LeaseCandidate defines a candidate for a Lease object. Candidates are created such that coordinated leader election will pick the best leader from the list of candidates.",
+  "description": "ClusterTrustBundle is a cluster-scoped container for X.509 trust anchors (root certificates).\n\nClusterTrustBundle objects are considered to be readable by any authenticated user in the cluster, because they can be mounted by pods using the `clusterTrustBundle` projection.  All service accounts have read access to ClusterTrustBundles by default.  Users who only have namespace-level access to a cluster can read ClusterTrustBundles by impersonating a serviceaccount that they have access to.\n\nIt can be optionally associated with a particular assigner, in which case it contains one valid set of trust anchors for that signer. Signers may have multiple associated ClusterTrustBundles; each is an independent set of trust anchors for that signer. Admission control is used to enforce that only users with permissions on the signer can create or modify the corresponding bundle.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -8,7 +8,7 @@
         "null"
       ],
       "enum": [
-        "coordination.k8s.io/v1alpha1"
+        "certificates.k8s.io/v1alpha1"
       ]
     },
     "kind": {
@@ -18,7 +18,7 @@
         "null"
       ],
       "enum": [
-        "LeaseCandidate"
+        "ClusterTrustBundle"
       ]
     },
     "metadata": {
@@ -275,57 +275,22 @@
       "additionalProperties": false
     },
     "spec": {
-      "description": "LeaseCandidateSpec is a specification of a Lease.",
+      "description": "ClusterTrustBundleSpec contains the signer and trust anchors.",
       "properties": {
-        "binaryVersion": {
-          "description": "BinaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required when strategy is \"OldestEmulationVersion\"",
+        "signerName": {
+          "description": "signerName indicates the associated signer, if any.\n\nIn order to create or update a ClusterTrustBundle that sets signerName, you must have the following cluster-scoped permission: group=certificates.k8s.io resource=signers resourceName=<the signer name> verb=attest.\n\nIf signerName is not empty, then the ClusterTrustBundle object must be named with the signer name as a prefix (translating slashes to colons). For example, for the signer name `example.com/foo`, valid ClusterTrustBundle object names include `example.com:foo:abc` and `example.com:foo:v1`.\n\nIf signerName is empty, then the ClusterTrustBundle object's name must not have such a prefix.\n\nList/watch requests for ClusterTrustBundles can filter on this field using a `spec.signerName=NAME` field selector.",
           "type": [
             "string",
             "null"
           ]
         },
-        "emulationVersion": {
-          "description": "EmulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \"OldestEmulationVersion\"",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "leaseName": {
-          "description": "LeaseName is the name of the lease for which this candidate is contending. This field is immutable.",
+        "trustBundle": {
+          "description": "trustBundle contains the individual X.509 trust anchors for this bundle, as PEM bundle of PEM-wrapped, DER-formatted X.509 certificates.\n\nThe data must consist only of PEM certificate blocks that parse as valid X.509 certificates.  Each certificate must include a basic constraints extension with the CA bit set.  The API server will reject objects that contain duplicate certificates, or that use PEM block headers.\n\nUsers of ClusterTrustBundles, including Kubelet, are free to reorder and deduplicate certificate blocks in this file according to their own logic, as well as to drop PEM block headers and inter-block data.",
           "type": "string"
-        },
-        "pingTime": {
-          "description": "MicroTime is version of Time with microsecond level precision.",
-          "format": "date-time",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "preferredStrategies": {
-          "description": "PreferredStrategies indicates the list of strategies for picking the leader for coordinated leader election. The list is ordered, and the first strategy supersedes all other strategies. The list is used by coordinated leader election to make a decision about the final election strategy. This follows as - If all clients have strategy X as the first element in this list, strategy X will be used. - If a candidate has strategy [X] and another candidate has strategy [Y, X], Y supersedes X and strategy Y\n  will be used.\n- If a candidate has strategy [X, Y] and another candidate has strategy [Y, X], this is a user error and leader\n  election will not operate the Lease until resolved.\n(Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.",
-          "items": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "type": "array",
-          "x-kubernetes-list-type": "atomic"
-        },
-        "renewTime": {
-          "description": "MicroTime is version of Time with microsecond level precision.",
-          "format": "date-time",
-          "type": [
-            "string",
-            "null"
-          ]
         }
       },
       "required": [
-        "leaseName",
-        "preferredStrategies"
+        "trustBundle"
       ],
       "type": [
         "object",
@@ -334,11 +299,14 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "spec"
+  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
-      "group": "coordination.k8s.io",
-      "kind": "LeaseCandidate",
+      "group": "certificates.k8s.io",
+      "kind": "ClusterTrustBundle",
       "version": "v1alpha1"
     }
   ],

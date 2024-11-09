@@ -8,13 +8,13 @@
         "null"
       ],
       "enum": [
-        "coordination.k8s.io/v1alpha1"
+        "coordination.k8s.io/v1alpha2"
       ]
     },
     "items": {
       "description": "items is a list of schema objects.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.coordination.v1alpha1.LeaseCandidate"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidate"
       },
       "type": [
         "array",
@@ -32,7 +32,7 @@
       ]
     },
     "metadata": {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
       "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     }
   },
@@ -44,7 +44,7 @@
     {
       "group": "coordination.k8s.io",
       "kind": "LeaseCandidateList",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

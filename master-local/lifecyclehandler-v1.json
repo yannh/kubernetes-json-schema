@@ -3,19 +3,19 @@
   "properties": {
     "exec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ExecAction",
-      "description": "Exec specifies the action to take."
+      "description": "Exec specifies a command to execute in the container."
     },
     "httpGet": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.HTTPGetAction",
-      "description": "HTTPGet specifies the http request to perform."
+      "description": "HTTPGet specifies an HTTP GET request to perform."
     },
     "sleep": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SleepAction",
-      "description": "Sleep represents the duration that the container should sleep before being terminated."
+      "description": "Sleep represents a duration that the container should sleep."
     },
     "tcpSocket": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.TCPSocketAction",
-      "description": "Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified."
+      "description": "Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for backward compatibility. There is no validation of this field and lifecycle hooks will fail at runtime when it is specified."
     }
   },
   "type": "object",

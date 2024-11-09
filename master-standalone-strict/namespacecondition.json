@@ -10,12 +10,14 @@
       ]
     },
     "message": {
+      "description": "Human-readable message indicating details about last transition.",
       "type": [
         "string",
         "null"
       ]
     },
     "reason": {
+      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
       "type": [
         "string",
         "null"

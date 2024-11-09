@@ -2352,6 +2352,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -2639,6 +2640,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -3228,6 +3230,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -3602,13 +3605,14 @@
                     "description": "PodDNSConfigOption defines DNS resolver options of a pod.",
                     "properties": {
                       "name": {
-                        "description": "Required.",
+                        "description": "Name is this DNS resolver option's name. Required.",
                         "type": [
                           "string",
                           "null"
                         ]
                       },
                       "value": {
+                        "description": "Value is this DNS resolver option's value.",
                         "type": [
                           "string",
                           "null"
@@ -4341,6 +4345,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -4628,6 +4633,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -5217,6 +5223,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -6367,6 +6374,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -6654,6 +6662,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -7243,6 +7252,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -7748,6 +7758,97 @@
               "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge,retainKeys"
+            },
+            "resources": {
+              "description": "ResourceRequirements describes the compute resource requirements.",
+              "properties": {
+                "claims": {
+                  "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+                  "items": {
+                    "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                    "properties": {
+                      "name": {
+                        "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                        "type": "string"
+                      },
+                      "request": {
+                        "description": "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "x-kubernetes-list-map-keys": [
+                    "name"
+                  ],
+                  "x-kubernetes-list-type": "map"
+                },
+                "limits": {
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    ]
+                  },
+                  "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "requests": {
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    ]
+                  },
+                  "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false
             },
             "restartPolicy": {
               "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
@@ -9121,6 +9222,7 @@
                                 "additionalProperties": false
                               },
                               "dataSourceRef": {
+                                "description": "TypedObjectReference contains enough information to let you locate the typed referenced object",
                                 "properties": {
                                   "apiGroup": {
                                     "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",

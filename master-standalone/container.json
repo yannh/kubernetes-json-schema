@@ -652,6 +652,7 @@
           ]
         },
         "grpc": {
+          "description": "GRPCAction specifies an action involving a GRPC service.",
           "properties": {
             "port": {
               "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -935,6 +936,7 @@
           ]
         },
         "grpc": {
+          "description": "GRPCAction specifies an action involving a GRPC service.",
           "properties": {
             "port": {
               "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -1509,6 +1511,7 @@
           ]
         },
         "grpc": {
+          "description": "GRPCAction specifies an action involving a GRPC service.",
           "properties": {
             "port": {
               "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",

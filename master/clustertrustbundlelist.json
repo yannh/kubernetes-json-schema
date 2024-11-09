@@ -1,14 +1,21 @@
 {
-  "description": "LeaseCandidate defines a candidate for a Lease object. Candidates are created such that coordinated leader election will pick the best leader from the list of candidates.",
+  "description": "ClusterTrustBundleList is a collection of ClusterTrustBundle objects",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "type": [
         "string",
         "null"
-      ],
-      "enum": [
-        "coordination.k8s.io/v1alpha1"
+      ]
+    },
+    "items": {
+      "description": "items is a collection of ClusterTrustBundle objects",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundle"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "kind": {
@@ -18,23 +25,22 @@
         "null"
       ],
       "enum": [
-        "LeaseCandidate"
+        "ClusterTrustBundleList"
       ]
     },
     "metadata": {
-      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
-    },
-    "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha1.LeaseCandidateSpec",
-      "description": "spec contains the specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+      "description": "metadata contains the list metadata."
     }
   },
+  "required": [
+    "items"
+  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
-      "group": "coordination.k8s.io",
-      "kind": "LeaseCandidate",
+      "group": "certificates.k8s.io",
+      "kind": "ClusterTrustBundleList",
       "version": "v1alpha1"
     }
   ],
