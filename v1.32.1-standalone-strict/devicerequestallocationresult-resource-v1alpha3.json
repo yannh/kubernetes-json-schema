@@ -1,0 +1,49 @@
+{
+  "description": "DeviceRequestAllocationResult contains the allocation result for one request.",
+  "properties": {
+    "adminAccess": {
+      "description": "AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.\n\nThis is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "device": {
+      "description": "Device references one device instance via its name in the driver's resource pool. It must be a DNS label.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "driver": {
+      "description": "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.\n\nMust be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pool": {
+      "description": "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).\n\nMust not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "request": {
+      "description": "Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "request",
+    "driver",
+    "pool",
+    "device"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
