@@ -1858,7 +1858,7 @@
                   "envFrom": {
                     "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
                     "items": {
-                      "description": "EnvFromSource represents the source of a set of ConfigMaps",
+                      "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
                       "properties": {
                         "configMapRef": {
                           "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
@@ -1884,7 +1884,7 @@
                           ]
                         },
                         "prefix": {
-                          "description": "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.",
+                          "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
                           "type": [
                             "string",
                             "null"
@@ -3796,7 +3796,7 @@
                   "envFrom": {
                     "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
                     "items": {
-                      "description": "EnvFromSource represents the source of a set of ConfigMaps",
+                      "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
                       "properties": {
                         "configMapRef": {
                           "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
@@ -3822,7 +3822,7 @@
                           ]
                         },
                         "prefix": {
-                          "description": "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.",
+                          "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
                           "type": [
                             "string",
                             "null"
@@ -5770,7 +5770,7 @@
                   "envFrom": {
                     "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
                     "items": {
-                      "description": "EnvFromSource represents the source of a set of ConfigMaps",
+                      "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
                       "properties": {
                         "configMapRef": {
                           "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
@@ -5796,7 +5796,7 @@
                           ]
                         },
                         "prefix": {
-                          "description": "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.",
+                          "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
                           "type": [
                             "string",
                             "null"
