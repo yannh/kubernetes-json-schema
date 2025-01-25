@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller",
+      "description": "List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.ReplicaSet"
       },

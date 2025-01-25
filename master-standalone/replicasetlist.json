@@ -9,7 +9,7 @@
       ]
     },
     "items": {
-      "description": "List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller",
+      "description": "List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
       "items": {
         "description": "ReplicaSet ensures that a specified number of pod replicas are running at any given time.",
         "properties": {
@@ -292,7 +292,7 @@
                 ]
               },
               "replicas": {
-                "description": "Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller",
+                "description": "Replicas is the number of desired pods. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -10581,7 +10581,7 @@
             "description": "ReplicaSetStatus represents the current status of a ReplicaSet.",
             "properties": {
               "availableReplicas": {
-                "description": "The number of available replicas (ready for at least minReadySeconds) for this replica set.",
+                "description": "The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -10645,7 +10645,7 @@
                 "x-kubernetes-patch-strategy": "merge"
               },
               "fullyLabeledReplicas": {
-                "description": "The number of pods that have labels matching the labels of the pod template of the replicaset.",
+                "description": "The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -10661,7 +10661,7 @@
                 ]
               },
               "readyReplicas": {
-                "description": "readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.",
+                "description": "The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -10669,9 +10669,17 @@
                 ]
               },
               "replicas": {
-                "description": "Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller",
+                "description": "Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
                 "format": "int32",
                 "type": "integer"
+              },
+              "terminatingReplicas": {
+                "description": "The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is an alpha field. Enable DeploymentPodReplacementPolicy to be able to use this field.",
+                "format": "int32",
+                "type": [
+                  "integer",
+                  "null"
+                ]
               }
             },
             "required": [
