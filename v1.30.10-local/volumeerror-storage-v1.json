@@ -1,0 +1,18 @@
+{
+  "description": "VolumeError captures an error encountered during a volume operation.",
+  "properties": {
+    "message": {
+      "description": "message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "time": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "time represents the time the error was encountered."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
