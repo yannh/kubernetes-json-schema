@@ -1,5 +1,5 @@
 {
-  "description": "EndpointsList is a list of endpoints.",
+  "description": "EndpointsList is a list of endpoints. Deprecated: This API is deprecated in v1.33+.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
