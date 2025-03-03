@@ -295,7 +295,7 @@
                 ]
               },
               "leaseName": {
-                "description": "LeaseName is the name of the lease for which this candidate is contending. The limits on this field are the same as on Lease.name. Multiple lease candidates may reference the same Lease.name. This field is immutable.",
+                "description": "LeaseName is the name of the lease for which this candidate is contending. This field is immutable.",
                 "type": "string"
               },
               "pingTime": {
@@ -338,7 +338,7 @@
           {
             "group": "coordination.k8s.io",
             "kind": "LeaseCandidate",
-            "version": "v1beta1"
+            "version": "v1alpha2"
           }
         ]
       },
@@ -404,7 +404,7 @@
     {
       "group": "coordination.k8s.io",
       "kind": "LeaseCandidateList",
-      "version": "v1beta1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
