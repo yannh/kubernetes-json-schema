@@ -23,7 +23,7 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1beta1.SelfSubjectReviewStatus",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1.SelfSubjectReviewStatus",
       "description": "Status is filled in by the server with the user attributes."
     }
   },
@@ -32,7 +32,7 @@
     {
       "group": "authentication.k8s.io",
       "kind": "SelfSubjectReview",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

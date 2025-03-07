@@ -32,7 +32,7 @@
                 "additionalProperties": false
               },
               "requests": {
-                "description": "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.",
+                "description": "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.\n\nReferences to subrequests must include the name of the main request and may include the subrequest using the format <main request>[/<subrequest>]. If just the main request is given, the configuration applies to all subrequests.",
                 "items": {
                   "type": [
                     "string",
@@ -90,7 +90,7 @@
                 "type": "string"
               },
               "request": {
-                "description": "Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.",
+                "description": "Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.\n\nMultiple devices may have been allocated per request.",
                 "type": "string"
               }
             },
