@@ -10533,6 +10533,14 @@
                   "null"
                 ]
               },
+              "observedGeneration": {
+                "description": "If set, this represents the .metadata.generation that the pod condition was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.",
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
               "reason": {
                 "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
                 "type": [
@@ -12316,6 +12324,14 @@
           "description": "nominatedNodeName is set only when this pod preempts other pods on the node, but it cannot be scheduled right away as preemption victims receive their graceful termination periods. This field does not guarantee that the pod will be scheduled on this node. Scheduler may decide to place the pod elsewhere if other nodes become available sooner. Scheduler may also decide to give the resources on this node to a higher priority pod that is created after preemption. As a result, this field may be different than PodSpec.nodeName when the pod is scheduled.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "observedGeneration": {
+          "description": "If set, this represents the .metadata.generation that the pod status was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.",
+          "format": "int64",
+          "type": [
+            "integer",
             "null"
           ]
         },
