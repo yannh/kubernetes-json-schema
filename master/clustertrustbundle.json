@@ -23,7 +23,7 @@
       "description": "metadata contains the object metadata."
     },
     "spec": {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundleSpec",
       "description": "spec contains the signer (if any) and trust anchors."
     }
   },
@@ -35,7 +35,7 @@
     {
       "group": "certificates.k8s.io",
       "kind": "ClusterTrustBundle",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

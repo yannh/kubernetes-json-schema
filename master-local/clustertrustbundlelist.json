@@ -11,7 +11,7 @@
     "items": {
       "description": "items is a collection of ClusterTrustBundle objects",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundle"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundle"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "certificates.k8s.io",
       "kind": "ClusterTrustBundleList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

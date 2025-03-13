@@ -529,6 +529,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundle"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundleList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundleSpec"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1.Lease"
     },
     {
