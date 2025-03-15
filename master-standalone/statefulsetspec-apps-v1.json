@@ -11117,8 +11117,7 @@
   },
   "required": [
     "selector",
-    "template",
-    "serviceName"
+    "template"
   ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"

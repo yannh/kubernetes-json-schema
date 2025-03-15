@@ -556,6 +556,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidateSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1beta1.LeaseCandidate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1beta1.LeaseCandidateList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1beta1.LeaseCandidateSpec"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource"
     },
     {

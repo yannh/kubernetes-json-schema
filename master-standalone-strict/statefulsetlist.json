@@ -426,7 +426,10 @@
               },
               "serviceName": {
                 "description": "serviceName is the name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where \"pod-specific-string\" is managed by the StatefulSet controller.",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "template": {
                 "description": "PodTemplateSpec describes the data a pod should have when created from a template",
@@ -11694,8 +11697,7 @@
             },
             "required": [
               "selector",
-              "template",
-              "serviceName"
+              "template"
             ],
             "type": [
               "object",

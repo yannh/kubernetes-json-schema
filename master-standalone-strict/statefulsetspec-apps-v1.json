@@ -11421,8 +11421,7 @@
   },
   "required": [
     "selector",
-    "template",
-    "serviceName"
+    "template"
   ],
   "type": "object",
   "additionalProperties": false,
