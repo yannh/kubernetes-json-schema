@@ -892,6 +892,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeStatus"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSwapStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSystemInfo"
     },
     {
