@@ -1,0 +1,28 @@
+{
+  "description": "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.",
+  "properties": {
+    "counters": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.Counter"
+      },
+      "description": "Counters defines the Counter that will be consumed by the device.\n\nThe maximum number of Counters is 32.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "sharedCounter": {
+      "description": "SharedCounter defines the shared counter from which the counters defined will be consumed.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "sharedCounter",
+    "counters"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

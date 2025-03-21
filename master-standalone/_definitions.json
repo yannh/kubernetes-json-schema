@@ -9648,7 +9648,7 @@
           "description": "A label query over a set of resources, in this case pods. If it's null, this PodAffinityTerm matches with no Pods."
         },
         "matchLabelKeys": {
-          "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+          "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set.",
           "items": {
             "type": "string"
           },
@@ -9656,7 +9656,7 @@
           "x-kubernetes-list-type": "atomic"
         },
         "mismatchLabelKeys": {
-          "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+          "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set.",
           "items": {
             "type": "string"
           },
@@ -12154,11 +12154,11 @@
           "type": "integer"
         },
         "nodeAffinityPolicy": {
-          "description": "NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations.\n\nIf this value is nil, the behavior is equivalent to the Honor policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.",
+          "description": "NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations.\n\nIf this value is nil, the behavior is equivalent to the Honor policy.",
           "type": "string"
         },
         "nodeTaintsPolicy": {
-          "description": "NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included.\n\nIf this value is nil, the behavior is equivalent to the Ignore policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.",
+          "description": "NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included.\n\nIf this value is nil, the behavior is equivalent to the Ignore policy.",
           "type": "string"
         },
         "topologyKey": {
@@ -12632,8 +12632,16 @@
     "io.k8s.api.discovery.v1.EndpointHints": {
       "description": "EndpointHints provides hints describing how an endpoint should be consumed.",
       "properties": {
+        "forNodes": {
+          "description": "forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.discovery.v1.ForNode"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
         "forZones": {
-          "description": "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.",
+          "description": "forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.discovery.v1.ForZone"
           },
@@ -12756,6 +12764,19 @@
           "version": "v1"
         }
       ]
+    },
+    "io.k8s.api.discovery.v1.ForNode": {
+      "description": "ForNode provides information about which nodes should consume this endpoint.",
+      "properties": {
+        "name": {
+          "description": "name represents the name of the node.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "io.k8s.api.discovery.v1.ForZone": {
       "description": "ForZone provides information about which zones should consume this endpoint.",
@@ -15345,6 +15366,10 @@
     "io.k8s.api.resource.v1alpha3.BasicDevice": {
       "description": "BasicDevice defines one device instance.",
       "properties": {
+        "allNodes": {
+          "description": "AllNodes indicates that all nodes have access to the device.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+          "type": "boolean"
+        },
         "attributes": {
           "additionalProperties": {
             "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceAttribute"
@@ -15358,6 +15383,30 @@
           },
           "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
           "type": "object"
+        },
+        "consumesCounter": {
+          "description": "ConsumesCounter defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe maximum number of device counter consumption entries is 32. This is the same as the maximum number of shared counters allowed in a ResourceSlice.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceCounterConsumption"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "nodeName": {
+          "description": "NodeName identifies the node where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+          "type": "string"
+        },
+        "nodeSelector": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
+          "description": "NodeSelector defines the nodes where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set."
+        },
+        "taints": {
+          "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 8.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaint"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object"
@@ -15372,6 +15421,40 @@
       },
       "required": [
         "expression"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha3.Counter": {
+      "description": "Counter describes a quantity associated with a device.",
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+          "description": "Value defines how much of a certain device counter is available."
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha3.CounterSet": {
+      "description": "CounterSet defines a named set of counters that are available to be used by devices defined in the ResourceSlice.\n\nThe counters are not allocatable by themselves, but can be referenced by devices. When a device is allocated, the portion of counters it uses will no longer be available for use by other devices.",
+      "properties": {
+        "counters": {
+          "additionalProperties": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.Counter"
+          },
+          "description": "Counters defines the set of counters for this CounterSet The name of each counter must be unique in that set and must be a DNS label.\n\nTo ensure this uniqueness, capacities defined by the vendor must be listed without the driver name as domain prefix in their name. All others must be listed with their domain prefix.\n\nThe maximum number of counters is 32.",
+          "type": "object"
+        },
+        "name": {
+          "description": "Name defines the name of the counter set. It must be a DNS label.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "counters"
       ],
       "type": "object"
     },
@@ -15633,6 +15716,27 @@
       },
       "type": "object"
     },
+    "io.k8s.api.resource.v1alpha3.DeviceCounterConsumption": {
+      "description": "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.",
+      "properties": {
+        "counters": {
+          "additionalProperties": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.Counter"
+          },
+          "description": "Counters defines the Counter that will be consumed by the device.\n\nThe maximum number of Counters is 32.",
+          "type": "object"
+        },
+        "sharedCounter": {
+          "description": "SharedCounter defines the shared counter from which the counters defined will be consumed.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sharedCounter",
+        "counters"
+      ],
+      "type": "object"
+    },
     "io.k8s.api.resource.v1alpha3.DeviceRequest": {
       "description": "DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.",
       "properties": {
@@ -15672,6 +15776,14 @@
           },
           "type": "array",
           "x-kubernetes-list-type": "atomic"
+        },
+        "tolerations": {
+          "description": "If specified, the request's tolerations.\n\nTolerations for NoSchedule are required to allocate a device which has a taint with that effect. The same applies to NoExecute.\n\nIn addition, should any of the allocated devices get tainted with NoExecute after allocation and that effect is not tolerated, then all pods consuming the ResourceClaim get deleted to evict them. The scheduler will not let new pods reserve the claim while it has these tainted devices. Once all pods are evicted, the claim will get deallocated.\n\nThe maximum number of tolerations is 16.\n\nThis field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceToleration"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -15701,6 +15813,14 @@
         "request": {
           "description": "Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.\n\nMultiple devices may have been allocated per request.",
           "type": "string"
+        },
+        "tolerations": {
+          "description": "A copy of all tolerations specified in the request at the time when the device got allocated.\n\nThe maximum number of tolerations is 16.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceToleration"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -15748,12 +15868,193 @@
           },
           "type": "array",
           "x-kubernetes-list-type": "atomic"
+        },
+        "tolerations": {
+          "description": "If specified, the request's tolerations.\n\nTolerations for NoSchedule are required to allocate a device which has a taint with that effect. The same applies to NoExecute.\n\nIn addition, should any of the allocated devices get tainted with NoExecute after allocation and that effect is not tolerated, then all pods consuming the ResourceClaim get deleted to evict them. The scheduler will not let new pods reserve the claim while it has these tainted devices. Once all pods are evicted, the claim will get deallocated.\n\nThe maximum number of tolerations is 16.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceToleration"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
         "name",
         "deviceClassName"
       ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha3.DeviceTaint": {
+      "description": "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.",
+      "properties": {
+        "effect": {
+          "description": "The effect of the taint on claims that do not tolerate the taint and through such claims on the pods using them. Valid effects are NoSchedule and NoExecute. PreferNoSchedule as used for nodes is not valid here.",
+          "type": "string"
+        },
+        "key": {
+          "description": "The taint key to be applied to a device. Must be a label name.",
+          "type": "string"
+        },
+        "timeAdded": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+          "description": "TimeAdded represents the time at which the taint was added. Added automatically during create or update if not set."
+        },
+        "value": {
+          "description": "The taint value corresponding to the taint key. Must be a label value.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "effect"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha3.DeviceTaintRule": {
+      "description": "DeviceTaintRule adds one taint to all devices which match the selector. This has the same effect as if the taint was specified directly in the ResourceSlice by the DRA driver.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "DeviceTaintRule"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleSpec",
+          "description": "Spec specifies the selector and one taint.\n\nChanging the spec automatically increments the metadata.generation number."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "DeviceTaintRule",
+          "version": "v1alpha3"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha3.DeviceTaintRuleList": {
+      "description": "DeviceTaintRuleList is a collection of DeviceTaintRules.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of DeviceTaintRules.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRule"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "DeviceTaintRuleList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "resource.k8s.io",
+          "kind": "DeviceTaintRuleList",
+          "version": "v1alpha3"
+        }
+      ]
+    },
+    "io.k8s.api.resource.v1alpha3.DeviceTaintRuleSpec": {
+      "description": "DeviceTaintRuleSpec specifies the selector and one taint.",
+      "properties": {
+        "deviceSelector": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintSelector",
+          "description": "DeviceSelector defines which device(s) the taint is applied to. All selector criteria must be satified for a device to match. The empty selector matches all devices. Without a selector, no devices are matches."
+        },
+        "taint": {
+          "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaint",
+          "description": "The taint that gets applied to matching devices."
+        }
+      },
+      "required": [
+        "taint"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha3.DeviceTaintSelector": {
+      "description": "DeviceTaintSelector defines which device(s) a DeviceTaintRule applies to. The empty selector matches all devices. Without a selector, no devices are matched.",
+      "properties": {
+        "device": {
+          "description": "If device is set, only devices with that name are selected. This field corresponds to slice.spec.devices[].name.\n\nSetting also driver and pool may be required to avoid ambiguity, but is not required.",
+          "type": "string"
+        },
+        "deviceClassName": {
+          "description": "If DeviceClassName is set, the selectors defined there must be satisfied by a device to be selected. This field corresponds to class.metadata.name.",
+          "type": "string"
+        },
+        "driver": {
+          "description": "If driver is set, only devices from that driver are selected. This fields corresponds to slice.spec.driver.",
+          "type": "string"
+        },
+        "pool": {
+          "description": "If pool is set, only devices in that pool are selected.\n\nAlso setting the driver name may be useful to avoid ambiguity when different drivers use the same pool name, but this is not required because selecting pools from different drivers may also be useful, for example when drivers with node-local devices use the node name as their pool name.",
+          "type": "string"
+        },
+        "selectors": {
+          "description": "Selectors contains the same selection criteria as a ResourceClaim. Currently, CEL expressions are supported. All of these selectors must be satisfied.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1alpha3.DeviceToleration": {
+      "description": "The ResourceClaim this DeviceToleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.",
+      "properties": {
+        "effect": {
+          "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule and NoExecute.",
+          "type": "string"
+        },
+        "key": {
+          "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys. Must be a label name.",
+          "type": "string"
+        },
+        "operator": {
+          "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ResourceClaim can tolerate all taints of a particular category.",
+          "type": "string"
+        },
+        "tolerationSeconds": {
+          "description": "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system. If larger than zero, the time when the pod needs to be evicted is calculated as <time when taint was adedd> + <toleration seconds>.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Value is the taint value the toleration matches to. If the operator is Exists, the value must be empty, otherwise just a regular string. Must be a label value.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "io.k8s.api.resource.v1alpha3.NetworkDeviceData": {
@@ -16138,7 +16439,7 @@
       "description": "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.",
       "properties": {
         "allNodes": {
-          "description": "AllNodes indicates that all nodes have access to the resources in the pool.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set.",
+          "description": "AllNodes indicates that all nodes have access to the resources in the pool.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.",
           "type": "boolean"
         },
         "devices": {
@@ -16154,16 +16455,28 @@
           "type": "string"
         },
         "nodeName": {
-          "description": "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.\n\nThis field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.",
+          "description": "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.\n\nThis field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set. This field is immutable.",
           "type": "string"
         },
         "nodeSelector": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
-          "description": "NodeSelector defines which nodes have access to the resources in the pool, when that pool is not limited to a single node.\n\nMust use exactly one term.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set."
+          "description": "NodeSelector defines which nodes have access to the resources in the pool, when that pool is not limited to a single node.\n\nMust use exactly one term.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set."
+        },
+        "perDeviceNodeSelection": {
+          "description": "PerDeviceNodeSelection defines whether the access from nodes to resources in the pool is set on the ResourceSlice level or on each device. If it is set to true, every device defined the ResourceSlice must specify this individually.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.",
+          "type": "boolean"
         },
         "pool": {
           "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.ResourcePool",
           "description": "Pool describes the pool that this ResourceSlice belongs to."
+        },
+        "sharedCounters": {
+          "description": "SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.\n\nThe names of the SharedCounters must be unique in the ResourceSlice.\n\nThe maximum number of SharedCounters is 32.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1alpha3.CounterSet"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -16231,6 +16544,10 @@
     "io.k8s.api.resource.v1beta1.BasicDevice": {
       "description": "BasicDevice defines one device instance.",
       "properties": {
+        "allNodes": {
+          "description": "AllNodes indicates that all nodes have access to the device.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+          "type": "boolean"
+        },
         "attributes": {
           "additionalProperties": {
             "$ref": "#/definitions/io.k8s.api.resource.v1beta1.DeviceAttribute"
@@ -16244,6 +16561,30 @@
           },
           "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
           "type": "object"
+        },
+        "consumesCounter": {
+          "description": "ConsumesCounter defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe maximum number of device counter consumption entries is 32. This is the same as the maximum number of shared counters allowed in a ResourceSlice.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.DeviceCounterConsumption"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "nodeName": {
+          "description": "NodeName identifies the node where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+          "type": "string"
+        },
+        "nodeSelector": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
+          "description": "NodeSelector defines the nodes where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set."
+        },
+        "taints": {
+          "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 8.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.DeviceTaint"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "type": "object"
@@ -16258,6 +16599,40 @@
       },
       "required": [
         "expression"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1beta1.Counter": {
+      "description": "Counter describes a quantity associated with a device.",
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+          "description": "Value defines how much of a certain device counter is available."
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1beta1.CounterSet": {
+      "description": "CounterSet defines a named set of counters that are available to be used by devices defined in the ResourceSlice.\n\nThe counters are not allocatable by themselves, but can be referenced by devices. When a device is allocated, the portion of counters it uses will no longer be available for use by other devices.",
+      "properties": {
+        "counters": {
+          "additionalProperties": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.Counter"
+          },
+          "description": "Counters defines the set of counters for this CounterSet The name of each counter must be unique in that set and must be a DNS label.\n\nThe maximum number of counters is 32.",
+          "type": "object"
+        },
+        "name": {
+          "description": "Name defines the name of the counter set. It must be a DNS label.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "counters"
       ],
       "type": "object"
     },
@@ -16532,6 +16907,27 @@
       },
       "type": "object"
     },
+    "io.k8s.api.resource.v1beta1.DeviceCounterConsumption": {
+      "description": "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.",
+      "properties": {
+        "counters": {
+          "additionalProperties": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.Counter"
+          },
+          "description": "Counters defines the Counter that will be consumed by the device.\n\nThe maximum number of Counters is 32.",
+          "type": "object"
+        },
+        "sharedCounter": {
+          "description": "SharedCounter defines the shared counter from which the counters defined will be consumed.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sharedCounter",
+        "counters"
+      ],
+      "type": "object"
+    },
     "io.k8s.api.resource.v1beta1.DeviceRequest": {
       "description": "DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.",
       "properties": {
@@ -16571,6 +16967,14 @@
           },
           "type": "array",
           "x-kubernetes-list-type": "atomic"
+        },
+        "tolerations": {
+          "description": "If specified, the request's tolerations.\n\nTolerations for NoSchedule are required to allocate a device which has a taint with that effect. The same applies to NoExecute.\n\nIn addition, should any of the allocated devices get tainted with NoExecute after allocation and that effect is not tolerated, then all pods consuming the ResourceClaim get deleted to evict them. The scheduler will not let new pods reserve the claim while it has these tainted devices. Once all pods are evicted, the claim will get deallocated.\n\nThe maximum number of tolerations is 16.\n\nThis field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.DeviceToleration"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -16600,6 +17004,14 @@
         "request": {
           "description": "Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.\n\nMultiple devices may have been allocated per request.",
           "type": "string"
+        },
+        "tolerations": {
+          "description": "A copy of all tolerations specified in the request at the time when the device got allocated.\n\nThe maximum number of tolerations is 16.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.DeviceToleration"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
@@ -16647,12 +17059,73 @@
           },
           "type": "array",
           "x-kubernetes-list-type": "atomic"
+        },
+        "tolerations": {
+          "description": "If specified, the request's tolerations.\n\nTolerations for NoSchedule are required to allocate a device which has a taint with that effect. The same applies to NoExecute.\n\nIn addition, should any of the allocated devices get tainted with NoExecute after allocation and that effect is not tolerated, then all pods consuming the ResourceClaim get deleted to evict them. The scheduler will not let new pods reserve the claim while it has these tainted devices. Once all pods are evicted, the claim will get deallocated.\n\nThe maximum number of tolerations is 16.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.DeviceToleration"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
         "name",
         "deviceClassName"
       ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1beta1.DeviceTaint": {
+      "description": "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.",
+      "properties": {
+        "effect": {
+          "description": "The effect of the taint on claims that do not tolerate the taint and through such claims on the pods using them. Valid effects are NoSchedule and NoExecute. PreferNoSchedule as used for nodes is not valid here.",
+          "type": "string"
+        },
+        "key": {
+          "description": "The taint key to be applied to a device. Must be a label name.",
+          "type": "string"
+        },
+        "timeAdded": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+          "description": "TimeAdded represents the time at which the taint was added. Added automatically during create or update if not set."
+        },
+        "value": {
+          "description": "The taint value corresponding to the taint key. Must be a label value.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "effect"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.resource.v1beta1.DeviceToleration": {
+      "description": "The ResourceClaim this DeviceToleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.",
+      "properties": {
+        "effect": {
+          "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule and NoExecute.",
+          "type": "string"
+        },
+        "key": {
+          "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys. Must be a label name.",
+          "type": "string"
+        },
+        "operator": {
+          "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ResourceClaim can tolerate all taints of a particular category.",
+          "type": "string"
+        },
+        "tolerationSeconds": {
+          "description": "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system. If larger than zero, the time when the pod needs to be evicted is calculated as <time when taint was adedd> + <toleration seconds>.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Value is the taint value the toleration matches to. If the operator is Exists, the value must be empty, otherwise just a regular string. Must be a label value.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "io.k8s.api.resource.v1beta1.NetworkDeviceData": {
@@ -17037,7 +17510,7 @@
       "description": "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.",
       "properties": {
         "allNodes": {
-          "description": "AllNodes indicates that all nodes have access to the resources in the pool.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set.",
+          "description": "AllNodes indicates that all nodes have access to the resources in the pool.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.",
           "type": "boolean"
         },
         "devices": {
@@ -17053,16 +17526,28 @@
           "type": "string"
         },
         "nodeName": {
-          "description": "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.\n\nThis field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.",
+          "description": "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.\n\nThis field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set. This field is immutable.",
           "type": "string"
         },
         "nodeSelector": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelector",
-          "description": "NodeSelector defines which nodes have access to the resources in the pool, when that pool is not limited to a single node.\n\nMust use exactly one term.\n\nExactly one of NodeName, NodeSelector and AllNodes must be set."
+          "description": "NodeSelector defines which nodes have access to the resources in the pool, when that pool is not limited to a single node.\n\nMust use exactly one term.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set."
+        },
+        "perDeviceNodeSelection": {
+          "description": "PerDeviceNodeSelection defines whether the access from nodes to resources in the pool is set on the ResourceSlice level or on each device. If it is set to true, every device defined the ResourceSlice must specify this individually.\n\nExactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.",
+          "type": "boolean"
         },
         "pool": {
           "$ref": "#/definitions/io.k8s.api.resource.v1beta1.ResourcePool",
           "description": "Pool describes the pool that this ResourceSlice belongs to."
+        },
+        "sharedCounters": {
+          "description": "SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.\n\nThe names of the SharedCounters must be unique in the ResourceSlice.\n\nThe maximum number of SharedCounters is 32.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.resource.v1beta1.CounterSet"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
         }
       },
       "required": [
