@@ -523,6 +523,13 @@
             ],
             "additionalProperties": false
           },
+          "stopSignal": {
+            "description": "StopSignal reports the effective stop signal for this container",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "user": {
             "description": "ContainerUser represents user identity information",
             "properties": {
@@ -1089,6 +1096,13 @@
               "null"
             ],
             "additionalProperties": false
+          },
+          "stopSignal": {
+            "description": "StopSignal reports the effective stop signal for this container",
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "user": {
             "description": "ContainerUser represents user identity information",
@@ -1690,6 +1704,13 @@
               "null"
             ],
             "additionalProperties": false
+          },
+          "stopSignal": {
+            "description": "StopSignal reports the effective stop signal for this container",
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "user": {
             "description": "ContainerUser represents user identity information",

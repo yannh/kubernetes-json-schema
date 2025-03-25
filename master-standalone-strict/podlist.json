@@ -2061,6 +2061,13 @@
                             "null"
                           ],
                           "additionalProperties": false
+                        },
+                        "stopSignal": {
+                          "description": "StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
                       "type": [
@@ -4054,6 +4061,13 @@
                             "null"
                           ],
                           "additionalProperties": false
+                        },
+                        "stopSignal": {
+                          "description": "StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
                       "type": [
@@ -6083,6 +6097,13 @@
                             "null"
                           ],
                           "additionalProperties": false
+                        },
+                        "stopSignal": {
+                          "description": "StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
                       "type": [
@@ -11036,6 +11057,13 @@
                       ],
                       "additionalProperties": false
                     },
+                    "stopSignal": {
+                      "description": "StopSignal reports the effective stop signal for this container",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
                     "user": {
                       "description": "ContainerUser represents user identity information",
                       "properties": {
@@ -11602,6 +11630,13 @@
                         "null"
                       ],
                       "additionalProperties": false
+                    },
+                    "stopSignal": {
+                      "description": "StopSignal reports the effective stop signal for this container",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "user": {
                       "description": "ContainerUser represents user identity information",
@@ -12203,6 +12238,13 @@
                         "null"
                       ],
                       "additionalProperties": false
+                    },
+                    "stopSignal": {
+                      "description": "StopSignal reports the effective stop signal for this container",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "user": {
                       "description": "ContainerUser represents user identity information",

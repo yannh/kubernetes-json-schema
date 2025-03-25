@@ -89,6 +89,13 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerState",
       "description": "State holds details about the container's current condition."
     },
+    "stopSignal": {
+      "description": "StopSignal reports the effective stop signal for this container",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "user": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerUser",
       "description": "User represents user identity information initially attached to the first process of the container"
