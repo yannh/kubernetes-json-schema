@@ -23,7 +23,7 @@
       "description": "Standard object metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceSliceSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceSliceSpec",
       "description": "Contains the information published by the driver.\n\nChanging the spec automatically increments the metadata.generation number."
     }
   },
@@ -35,7 +35,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "ResourceSlice",
-      "version": "v1beta1"
+      "version": "v1beta2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

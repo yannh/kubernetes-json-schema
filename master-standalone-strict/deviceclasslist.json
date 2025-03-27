@@ -377,7 +377,7 @@
           {
             "group": "resource.k8s.io",
             "kind": "DeviceClass",
-            "version": "v1beta1"
+            "version": "v1beta2"
           }
         ],
         "additionalProperties": false
@@ -445,7 +445,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "DeviceClassList",
-      "version": "v1beta1"
+      "version": "v1beta2"
     }
   ],
   "additionalProperties": false,

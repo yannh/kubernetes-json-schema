@@ -1735,6 +1735,123 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceSliceSpec"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.AllocatedDeviceStatus"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.AllocationResult"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CELDeviceSelector"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.Counter"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterSet"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.Device"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceAllocationConfiguration"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceAllocationResult"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceAttribute"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceCapacity"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClaim"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClaimConfiguration"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClass"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClassConfiguration"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClassList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClassSpec"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceConstraint"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceCounterConsumption"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceRequest"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceRequestAllocationResult"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceSelector"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceSubRequest"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceTaint"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceToleration"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ExactDeviceRequest"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NetworkDeviceData"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.OpaqueDeviceConfiguration"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaim"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimConsumerReference"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimSpec"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimStatus"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimTemplate"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimTemplateList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceClaimTemplateSpec"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourcePool"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceSlice"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceSliceList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ResourceSliceSpec"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"
     },
     {

@@ -381,11 +381,15 @@
                       "null"
                     ]
                   },
-                  "consumesCounter": {
-                    "description": "ConsumesCounter defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe maximum number of device counter consumption entries is 32. This is the same as the maximum number of shared counters allowed in a ResourceSlice.",
+                  "consumesCounters": {
+                    "description": "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe total number of device counter consumption entries must be <= 32. In addition, the total number in the entire ResourceSlice must be <= 1024 (for example, 64 devices with 16 counters each).",
                     "items": {
                       "description": "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.",
                       "properties": {
+                        "counterSet": {
+                          "description": "CounterSet is the name of the set from which the counters defined will be consumed.",
+                          "type": "string"
+                        },
                         "counters": {
                           "additionalProperties": {
                             "description": "Counter describes a quantity associated with a device.",
@@ -416,16 +420,12 @@
                             ],
                             "additionalProperties": false
                           },
-                          "description": "Counters defines the Counter that will be consumed by the device.\n\nThe maximum number of Counters is 32.",
+                          "description": "Counters defines the counters that will be consumed by the device.\n\nThe maximum number counters in a device is 32. In addition, the maximum number of all counters in all devices is 1024 (for example, 64 devices with 16 counters each).",
                           "type": "object"
-                        },
-                        "sharedCounter": {
-                          "description": "SharedCounter defines the shared counter from which the counters defined will be consumed.",
-                          "type": "string"
                         }
                       },
                       "required": [
-                        "sharedCounter",
+                        "counterSet",
                         "counters"
                       ],
                       "type": [
@@ -566,7 +566,7 @@
                     "additionalProperties": false
                   },
                   "taints": {
-                    "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 8.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+                    "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 4.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
                     "items": {
                       "description": "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.",
                       "properties": {

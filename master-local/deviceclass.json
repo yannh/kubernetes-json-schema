@@ -23,7 +23,7 @@
       "description": "Standard object metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClassSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceClassSpec",
       "description": "Spec defines what can be allocated and how to configure it.\n\nThis is mutable. Consumers have to be prepared for classes changing at any time, either because they get updated or replaced. Claim allocations are done once based on whatever was set in classes at the time of allocation.\n\nChanging the spec automatically increments the metadata.generation number."
     }
   },
@@ -35,7 +35,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "DeviceClass",
-      "version": "v1beta1"
+      "version": "v1beta2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

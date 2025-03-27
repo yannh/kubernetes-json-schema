@@ -371,6 +371,11 @@
           "version": "v1beta1"
         },
         {
+          "group": "resource.k8s.io",
+          "kind": "DeleteOptions",
+          "version": "v1beta2"
+        },
+        {
           "group": "scheduling.k8s.io",
           "kind": "DeleteOptions",
           "version": "v1"
