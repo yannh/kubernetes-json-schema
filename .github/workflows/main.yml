@@ -30,6 +30,9 @@ jobs:
       - name: generate
         run: make gen
 
+      - name: Update index files
+        run: make index
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Adding new schemas
