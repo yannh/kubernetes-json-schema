@@ -1,0 +1,21 @@
+{
+  "description": "Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.",
+  "properties": {
+    "basic": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.BasicDevice",
+      "description": "Basic defines one device instance."
+    },
+    "name": {
+      "description": "Name is unique identifier among all devices managed by the driver in the pool. It must be a DNS label.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

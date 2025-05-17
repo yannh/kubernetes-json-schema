@@ -1,0 +1,23 @@
+{
+  "description": "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.",
+  "properties": {
+    "exec": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.ExecAction",
+      "description": "Exec specifies a command to execute in the container."
+    },
+    "httpGet": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.HTTPGetAction",
+      "description": "HTTPGet specifies an HTTP GET request to perform."
+    },
+    "sleep": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.SleepAction",
+      "description": "Sleep represents a duration that the container should sleep."
+    },
+    "tcpSocket": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.TCPSocketAction",
+      "description": "Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for backward compatibility. There is no validation of this field and lifecycle hooks will fail at runtime when it is specified."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

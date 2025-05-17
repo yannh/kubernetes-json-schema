@@ -1,0 +1,18 @@
+{
+  "description": "IngressLoadBalancerStatus represents the status of a load-balancer.",
+  "properties": {
+    "ingress": {
+      "description": "ingress is a list containing ingress points for the load-balancer.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.networking.v1.IngressLoadBalancerIngress"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

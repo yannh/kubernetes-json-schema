@@ -1,0 +1,28 @@
+{
+  "description": "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.",
+  "properties": {
+    "counterSet": {
+      "description": "CounterSet is the name of the set from which the counters defined will be consumed.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "counters": {
+      "additionalProperties": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.Counter"
+      },
+      "description": "Counters defines the counters that will be consumed by the device.\n\nThe maximum number counters in a device is 32. In addition, the maximum number of all counters in all devices is 1024 (for example, 64 devices with 16 counters each).",
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "counterSet",
+    "counters"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

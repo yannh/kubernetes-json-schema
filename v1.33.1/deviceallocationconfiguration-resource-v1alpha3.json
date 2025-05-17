@@ -1,0 +1,35 @@
+{
+  "description": "DeviceAllocationConfiguration gets embedded in an AllocationResult.",
+  "properties": {
+    "opaque": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.OpaqueDeviceConfiguration",
+      "description": "Opaque provides driver-specific configuration parameters."
+    },
+    "requests": {
+      "description": "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.\n\nReferences to subrequests must include the name of the main request and may include the subrequest using the format <main request>[/<subrequest>]. If just the main request is given, the configuration applies to all subrequests.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "source": {
+      "description": "Source records whether the configuration comes from a class and thus is not something that a normal user would have been able to set or from a claim.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "source"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

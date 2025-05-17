@@ -1,0 +1,97 @@
+{
+  "description": "Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.",
+  "properties": {
+    "basic": {
+      "description": "BasicDevice defines one device instance.",
+      "properties": {
+        "attributes": {
+          "additionalProperties": {
+            "description": "DeviceAttribute must have exactly one field set.",
+            "properties": {
+              "bool": {
+                "description": "BoolValue is a true/false value.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "int": {
+                "description": "IntValue is a number.",
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "string": {
+                "description": "StringValue is a string. Must not be longer than 64 characters.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "description": "VersionValue is a semantic version according to semver.org spec 2.0.0. Must not be longer than 64 characters.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Attributes defines the set of attributes for this device. The name of each attribute must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "capacity": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          },
+          "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "description": "Name is unique identifier among all devices managed by the driver in the pool. It must be a DNS label.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

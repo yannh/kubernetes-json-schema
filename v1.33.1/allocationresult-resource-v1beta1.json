@@ -1,0 +1,15 @@
+{
+  "description": "AllocationResult contains attributes of an allocated resource.",
+  "properties": {
+    "devices": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceAllocationResult",
+      "description": "Devices is the result of allocating devices."
+    },
+    "nodeSelector": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
+      "description": "NodeSelector defines where the allocated resources are available. If unset, they are available everywhere."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

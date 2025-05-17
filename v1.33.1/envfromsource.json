@@ -1,0 +1,22 @@
+{
+  "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
+  "properties": {
+    "configMapRef": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMapEnvSource",
+      "description": "The ConfigMap to select from"
+    },
+    "prefix": {
+      "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "secretRef": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.SecretEnvSource",
+      "description": "The Secret to select from"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

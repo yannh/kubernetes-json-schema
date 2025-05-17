@@ -1,0 +1,11 @@
+{
+  "description": "ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.",
+  "properties": {
+    "devices": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaim",
+      "description": "Devices defines how to request devices."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

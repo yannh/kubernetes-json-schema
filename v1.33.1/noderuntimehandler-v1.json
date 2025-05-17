@@ -1,0 +1,18 @@
+{
+  "description": "NodeRuntimeHandler is a set of runtime handler information.",
+  "properties": {
+    "features": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeHandlerFeatures",
+      "description": "Supported features."
+    },
+    "name": {
+      "description": "Runtime handler name. Empty for the default runtime handler.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

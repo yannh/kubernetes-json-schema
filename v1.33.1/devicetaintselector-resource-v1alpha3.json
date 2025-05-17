@@ -1,0 +1,46 @@
+{
+  "description": "DeviceTaintSelector defines which device(s) a DeviceTaintRule applies to. The empty selector matches all devices. Without a selector, no devices are matched.",
+  "properties": {
+    "device": {
+      "description": "If device is set, only devices with that name are selected. This field corresponds to slice.spec.devices[].name.\n\nSetting also driver and pool may be required to avoid ambiguity, but is not required.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deviceClassName": {
+      "description": "If DeviceClassName is set, the selectors defined there must be satisfied by a device to be selected. This field corresponds to class.metadata.name.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "driver": {
+      "description": "If driver is set, only devices from that driver are selected. This fields corresponds to slice.spec.driver.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pool": {
+      "description": "If pool is set, only devices in that pool are selected.\n\nAlso setting the driver name may be useful to avoid ambiguity when different drivers use the same pool name, but this is not required because selecting pools from different drivers may also be useful, for example when drivers with node-local devices use the node name as their pool name.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "selectors": {
+      "description": "Selectors contains the same selection criteria as a ResourceClaim. Currently, CEL expressions are supported. All of these selectors must be satisfied.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,52 @@
+{
+  "description": "LeaseSpec is a specification of a Lease.",
+  "properties": {
+    "acquireTime": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
+      "description": "acquireTime is a time when the current lease was acquired."
+    },
+    "holderIdentity": {
+      "description": "holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "leaseDurationSeconds": {
+      "description": "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "leaseTransitions": {
+      "description": "leaseTransitions is the number of transitions of a lease between holders.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "preferredHolder": {
+      "description": "PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "renewTime": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
+      "description": "renewTime is a time when the current holder of a lease has last updated the lease."
+    },
+    "strategy": {
+      "description": "Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

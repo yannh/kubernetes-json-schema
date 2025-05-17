@@ -1,0 +1,18 @@
+{
+  "description": "DeviceTaintRuleSpec specifies the selector and one taint.",
+  "properties": {
+    "deviceSelector": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintSelector",
+      "description": "DeviceSelector defines which device(s) the taint is applied to. All selector criteria must be satified for a device to match. The empty selector matches all devices. Without a selector, no devices are matches."
+    },
+    "taint": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaint",
+      "description": "The taint that gets applied to matching devices."
+    }
+  },
+  "required": [
+    "taint"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

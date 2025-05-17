@@ -1,0 +1,11 @@
+{
+  "description": "ContainerUser represents user identity information",
+  "properties": {
+    "linux": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.core.v1.LinuxContainerUser",
+      "description": "Linux holds user identity information initially attached to the first process of the containers in Linux. Note that the actual running identity can be changed if the process has enough privilege to do so."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

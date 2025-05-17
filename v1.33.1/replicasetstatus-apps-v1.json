@@ -1,0 +1,74 @@
+{
+  "description": "ReplicaSetStatus represents the current status of a ReplicaSet.",
+  "properties": {
+    "availableReplicas": {
+      "description": "The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "conditions": {
+      "description": "Represents the latest available observations of a replica set's current state.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1/_definitions.json#/definitions/io.k8s.api.apps.v1.ReplicaSetCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "fullyLabeledReplicas": {
+      "description": "The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "observedGeneration": {
+      "description": "ObservedGeneration reflects the generation of the most recently observed ReplicaSet.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "readyReplicas": {
+      "description": "The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "replicas": {
+      "description": "Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "terminatingReplicas": {
+      "description": "The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "replicas"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
