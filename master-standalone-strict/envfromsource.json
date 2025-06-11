@@ -26,7 +26,7 @@
       "additionalProperties": false
     },
     "prefix": {
-      "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
+      "description": "Optional text to prepend to the name of each environment variable. May consist of any printable ASCII characters except '='.",
       "type": [
         "string",
         "null"
