@@ -1492,70 +1492,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocatedDeviceStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocationResult"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.BasicDevice"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.CELDeviceSelector"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.Counter"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.CounterSet"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.Device"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationResult"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAttribute"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaim"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaimConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClass"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceConstraint"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceCounterConsumption"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceRequest"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceRequestAllocationResult"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSubRequest"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaint"
@@ -1571,51 +1511,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintSelector"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceToleration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.NetworkDeviceData"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.OpaqueDeviceConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaim"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimConsumerReference"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplate"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplateList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplateSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePool"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSlice"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceSpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocatedDeviceStatus"
