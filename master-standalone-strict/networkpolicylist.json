@@ -851,7 +851,10 @@
                     ]
                   }
                 },
-                "type": "object",
+                "type": [
+                  "object",
+                  "null"
+                ],
                 "x-kubernetes-map-type": "atomic",
                 "additionalProperties": false
               },
@@ -870,9 +873,6 @@
                 "x-kubernetes-list-type": "atomic"
               }
             },
-            "required": [
-              "podSelector"
-            ],
             "type": [
               "object",
               "null"

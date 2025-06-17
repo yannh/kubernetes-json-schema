@@ -819,7 +819,10 @@
               ]
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "x-kubernetes-map-type": "atomic"
         },
         "policyTypes": {
@@ -837,9 +840,6 @@
           "x-kubernetes-list-type": "atomic"
         }
       },
-      "required": [
-        "podSelector"
-      ],
       "type": [
         "object",
         "null"
