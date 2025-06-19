@@ -1,0 +1,31 @@
+{
+  "description": "EndpointHints provides hints describing how an endpoint should be consumed.",
+  "properties": {
+    "forZones": {
+      "description": "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.",
+      "items": {
+        "description": "ForZone provides information about which zones should consume this endpoint.",
+        "properties": {
+          "name": {
+            "description": "name represents the name of the zone.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
