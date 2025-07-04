@@ -1,0 +1,3593 @@
+[
+  {
+    "group": "certificates.k8s.io",
+    "kind": "CertificateSigningRequest",
+    "version": "v1",
+    "filename": "certificatesigningrequest-certificates-v1.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "Deployment",
+    "version": "v1",
+    "filename": "deployment.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IPAddressList",
+    "version": "v1alpha1",
+    "filename": "ipaddresslist-networking-v1alpha1.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "StorageVersion",
+    "version": "v1alpha1",
+    "filename": "storageversion-apiserverinternal-v1alpha1.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "RuntimeClassList",
+    "version": "v1",
+    "filename": "runtimeclasslist.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ComponentStatus",
+    "version": "v1",
+    "filename": "componentstatus-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "Event",
+    "version": "v1",
+    "filename": "event.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IngressClass",
+    "version": "v1",
+    "filename": "ingressclass-networking-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "PriorityClass",
+    "version": "v1",
+    "filename": "priorityclass-scheduling-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "CustomResourceDefinition",
+    "version": "v1",
+    "filename": "customresourcedefinition-apiextensions-v1.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIStorageCapacity",
+    "version": "v1",
+    "filename": "csistoragecapacity-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ControllerRevision",
+    "version": "v1",
+    "filename": "controllerrevision-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyBindingList",
+    "version": "v1alpha1",
+    "filename": "validatingadmissionpolicybindinglist-admissionregistration-v1alpha1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaimTemplateList",
+    "version": "v1alpha2",
+    "filename": "resourceclaimtemplatelist-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "",
+    "kind": "PodList",
+    "version": "v1",
+    "filename": "podlist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ResourceQuota",
+    "version": "v1",
+    "filename": "resourcequota.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "MutatingWebhookConfiguration",
+    "version": "v1",
+    "filename": "mutatingwebhookconfiguration.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "Scale",
+    "version": "v1",
+    "filename": "scale-autoscaling-v1.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "",
+    "kind": "Node",
+    "version": "v1",
+    "filename": "node.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyBinding",
+    "version": "v1alpha1",
+    "filename": "validatingadmissionpolicybinding-admissionregistration-v1alpha1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "RuntimeClassList",
+    "version": "v1",
+    "filename": "runtimeclasslist-node-v1.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ReplicaSetList",
+    "version": "v1",
+    "filename": "replicasetlist-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttachmentList",
+    "version": "v1",
+    "filename": "volumeattachmentlist.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIDriverList",
+    "version": "v1",
+    "filename": "csidriverlist-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ControllerRevisionList",
+    "version": "v1",
+    "filename": "controllerrevisionlist.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "RoleList",
+    "version": "v1",
+    "filename": "rolelist.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "HorizontalPodAutoscalerList",
+    "version": "v1",
+    "filename": "horizontalpodautoscalerlist-autoscaling-v1.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IngressList",
+    "version": "v1",
+    "filename": "ingresslist.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DaemonSetList",
+    "version": "v1",
+    "filename": "daemonsetlist-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "Eviction",
+    "version": "v1",
+    "filename": "eviction.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyBinding",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicybinding.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "TokenReview",
+    "version": "v1",
+    "filename": "tokenreview.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "PriorityClass",
+    "version": "v1",
+    "filename": "priorityclass.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "Endpoints",
+    "version": "v1",
+    "filename": "endpoints-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "SelfSubjectAccessReview",
+    "version": "v1",
+    "filename": "selfsubjectaccessreview.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "FlowSchemaList",
+    "version": "v1",
+    "filename": "flowschemalist-flowcontrol-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "admission.k8s.io/v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "admission.k8s.io/v1beta1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apiextensions.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apiregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apps/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeleteOptions",
+    "version": "v1beta2",
+    "filename": "deleteoptions.json",
+    "apiGroup": "apps/v1beta2"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "authentication.k8s.io/v1alpha1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "authentication.k8s.io/v1beta1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v2",
+    "filename": "deleteoptions.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v2beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "autoscaling/v2beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v2beta2",
+    "filename": "deleteoptions.json",
+    "apiGroup": "autoscaling/v2beta2"
+  },
+  {
+    "group": "batch",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "batch/v1beta1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "certificates.k8s.io/v1beta1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "coordination.k8s.io/v1beta1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "discovery.k8s.io/v1beta1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "events.k8s.io/v1beta1"
+  },
+  {
+    "group": "extensions",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "extensions/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta2",
+    "filename": "deleteoptions.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta2"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta3",
+    "filename": "deleteoptions.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "imagepolicy.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "imagepolicy.k8s.io/v1alpha1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "networking.k8s.io/v1beta1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "node.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "node.k8s.io/v1beta1"
+  },
+  {
+    "group": "policy",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "policy/v1beta1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1alpha1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha2",
+    "filename": "deleteoptions.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "scheduling.k8s.io/v1alpha1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "scheduling.k8s.io/v1beta1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions.json",
+    "apiGroup": "storage.k8s.io/v1beta1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingWebhookConfiguration",
+    "version": "v1",
+    "filename": "validatingwebhookconfiguration-admissionregistration-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "SelfSubjectRulesReview",
+    "version": "v1",
+    "filename": "selfsubjectrulesreview.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyBinding",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicybinding-admissionregistration-v1beta1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "",
+    "kind": "ServiceList",
+    "version": "v1",
+    "filename": "servicelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "CertificateSigningRequestList",
+    "version": "v1",
+    "filename": "certificatesigningrequestlist.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ServiceAccountList",
+    "version": "v1",
+    "filename": "serviceaccountlist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "EndpointsList",
+    "version": "v1",
+    "filename": "endpointslist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "apps",
+    "kind": "StatefulSetList",
+    "version": "v1",
+    "filename": "statefulsetlist.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "ClusterTrustBundle",
+    "version": "v1alpha1",
+    "filename": "clustertrustbundle-certificates-v1alpha1.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRole",
+    "version": "v1",
+    "filename": "clusterrole.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PodTemplateList",
+    "version": "v1",
+    "filename": "podtemplatelist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "PriorityLevelConfiguration",
+    "version": "v1beta3",
+    "filename": "prioritylevelconfiguration-flowcontrol-v1beta3.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "PriorityClassList",
+    "version": "v1",
+    "filename": "priorityclasslist-scheduling-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyBindingList",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicybindinglist-admissionregistration-v1beta1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSINodeList",
+    "version": "v1",
+    "filename": "csinodelist-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolumeClaim",
+    "version": "v1",
+    "filename": "persistentvolumeclaim.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IPAddressList",
+    "version": "v1alpha1",
+    "filename": "ipaddresslist.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "CustomResourceDefinitionList",
+    "version": "v1",
+    "filename": "customresourcedefinitionlist.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "EventList",
+    "version": "v1",
+    "filename": "eventlist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "Ingress",
+    "version": "v1",
+    "filename": "ingress-networking-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolume",
+    "version": "v1",
+    "filename": "persistentvolume.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Namespace",
+    "version": "v1",
+    "filename": "namespace.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "APIService",
+    "version": "v1",
+    "filename": "apiservice-apiregistration-v1.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "LimitRange",
+    "version": "v1",
+    "filename": "limitrange-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttributesClassList",
+    "version": "v1alpha1",
+    "filename": "volumeattributesclasslist.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "ServiceCIDR",
+    "version": "v1alpha1",
+    "filename": "servicecidr-networking-v1alpha1.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "StorageClassList",
+    "version": "v1",
+    "filename": "storageclasslist-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "APIGroupList",
+    "version": "v1",
+    "filename": "apigrouplist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Pod",
+    "version": "v1",
+    "filename": "pod.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "EndpointsList",
+    "version": "v1",
+    "filename": "endpointslist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ReplicationController",
+    "version": "v1",
+    "filename": "replicationcontroller-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "LeaseList",
+    "version": "v1",
+    "filename": "leaselist.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "ServiceCIDRList",
+    "version": "v1alpha1",
+    "filename": "servicecidrlist-networking-v1alpha1.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "HorizontalPodAutoscaler",
+    "version": "v2",
+    "filename": "horizontalpodautoscaler.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "policy",
+    "kind": "PodDisruptionBudgetList",
+    "version": "v1",
+    "filename": "poddisruptionbudgetlist-policy-v1.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IPAddress",
+    "version": "v1alpha1",
+    "filename": "ipaddress.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IngressClassList",
+    "version": "v1",
+    "filename": "ingressclasslist-networking-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IPAddress",
+    "version": "v1alpha1",
+    "filename": "ipaddress-networking-v1alpha1.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "FlowSchema",
+    "version": "v1beta3",
+    "filename": "flowschema-flowcontrol-v1beta3.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyList",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicylist-admissionregistration-v1beta1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "RuntimeClass",
+    "version": "v1",
+    "filename": "runtimeclass-node-v1.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "CronJob",
+    "version": "v1",
+    "filename": "cronjob-batch-v1.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "",
+    "kind": "ConfigMapList",
+    "version": "v1",
+    "filename": "configmaplist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "SubjectAccessReview",
+    "version": "v1",
+    "filename": "subjectaccessreview.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "ClusterTrustBundle",
+    "version": "v1alpha1",
+    "filename": "clustertrustbundle.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "RuntimeClass",
+    "version": "v1",
+    "filename": "runtimeclass.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ComponentStatusList",
+    "version": "v1",
+    "filename": "componentstatuslist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "APIResourceList",
+    "version": "v1",
+    "filename": "apiresourcelist-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicy",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicy-admissionregistration-v1beta1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "",
+    "kind": "APIGroupList",
+    "version": "v1",
+    "filename": "apigrouplist-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ResourceQuotaList",
+    "version": "v1",
+    "filename": "resourcequotalist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "SelfSubjectReview",
+    "version": "v1",
+    "filename": "selfsubjectreview-authentication-v1.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "admission.k8s.io/v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "admission.k8s.io/v1beta1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apiextensions.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apiregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apps/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "WatchEvent",
+    "version": "v1beta2",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "apps/v1beta2"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "authentication.k8s.io/v1alpha1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "authentication.k8s.io/v1beta1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v2",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v2beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "autoscaling/v2beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v2beta2",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "autoscaling/v2beta2"
+  },
+  {
+    "group": "batch",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "batch/v1beta1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "certificates.k8s.io/v1beta1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "coordination.k8s.io/v1beta1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "discovery.k8s.io/v1beta1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "events.k8s.io/v1beta1"
+  },
+  {
+    "group": "extensions",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "extensions/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta2",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta2"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta3",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "imagepolicy.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "imagepolicy.k8s.io/v1alpha1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "networking.k8s.io/v1beta1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "node.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "node.k8s.io/v1beta1"
+  },
+  {
+    "group": "policy",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "policy/v1beta1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1alpha1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha2",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1alpha1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1beta1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent-meta-v1.json",
+    "apiGroup": "storage.k8s.io/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "PriorityLevelConfigurationList",
+    "version": "v1beta3",
+    "filename": "prioritylevelconfigurationlist.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "APIService",
+    "version": "v1",
+    "filename": "apiservice.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "APIVersions",
+    "version": "v1",
+    "filename": "apiversions.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "MutatingWebhookConfigurationList",
+    "version": "v1",
+    "filename": "mutatingwebhookconfigurationlist-admissionregistration-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ControllerRevision",
+    "version": "v1",
+    "filename": "controllerrevision.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "JobList",
+    "version": "v1",
+    "filename": "joblist-batch-v1.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClassList",
+    "version": "v1alpha2",
+    "filename": "resourceclasslist-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "",
+    "kind": "Endpoints",
+    "version": "v1",
+    "filename": "endpoints.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Event",
+    "version": "v1",
+    "filename": "event-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "HorizontalPodAutoscaler",
+    "version": "v1",
+    "filename": "horizontalpodautoscaler-autoscaling-v1.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingWebhookConfigurationList",
+    "version": "v1",
+    "filename": "validatingwebhookconfigurationlist-admissionregistration-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "EndpointSlice",
+    "version": "v1",
+    "filename": "endpointslice-discovery-v1.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ReplicationController",
+    "version": "v1",
+    "filename": "replicationcontroller.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "batch",
+    "kind": "CronJobList",
+    "version": "v1",
+    "filename": "cronjoblist.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "StatefulSet",
+    "version": "v1",
+    "filename": "statefulset.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "Role",
+    "version": "v1",
+    "filename": "role.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "HorizontalPodAutoscaler",
+    "version": "v2",
+    "filename": "horizontalpodautoscaler-autoscaling-v2.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRoleList",
+    "version": "v1",
+    "filename": "clusterrolelist.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRoleBinding",
+    "version": "v1",
+    "filename": "clusterrolebinding.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "PriorityClassList",
+    "version": "v1",
+    "filename": "priorityclasslist.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "ClusterTrustBundleList",
+    "version": "v1alpha1",
+    "filename": "clustertrustbundlelist-certificates-v1alpha1.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSINode",
+    "version": "v1",
+    "filename": "csinode-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "FlowSchema",
+    "version": "v1beta3",
+    "filename": "flowschema.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "batch",
+    "kind": "Job",
+    "version": "v1",
+    "filename": "job-batch-v1.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "RoleBindingList",
+    "version": "v1",
+    "filename": "rolebindinglist.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IngressClass",
+    "version": "v1",
+    "filename": "ingressclass.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "EventList",
+    "version": "v1",
+    "filename": "eventlist-events-v1.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolumeList",
+    "version": "v1",
+    "filename": "persistentvolumelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttachmentList",
+    "version": "v1",
+    "filename": "volumeattachmentlist-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "admission.k8s.io/v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "admission.k8s.io/v1beta1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "apiextensions.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "apiregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "apps/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "WatchEvent",
+    "version": "v1beta2",
+    "filename": "watchevent.json",
+    "apiGroup": "apps/v1beta2"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "authentication.k8s.io/v1alpha1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "authentication.k8s.io/v1beta1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v2",
+    "filename": "watchevent.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v2beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "autoscaling/v2beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "WatchEvent",
+    "version": "v2beta2",
+    "filename": "watchevent.json",
+    "apiGroup": "autoscaling/v2beta2"
+  },
+  {
+    "group": "batch",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "batch/v1beta1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "certificates.k8s.io/v1beta1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "coordination.k8s.io/v1beta1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "discovery.k8s.io/v1beta1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "events.k8s.io/v1beta1"
+  },
+  {
+    "group": "extensions",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "extensions/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta2",
+    "filename": "watchevent.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta2"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta3",
+    "filename": "watchevent.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "imagepolicy.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "imagepolicy.k8s.io/v1alpha1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "networking.k8s.io/v1beta1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "node.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "node.k8s.io/v1beta1"
+  },
+  {
+    "group": "policy",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "policy/v1beta1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1alpha1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha2",
+    "filename": "watchevent.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "scheduling.k8s.io/v1alpha1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "scheduling.k8s.io/v1beta1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1",
+    "filename": "watchevent.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1alpha1",
+    "filename": "watchevent.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "WatchEvent",
+    "version": "v1beta1",
+    "filename": "watchevent.json",
+    "apiGroup": "storage.k8s.io/v1beta1"
+  },
+  {
+    "group": "",
+    "kind": "PodTemplateList",
+    "version": "v1",
+    "filename": "podtemplatelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "batch",
+    "kind": "JobList",
+    "version": "v1",
+    "filename": "joblist.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "NetworkPolicyList",
+    "version": "v1",
+    "filename": "networkpolicylist.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClassList",
+    "version": "v1alpha2",
+    "filename": "resourceclasslist.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicy",
+    "version": "v1alpha1",
+    "filename": "validatingadmissionpolicy-admissionregistration-v1alpha1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "",
+    "kind": "APIVersions",
+    "version": "v1",
+    "filename": "apiversions-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "NamespaceList",
+    "version": "v1",
+    "filename": "namespacelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ServiceAccountList",
+    "version": "v1",
+    "filename": "serviceaccountlist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Status",
+    "version": "v1",
+    "filename": "status-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "Status",
+    "version": "v1alpha2",
+    "filename": "status-meta-v1.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolumeClaimList",
+    "version": "v1",
+    "filename": "persistentvolumeclaimlist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Service",
+    "version": "v1",
+    "filename": "service-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicy",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicy.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaimTemplate",
+    "version": "v1alpha2",
+    "filename": "resourceclaimtemplate.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "RoleBinding",
+    "version": "v1",
+    "filename": "rolebinding-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "NodeList",
+    "version": "v1",
+    "filename": "nodelist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "PodTemplate",
+    "version": "v1",
+    "filename": "podtemplate.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "NetworkPolicy",
+    "version": "v1",
+    "filename": "networkpolicy-networking-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PodList",
+    "version": "v1",
+    "filename": "podlist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "Event",
+    "version": "v1",
+    "filename": "event-events-v1.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "PodDisruptionBudgetList",
+    "version": "v1",
+    "filename": "poddisruptionbudgetlist.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "CronJob",
+    "version": "v1",
+    "filename": "cronjob.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "TokenReview",
+    "version": "v1",
+    "filename": "tokenreview-authentication-v1.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIDriver",
+    "version": "v1",
+    "filename": "csidriver-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ConfigMapList",
+    "version": "v1",
+    "filename": "configmaplist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "SecretList",
+    "version": "v1",
+    "filename": "secretlist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "PriorityLevelConfigurationList",
+    "version": "v1beta3",
+    "filename": "prioritylevelconfigurationlist-flowcontrol-v1beta3.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "",
+    "kind": "ServiceAccount",
+    "version": "v1",
+    "filename": "serviceaccount.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "FlowSchemaList",
+    "version": "v1beta3",
+    "filename": "flowschemalist.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "RoleBinding",
+    "version": "v1",
+    "filename": "rolebinding.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaim",
+    "version": "v1alpha2",
+    "filename": "resourceclaim-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "RoleList",
+    "version": "v1",
+    "filename": "rolelist-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "StorageClass",
+    "version": "v1",
+    "filename": "storageclass.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIDriver",
+    "version": "v1",
+    "filename": "csidriver.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "HorizontalPodAutoscalerList",
+    "version": "v2",
+    "filename": "horizontalpodautoscalerlist-autoscaling-v2.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "EndpointSliceList",
+    "version": "v1",
+    "filename": "endpointslicelist.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttributesClassList",
+    "version": "v1alpha1",
+    "filename": "volumeattributesclasslist-storage-v1alpha1.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "ServiceCIDR",
+    "version": "v1alpha1",
+    "filename": "servicecidr.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "",
+    "kind": "NamespaceList",
+    "version": "v1",
+    "filename": "namespacelist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "ServiceCIDRList",
+    "version": "v1alpha1",
+    "filename": "servicecidrlist.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "SelfSubjectAccessReview",
+    "version": "v1",
+    "filename": "selfsubjectaccessreview-authorization-v1.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ResourceQuota",
+    "version": "v1",
+    "filename": "resourcequota-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Secret",
+    "version": "v1",
+    "filename": "secret.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "EndpointSlice",
+    "version": "v1",
+    "filename": "endpointslice.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "FlowSchemaList",
+    "version": "v1beta3",
+    "filename": "flowschemalist-flowcontrol-v1beta3.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "",
+    "kind": "Pod",
+    "version": "v1",
+    "filename": "pod-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolume",
+    "version": "v1",
+    "filename": "persistentvolume-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttributesClass",
+    "version": "v1alpha1",
+    "filename": "volumeattributesclass-storage-v1alpha1.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaim",
+    "version": "v1alpha2",
+    "filename": "resourceclaim.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttachment",
+    "version": "v1",
+    "filename": "volumeattachment-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "PodSchedulingContextList",
+    "version": "v1alpha2",
+    "filename": "podschedulingcontextlist-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "SelfSubjectRulesReview",
+    "version": "v1",
+    "filename": "selfsubjectrulesreview-authorization-v1.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ControllerRevisionList",
+    "version": "v1",
+    "filename": "controllerrevisionlist-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "APIServiceList",
+    "version": "v1",
+    "filename": "apiservicelist.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "Binding",
+    "version": "v1",
+    "filename": "binding.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Namespace",
+    "version": "v1",
+    "filename": "namespace-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeploymentList",
+    "version": "v1",
+    "filename": "deploymentlist-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttachment",
+    "version": "v1",
+    "filename": "volumeattachment.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "CustomResourceDefinition",
+    "version": "v1",
+    "filename": "customresourcedefinition.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "SelfSubjectReview",
+    "version": "v1beta1",
+    "filename": "selfsubjectreview.json",
+    "apiGroup": "authentication.k8s.io/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "DaemonSetList",
+    "version": "v1",
+    "filename": "daemonsetlist.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSINodeList",
+    "version": "v1",
+    "filename": "csinodelist.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "PriorityLevelConfiguration",
+    "version": "v1beta3",
+    "filename": "prioritylevelconfiguration.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaimList",
+    "version": "v1alpha2",
+    "filename": "resourceclaimlist-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "StorageVersion",
+    "version": "v1alpha1",
+    "filename": "storageversion.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSINode",
+    "version": "v1",
+    "filename": "csinode.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "MutatingWebhookConfiguration",
+    "version": "v1",
+    "filename": "mutatingwebhookconfiguration-admissionregistration-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "APIGroup",
+    "version": "v1",
+    "filename": "apigroup.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "StorageVersionList",
+    "version": "v1alpha1",
+    "filename": "storageversionlist.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "batch",
+    "kind": "CronJobList",
+    "version": "v1",
+    "filename": "cronjoblist-batch-v1.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "admission.k8s.io/v1"
+  },
+  {
+    "group": "admission.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "admission.k8s.io/v1beta1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apiextensions.k8s.io/v1beta1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apiregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apps/v1beta1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeleteOptions",
+    "version": "v1beta2",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "apps/v1beta2"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "authentication.k8s.io/v1alpha1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "authentication.k8s.io/v1beta1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v2",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v2beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "autoscaling/v2beta1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "DeleteOptions",
+    "version": "v2beta2",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "autoscaling/v2beta2"
+  },
+  {
+    "group": "batch",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "batch/v1beta1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "certificates.k8s.io/v1beta1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "coordination.k8s.io/v1beta1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "discovery.k8s.io/v1beta1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "events.k8s.io/v1beta1"
+  },
+  {
+    "group": "extensions",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "extensions/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta2",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta2"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta3",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1beta3"
+  },
+  {
+    "group": "imagepolicy.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "imagepolicy.k8s.io/v1alpha1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "networking.k8s.io/v1alpha1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "networking.k8s.io/v1beta1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "node.k8s.io/v1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "node.k8s.io/v1alpha1"
+  },
+  {
+    "group": "node.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "node.k8s.io/v1beta1"
+  },
+  {
+    "group": "policy",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "policy/v1beta1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1alpha1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1beta1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha2",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1alpha1"
+  },
+  {
+    "group": "scheduling.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "scheduling.k8s.io/v1beta1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1alpha1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "DeleteOptions",
+    "version": "v1beta1",
+    "filename": "deleteoptions-meta-v1.json",
+    "apiGroup": "storage.k8s.io/v1beta1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIStorageCapacityList",
+    "version": "v1",
+    "filename": "csistoragecapacitylist.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "NetworkPolicy",
+    "version": "v1",
+    "filename": "networkpolicy.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ReplicaSetList",
+    "version": "v1",
+    "filename": "replicasetlist.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "PodDisruptionBudget",
+    "version": "v1",
+    "filename": "poddisruptionbudget-policy-v1.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "HorizontalPodAutoscalerList",
+    "version": "v2",
+    "filename": "horizontalpodautoscalerlist.json",
+    "apiGroup": "autoscaling/v2"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "PodSchedulingContext",
+    "version": "v1alpha2",
+    "filename": "podschedulingcontext-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "TokenRequest",
+    "version": "v1",
+    "filename": "tokenrequest-authentication-v1.json",
+    "apiGroup": "authentication.k8s.io/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "LeaseList",
+    "version": "v1",
+    "filename": "leaselist-coordination-v1.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "SubjectAccessReview",
+    "version": "v1",
+    "filename": "subjectaccessreview-authorization-v1.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "Lease",
+    "version": "v1",
+    "filename": "lease-coordination-v1.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "RoleBindingList",
+    "version": "v1",
+    "filename": "rolebindinglist-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "LocalSubjectAccessReview",
+    "version": "v1",
+    "filename": "localsubjectaccessreview-authorization-v1.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "StatefulSetList",
+    "version": "v1",
+    "filename": "statefulsetlist-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIStorageCapacity",
+    "version": "v1",
+    "filename": "csistoragecapacity.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PodTemplate",
+    "version": "v1",
+    "filename": "podtemplate-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "apiregistration.k8s.io",
+    "kind": "APIServiceList",
+    "version": "v1",
+    "filename": "apiservicelist-apiregistration-v1.json",
+    "apiGroup": "apiregistration.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRoleList",
+    "version": "v1",
+    "filename": "clusterrolelist-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRoleBindingList",
+    "version": "v1",
+    "filename": "clusterrolebindinglist.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRoleBindingList",
+    "version": "v1",
+    "filename": "clusterrolebindinglist-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "internal.apiserver.k8s.io",
+    "kind": "StorageVersionList",
+    "version": "v1alpha1",
+    "filename": "storageversionlist-apiserverinternal-v1alpha1.json",
+    "apiGroup": "internal.apiserver.k8s.io/v1alpha1"
+  },
+  {
+    "group": "",
+    "kind": "Binding",
+    "version": "v1",
+    "filename": "binding-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRole",
+    "version": "v1",
+    "filename": "clusterrole-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DaemonSet",
+    "version": "v1",
+    "filename": "daemonset-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "",
+    "kind": "ComponentStatusList",
+    "version": "v1",
+    "filename": "componentstatuslist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyList",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicylist.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  },
+  {
+    "group": "",
+    "kind": "LimitRangeList",
+    "version": "v1",
+    "filename": "limitrangelist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "policy",
+    "kind": "Eviction",
+    "version": "v1",
+    "filename": "eviction-policy-v1.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DaemonSet",
+    "version": "v1",
+    "filename": "daemonset.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClass",
+    "version": "v1alpha2",
+    "filename": "resourceclass.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "VolumeAttributesClass",
+    "version": "v1alpha1",
+    "filename": "volumeattributesclass.json",
+    "apiGroup": "storage.k8s.io/v1alpha1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "SelfSubjectReview",
+    "version": "v1beta1",
+    "filename": "selfsubjectreview-authentication-v1beta1.json",
+    "apiGroup": "authentication.k8s.io/v1beta1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolumeList",
+    "version": "v1",
+    "filename": "persistentvolumelist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "autoscaling",
+    "kind": "Scale",
+    "version": "v1",
+    "filename": "scale.json",
+    "apiGroup": "autoscaling/v1"
+  },
+  {
+    "group": "discovery.k8s.io",
+    "kind": "EndpointSliceList",
+    "version": "v1",
+    "filename": "endpointslicelist-discovery-v1.json",
+    "apiGroup": "discovery.k8s.io/v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIStorageCapacityList",
+    "version": "v1",
+    "filename": "csistoragecapacitylist-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ResourceQuotaList",
+    "version": "v1",
+    "filename": "resourcequotalist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaimTemplateList",
+    "version": "v1alpha2",
+    "filename": "resourceclaimtemplatelist.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "StorageClass",
+    "version": "v1",
+    "filename": "storageclass-storage-v1.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ReplicationControllerList",
+    "version": "v1",
+    "filename": "replicationcontrollerlist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ConfigMap",
+    "version": "v1",
+    "filename": "configmap.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ServiceList",
+    "version": "v1",
+    "filename": "servicelist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "PodSchedulingContextList",
+    "version": "v1alpha2",
+    "filename": "podschedulingcontextlist.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "",
+    "kind": "APIGroup",
+    "version": "v1",
+    "filename": "apigroup-meta-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClass",
+    "version": "v1alpha2",
+    "filename": "resourceclass-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "",
+    "kind": "ComponentStatus",
+    "version": "v1",
+    "filename": "componentstatus.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ReplicaSet",
+    "version": "v1",
+    "filename": "replicaset-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "StatefulSet",
+    "version": "v1",
+    "filename": "statefulset-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "Deployment",
+    "version": "v1",
+    "filename": "deployment-apps-v1.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "authorization.k8s.io",
+    "kind": "LocalSubjectAccessReview",
+    "version": "v1",
+    "filename": "localsubjectaccessreview.json",
+    "apiGroup": "authorization.k8s.io/v1"
+  },
+  {
+    "group": "policy",
+    "kind": "PodDisruptionBudget",
+    "version": "v1",
+    "filename": "poddisruptionbudget.json",
+    "apiGroup": "policy/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "Role",
+    "version": "v1",
+    "filename": "role-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingWebhookConfigurationList",
+    "version": "v1",
+    "filename": "validatingwebhookconfigurationlist.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "DeploymentList",
+    "version": "v1",
+    "filename": "deploymentlist.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "coordination.k8s.io",
+    "kind": "Lease",
+    "version": "v1",
+    "filename": "lease.json",
+    "apiGroup": "coordination.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolumeClaimList",
+    "version": "v1",
+    "filename": "persistentvolumeclaimlist-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaimList",
+    "version": "v1alpha2",
+    "filename": "resourceclaimlist.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IngressClassList",
+    "version": "v1",
+    "filename": "ingressclasslist.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "PriorityLevelConfigurationList",
+    "version": "v1",
+    "filename": "prioritylevelconfigurationlist-flowcontrol-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "apps",
+    "kind": "ReplicaSet",
+    "version": "v1",
+    "filename": "replicaset.json",
+    "apiGroup": "apps/v1"
+  },
+  {
+    "group": "",
+    "kind": "LimitRange",
+    "version": "v1",
+    "filename": "limitrange.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "IngressList",
+    "version": "v1",
+    "filename": "ingresslist-networking-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "MutatingWebhookConfigurationList",
+    "version": "v1",
+    "filename": "mutatingwebhookconfigurationlist.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "batch",
+    "kind": "Job",
+    "version": "v1",
+    "filename": "job.json",
+    "apiGroup": "batch/v1"
+  },
+  {
+    "group": "",
+    "kind": "LimitRangeList",
+    "version": "v1",
+    "filename": "limitrangelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "CertificateSigningRequestList",
+    "version": "v1",
+    "filename": "certificatesigningrequestlist-certificates-v1.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ReplicationControllerList",
+    "version": "v1",
+    "filename": "replicationcontrollerlist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "Node",
+    "version": "v1",
+    "filename": "node-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyList",
+    "version": "v1alpha1",
+    "filename": "validatingadmissionpolicylist-admissionregistration-v1alpha1.json",
+    "apiGroup": "admissionregistration.k8s.io/v1alpha1"
+  },
+  {
+    "group": "",
+    "kind": "Secret",
+    "version": "v1",
+    "filename": "secret-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "CertificateSigningRequest",
+    "version": "v1",
+    "filename": "certificatesigningrequest.json",
+    "apiGroup": "certificates.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "PersistentVolumeClaim",
+    "version": "v1",
+    "filename": "persistentvolumeclaim-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "apiextensions.k8s.io",
+    "kind": "CustomResourceDefinitionList",
+    "version": "v1",
+    "filename": "customresourcedefinitionlist-apiextensions-v1.json",
+    "apiGroup": "apiextensions.k8s.io/v1"
+  },
+  {
+    "group": "rbac.authorization.k8s.io",
+    "kind": "ClusterRoleBinding",
+    "version": "v1",
+    "filename": "clusterrolebinding-rbac-v1.json",
+    "apiGroup": "rbac.authorization.k8s.io/v1"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "PriorityLevelConfiguration",
+    "version": "v1",
+    "filename": "prioritylevelconfiguration-flowcontrol-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "Ingress",
+    "version": "v1",
+    "filename": "ingress.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "Service",
+    "version": "v1",
+    "filename": "service.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "networking.k8s.io",
+    "kind": "NetworkPolicyList",
+    "version": "v1",
+    "filename": "networkpolicylist-networking-v1.json",
+    "apiGroup": "networking.k8s.io/v1"
+  },
+  {
+    "group": "events.k8s.io",
+    "kind": "EventList",
+    "version": "v1",
+    "filename": "eventlist.json",
+    "apiGroup": "events.k8s.io/v1"
+  },
+  {
+    "group": "certificates.k8s.io",
+    "kind": "ClusterTrustBundleList",
+    "version": "v1alpha1",
+    "filename": "clustertrustbundlelist.json",
+    "apiGroup": "certificates.k8s.io/v1alpha1"
+  },
+  {
+    "group": "",
+    "kind": "SecretList",
+    "version": "v1",
+    "filename": "secretlist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingWebhookConfiguration",
+    "version": "v1",
+    "filename": "validatingwebhookconfiguration.json",
+    "apiGroup": "admissionregistration.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "APIResourceList",
+    "version": "v1",
+    "filename": "apiresourcelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "",
+    "kind": "ServiceAccount",
+    "version": "v1",
+    "filename": "serviceaccount-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "PodSchedulingContext",
+    "version": "v1alpha2",
+    "filename": "podschedulingcontext.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "CSIDriverList",
+    "version": "v1",
+    "filename": "csidriverlist.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "Status",
+    "version": "v1",
+    "filename": "status.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "Status",
+    "version": "v1alpha2",
+    "filename": "status.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "resource.k8s.io",
+    "kind": "ResourceClaimTemplate",
+    "version": "v1alpha2",
+    "filename": "resourceclaimtemplate-resource-v1alpha2.json",
+    "apiGroup": "resource.k8s.io/v1alpha2"
+  },
+  {
+    "group": "flowcontrol.apiserver.k8s.io",
+    "kind": "FlowSchema",
+    "version": "v1",
+    "filename": "flowschema-flowcontrol-v1.json",
+    "apiGroup": "flowcontrol.apiserver.k8s.io/v1"
+  },
+  {
+    "group": "",
+    "kind": "ConfigMap",
+    "version": "v1",
+    "filename": "configmap-v1.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "storage.k8s.io",
+    "kind": "StorageClassList",
+    "version": "v1",
+    "filename": "storageclasslist.json",
+    "apiGroup": "storage.k8s.io/v1"
+  },
+  {
+    "group": "authentication.k8s.io",
+    "kind": "SelfSubjectReview",
+    "version": "v1alpha1",
+    "filename": "selfsubjectreview-authentication-v1alpha1.json",
+    "apiGroup": "authentication.k8s.io/v1alpha1"
+  },
+  {
+    "group": "",
+    "kind": "NodeList",
+    "version": "v1",
+    "filename": "nodelist.json",
+    "apiGroup": "v1"
+  },
+  {
+    "group": "admissionregistration.k8s.io",
+    "kind": "ValidatingAdmissionPolicyBindingList",
+    "version": "v1beta1",
+    "filename": "validatingadmissionpolicybindinglist.json",
+    "apiGroup": "admissionregistration.k8s.io/v1beta1"
+  }
+]
