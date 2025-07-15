@@ -769,7 +769,7 @@
           {
             "group": "admissionregistration.k8s.io",
             "kind": "ValidatingAdmissionPolicyBinding",
-            "version": "v1beta1"
+            "version": "v1"
           }
         ],
         "additionalProperties": false
@@ -837,7 +837,7 @@
     {
       "group": "admissionregistration.k8s.io",
       "kind": "ValidatingAdmissionPolicyBindingList",
-      "version": "v1beta1"
+      "version": "v1"
     }
   ],
   "additionalProperties": false,

@@ -4,7 +4,7 @@
     "expressionWarnings": {
       "description": "The type checking warnings for each expression.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1beta1.ExpressionWarning"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ExpressionWarning"
       },
       "type": [
         "array",

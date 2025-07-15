@@ -4,7 +4,7 @@
     "expressionWarnings": {
       "description": "The type checking warnings for each expression.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1beta1.ExpressionWarning"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ExpressionWarning"
       },
       "type": [
         "array",

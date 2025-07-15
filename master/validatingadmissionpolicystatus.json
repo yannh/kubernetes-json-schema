@@ -24,7 +24,7 @@
       ]
     },
     "typeChecking": {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1beta1.TypeChecking",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.TypeChecking",
       "description": "The results of type checking for each expression. Presence of this field indicates the completion of the type checking."
     }
   },
