@@ -23,7 +23,7 @@
       "description": "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata."
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicyBindingSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1beta1.MutatingAdmissionPolicyBindingSpec",
       "description": "Specification of the desired behavior of the MutatingAdmissionPolicyBinding."
     }
   },
@@ -32,7 +32,7 @@
     {
       "group": "admissionregistration.k8s.io",
       "kind": "MutatingAdmissionPolicyBinding",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
