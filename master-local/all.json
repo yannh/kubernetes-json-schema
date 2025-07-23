@@ -523,6 +523,18 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundle"
     },
     {
@@ -731,6 +743,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FCVolumeSource"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FileKeySelector"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FlexPersistentVolumeSource"
@@ -944,6 +959,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodAntiAffinity"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodCertificateProjection"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodCondition"

@@ -5441,6 +5441,182 @@
       "type": "object",
       "additionalProperties": false
     },
+    "io.k8s.api.certificates.v1alpha1.PodCertificateRequest": {
+      "description": "PodCertificateRequest encodes a pod requesting a certificate from a given signer.\n\nKubelets use this API to implement podCertificate projected volumes",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "PodCertificateRequest"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "metadata contains the object metadata."
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestSpec",
+          "description": "spec contains the details about the certificate being requested."
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestStatus",
+          "description": "status contains the issued certificate, and a standard set of conditions."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "certificates.k8s.io",
+          "kind": "PodCertificateRequest",
+          "version": "v1alpha1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.certificates.v1alpha1.PodCertificateRequestList": {
+      "description": "PodCertificateRequestList is a collection of PodCertificateRequest objects",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "items is a collection of PodCertificateRequest objects",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequest"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "PodCertificateRequestList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "metadata contains the list metadata."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "certificates.k8s.io",
+          "kind": "PodCertificateRequestList",
+          "version": "v1alpha1"
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.certificates.v1alpha1.PodCertificateRequestSpec": {
+      "description": "PodCertificateRequestSpec describes the certificate request.  All fields are immutable after creation.",
+      "properties": {
+        "maxExpirationSeconds": {
+          "description": "maxExpirationSeconds is the maximum lifetime permitted for the certificate.\n\nIf omitted, kube-apiserver will set it to 86400(24 hours). kube-apiserver will reject values shorter than 3600 (1 hour).  The maximum allowable value is 7862400 (91 days).\n\nThe signer implementation is then free to issue a certificate with any lifetime *shorter* than MaxExpirationSeconds, but no shorter than 3600 seconds (1 hour).  This constraint is enforced by kube-apiserver. `kubernetes.io` signers will never issue certificates with a lifetime longer than 24 hours.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "nodeName": {
+          "description": "nodeName is the name of the node the pod is assigned to.",
+          "type": "string"
+        },
+        "nodeUID": {
+          "description": "nodeUID is the UID of the node the pod is assigned to.",
+          "type": "string"
+        },
+        "pkixPublicKey": {
+          "description": "pkixPublicKey is the PKIX-serialized public key the signer will issue the certificate to.\n\nThe key must be one of RSA3072, RSA4096, ECDSAP256, ECDSAP384, ECDSAP521, or ED25519. Note that this list may be expanded in the future.\n\nSigner implementations do not need to support all key types supported by kube-apiserver and kubelet.  If a signer does not support the key type used for a given PodCertificateRequest, it must deny the request by setting a status.conditions entry with a type of \"Denied\" and a reason of \"UnsupportedKeyType\". It may also suggest a key type that it does support in the message field.",
+          "format": "byte",
+          "type": "string"
+        },
+        "podName": {
+          "description": "podName is the name of the pod into which the certificate will be mounted.",
+          "type": "string"
+        },
+        "podUID": {
+          "description": "podUID is the UID of the pod into which the certificate will be mounted.",
+          "type": "string"
+        },
+        "proofOfPossession": {
+          "description": "proofOfPossession proves that the requesting kubelet holds the private key corresponding to pkixPublicKey.\n\nIt is contructed by signing the ASCII bytes of the pod's UID using `pkixPublicKey`.\n\nkube-apiserver validates the proof of possession during creation of the PodCertificateRequest.\n\nIf the key is an RSA key, then the signature is over the ASCII bytes of the pod UID, using RSASSA-PSS from RFC 8017 (as implemented by the golang function crypto/rsa.SignPSS with nil options).\n\nIf the key is an ECDSA key, then the signature is as described by [SEC 1, Version 2.0](https://www.secg.org/sec1-v2.pdf) (as implemented by the golang library function crypto/ecdsa.SignASN1)\n\nIf the key is an ED25519 key, the the signature is as described by the [ED25519 Specification](https://ed25519.cr.yp.to/) (as implemented by the golang library crypto/ed25519.Sign).",
+          "format": "byte",
+          "type": "string"
+        },
+        "serviceAccountName": {
+          "description": "serviceAccountName is the name of the service account the pod is running as.",
+          "type": "string"
+        },
+        "serviceAccountUID": {
+          "description": "serviceAccountUID is the UID of the service account the pod is running as.",
+          "type": "string"
+        },
+        "signerName": {
+          "description": "signerName indicates the requested signer.\n\nAll signer names beginning with `kubernetes.io` are reserved for use by the Kubernetes project.  There is currently one well-known signer documented by the Kubernetes project, `kubernetes.io/kube-apiserver-client-pod`, which will issue client certificates understood by kube-apiserver.  It is currently unimplemented.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "signerName",
+        "podName",
+        "podUID",
+        "serviceAccountName",
+        "serviceAccountUID",
+        "nodeName",
+        "nodeUID",
+        "pkixPublicKey",
+        "proofOfPossession"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.certificates.v1alpha1.PodCertificateRequestStatus": {
+      "description": "PodCertificateRequestStatus describes the status of the request, and holds the certificate data if the request is issued.",
+      "properties": {
+        "beginRefreshAt": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+          "description": "beginRefreshAt is the time at which the kubelet should begin trying to refresh the certificate.  This field is set via the /status subresource, and must be set at the same time as certificateChain.  Once populated, this field is immutable.\n\nThis field is only a hint.  Kubelet may start refreshing before or after this time if necessary."
+        },
+        "certificateChain": {
+          "description": "certificateChain is populated with an issued certificate by the signer. This field is set via the /status subresource. Once populated, this field is immutable.\n\nIf the certificate signing request is denied, a condition of type \"Denied\" is added and this field remains empty. If the signer cannot issue the certificate, a condition of type \"Failed\" is added and this field remains empty.\n\nValidation requirements:\n 1. certificateChain must consist of one or more PEM-formatted certificates.\n 2. Each entry must be a valid PEM-wrapped, DER-encoded ASN.1 Certificate as\n    described in section 4 of RFC5280.\n\nIf more than one block is present, and the definition of the requested spec.signerName does not indicate otherwise, the first block is the issued certificate, and subsequent blocks should be treated as intermediate certificates and presented in TLS handshakes.  When projecting the chain into a pod volume, kubelet will drop any data in-between the PEM blocks, as well as any PEM block headers.",
+          "type": "string"
+        },
+        "conditions": {
+          "description": "conditions applied to the request.\n\nThe types \"Issued\", \"Denied\", and \"Failed\" have special handling.  At most one of these conditions may be present, and they must have status \"True\".\n\nIf the request is denied with `Reason=UnsupportedKeyType`, the signer may suggest a key type that will work in the message field.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "type",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "notAfter": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+          "description": "notAfter is the time at which the certificate expires.  The value must be the same as the notAfter value in the leaf certificate in certificateChain.  This field is set via the /status subresource.  Once populated, it is immutable.  The signer must set this field at the same time it sets certificateChain."
+        },
+        "notBefore": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+          "description": "notBefore is the time at which the certificate becomes valid.  The value must be the same as the notBefore value in the leaf certificate in certificateChain.  This field is set via the /status subresource.  Once populated, it is immutable. The signer must set this field at the same time it sets certificateChain."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.certificates.v1beta1.ClusterTrustBundle": {
       "description": "ClusterTrustBundle is a cluster-scoped container for X.509 trust anchors (root certificates).\n\nClusterTrustBundle objects are considered to be readable by any authenticated user in the cluster, because they can be mounted by pods using the `clusterTrustBundle` projection.  All service accounts have read access to ClusterTrustBundles by default.  Users who only have namespace-level access to a cluster can read ClusterTrustBundles by impersonating a serviceaccount that they have access to.\n\nIt can be optionally associated with a particular assigner, in which case it contains one valid set of trust anchors for that signer. Signers may have multiple associated ClusterTrustBundles; each is an independent set of trust anchors for that signer. Admission control is used to enforce that only users with permissions on the signer can create or modify the corresponding bundle.",
       "properties": {
@@ -7395,6 +7571,10 @@
           "$ref": "#/definitions/io.k8s.api.core.v1.ObjectFieldSelector",
           "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs."
         },
+        "fileKeyRef": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.FileKeySelector",
+          "description": "FileKeyRef selects a key of the env file. Requires the EnvFiles feature gate to be enabled."
+        },
         "resourceFieldRef": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceFieldSelector",
           "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported."
@@ -7790,6 +7970,35 @@
         }
       },
       "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.core.v1.FileKeySelector": {
+      "description": "FileKeySelector selects a key of the env file.",
+      "properties": {
+        "key": {
+          "description": "The key within the env file. An invalid key will prevent the pod from starting. The keys defined within a source may consist of any printable ASCII characters except '='. During Alpha stage of the EnvFiles feature gate, the key size is limited to 128 characters.",
+          "type": "string"
+        },
+        "optional": {
+          "description": "Specify whether the file or its key must be defined. If the file or key does not exist, then the env var is not published. If optional is set to true and the specified key does not exist, the environment variable will not be set in the Pod's containers.\n\nIf optional is set to false and the specified key does not exist, an error will be returned during Pod creation.",
+          "type": "boolean"
+        },
+        "path": {
+          "description": "The path within the volume from which to select the file. Must be relative and may not contain the '..' path or start with '..'.",
+          "type": "string"
+        },
+        "volumeName": {
+          "description": "The name of the volume mount containing the env file.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "volumeName",
+        "path",
+        "key"
+      ],
+      "type": "object",
+      "x-kubernetes-map-type": "atomic",
       "additionalProperties": false
     },
     "io.k8s.api.core.v1.FlexPersistentVolumeSource": {
@@ -9949,6 +10158,42 @@
           "x-kubernetes-list-type": "atomic"
         }
       },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.core.v1.PodCertificateProjection": {
+      "description": "PodCertificateProjection provides a private key and X.509 certificate in the pod filesystem.",
+      "properties": {
+        "certificateChainPath": {
+          "description": "Write the certificate chain at this path in the projected volume.\n\nMost applications should use credentialBundlePath.  When using keyPath and certificateChainPath, your application needs to check that the key and leaf certificate are consistent, because it is possible to read the files mid-rotation.",
+          "type": "string"
+        },
+        "credentialBundlePath": {
+          "description": "Write the credential bundle at this path in the projected volume.\n\nThe credential bundle is a single file that contains multiple PEM blocks. The first PEM block is a PRIVATE KEY block, containing a PKCS#8 private key.\n\nThe remaining blocks are CERTIFICATE blocks, containing the issued certificate chain from the signer (leaf and any intermediates).\n\nUsing credentialBundlePath lets your Pod's application code make a single atomic read that retrieves a consistent key and certificate chain.  If you project them to separate files, your application code will need to additionally check that the leaf certificate was issued to the key.",
+          "type": "string"
+        },
+        "keyPath": {
+          "description": "Write the key at this path in the projected volume.\n\nMost applications should use credentialBundlePath.  When using keyPath and certificateChainPath, your application needs to check that the key and leaf certificate are consistent, because it is possible to read the files mid-rotation.",
+          "type": "string"
+        },
+        "keyType": {
+          "description": "The type of keypair Kubelet will generate for the pod.\n\nValid values are \"RSA3072\", \"RSA4096\", \"ECDSAP256\", \"ECDSAP384\", \"ECDSAP521\", and \"ED25519\".",
+          "type": "string"
+        },
+        "maxExpirationSeconds": {
+          "description": "maxExpirationSeconds is the maximum lifetime permitted for the certificate.\n\nKubelet copies this value verbatim into the PodCertificateRequests it generates for this projection.\n\nIf omitted, kube-apiserver will set it to 86400(24 hours). kube-apiserver will reject values shorter than 3600 (1 hour).  The maximum allowable value is 7862400 (91 days).\n\nThe signer implementation is then free to issue a certificate with any lifetime *shorter* than MaxExpirationSeconds, but no shorter than 3600 seconds (1 hour).  This constraint is enforced by kube-apiserver. `kubernetes.io` signers will never issue certificates with a lifetime longer than 24 hours.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "signerName": {
+          "description": "Kubelet's generated CSRs will be addressed to this signer.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "signerName",
+        "keyType"
+      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -12788,6 +13033,10 @@
         "downwardAPI": {
           "$ref": "#/definitions/io.k8s.api.core.v1.DownwardAPIProjection",
           "description": "downwardAPI information about the downwardAPI data to project"
+        },
+        "podCertificate": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.PodCertificateProjection",
+          "description": "Projects an auto-rotating credential bundle (private key and certificate chain) that the pod can use either as a TLS client or server.\n\nKubelet generates a private key and uses it to send a PodCertificateRequest to the named signer.  Once the signer approves the request and issues a certificate chain, Kubelet writes the key and certificate chain to the pod filesystem.  The pod does not start until certificates have been issued for each podCertificate projected volume source in its spec.\n\nKubelet will begin trying to rotate the certificate at the time indicated by the signer using the PodCertificateRequest.Status.BeginRefreshAt timestamp.\n\nKubelet can write a single file, indicated by the credentialBundlePath field, or separate files, indicated by the keyPath and certificateChainPath fields.\n\nThe credential bundle is a single file in PEM format.  The first PEM entry is the private key (in PKCS#8 format), and the remaining PEM entries are the certificate chain issued by the signer (typically, signers will return their certificate chain in leaf-to-root order).\n\nPrefer using the credential bundle format, since your application code can read it atomically.  If you use keyPath and certificateChainPath, your application must make two separate file reads. If these coincide with a certificate rotation, it is possible that the private key and leaf certificate you read may not correspond to each other.  Your application will need to check for this condition, and re-read until they are consistent.\n\nThe named signer controls chooses the format of the certificate it issues; consult the signer implementation's documentation to learn how to use the certificates it issues."
         },
         "secret": {
           "$ref": "#/definitions/io.k8s.api.core.v1.SecretProjection",
@@ -18303,7 +18552,7 @@
           "type": "string"
         },
         "nodeAllocatableUpdatePeriodSeconds": {
-          "description": "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.\n\nThis is an alpha feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.\n\nThis field is mutable.",
+          "description": "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.\n\nThis is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.\n\nThis field is mutable.",
           "format": "int64",
           "type": "integer"
         },
@@ -18839,7 +19088,7 @@
       "description": "VolumeError captures an error encountered during a volume operation.",
       "properties": {
         "errorCode": {
-          "description": "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
+          "description": "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
           "format": "int32",
           "type": "integer"
         },
