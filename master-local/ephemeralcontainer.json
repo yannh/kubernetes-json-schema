@@ -122,11 +122,22 @@
       "description": "Resources are not allowed for ephemeral containers. Ephemeral containers use spare resources already allocated to the pod."
     },
     "restartPolicy": {
-      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.",
+      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. You cannot set this field on ephemeral containers.",
       "type": [
         "string",
         "null"
       ]
+    },
+    "restartPolicyRules": {
+      "description": "Represents a list of rules to be checked to determine if the container should be restarted on exit. You cannot set this field on ephemeral containers.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerRestartRule"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "securityContext": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecurityContext",

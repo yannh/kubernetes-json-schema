@@ -1229,7 +1229,7 @@
       "description": "ResourceRequirements describes the compute resource requirements.",
       "properties": {
         "claims": {
-          "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+          "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis field depends on the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
           "items": {
             "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
             "properties": {
@@ -1317,11 +1317,68 @@
       "additionalProperties": false
     },
     "restartPolicy": {
-      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.",
+      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. You cannot set this field on ephemeral containers.",
       "type": [
         "string",
         "null"
       ]
+    },
+    "restartPolicyRules": {
+      "description": "Represents a list of rules to be checked to determine if the container should be restarted on exit. You cannot set this field on ephemeral containers.",
+      "items": {
+        "description": "ContainerRestartRule describes how a container exit is handled.",
+        "properties": {
+          "action": {
+            "description": "Specifies the action taken on a container exit if the requirements are satisfied. The only possible value is \"Restart\" to restart the container.",
+            "type": "string"
+          },
+          "exitCodes": {
+            "description": "ContainerRestartRuleOnExitCodes describes the condition for handling an exited container based on its exit codes.",
+            "properties": {
+              "operator": {
+                "description": "Represents the relationship between the container exit code(s) and the specified values. Possible values are: - In: the requirement is satisfied if the container exit code is in the\n  set of specified values.\n- NotIn: the requirement is satisfied if the container exit code is\n  not in the set of specified values.",
+                "type": "string"
+              },
+              "values": {
+                "description": "Specifies the set of values to check for container exit codes. At most 255 elements are allowed.",
+                "items": {
+                  "format": "int32",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "set"
+              }
+            },
+            "required": [
+              "operator"
+            ],
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "securityContext": {
       "description": "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.",
