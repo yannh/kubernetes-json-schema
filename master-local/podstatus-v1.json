@@ -39,6 +39,10 @@
       ],
       "x-kubernetes-list-type": "atomic"
     },
+    "extendedResourceClaimStatus": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodExtendedResourceClaimStatus",
+      "description": "Status of extended resource claim backed by DRA."
+    },
     "hostIP": {
       "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod",
       "type": [

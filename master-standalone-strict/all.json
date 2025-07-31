@@ -655,6 +655,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Container"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerExtendedResourceRequest"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerImage"
     },
     {
@@ -977,6 +980,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodDNSConfigOption"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodExtendedResourceClaimStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodIP"
@@ -1519,6 +1525,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CELDeviceSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CapacityRequestPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CapacityRequestPolicyRange"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CapacityRequirements"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.Counter"
     },
     {
@@ -1660,6 +1675,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.CELDeviceSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.CapacityRequestPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.CapacityRequestPolicyRange"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.CapacityRequirements"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.Counter"
     },
     {
@@ -1772,6 +1796,15 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CELDeviceSelector"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CapacityRequestPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CapacityRequestPolicyRange"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CapacityRequirements"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.Counter"

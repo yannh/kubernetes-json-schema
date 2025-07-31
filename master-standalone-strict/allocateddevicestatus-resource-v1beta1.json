@@ -1,5 +1,5 @@
 {
-  "description": "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.",
+  "description": "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.\n\nThe combination of Driver, Pool, Device, and ShareID must match the corresponding key in Status.Allocation.Devices.",
   "properties": {
     "conditions": {
       "description": "Conditions contains the latest observation of the device's state. If the device has been configured according to the class and claim config references, the `Ready` condition should be True.\n\nMust not contain more than 8 entries.",
@@ -119,6 +119,13 @@
     },
     "pool": {
       "description": "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).\n\nMust not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "shareID": {
+      "description": "ShareID uniquely identifies an individual allocation share of the device.",
       "type": [
         "string",
         "null"

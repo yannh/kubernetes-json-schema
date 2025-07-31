@@ -4,6 +4,14 @@
     "allocation": {
       "description": "AllocationResult contains attributes of an allocated resource.",
       "properties": {
+        "allocationTimestamp": {
+          "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "devices": {
           "description": "DeviceAllocationResult is the result of allocating devices.",
           "properties": {
@@ -80,6 +88,57 @@
                       "null"
                     ]
                   },
+                  "bindingConditions": {
+                    "description": "BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.\n\nThis is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-type": "atomic"
+                  },
+                  "bindingFailureConditions": {
+                    "description": "BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.\n\nThis is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-type": "atomic"
+                  },
+                  "consumedCapacity": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      ]
+                    },
+                    "description": "ConsumedCapacity tracks the amount of capacity consumed per device as part of the claim request. The consumed amount may differ from the requested amount: it is rounded up to the nearest valid value based on the device\u2019s requestPolicy if applicable (i.e., may not be less than the requested amount).\n\nThe total consumed capacity for each device must not exceed the DeviceCapacity's Value.\n\nThis field is populated only for devices that allow multiple allocations. All capacity entries are included, even if the consumed amount is zero.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
                   "device": {
                     "description": "Device references one device instance via its name in the driver's resource pool. It must be a DNS label.",
                     "type": "string"
@@ -95,6 +154,13 @@
                   "request": {
                     "description": "Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.\n\nMultiple devices may have been allocated per request.",
                     "type": "string"
+                  },
+                  "shareID": {
+                    "description": "ShareID uniquely identifies an individual allocation share of the device, used when the device supports multiple simultaneous allocations. It serves as an additional map key to differentiate concurrent shares of the same device.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "tolerations": {
                     "description": "A copy of all tolerations specified in the request at the time when the device got allocated.\n\nThe maximum number of tolerations is 16.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
@@ -304,7 +370,7 @@
     "devices": {
       "description": "Devices contains the status of each device allocated for this claim, as reported by the driver. This can include driver-specific information. Entries are owned by their respective drivers.",
       "items": {
-        "description": "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.",
+        "description": "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.\n\nThe combination of Driver, Pool, Device, and ShareID must match the corresponding key in Status.Allocation.Devices.",
         "properties": {
           "conditions": {
             "description": "Conditions contains the latest observation of the device's state. If the device has been configured according to the class and claim config references, the `Ready` condition should be True.\n\nMust not contain more than 8 entries.",
@@ -419,6 +485,13 @@
           "pool": {
             "description": "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).\n\nMust not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.",
             "type": "string"
+          },
+          "shareID": {
+            "description": "ShareID uniquely identifies an individual allocation share of the device.",
+            "type": [
+              "string",
+              "null"
+            ]
           }
         },
         "required": [
@@ -439,7 +512,8 @@
       "x-kubernetes-list-map-keys": [
         "driver",
         "device",
-        "pool"
+        "pool",
+        "shareID"
       ],
       "x-kubernetes-list-type": "map"
     },

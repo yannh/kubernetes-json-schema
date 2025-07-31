@@ -17,7 +17,8 @@
       "x-kubernetes-list-map-keys": [
         "driver",
         "device",
-        "pool"
+        "pool",
+        "shareID"
       ],
       "x-kubernetes-list-type": "map"
     },
