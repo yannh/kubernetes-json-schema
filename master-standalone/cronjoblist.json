@@ -3367,7 +3367,7 @@
                                       ]
                                     },
                                     "resizePolicy": {
-                                      "description": "Resources resize policy for the container.",
+                                      "description": "Resources resize policy for the container. This field cannot be set on ephemeral containers.",
                                       "items": {
                                         "description": "ContainerResizePolicy represents resource resize policy for the container.",
                                         "properties": {
@@ -7478,7 +7478,7 @@
                                       ]
                                     },
                                     "resizePolicy": {
-                                      "description": "Resources resize policy for the container.",
+                                      "description": "Resources resize policy for the container. This field cannot be set on ephemeral containers.",
                                       "items": {
                                         "description": "ContainerResizePolicy represents resource resize policy for the container.",
                                         "properties": {
