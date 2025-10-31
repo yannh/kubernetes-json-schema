@@ -271,38 +271,20 @@
     "spec": {
       "description": "Spec of the storage version migration.",
       "properties": {
-        "continueToken": {
-          "description": "The token used in the list options to get the next chunk of objects to migrate. When the .status.conditions indicates the migration is \"Running\", users can use this token to check the progress of the migration.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "resource": {
-          "description": "The names of the group, the version, and the resource.",
+          "description": "GroupResource specifies a Group and a Resource, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
           "properties": {
             "group": {
-              "description": "The name of the group.",
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             },
             "resource": {
-              "description": "The name of the resource.",
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "version": {
-              "description": "The name of the version.",
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             }
           },
+          "required": [
+            "group",
+            "resource"
+          ],
           "type": "object"
         }
       },
@@ -320,42 +302,44 @@
         "conditions": {
           "description": "The latest available observations of the migration's current state.",
           "items": {
-            "description": "Describes the state of a migration at a certain point.",
+            "description": "Condition contains details for one aspect of the current state of this API Resource.",
             "properties": {
-              "lastUpdateTime": {
+              "lastTransitionTime": {
                 "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
                 "format": "date-time",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               },
               "message": {
-                "description": "A human readable message indicating details about the transition.",
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                "format": "int64",
                 "type": [
-                  "string",
+                  "integer",
                   "null"
                 ]
               },
               "reason": {
-                "description": "The reason for the condition's last transition.",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "type": "string"
               },
               "status": {
-                "description": "Status of the condition, one of True, False, Unknown.",
+                "description": "status of the condition, one of True, False, Unknown.",
                 "type": "string"
               },
               "type": {
-                "description": "Type of the condition.",
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
                 "type": "string"
               }
             },
             "required": [
               "type",
-              "status"
+              "status",
+              "lastTransitionTime",
+              "reason",
+              "message"
             ],
             "type": [
               "object",
@@ -392,7 +376,7 @@
     {
       "group": "storagemigration.k8s.io",
       "kind": "StorageVersionMigration",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

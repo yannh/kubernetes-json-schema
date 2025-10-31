@@ -20261,55 +20261,7 @@
         }
       ]
     },
-    "io.k8s.api.storagemigration.v1alpha1.GroupVersionResource": {
-      "description": "The names of the group, the version, and the resource.",
-      "properties": {
-        "group": {
-          "description": "The name of the group.",
-          "type": "string"
-        },
-        "resource": {
-          "description": "The name of the resource.",
-          "type": "string"
-        },
-        "version": {
-          "description": "The name of the version.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "io.k8s.api.storagemigration.v1alpha1.MigrationCondition": {
-      "description": "Describes the state of a migration at a certain point.",
-      "properties": {
-        "lastUpdateTime": {
-          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
-          "description": "The last time this condition was updated."
-        },
-        "message": {
-          "description": "A human readable message indicating details about the transition.",
-          "type": "string"
-        },
-        "reason": {
-          "description": "The reason for the condition's last transition.",
-          "type": "string"
-        },
-        "status": {
-          "description": "Status of the condition, one of True, False, Unknown.",
-          "type": "string"
-        },
-        "type": {
-          "description": "Type of the condition.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "status"
-      ],
-      "type": "object"
-    },
-    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration": {
+    "io.k8s.api.storagemigration.v1beta1.StorageVersionMigration": {
       "description": "StorageVersionMigration represents a migration of stored data to the latest storage version.",
       "properties": {
         "apiVersion": {
@@ -20328,11 +20280,11 @@
           "description": "Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
-          "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec",
+          "$ref": "#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationSpec",
           "description": "Specification of the migration."
         },
         "status": {
-          "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus",
+          "$ref": "#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationStatus",
           "description": "Status of the migration."
         }
       },
@@ -20341,11 +20293,11 @@
         {
           "group": "storagemigration.k8s.io",
           "kind": "StorageVersionMigration",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ]
     },
-    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationList": {
+    "io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationList": {
       "description": "StorageVersionMigrationList is a collection of storage version migrations.",
       "properties": {
         "apiVersion": {
@@ -20355,15 +20307,9 @@
         "items": {
           "description": "Items is the list of StorageVersionMigration",
           "items": {
-            "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration"
+            "$ref": "#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigration"
           },
-          "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "type"
-          ],
-          "x-kubernetes-list-type": "map",
-          "x-kubernetes-patch-merge-key": "type",
-          "x-kubernetes-patch-strategy": "merge"
+          "type": "array"
         },
         "kind": {
           "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -20385,19 +20331,15 @@
         {
           "group": "storagemigration.k8s.io",
           "kind": "StorageVersionMigrationList",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ]
     },
-    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec": {
+    "io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationSpec": {
       "description": "Spec of the storage version migration.",
       "properties": {
-        "continueToken": {
-          "description": "The token used in the list options to get the next chunk of objects to migrate. When the .status.conditions indicates the migration is \"Running\", users can use this token to check the progress of the migration.",
-          "type": "string"
-        },
         "resource": {
-          "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.GroupVersionResource",
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.GroupResource",
           "description": "The resource that is being migrated. The migrator sends requests to the endpoint serving the resource. Immutable."
         }
       },
@@ -20406,13 +20348,13 @@
       ],
       "type": "object"
     },
-    "io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus": {
+    "io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationStatus": {
       "description": "Status of the storage version migration.",
       "properties": {
         "conditions": {
           "description": "The latest available observations of the migration's current state.",
           "items": {
-            "$ref": "#/definitions/io.k8s.api.storagemigration.v1alpha1.MigrationCondition"
+            "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
           },
           "type": "array",
           "x-kubernetes-list-map-keys": [
@@ -20531,6 +20473,11 @@
         "message": {
           "description": "message is a human-readable message indicating details about last transition.",
           "type": "string"
+        },
+        "observedGeneration": {
+          "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+          "format": "int64",
+          "type": "integer"
         },
         "reason": {
           "description": "reason is a unique, one-word, CamelCase reason for the condition's last transition.",
@@ -20688,6 +20635,11 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "The generation observed by the CRD controller.",
+          "format": "int64",
+          "type": "integer"
         },
         "storedVersions": {
           "description": "storedVersions lists all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so a migration controller can finish a migration to another version (ensuring no old objects are left in storage), and then remove the rest of the versions from this list. Versions may not be removed from `spec.versions` while they exist in this list.",
@@ -21780,7 +21732,7 @@
         {
           "group": "storagemigration.k8s.io",
           "kind": "DeleteOptions",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ]
     },
@@ -21812,6 +21764,22 @@
     },
     "io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1": {
       "description": "FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.\n\nEach key is either a '.' representing the field itself, and will always map to an empty set, or a string representing a sub-field or item. The string will follow one of these four formats: 'f:<name>', where <name> is the name of a field in a struct, or key in a map 'v:<value>', where <value> is the exact json formatted value of a list item 'i:<index>', where <index> is position of a item in a list 'k:<keys>', where <keys> is a map of  a list item's key fields to their unique values If a key maps to an empty Fields value, the field that key represents is part of the set.\n\nThe exact format is defined in sigs.k8s.io/structured-merge-diff",
+      "type": "object"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.GroupResource": {
+      "description": "GroupResource specifies a Group and a Resource, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+      "properties": {
+        "group": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "group",
+        "resource"
+      ],
       "type": "object"
     },
     "io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery": {
@@ -22539,7 +22507,7 @@
         {
           "group": "storagemigration.k8s.io",
           "kind": "WatchEvent",
-          "version": "v1alpha1"
+          "version": "v1beta1"
         }
       ]
     },

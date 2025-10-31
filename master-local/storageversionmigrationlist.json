@@ -11,18 +11,12 @@
     "items": {
       "description": "Items is the list of StorageVersionMigration",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigration"
       },
       "type": [
         "array",
         "null"
-      ],
-      "x-kubernetes-list-map-keys": [
-        "type"
-      ],
-      "x-kubernetes-list-type": "map",
-      "x-kubernetes-patch-merge-key": "type",
-      "x-kubernetes-patch-strategy": "merge"
+      ]
     },
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -47,7 +41,7 @@
     {
       "group": "storagemigration.k8s.io",
       "kind": "StorageVersionMigrationList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

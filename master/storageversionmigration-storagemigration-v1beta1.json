@@ -8,7 +8,7 @@
         "null"
       ],
       "enum": [
-        "storagemigration.k8s.io/v1alpha1"
+        "storagemigration.k8s.io/v1beta1"
       ]
     },
     "kind": {
@@ -22,15 +22,15 @@
       ]
     },
     "metadata": {
-      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
       "description": "Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationSpec",
       "description": "Specification of the migration."
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigrationStatus",
       "description": "Status of the migration."
     }
   },
@@ -39,7 +39,7 @@
     {
       "group": "storagemigration.k8s.io",
       "kind": "StorageVersionMigration",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
