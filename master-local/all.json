@@ -523,18 +523,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequest"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestStatus"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundle"
     },
     {
@@ -542,6 +530,18 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundleSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequestList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequestSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequestStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1.Lease"
@@ -1642,12 +1642,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.ResourceSliceSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.CELDeviceSelector"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaint"
     },
     {
@@ -1658,6 +1652,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintSelector"

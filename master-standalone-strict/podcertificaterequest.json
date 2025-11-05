@@ -319,6 +319,19 @@
         "signerName": {
           "description": "signerName indicates the requested signer.\n\nAll signer names beginning with `kubernetes.io` are reserved for use by the Kubernetes project.  There is currently one well-known signer documented by the Kubernetes project, `kubernetes.io/kube-apiserver-client-pod`, which will issue client certificates understood by kube-apiserver.  It is currently unimplemented.",
           "type": "string"
+        },
+        "unverifiedUserAnnotations": {
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": "unverifiedUserAnnotations allow pod authors to pass additional information to the signer implementation.  Kubernetes does not restrict or validate this metadata in any way.\n\nEntries are subject to the same validation as object metadata annotations, with the addition that all keys must be domain-prefixed. No restrictions are placed on values, except an overall size limitation on the entire field.\n\nSigners should document the keys and values they support.  Signers should deny requests that contain keys they do not recognize.",
+          "type": [
+            "object",
+            "null"
+          ]
         }
       },
       "required": [
@@ -447,7 +460,7 @@
     {
       "group": "certificates.k8s.io",
       "kind": "PodCertificateRequest",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "additionalProperties": false,

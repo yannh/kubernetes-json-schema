@@ -11,7 +11,7 @@
     "items": {
       "description": "items is a collection of PodCertificateRequest objects",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequest"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequest"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "certificates.k8s.io",
       "kind": "PodCertificateRequestList",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

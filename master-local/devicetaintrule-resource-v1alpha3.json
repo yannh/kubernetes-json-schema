@@ -28,6 +28,10 @@
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleSpec",
       "description": "Spec specifies the selector and one taint.\n\nChanging the spec automatically increments the metadata.generation number."
+    },
+    "status": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleStatus",
+      "description": "Status provides information about what was requested in the spec."
     }
   },
   "required": [

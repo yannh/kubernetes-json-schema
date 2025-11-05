@@ -23,11 +23,11 @@
       "description": "metadata contains the object metadata."
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequestSpec",
       "description": "spec contains the details about the certificate being requested."
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.PodCertificateRequestStatus",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.PodCertificateRequestStatus",
       "description": "status contains the issued certificate, and a standard set of conditions."
     }
   },
@@ -39,7 +39,7 @@
     {
       "group": "certificates.k8s.io",
       "kind": "PodCertificateRequest",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

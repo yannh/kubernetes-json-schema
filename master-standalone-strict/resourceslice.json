@@ -282,7 +282,7 @@
           ]
         },
         "devices": {
-          "description": "Devices lists some or all of the devices in this pool.\n\nMust not have more than 128 entries.",
+          "description": "Devices lists some or all of the devices in this pool.\n\nMust not have more than 128 entries. If any device uses taints the limit is 64.",
           "items": {
             "description": "Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.",
             "properties": {
@@ -717,12 +717,12 @@
                 "additionalProperties": false
               },
               "taints": {
-                "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 4.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+                "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 16. If taints are set for any device in a ResourceSlice, then the maximum number of allowed devices per ResourceSlice is 64 instead of 128.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
                 "items": {
                   "description": "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.",
                   "properties": {
                     "effect": {
-                      "description": "The effect of the taint on claims that do not tolerate the taint and through such claims on the pods using them. Valid effects are NoSchedule and NoExecute. PreferNoSchedule as used for nodes is not valid here.",
+                      "description": "The effect of the taint on claims that do not tolerate the taint and through such claims on the pods using them.\n\nValid effects are None, NoSchedule and NoExecute. PreferNoSchedule as used for nodes is not valid here. More effects may get added in the future. Consumers must treat unknown effects like None.",
                       "type": "string"
                     },
                     "key": {

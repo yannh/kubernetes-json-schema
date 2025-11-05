@@ -9,7 +9,7 @@
       ]
     },
     "devices": {
-      "description": "Devices lists some or all of the devices in this pool.\n\nMust not have more than 128 entries.",
+      "description": "Devices lists some or all of the devices in this pool.\n\nMust not have more than 128 entries. If any device uses taints the limit is 64.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.Device"
       },

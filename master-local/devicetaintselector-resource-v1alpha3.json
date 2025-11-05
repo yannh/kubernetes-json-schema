@@ -8,13 +8,6 @@
         "null"
       ]
     },
-    "deviceClassName": {
-      "description": "If DeviceClassName is set, the selectors defined there must be satisfied by a device to be selected. This field corresponds to class.metadata.name.",
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "driver": {
       "description": "If driver is set, only devices from that driver are selected. This fields corresponds to slice.spec.driver.",
       "type": [
@@ -28,17 +21,6 @@
         "string",
         "null"
       ]
-    },
-    "selectors": {
-      "description": "Selectors contains the same selection criteria as a ResourceClaim. Currently, CEL expressions are supported. All of these selectors must be satisfied.",
-      "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
-      },
-      "type": [
-        "array",
-        "null"
-      ],
-      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object",
