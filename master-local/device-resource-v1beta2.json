@@ -71,7 +71,7 @@
       ]
     },
     "consumesCounters": {
-      "description": "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe total number of device counter consumption entries must be <= 32. In addition, the total number in the entire ResourceSlice must be <= 1024 (for example, 64 devices with 16 counters each).",
+      "description": "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe maximum number of device counter consumptions per device is 2.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceCounterConsumption"
       },

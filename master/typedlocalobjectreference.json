@@ -1,22 +1,22 @@
 {
-  "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
+  "description": "TypedLocalObjectReference allows to reference typed object inside the same namespace.",
   "properties": {
     "apiGroup": {
-      "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+      "description": "APIGroup is the group for the resource being referenced. If APIGroup is empty, the specified Kind must be in the core API group. For any other third-party types, setting APIGroup is required. It must be a DNS subdomain.",
       "type": [
         "string",
         "null"
       ]
     },
     "kind": {
-      "description": "Kind is the type of resource being referenced",
+      "description": "Kind is the type of resource being referenced. It must be a path segment name.",
       "type": [
         "string",
         "null"
       ]
     },
     "name": {
-      "description": "Name is the name of resource being referenced",
+      "description": "Name is the name of resource being referenced. It must be a path segment name.",
       "type": [
         "string",
         "null"
@@ -28,6 +28,5 @@
     "name"
   ],
   "type": "object",
-  "x-kubernetes-map-type": "atomic",
   "$schema": "http://json-schema.org/schema#"
 }
