@@ -1,0 +1,72 @@
+{
+  "description": "Represents storage that is managed by an external CSI volume driver (Beta feature)",
+  "properties": {
+    "controllerExpandSecretRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",
+      "description": "controllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed."
+    },
+    "controllerPublishSecretRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",
+      "description": "controllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed."
+    },
+    "driver": {
+      "description": "driver is the name of the driver to use for this volume. Required.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fsType": {
+      "description": "fsType to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\".",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeExpandSecretRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",
+      "description": "nodeExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeExpandVolume call. This field is optional, may be omitted if no secret is required. If the secret object contains more than one secret, all secrets are passed."
+    },
+    "nodePublishSecretRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",
+      "description": "nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed."
+    },
+    "nodeStageSecretRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecretReference",
+      "description": "nodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed."
+    },
+    "readOnly": {
+      "description": "readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "volumeAttributes": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": "volumeAttributes of the volume to publish.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "volumeHandle": {
+      "description": "volumeHandle is the unique volume name returned by the CSI volume plugin\u2019s CreateVolume to refer to the volume on all subsequent calls. Required.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "driver",
+    "volumeHandle"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
