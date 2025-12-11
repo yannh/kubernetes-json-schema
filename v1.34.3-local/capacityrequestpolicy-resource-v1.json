@@ -1,0 +1,26 @@
+{
+  "description": "CapacityRequestPolicy defines how requests consume device capacity.\n\nMust not set more than one ValidRequestValues.",
+  "properties": {
+    "default": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "Default specifies how much of this capacity is consumed by a request that does not contain an entry for it in DeviceRequest's Capacity."
+    },
+    "validRange": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CapacityRequestPolicyRange",
+      "description": "ValidRange defines an acceptable quantity value range in consuming requests.\n\nIf this field is set, Default must be defined and it must fall within the defined ValidRange.\n\nIf the requested amount does not fall within the defined range, the request violates the policy, and this device cannot be allocated.\n\nIf the request doesn't contain this capacity entry, Default value is used."
+    },
+    "validValues": {
+      "description": "ValidValues defines a set of acceptable quantity values in consuming requests.\n\nMust not contain more than 10 entries. Must be sorted in ascending order.\n\nIf this field is set, Default must be defined and it must be included in ValidValues list.\n\nIf the requested amount does not match any valid value but smaller than some valid values, the scheduler calculates the smallest valid value that is greater than or equal to the request. That is: min(ceil(requestedValue) \u2208 validValues), where requestedValue \u2264 max(validValues).\n\nIf the requested amount exceeds all valid values, the request violates the policy, and this device cannot be allocated.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

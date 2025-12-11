@@ -1,0 +1,109 @@
+{
+  "description": "BasicDevice defines one device instance.",
+  "properties": {
+    "allNodes": {
+      "description": "AllNodes indicates that all nodes have access to the device.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "allowMultipleAllocations": {
+      "description": "AllowMultipleAllocations marks whether the device is allowed to be allocated to multiple DeviceRequests.\n\nIf AllowMultipleAllocations is set to true, the device can be allocated more than once, and all of its capacity is consumable, regardless of whether the requestPolicy is defined or not.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "attributes": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceAttribute"
+      },
+      "description": "Attributes defines the set of attributes for this device. The name of each attribute must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "bindingConditions": {
+      "description": "BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.\n\nThe maximum number of binding conditions is 4.\n\nThe conditions must be a valid condition type string.\n\nThis is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "bindingFailureConditions": {
+      "description": "BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.\n\nThe maximum number of binding failure conditions is 4.\n\nThe conditions must be a valid condition type string.\n\nThis is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "bindsToNode": {
+      "description": "BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.\n\nThis is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "capacity": {
+      "additionalProperties": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceCapacity"
+      },
+      "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "consumesCounters": {
+      "description": "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe total number of device counter consumption entries must be <= 32. In addition, the total number in the entire ResourceSlice must be <= 1024 (for example, 64 devices with 16 counters each).",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceCounterConsumption"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "nodeName": {
+      "description": "NodeName identifies the node where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeSelector": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
+      "description": "NodeSelector defines the nodes where the device is available.\n\nMust use exactly one term.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set."
+    },
+    "taints": {
+      "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 4.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceTaint"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
