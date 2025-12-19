@@ -189,16 +189,6 @@
       "version": "v2"
     },
     {
-      "group": "autoscaling",
-      "kind": "DeleteOptions",
-      "version": "v2beta1"
-    },
-    {
-      "group": "autoscaling",
-      "kind": "DeleteOptions",
-      "version": "v2beta2"
-    },
-    {
       "group": "batch",
       "kind": "DeleteOptions",
       "version": "v1"

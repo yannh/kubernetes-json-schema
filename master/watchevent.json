@@ -119,16 +119,6 @@
       "version": "v2"
     },
     {
-      "group": "autoscaling",
-      "kind": "WatchEvent",
-      "version": "v2beta1"
-    },
-    {
-      "group": "autoscaling",
-      "kind": "WatchEvent",
-      "version": "v2beta2"
-    },
-    {
       "group": "batch",
       "kind": "WatchEvent",
       "version": "v1"

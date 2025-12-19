@@ -613,6 +613,31 @@
                     "string",
                     "null"
                   ]
+                },
+                "volumeStatus": {
+                  "description": "VolumeStatus represents the status of a mounted volume. At most one of its members must be specified.",
+                  "properties": {
+                    "image": {
+                      "description": "ImageVolumeStatus represents the image-based volume status.",
+                      "properties": {
+                        "imageRef": {
+                          "description": "ImageRef is the digest of the image used for this volume. It should have a value that's similar to the pod's status.containerStatuses[i].imageID. The ImageRef length should not exceed 256 characters.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "imageRef"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -1169,6 +1194,31 @@
                   "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
                   "type": [
                     "string",
+                    "null"
+                  ]
+                },
+                "volumeStatus": {
+                  "description": "VolumeStatus represents the status of a mounted volume. At most one of its members must be specified.",
+                  "properties": {
+                    "image": {
+                      "description": "ImageVolumeStatus represents the image-based volume status.",
+                      "properties": {
+                        "imageRef": {
+                          "description": "ImageRef is the digest of the image used for this volume. It should have a value that's similar to the pod's status.containerStatuses[i].imageID. The ImageRef length should not exceed 256 characters.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "imageRef"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object",
                     "null"
                   ]
                 }
@@ -1808,6 +1858,31 @@
                   "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
                   "type": [
                     "string",
+                    "null"
+                  ]
+                },
+                "volumeStatus": {
+                  "description": "VolumeStatus represents the status of a mounted volume. At most one of its members must be specified.",
+                  "properties": {
+                    "image": {
+                      "description": "ImageVolumeStatus represents the image-based volume status.",
+                      "properties": {
+                        "imageRef": {
+                          "description": "ImageRef is the digest of the image used for this volume. It should have a value that's similar to the pod's status.containerStatuses[i].imageID. The ImageRef length should not exceed 256 characters.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "imageRef"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object",
                     "null"
                   ]
                 }

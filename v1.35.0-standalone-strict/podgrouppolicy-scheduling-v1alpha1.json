@@ -1,0 +1,33 @@
+{
+  "description": "PodGroupPolicy defines the scheduling configuration for a PodGroup.",
+  "properties": {
+    "basic": {
+      "description": "BasicSchedulingPolicy indicates that standard Kubernetes scheduling behavior should be used.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "gang": {
+      "description": "GangSchedulingPolicy defines the parameters for gang scheduling.",
+      "properties": {
+        "minCount": {
+          "description": "MinCount is the minimum number of pods that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minCount"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

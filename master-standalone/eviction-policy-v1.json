@@ -41,8 +41,6 @@
             "authorization.k8s.io/v1beta1",
             "autoscaling/v1",
             "autoscaling/v2",
-            "autoscaling/v2beta1",
-            "autoscaling/v2beta2",
             "batch/v1",
             "batch/v1beta1",
             "certificates.k8s.io/v1",
@@ -266,16 +264,6 @@
           "group": "autoscaling",
           "kind": "DeleteOptions",
           "version": "v2"
-        },
-        {
-          "group": "autoscaling",
-          "kind": "DeleteOptions",
-          "version": "v2beta1"
-        },
-        {
-          "group": "autoscaling",
-          "kind": "DeleteOptions",
-          "version": "v2beta2"
         },
         {
           "group": "batch",

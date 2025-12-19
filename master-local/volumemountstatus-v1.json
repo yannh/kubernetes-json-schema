@@ -28,6 +28,10 @@
         "string",
         "null"
       ]
+    },
+    "volumeStatus": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeStatus",
+      "description": "volumeStatus represents volume-type-specific status about the mounted volume."
     }
   },
   "required": [

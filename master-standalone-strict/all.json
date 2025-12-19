@@ -805,6 +805,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ImageVolumeSource"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ImageVolumeStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.KeyToPath"
     },
     {
@@ -1214,6 +1217,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeResourceRequirements"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource"
