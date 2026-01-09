@@ -235,7 +235,10 @@
               ],
               "additionalProperties": false
             },
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "x-kubernetes-list-type": "atomic"
           },
           "kind": {
@@ -551,8 +554,7 @@
           }
         },
         "required": [
-          "addressType",
-          "endpoints"
+          "addressType"
         ],
         "type": [
           "object",
