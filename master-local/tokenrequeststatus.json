@@ -3,10 +3,10 @@
   "properties": {
     "expirationTimestamp": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
-      "description": "ExpirationTimestamp is the time of expiration of the returned token."
+      "description": "expirationTimestamp is the time of expiration of the returned token."
     },
     "token": {
-      "description": "Token is the opaque bearer token.",
+      "description": "token is the opaque bearer token.",
       "type": [
         "string",
         "null"

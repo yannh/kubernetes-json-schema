@@ -2,7 +2,7 @@
   "description": "TokenReviewStatus is the result of the token authentication request.",
   "properties": {
     "audiences": {
-      "description": "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.",
+      "description": "audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.",
       "items": {
         "type": [
           "string",
@@ -16,14 +16,14 @@
       "x-kubernetes-list-type": "atomic"
     },
     "authenticated": {
-      "description": "Authenticated indicates that the token was associated with a known user.",
+      "description": "authenticated indicates that the token was associated with a known user.",
       "type": [
         "boolean",
         "null"
       ]
     },
     "error": {
-      "description": "Error indicates that the token couldn't be checked",
+      "description": "error indicates that the token couldn't be checked",
       "type": [
         "string",
         "null"
@@ -45,14 +45,14 @@
               "null"
             ]
           },
-          "description": "Any additional information provided by the authenticator.",
+          "description": "extra is any additional information provided by the authenticator.",
           "type": [
             "object",
             "null"
           ]
         },
         "groups": {
-          "description": "The names of groups this user is a part of.",
+          "description": "groups is the names of groups this user is a part of.",
           "items": {
             "type": [
               "string",
@@ -66,14 +66,14 @@
           "x-kubernetes-list-type": "atomic"
         },
         "uid": {
-          "description": "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
+          "description": "uid is a unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
           "type": [
             "string",
             "null"
           ]
         },
         "username": {
-          "description": "The name that uniquely identifies this user among all active users.",
+          "description": "username is the name that uniquely identifies this user among all active users.",
           "type": [
             "string",
             "null"

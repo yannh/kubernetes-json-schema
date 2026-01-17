@@ -23,11 +23,11 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+      "description": "metadata is standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1.SelfSubjectReviewStatus",
-      "description": "Status is filled in by the server with the user attributes."
+      "description": "status is filled in by the server with the user attributes."
     }
   },
   "type": "object",

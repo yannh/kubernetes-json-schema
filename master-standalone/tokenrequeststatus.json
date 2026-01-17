@@ -10,7 +10,7 @@
       ]
     },
     "token": {
-      "description": "Token is the opaque bearer token.",
+      "description": "token is the opaque bearer token.",
       "type": [
         "string",
         "null"
