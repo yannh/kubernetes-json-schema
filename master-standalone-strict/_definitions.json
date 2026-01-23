@@ -20127,9 +20127,6 @@
           "type": "integer"
         }
       },
-      "required": [
-        "value"
-      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
