@@ -564,6 +564,9 @@
           "x-kubernetes-list-type": "set"
         }
       },
+      "required": [
+        "policyName"
+      ],
       "type": "object",
       "additionalProperties": false
     },

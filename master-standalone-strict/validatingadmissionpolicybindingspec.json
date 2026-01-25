@@ -469,6 +469,9 @@
       "x-kubernetes-list-type": "set"
     }
   },
+  "required": [
+    "policyName"
+  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
