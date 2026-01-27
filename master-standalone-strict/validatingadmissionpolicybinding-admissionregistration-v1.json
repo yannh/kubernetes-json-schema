@@ -735,15 +735,13 @@
               "null"
             ]
           },
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "x-kubernetes-list-type": "set"
         }
       },
       "required": [
-        "policyName"
+        "policyName",
+        "validationActions"
       ],
       "type": [
         "object",
