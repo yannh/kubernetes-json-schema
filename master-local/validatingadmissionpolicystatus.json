@@ -2,7 +2,7 @@
   "description": "ValidatingAdmissionPolicyStatus represents the status of an admission validation policy.",
   "properties": {
     "conditions": {
-      "description": "The conditions represent the latest available observations of a policy's current state.",
+      "description": "conditions represent the latest available observations of a policy's current state.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
       },
@@ -16,7 +16,7 @@
       "x-kubernetes-list-type": "map"
     },
     "observedGeneration": {
-      "description": "The generation observed by the controller.",
+      "description": "observedGeneration is the generation observed by the controller.",
       "format": "int64",
       "type": [
         "integer",
@@ -25,7 +25,7 @@
     },
     "typeChecking": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.TypeChecking",
-      "description": "The results of type checking for each expression. Presence of this field indicates the completion of the type checking."
+      "description": "typeChecking contains the results of type checking for each expression. Presence of this field indicates the completion of the type checking."
     }
   },
   "type": "object",

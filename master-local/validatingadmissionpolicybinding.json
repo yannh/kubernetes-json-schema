@@ -20,11 +20,11 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata."
+      "description": "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata."
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicyBindingSpec",
-      "description": "Specification of the desired behavior of the ValidatingAdmissionPolicyBinding."
+      "description": "spec defines the desired behavior of the ValidatingAdmissionPolicyBinding."
     }
   },
   "type": "object",

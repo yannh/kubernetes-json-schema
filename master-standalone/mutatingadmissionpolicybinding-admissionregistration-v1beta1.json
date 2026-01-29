@@ -278,12 +278,12 @@
           "description": "MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
           "properties": {
             "excludeResourceRules": {
-              "description": "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
+              "description": "excludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
               "items": {
                 "description": "NamedRuleWithOperations is a tuple of Operations and Resources with ResourceNames.",
                 "properties": {
                   "apiGroups": {
-                    "description": "APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
+                    "description": "apiGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -297,7 +297,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "apiVersions": {
-                    "description": "APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
+                    "description": "apiVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -311,7 +311,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "operations": {
-                    "description": "Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
+                    "description": "operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -325,7 +325,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "resourceNames": {
-                    "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
+                    "description": "resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
                     "items": {
                       "type": [
                         "string",
@@ -339,7 +339,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "resources": {
-                    "description": "Resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
+                    "description": "resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -512,12 +512,12 @@
               "x-kubernetes-map-type": "atomic"
             },
             "resourceRules": {
-              "description": "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.",
+              "description": "resourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.",
               "items": {
                 "description": "NamedRuleWithOperations is a tuple of Operations and Resources with ResourceNames.",
                 "properties": {
                   "apiGroups": {
-                    "description": "APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
+                    "description": "apiGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -531,7 +531,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "apiVersions": {
-                    "description": "APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
+                    "description": "apiVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -545,7 +545,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "operations": {
-                    "description": "Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
+                    "description": "operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -559,7 +559,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "resourceNames": {
-                    "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
+                    "description": "resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
                     "items": {
                       "type": [
                         "string",
@@ -573,7 +573,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "resources": {
-                    "description": "Resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
+                    "description": "resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
                     "items": {
                       "type": [
                         "string",
@@ -631,7 +631,7 @@
               ]
             },
             "parameterNotFoundAction": {
-              "description": "`parameterNotFoundAction` controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
+              "description": "parameterNotFoundAction controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
               "type": [
                 "string",
                 "null"
