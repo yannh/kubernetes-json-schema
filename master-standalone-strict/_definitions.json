@@ -20231,6 +20231,14 @@
         }
       },
       "type": "object",
+      "x-kubernetes-unions": [
+        {
+          "fields-to-discriminateBy": {
+            "basic": "Basic",
+            "gang": "Gang"
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "io.k8s.api.scheduling.v1alpha1.TypedLocalObjectReference": {

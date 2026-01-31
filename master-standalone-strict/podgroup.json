@@ -41,6 +41,14 @@
         "object",
         "null"
       ],
+      "x-kubernetes-unions": [
+        {
+          "fields-to-discriminateBy": {
+            "basic": "Basic",
+            "gang": "Gang"
+          }
+        }
+      ],
       "additionalProperties": false
     }
   },

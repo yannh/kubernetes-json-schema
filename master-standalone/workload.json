@@ -336,7 +336,15 @@
                     ]
                   }
                 },
-                "type": "object"
+                "type": "object",
+                "x-kubernetes-unions": [
+                  {
+                    "fields-to-discriminateBy": {
+                      "basic": "Basic",
+                      "gang": "Gang"
+                    }
+                  }
+                ]
               }
             },
             "required": [
