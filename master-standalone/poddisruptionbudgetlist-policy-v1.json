@@ -464,12 +464,18 @@
               "currentHealthy": {
                 "description": "current number of healthy pods",
                 "format": "int32",
-                "type": "integer"
+                "type": [
+                  "integer",
+                  "null"
+                ]
               },
               "desiredHealthy": {
                 "description": "minimum desired number of healthy pods",
                 "format": "int32",
-                "type": "integer"
+                "type": [
+                  "integer",
+                  "null"
+                ]
               },
               "disruptedPods": {
                 "additionalProperties": {
@@ -489,12 +495,18 @@
               "disruptionsAllowed": {
                 "description": "Number of pod disruptions that are currently allowed.",
                 "format": "int32",
-                "type": "integer"
+                "type": [
+                  "integer",
+                  "null"
+                ]
               },
               "expectedPods": {
                 "description": "total number of pods counted by this disruption budget",
                 "format": "int32",
-                "type": "integer"
+                "type": [
+                  "integer",
+                  "null"
+                ]
               },
               "observedGeneration": {
                 "description": "Most recent generation observed when updating this PDB status. DisruptionsAllowed and other status information is valid only if observedGeneration equals to PDB's object generation.",
@@ -505,12 +517,6 @@
                 ]
               }
             },
-            "required": [
-              "disruptionsAllowed",
-              "currentHealthy",
-              "desiredHealthy",
-              "expectedPods"
-            ],
             "type": [
               "object",
               "null"

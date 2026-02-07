@@ -1,5 +1,5 @@
 {
-  "description": "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+  "description": "SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
   "properties": {
     "extra": {
       "additionalProperties": {
@@ -14,14 +14,14 @@
           "null"
         ]
       },
-      "description": "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
+      "description": "extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
       "type": [
         "object",
         "null"
       ]
     },
     "groups": {
-      "description": "Groups is the groups you're testing for.",
+      "description": "groups is the groups you're testing for.",
       "items": {
         "type": [
           "string",
@@ -38,14 +38,14 @@
       "description": "NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface",
       "properties": {
         "path": {
-          "description": "Path is the URL path of the request",
+          "description": "path is the URL path of the request",
           "type": [
             "string",
             "null"
           ]
         },
         "verb": {
-          "description": "Verb is the standard HTTP verb",
+          "description": "verb is the standard HTTP verb",
           "type": [
             "string",
             "null"
@@ -123,7 +123,7 @@
           "additionalProperties": false
         },
         "group": {
-          "description": "Group is the API Group of the Resource.  \"*\" means all.",
+          "description": "group is the API Group of the Resource.  \"*\" means all.",
           "type": [
             "string",
             "null"
@@ -191,42 +191,42 @@
           "additionalProperties": false
         },
         "name": {
-          "description": "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
+          "description": "name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
           "type": [
             "string",
             "null"
           ]
         },
         "namespace": {
-          "description": "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
+          "description": "namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
           "type": [
             "string",
             "null"
           ]
         },
         "resource": {
-          "description": "Resource is one of the existing resource types.  \"*\" means all.",
+          "description": "resource is one of the existing resource types.  \"*\" means all.",
           "type": [
             "string",
             "null"
           ]
         },
         "subresource": {
-          "description": "Subresource is one of the existing resource types.  \"\" means none.",
+          "description": "subresource is one of the existing resource types.  \"\" means none.",
           "type": [
             "string",
             "null"
           ]
         },
         "verb": {
-          "description": "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+          "description": "verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
           "type": [
             "string",
             "null"
           ]
         },
         "version": {
-          "description": "Version is the API Version of the Resource.  \"*\" means all.",
+          "description": "version is the API Version of the Resource.  \"*\" means all.",
           "type": [
             "string",
             "null"
@@ -240,14 +240,14 @@
       "additionalProperties": false
     },
     "uid": {
-      "description": "UID information about the requesting user.",
+      "description": "uid information about the requesting user.",
       "type": [
         "string",
         "null"
       ]
     },
     "user": {
-      "description": "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups",
+      "description": "user is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups",
       "type": [
         "string",
         "null"

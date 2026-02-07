@@ -269,20 +269,20 @@
       ]
     },
     "spec": {
-      "description": "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+      "description": "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
       "properties": {
         "nonResourceAttributes": {
           "description": "NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface",
           "properties": {
             "path": {
-              "description": "Path is the URL path of the request",
+              "description": "path is the URL path of the request",
               "type": [
                 "string",
                 "null"
               ]
             },
             "verb": {
-              "description": "Verb is the standard HTTP verb",
+              "description": "verb is the standard HTTP verb",
               "type": [
                 "string",
                 "null"
@@ -357,7 +357,7 @@
               ]
             },
             "group": {
-              "description": "Group is the API Group of the Resource.  \"*\" means all.",
+              "description": "group is the API Group of the Resource.  \"*\" means all.",
               "type": [
                 "string",
                 "null"
@@ -423,42 +423,42 @@
               ]
             },
             "name": {
-              "description": "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
+              "description": "name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "namespace": {
-              "description": "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
+              "description": "namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
               "type": [
                 "string",
                 "null"
               ]
             },
             "resource": {
-              "description": "Resource is one of the existing resource types.  \"*\" means all.",
+              "description": "resource is one of the existing resource types.  \"*\" means all.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "subresource": {
-              "description": "Subresource is one of the existing resource types.  \"\" means none.",
+              "description": "subresource is one of the existing resource types.  \"\" means none.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "verb": {
-              "description": "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+              "description": "verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "version": {
-              "description": "Version is the API Version of the Resource.  \"*\" means all.",
+              "description": "version is the API Version of the Resource.  \"*\" means all.",
               "type": [
                 "string",
                 "null"
@@ -480,25 +480,25 @@
       "description": "SubjectAccessReviewStatus",
       "properties": {
         "allowed": {
-          "description": "Allowed is required. True if the action would be allowed, false otherwise.",
+          "description": "allowed is required. True if the action would be allowed, false otherwise.",
           "type": "boolean"
         },
         "denied": {
-          "description": "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.",
+          "description": "denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.",
           "type": [
             "boolean",
             "null"
           ]
         },
         "evaluationError": {
-          "description": "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.",
+          "description": "evaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.",
           "type": [
             "string",
             "null"
           ]
         },
         "reason": {
-          "description": "Reason is optional.  It indicates why a request was allowed or denied.",
+          "description": "reason is optional.  It indicates why a request was allowed or denied.",
           "type": [
             "string",
             "null"

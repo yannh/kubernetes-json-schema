@@ -116,12 +116,6 @@
       ]
     }
   },
-  "required": [
-    "disruptionsAllowed",
-    "currentHealthy",
-    "desiredHealthy",
-    "expectedPods"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

@@ -61,7 +61,7 @@
       ]
     },
     "group": {
-      "description": "Group is the API Group of the Resource.  \"*\" means all.",
+      "description": "group is the API Group of the Resource.  \"*\" means all.",
       "type": [
         "string",
         "null"
@@ -127,42 +127,42 @@
       ]
     },
     "name": {
-      "description": "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
+      "description": "name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
       "type": [
         "string",
         "null"
       ]
     },
     "namespace": {
-      "description": "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
+      "description": "namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
       "type": [
         "string",
         "null"
       ]
     },
     "resource": {
-      "description": "Resource is one of the existing resource types.  \"*\" means all.",
+      "description": "resource is one of the existing resource types.  \"*\" means all.",
       "type": [
         "string",
         "null"
       ]
     },
     "subresource": {
-      "description": "Subresource is one of the existing resource types.  \"\" means none.",
+      "description": "subresource is one of the existing resource types.  \"\" means none.",
       "type": [
         "string",
         "null"
       ]
     },
     "verb": {
-      "description": "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+      "description": "verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
       "type": [
         "string",
         "null"
       ]
     },
     "version": {
-      "description": "Version is the API Version of the Resource.  \"*\" means all.",
+      "description": "version is the API Version of the Resource.  \"*\" means all.",
       "type": [
         "string",
         "null"
