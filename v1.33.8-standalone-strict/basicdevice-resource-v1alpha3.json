@@ -1,0 +1,313 @@
+{
+  "description": "BasicDevice defines one device instance.",
+  "properties": {
+    "allNodes": {
+      "description": "AllNodes indicates that all nodes have access to the device.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "attributes": {
+      "additionalProperties": {
+        "description": "DeviceAttribute must have exactly one field set.",
+        "properties": {
+          "bool": {
+            "description": "BoolValue is a true/false value.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "int": {
+            "description": "IntValue is a number.",
+            "format": "int64",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "string": {
+            "description": "StringValue is a string. Must not be longer than 64 characters.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "description": "VersionValue is a semantic version according to semver.org spec 2.0.0. Must not be longer than 64 characters.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Attributes defines the set of attributes for this device. The name of each attribute must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "capacity": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "consumesCounters": {
+      "description": "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe total number of device counter consumption entries must be <= 32. In addition, the total number in the entire ResourceSlice must be <= 1024 (for example, 64 devices with 16 counters each).",
+      "items": {
+        "description": "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.",
+        "properties": {
+          "counterSet": {
+            "description": "CounterSet defines the set from which the counters defined will be consumed.",
+            "type": "string"
+          },
+          "counters": {
+            "additionalProperties": {
+              "description": "Counter describes a quantity associated with a device.",
+              "properties": {
+                "value": {
+                  "oneOf": [
+                    {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Counters defines the Counter that will be consumed by the device.\n\nThe maximum number counters in a device is 32. In addition, the maximum number of all counters in all devices is 1024 (for example, 64 devices with 16 counters each).",
+            "type": "object"
+          }
+        },
+        "required": [
+          "counterSet",
+          "counters"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "nodeName": {
+      "description": "NodeName identifies the node where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeSelector": {
+      "description": "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.",
+      "properties": {
+        "nodeSelectorTerms": {
+          "description": "Required. A list of node selector terms. The terms are ORed.",
+          "items": {
+            "description": "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+            "properties": {
+              "matchExpressions": {
+                "description": "A list of node selector requirements by node's labels.",
+                "items": {
+                  "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                  "properties": {
+                    "key": {
+                      "description": "The label key that the selector applies to.",
+                      "type": "string"
+                    },
+                    "operator": {
+                      "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                      "type": "string"
+                    },
+                    "values": {
+                      "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-type": "atomic"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "operator"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
+              },
+              "matchFields": {
+                "description": "A list of node selector requirements by node's fields.",
+                "items": {
+                  "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                  "properties": {
+                    "key": {
+                      "description": "The label key that the selector applies to.",
+                      "type": "string"
+                    },
+                    "operator": {
+                      "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                      "type": "string"
+                    },
+                    "values": {
+                      "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-type": "atomic"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "operator"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": false
+                },
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "x-kubernetes-list-type": "atomic"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ],
+            "x-kubernetes-map-type": "atomic",
+            "additionalProperties": false
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "required": [
+        "nodeSelectorTerms"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "x-kubernetes-map-type": "atomic",
+      "additionalProperties": false
+    },
+    "taints": {
+      "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 4.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+      "items": {
+        "description": "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.",
+        "properties": {
+          "effect": {
+            "description": "The effect of the taint on claims that do not tolerate the taint and through such claims on the pods using them. Valid effects are NoSchedule and NoExecute. PreferNoSchedule as used for nodes is not valid here.",
+            "type": "string"
+          },
+          "key": {
+            "description": "The taint key to be applied to a device. Must be a label name.",
+            "type": "string"
+          },
+          "timeAdded": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "description": "The taint value corresponding to the taint key. Must be a label value.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "effect"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

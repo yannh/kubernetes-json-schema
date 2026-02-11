@@ -1,0 +1,54 @@
+{
+  "description": "ResourceQuotaStatus defines the enforced hard limits and observed use.",
+  "properties": {
+    "hard": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "used": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "Used is the current observed total usage of the resource in the namespace.",
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
