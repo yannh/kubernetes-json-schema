@@ -739,12 +739,12 @@
               "policyName",
               "validationActions"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

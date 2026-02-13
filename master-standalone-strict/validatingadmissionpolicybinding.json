@@ -747,6 +747,9 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "spec"
+  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

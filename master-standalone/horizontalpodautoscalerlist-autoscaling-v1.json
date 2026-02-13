@@ -341,10 +341,7 @@
               "scaleTargetRef",
               "maxReplicas"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           },
           "status": {
             "description": "current status of a horizontal pod autoscaler",
@@ -394,6 +391,9 @@
             ]
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

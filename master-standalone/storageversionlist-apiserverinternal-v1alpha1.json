@@ -281,14 +281,14 @@
                 ]
               }
             },
+            "type": "object"
+          },
+          "spec": {
+            "description": "StorageVersionSpec is an empty spec.",
             "type": [
               "object",
               "null"
             ]
-          },
-          "spec": {
-            "description": "StorageVersionSpec is an empty spec.",
-            "type": "object"
           },
           "status": {
             "description": "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.",
@@ -365,10 +365,7 @@
                   "properties": {
                     "apiServerID": {
                       "description": "The ID of the reporting API server.",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string"
                     },
                     "decodableVersions": {
                       "description": "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.",
@@ -378,18 +375,12 @@
                           "null"
                         ]
                       },
-                      "type": [
-                        "array",
-                        "null"
-                      ],
+                      "type": "array",
                       "x-kubernetes-list-type": "set"
                     },
                     "encodingVersion": {
                       "description": "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string"
                     },
                     "servedVersions": {
                       "description": "The API server can serve these versions. DecodableVersions must include all ServedVersions.",
@@ -406,6 +397,11 @@
                       "x-kubernetes-list-type": "set"
                     }
                   },
+                  "required": [
+                    "apiServerID",
+                    "encodingVersion",
+                    "decodableVersions"
+                  ],
                   "type": [
                     "object",
                     "null"
@@ -421,12 +417,14 @@
                 "x-kubernetes-list-type": "map"
               }
             },
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           }
         },
         "required": [
-          "spec",
-          "status"
+          "metadata"
         ],
         "type": [
           "object",

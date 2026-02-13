@@ -44,6 +44,11 @@
       "x-kubernetes-list-type": "set"
     }
   },
+  "required": [
+    "apiServerID",
+    "encodingVersion",
+    "decodableVersions"
+  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

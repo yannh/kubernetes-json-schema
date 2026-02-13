@@ -319,12 +319,12 @@
             "required": [
               "parentRef"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

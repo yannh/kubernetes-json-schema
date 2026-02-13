@@ -11492,10 +11492,7 @@
               "schedule",
               "jobTemplate"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           },
           "status": {
             "description": "CronJobStatus represents the current state of a cron job.",
@@ -11590,6 +11587,9 @@
             ]
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

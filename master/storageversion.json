@@ -32,8 +32,7 @@
     }
   },
   "required": [
-    "spec",
-    "status"
+    "metadata"
   ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
