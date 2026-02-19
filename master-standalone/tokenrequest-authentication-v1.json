@@ -282,7 +282,10 @@
               "null"
             ]
           },
-          "type": "array",
+          "type": [
+            "array",
+            "null"
+          ],
           "x-kubernetes-list-type": "atomic"
         },
         "boundObjectRef": {
@@ -331,9 +334,6 @@
           ]
         }
       },
-      "required": [
-        "audiences"
-      ],
       "type": [
         "object",
         "null"
@@ -345,26 +345,25 @@
         "expirationTimestamp": {
           "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
           "format": "date-time",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "token": {
           "description": "token is the opaque bearer token.",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
-      "required": [
-        "token",
-        "expirationTimestamp"
-      ],
       "type": [
         "object",
         "null"
       ]
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

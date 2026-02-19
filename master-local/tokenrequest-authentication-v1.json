@@ -34,9 +34,6 @@
       "description": "status is filled in by the server and indicates whether the token can be authenticated."
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

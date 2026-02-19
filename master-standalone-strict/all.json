@@ -1,16 +1,40 @@
 {
   "oneOf": [
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ApplyConfiguration"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.AuditAnnotation"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ExpressionWarning"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.JSONPatch"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchCondition"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchResources"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyBinding"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyBindingList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyBindingSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicySpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhook"
@@ -20,6 +44,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.Mutation"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.NamedRuleWithOperations"

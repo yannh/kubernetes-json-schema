@@ -287,12 +287,12 @@
         },
         "token": {
           "description": "token is the opaque bearer token.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         }
       },
+      "required": [
+        "token"
+      ],
       "type": [
         "object",
         "null"

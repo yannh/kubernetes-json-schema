@@ -1,16 +1,40 @@
 {
   "oneOf": [
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ApplyConfiguration"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.AuditAnnotation"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ExpressionWarning"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.JSONPatch"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchCondition"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchResources"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicy"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyBinding"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyBindingList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyBindingSpec"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicyList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingAdmissionPolicySpec"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhook"
@@ -20,6 +44,9 @@
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.Mutation"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.NamedRuleWithOperations"
