@@ -23,15 +23,15 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "The name is <group>.<resource>."
+      "description": "metadata is the standard object metadata. The name is <group>.<resource>."
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.StorageVersionSpec",
-      "description": "Spec is an empty spec. It is here to comply with Kubernetes API style."
+      "description": "spec is an empty spec. It is here to comply with Kubernetes API style."
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apiserverinternal.v1alpha1.StorageVersionStatus",
-      "description": "API server instances report the version they can decode and the version they encode objects to when persisting objects in the backend."
+      "description": "status on the version the API server instance can decode from and encode objects to when persisting objects in the backend."
     }
   },
   "required": [
