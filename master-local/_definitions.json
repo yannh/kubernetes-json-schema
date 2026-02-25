@@ -15907,7 +15907,6 @@
         }
       },
       "required": [
-        "apiGroup",
         "kind",
         "name"
       ],
