@@ -1,0 +1,15 @@
+{
+  "description": "NodeFeatures describes the set of features implemented by the CRI implementation. The features contained in the NodeFeatures should depend only on the cri implementation independent of runtime handlers.",
+  "properties": {
+    "supplementalGroupsPolicy": {
+      "description": "SupplementalGroupsPolicy is set to true if the runtime supports SupplementalGroupsPolicy and ContainerUser.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
