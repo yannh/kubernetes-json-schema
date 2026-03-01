@@ -1871,7 +1871,7 @@
                 "description": "VolumeError captures an error encountered during a volume operation.",
                 "properties": {
                   "errorCode": {
-                    "description": "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
+                    "description": "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
                     "format": "int32",
                     "type": [
                       "integer",
@@ -1921,7 +1921,7 @@
                 "description": "VolumeError captures an error encountered during a volume operation.",
                 "properties": {
                   "errorCode": {
-                    "description": "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
+                    "description": "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
                     "format": "int32",
                     "type": [
                       "integer",
