@@ -1036,6 +1036,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodSchedulingGate"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodSchedulingGroup"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodSecurityContext"
     },
     {
@@ -1256,9 +1259,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.WindowsSecurityContextOptions"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.WorkloadReference"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.discovery.v1.Endpoint"
@@ -1954,28 +1954,46 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClassList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.BasicSchedulingPolicy"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.BasicSchedulingPolicy"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.GangSchedulingPolicy"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.GangSchedulingPolicy"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.PodGroup"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroup"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.PodGroupPolicy"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.TypedLocalObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSchedulingPolicy"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.Workload"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.WorkloadList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.WorkloadSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupTemplate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupTemplateReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.TypedLocalObjectReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.Workload"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.WorkloadList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.WorkloadPodGroupTemplateReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.WorkloadSpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIDriver"

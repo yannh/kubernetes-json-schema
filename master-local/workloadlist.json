@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is the list of Workloads.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.Workload"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.Workload"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "WorkloadList",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

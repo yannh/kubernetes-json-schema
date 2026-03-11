@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is the list of Workloads.",
       "items": {
-        "description": "Workload allows for expressing scheduling constraints that should be used when managing lifecycle of workloads from scheduling perspective, including scheduling, preemption, eviction and other phases.",
+        "description": "Workload allows for expressing scheduling constraints that should be used when managing the lifecycle of workloads from the scheduling perspective, including scheduling, preemption, eviction and other phases. Workload API enablement is toggled by the GenericWorkload feature gate.",
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -311,17 +311,17 @@
                   "null"
                 ]
               },
-              "podGroups": {
-                "description": "PodGroups is the list of pod groups that make up the Workload. The maximum number of pod groups is 8. This field is immutable.",
+              "podGroupTemplates": {
+                "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. This field is immutable.",
                 "items": {
-                  "description": "PodGroup represents a set of pods with a common scheduling policy.",
+                  "description": "PodGroupTemplate represents a template for a set of pods with a scheduling policy.",
                   "properties": {
                     "name": {
-                      "description": "Name is a unique identifier for the PodGroup within the Workload. It must be a DNS label. This field is immutable.",
+                      "description": "Name is a unique identifier for the PodGroupTemplate within the Workload. It must be a DNS label. This field is immutable.",
                       "type": "string"
                     },
-                    "policy": {
-                      "description": "PodGroupPolicy defines the scheduling configuration for a PodGroup.",
+                    "schedulingPolicy": {
+                      "description": "PodGroupSchedulingPolicy defines the scheduling configuration for a PodGroup. Exactly one policy must be set.",
                       "properties": {
                         "basic": {
                           "description": "BasicSchedulingPolicy indicates that standard Kubernetes scheduling behavior should be used.",
@@ -361,7 +361,7 @@
                   },
                   "required": [
                     "name",
-                    "policy"
+                    "schedulingPolicy"
                   ],
                   "type": [
                     "object",
@@ -376,7 +376,7 @@
               }
             },
             "required": [
-              "podGroups"
+              "podGroupTemplates"
             ],
             "type": "object"
           }
@@ -392,7 +392,7 @@
           {
             "group": "scheduling.k8s.io",
             "kind": "Workload",
-            "version": "v1alpha1"
+            "version": "v1alpha2"
           }
         ]
       },
@@ -458,7 +458,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "WorkloadList",
-      "version": "v1alpha1"
+      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

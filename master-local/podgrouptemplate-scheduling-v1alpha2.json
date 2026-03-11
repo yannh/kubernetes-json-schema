@@ -1,0 +1,22 @@
+{
+  "description": "PodGroupTemplate represents a template for a set of pods with a scheduling policy.",
+  "properties": {
+    "name": {
+      "description": "Name is a unique identifier for the PodGroupTemplate within the Workload. It must be a DNS label. This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schedulingPolicy": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSchedulingPolicy",
+      "description": "SchedulingPolicy defines the scheduling policy for this PodGroupTemplate."
+    }
+  },
+  "required": [
+    "name",
+    "schedulingPolicy"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

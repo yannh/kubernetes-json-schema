@@ -1,22 +1,46 @@
 {
-  "description": "PodGroup represents a set of pods with a common scheduling policy.",
+  "description": "PodGroup represents a runtime instance of pods grouped together. PodGroups are created by workload controllers (Job, LWS, JobSet, etc...) from Workload.podGroupTemplates. PodGroup API enablement is toggled by the GenericWorkload feature gate.",
   "properties": {
-    "name": {
-      "description": "Name is a unique identifier for the PodGroup within the Workload. It must be a DNS label. This field is immutable.",
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "type": [
         "string",
         "null"
       ]
     },
-    "policy": {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha1.PodGroupPolicy",
-      "description": "Policy defines the scheduling policy for this PodGroup."
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "PodGroup"
+      ]
+    },
+    "metadata": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSpec",
+      "description": "Spec defines the desired state of the PodGroup."
+    },
+    "status": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupStatus",
+      "description": "Status represents the current observed state of the PodGroup."
     }
   },
   "required": [
-    "name",
-    "policy"
+    "spec"
   ],
   "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "scheduling.k8s.io",
+      "kind": "PodGroup",
+      "version": "v1alpha2"
+    }
+  ],
   "$schema": "http://json-schema.org/schema#"
 }
