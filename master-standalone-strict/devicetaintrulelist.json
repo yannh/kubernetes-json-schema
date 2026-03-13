@@ -439,7 +439,7 @@
           {
             "group": "resource.k8s.io",
             "kind": "DeviceTaintRule",
-            "version": "v1alpha3"
+            "version": "v1beta2"
           }
         ],
         "additionalProperties": false
@@ -507,7 +507,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "DeviceTaintRuleList",
-      "version": "v1alpha3"
+      "version": "v1beta2"
     }
   ],
   "additionalProperties": false,

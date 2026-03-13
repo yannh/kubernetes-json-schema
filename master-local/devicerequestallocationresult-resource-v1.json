@@ -82,7 +82,7 @@
       ]
     },
     "tolerations": {
-      "description": "A copy of all tolerations specified in the request at the time when the device got allocated.\n\nThe maximum number of tolerations is 16.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+      "description": "A copy of all tolerations specified in the request at the time when the device got allocated.\n\nThe maximum number of tolerations is 16.\n\nThis is a beta field and requires enabling the DRADeviceTaints feature gate.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceToleration"
       },

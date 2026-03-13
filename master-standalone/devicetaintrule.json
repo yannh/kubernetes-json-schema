@@ -419,7 +419,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "DeviceTaintRule",
-      "version": "v1alpha3"
+      "version": "v1beta2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

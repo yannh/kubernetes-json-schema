@@ -431,7 +431,7 @@
           {
             "group": "resource.k8s.io",
             "kind": "DeviceTaintRule",
-            "version": "v1alpha3"
+            "version": "v1beta2"
           }
         ]
       },
@@ -497,7 +497,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "DeviceTaintRuleList",
-      "version": "v1alpha3"
+      "version": "v1beta2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

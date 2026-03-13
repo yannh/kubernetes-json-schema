@@ -23,11 +23,11 @@
       "description": "Standard object metadata"
     },
     "spec": {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleSpec",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceTaintRuleSpec",
       "description": "Spec specifies the selector and one taint.\n\nChanging the spec automatically increments the metadata.generation number."
     },
     "status": {
-      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintRuleStatus",
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceTaintRuleStatus",
       "description": "Status provides information about what was requested in the spec."
     }
   },
@@ -39,7 +39,7 @@
     {
       "group": "resource.k8s.io",
       "kind": "DeviceTaintRule",
-      "version": "v1alpha3"
+      "version": "v1beta2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
