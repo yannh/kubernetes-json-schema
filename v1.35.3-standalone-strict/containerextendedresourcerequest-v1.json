@@ -1,0 +1,34 @@
+{
+  "description": "ContainerExtendedResourceRequest has the mapping of container name, extended resource name to the device request name.",
+  "properties": {
+    "containerName": {
+      "description": "The name of the container requesting resources.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requestName": {
+      "description": "The name of the request in the special ResourceClaim which corresponds to the extended resource.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resourceName": {
+      "description": "The name of the extended resource in that container which gets backed by DRA.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "containerName",
+    "resourceName",
+    "requestName"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

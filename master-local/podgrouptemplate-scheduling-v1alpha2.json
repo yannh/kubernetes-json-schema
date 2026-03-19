@@ -8,6 +8,10 @@
         "null"
       ]
     },
+    "schedulingConstraints": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSchedulingConstraints",
+      "description": "SchedulingConstraints defines optional scheduling constraints (e.g. topology) for this PodGroupTemplate. This field is only available when the TopologyAwareWorkloadScheduling feature gate is enabled."
+    },
     "schedulingPolicy": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSchedulingPolicy",
       "description": "SchedulingPolicy defines the scheduling policy for this PodGroupTemplate."
