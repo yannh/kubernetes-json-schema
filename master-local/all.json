@@ -1702,6 +1702,21 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PoolStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequestList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequestSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequestStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocatedDeviceStatus"
     },
     {

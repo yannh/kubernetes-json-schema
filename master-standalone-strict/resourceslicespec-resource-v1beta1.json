@@ -41,6 +41,20 @@
                         "null"
                       ]
                     },
+                    "bools": {
+                      "description": "BoolValues is a non-empty list of true/false values.",
+                      "items": {
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-type": "atomic"
+                    },
                     "int": {
                       "description": "IntValue is a number.",
                       "format": "int64",
@@ -49,6 +63,21 @@
                         "null"
                       ]
                     },
+                    "ints": {
+                      "description": "IntValues is a non-empty list of numbers.\n\nThis is an alpha field and requires enabling the DRAListTypeAttributes feature gate.",
+                      "items": {
+                        "format": "int64",
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-type": "atomic"
+                    },
                     "string": {
                       "description": "StringValue is a string. Must not be longer than 64 characters.",
                       "type": [
@@ -56,12 +85,40 @@
                         "null"
                       ]
                     },
+                    "strings": {
+                      "description": "StringValues is a non-empty list of strings. Each string must not be longer than 64 characters.\n\nThis is an alpha field and requires enabling the DRAListTypeAttributes feature gate.",
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-type": "atomic"
+                    },
                     "version": {
                       "description": "VersionValue is a semantic version according to semver.org spec 2.0.0. Must not be longer than 64 characters.",
                       "type": [
                         "string",
                         "null"
                       ]
+                    },
+                    "versions": {
+                      "description": "VersionValues is a non-empty list of semantic versions according to semver.org spec 2.0.0. Each version string must not be longer than 64 characters.\n\nThis is an alpha field and requires enabling the DRAListTypeAttributes feature gate.",
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "type": [
