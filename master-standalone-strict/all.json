@@ -2008,6 +2008,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupResourceClaimStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupSchedulingConstraints"
     },
     {
