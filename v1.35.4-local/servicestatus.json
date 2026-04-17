@@ -1,0 +1,27 @@
+{
+  "description": "ServiceStatus represents the current status of a service.",
+  "properties": {
+    "conditions": {
+      "description": "Current service state",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "loadBalancer": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LoadBalancerStatus",
+      "description": "LoadBalancer contains the current status of the load-balancer, if one is present."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
