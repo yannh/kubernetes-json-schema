@@ -991,18 +991,18 @@
                     ]
                   }
                 },
-                "type": "object"
+                "type": [
+                  "object",
+                  "null"
+                ]
               }
             },
-            "required": [
-              "spec"
-            ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           }
         },
-        "required": [
-          "spec"
-        ],
         "type": [
           "object",
           "null"

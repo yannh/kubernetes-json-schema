@@ -369,13 +369,13 @@
                 "x-kubernetes-list-type": "atomic"
               }
             },
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": false
           }
         },
-        "required": [
-          "spec"
-        ],
         "type": [
           "object",
           "null"

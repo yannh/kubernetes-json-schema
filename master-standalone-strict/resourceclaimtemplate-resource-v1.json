@@ -997,13 +997,13 @@
               "additionalProperties": false
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         }
       },
-      "required": [
-        "spec"
-      ],
       "type": [
         "object",
         "null"
@@ -1011,9 +1011,6 @@
       "additionalProperties": false
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

@@ -746,7 +746,10 @@
                 "additionalProperties": false
               }
             },
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": false
           },
           "status": {
@@ -1323,9 +1326,6 @@
             "additionalProperties": false
           }
         },
-        "required": [
-          "spec"
-        ],
         "type": [
           "object",
           "null"

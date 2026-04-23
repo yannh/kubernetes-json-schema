@@ -34,9 +34,6 @@
       "description": "Status describes whether the claim is ready to use and what has been allocated."
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

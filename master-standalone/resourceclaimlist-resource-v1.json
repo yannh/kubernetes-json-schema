@@ -738,7 +738,10 @@
                 ]
               }
             },
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           "status": {
             "description": "ResourceClaimStatus tracks whether the resource has been allocated and what the result of that was.",
@@ -1299,9 +1302,6 @@
             ]
           }
         },
-        "required": [
-          "spec"
-        ],
         "type": [
           "object",
           "null"

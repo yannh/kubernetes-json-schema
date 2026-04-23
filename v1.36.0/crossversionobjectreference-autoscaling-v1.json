@@ -1,0 +1,33 @@
+{
+  "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "apiVersion is the API version of the referent",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "description": "kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "name"
+  ],
+  "type": "object",
+  "x-kubernetes-map-type": "atomic",
+  "$schema": "http://json-schema.org/schema#"
+}
