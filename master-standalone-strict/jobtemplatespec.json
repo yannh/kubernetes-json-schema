@@ -3873,7 +3873,7 @@
                           "description": "VolumeMount describes a mounting of a Volume within a container.",
                           "properties": {
                             "mountPath": {
-                              "description": "Path within the container at which the volume should be mounted.  Must not contain ':'.",
+                              "description": "Path within the container at which the volume should be mounted.",
                               "type": "string"
                             },
                             "mountPropagation": {
@@ -5972,7 +5972,7 @@
                           "description": "VolumeMount describes a mounting of a Volume within a container.",
                           "properties": {
                             "mountPath": {
-                              "description": "Path within the container at which the volume should be mounted.  Must not contain ':'.",
+                              "description": "Path within the container at which the volume should be mounted.",
                               "type": "string"
                             },
                             "mountPropagation": {
@@ -8100,7 +8100,7 @@
                           "description": "VolumeMount describes a mounting of a Volume within a container.",
                           "properties": {
                             "mountPath": {
-                              "description": "Path within the container at which the volume should be mounted.  Must not contain ':'.",
+                              "description": "Path within the container at which the volume should be mounted.",
                               "type": "string"
                             },
                             "mountPropagation": {
