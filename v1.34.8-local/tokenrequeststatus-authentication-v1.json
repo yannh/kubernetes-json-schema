@@ -1,0 +1,22 @@
+{
+  "description": "TokenRequestStatus is the result of a token request.",
+  "properties": {
+    "expirationTimestamp": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "ExpirationTimestamp is the time of expiration of the returned token."
+    },
+    "token": {
+      "description": "Token is the opaque bearer token.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "token",
+    "expirationTimestamp"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

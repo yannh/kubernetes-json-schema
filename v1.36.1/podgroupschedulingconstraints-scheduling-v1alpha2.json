@@ -1,0 +1,18 @@
+{
+  "description": "PodGroupSchedulingConstraints defines scheduling constraints (e.g. topology) for a PodGroup.",
+  "properties": {
+    "topology": {
+      "description": "Topology defines the topology constraints for the pod group. Currently only a single topology constraint can be specified. This may change in the future.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.36.1/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.TopologyConstraint"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
