@@ -11037,10 +11037,7 @@
               "selector",
               "template"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           },
           "status": {
             "description": "DeploymentStatus is the most recently observed status of the Deployment.",
@@ -11098,17 +11095,19 @@
                     },
                     "status": {
                       "description": "Status of the condition, one of True, False, Unknown.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "type": {
                       "description": "Type of deployment condition.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
-                  "required": [
-                    "type",
-                    "status"
-                  ],
                   "type": [
                     "object",
                     "null"
@@ -11180,6 +11179,9 @@
             ]
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

@@ -12139,17 +12139,19 @@
               },
               "status": {
                 "description": "Status of the condition, one of True, False, Unknown.",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "type": {
                 "description": "Type of statefulset condition.",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
             },
-            "required": [
-              "type",
-              "status"
-            ],
             "type": [
               "object",
               "null"
@@ -12229,6 +12231,9 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "spec"
+  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

@@ -38,10 +38,6 @@
       ]
     }
   },
-  "required": [
-    "type",
-    "status"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

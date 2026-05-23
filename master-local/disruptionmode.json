@@ -1,0 +1,23 @@
+{
+  "description": "DisruptionMode defines how individual entities within a group can be disrupted. Exactly one mode can be set.",
+  "properties": {
+    "all": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.AllDisruptionMode",
+      "description": "All specifies that all children can only be disrupted together."
+    },
+    "single": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.SingleDisruptionMode",
+      "description": "Single specifies that children can be disrupted independently from each other."
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "fields-to-discriminateBy": {
+        "all": "All",
+        "single": "Single"
+      }
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -23,7 +23,7 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.WorkloadSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadSpec",
       "description": "Spec defines the desired behavior of a Workload."
     }
   },
@@ -35,7 +35,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "Workload",
-      "version": "v1alpha2"
+      "version": "v1alpha3"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

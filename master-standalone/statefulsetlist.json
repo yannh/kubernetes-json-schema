@@ -11773,10 +11773,7 @@
               "selector",
               "template"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           },
           "status": {
             "description": "StatefulSetStatus represents the current state of a StatefulSet.",
@@ -11826,17 +11823,19 @@
                     },
                     "status": {
                       "description": "Status of the condition, one of True, False, Unknown.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "type": {
                       "description": "Type of statefulset condition.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
-                  "required": [
-                    "type",
-                    "status"
-                  ],
                   "type": [
                     "object",
                     "null"
@@ -11914,6 +11913,9 @@
             ]
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

@@ -1200,7 +1200,7 @@
                           "description": "MetricValueStatus holds the current value for a metric",
                           "properties": {
                             "averageUtilization": {
-                              "description": "currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
+                              "description": "averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
                               "format": "int32",
                               "type": [
                                 "integer",
@@ -1264,7 +1264,7 @@
                           "description": "MetricValueStatus holds the current value for a metric",
                           "properties": {
                             "averageUtilization": {
-                              "description": "currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
+                              "description": "averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
                               "format": "int32",
                               "type": [
                                 "integer",
@@ -1402,7 +1402,7 @@
                           "description": "MetricValueStatus holds the current value for a metric",
                           "properties": {
                             "averageUtilization": {
-                              "description": "currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
+                              "description": "averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
                               "format": "int32",
                               "type": [
                                 "integer",
@@ -1566,7 +1566,7 @@
                           "description": "MetricValueStatus holds the current value for a metric",
                           "properties": {
                             "averageUtilization": {
-                              "description": "currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
+                              "description": "averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
                               "format": "int32",
                               "type": [
                                 "integer",
@@ -1704,7 +1704,7 @@
                           "description": "MetricValueStatus holds the current value for a metric",
                           "properties": {
                             "averageUtilization": {
-                              "description": "currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
+                              "description": "averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.",
                               "format": "int32",
                               "type": [
                                 "integer",

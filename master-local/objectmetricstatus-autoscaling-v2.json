@@ -7,7 +7,7 @@
     },
     "describedObject": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2.CrossVersionObjectReference",
-      "description": "DescribedObject specifies the descriptions of a object,such as kind,name apiVersion"
+      "description": "describedObject specifies the descriptions of a object,such as kind,name apiVersion"
     },
     "metric": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2.MetricIdentifier",

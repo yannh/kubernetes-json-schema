@@ -309,11 +309,36 @@
             "description": "PodGroupTemplate represents a template for a set of pods with a scheduling policy.",
             "properties": {
               "disruptionMode": {
-                "description": "DisruptionMode defines the mode in which a given PodGroup can be disrupted. One of Pod, PodGroup. This field is available only when the WorkloadAwarePreemption feature gate is enabled.",
+                "description": "DisruptionMode defines how individual entities within a group can be disrupted. Exactly one mode can be set.",
+                "properties": {
+                  "all": {
+                    "description": "AllDisruptionMode specifies that children can only be disrupted together.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "single": {
+                    "description": "SingleDisruptionMode specifies that children can be disrupted independently.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
                 "type": [
-                  "string",
+                  "object",
                   "null"
-                ]
+                ],
+                "x-kubernetes-unions": [
+                  {
+                    "fields-to-discriminateBy": {
+                      "all": "All",
+                      "single": "Single"
+                    }
+                  }
+                ],
+                "additionalProperties": false
               },
               "name": {
                 "description": "Name is a unique identifier for the PodGroupTemplate within the Workload. It must be a DNS label. This field is immutable.",
@@ -489,7 +514,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "Workload",
-      "version": "v1alpha2"
+      "version": "v1alpha3"
     }
   ],
   "additionalProperties": false,

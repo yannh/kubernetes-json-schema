@@ -10953,10 +10953,7 @@
             "required": [
               "selector"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           },
           "status": {
             "description": "ReplicaSetStatus represents the current status of a ReplicaSet.",
@@ -10998,17 +10995,19 @@
                     },
                     "status": {
                       "description": "Status of the condition, one of True, False, Unknown.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "type": {
                       "description": "Type of replica set condition.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
-                  "required": [
-                    "type",
-                    "status"
-                  ],
                   "type": [
                     "object",
                     "null"
@@ -11072,6 +11071,9 @@
             ]
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

@@ -291,7 +291,7 @@
     }
   },
   "required": [
-    "revision"
+    "data"
   ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
