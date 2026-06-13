@@ -1,0 +1,22 @@
+{
+  "description": "EventSource contains information for an event.",
+  "properties": {
+    "component": {
+      "description": "Component from which the event is generated.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "host": {
+      "description": "Node name on which the event is generated.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

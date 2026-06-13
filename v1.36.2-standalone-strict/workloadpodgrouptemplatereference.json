@@ -1,0 +1,26 @@
+{
+  "description": "WorkloadPodGroupTemplateReference references the PodGroupTemplate within the Workload object.",
+  "properties": {
+    "podGroupTemplateName": {
+      "description": "PodGroupTemplateName defines the PodGroupTemplate name within the Workload object.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "workloadName": {
+      "description": "WorkloadName defines the name of the Workload object.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "workloadName",
+    "podGroupTemplateName"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

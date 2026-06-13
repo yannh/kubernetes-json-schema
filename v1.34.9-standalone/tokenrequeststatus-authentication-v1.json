@@ -1,0 +1,26 @@
+{
+  "description": "TokenRequestStatus is the result of a token request.",
+  "properties": {
+    "expirationTimestamp": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "token": {
+      "description": "Token is the opaque bearer token.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "token",
+    "expirationTimestamp"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
