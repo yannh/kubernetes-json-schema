@@ -1,13 +1,13 @@
 {
-  "description": "PodGroupSchedulingPolicy defines the scheduling configuration for a PodGroup. Exactly one policy must be set.",
+  "description": "PodGroupSchedulingPolicy defines the scheduling configuration for a PodGroup. Exactly one policy must be set. The policy is chosen at creation time by setting either the Basic or Gang field. The PodGroup may not change policy after creation. Fields within chosen policy may be updated after creation when their individual fields allow it.",
   "properties": {
     "basic": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.BasicSchedulingPolicy",
-      "description": "Basic specifies that the pods in this group should be scheduled using standard Kubernetes scheduling behavior."
+      "description": "Basic specifies that the pods in this group should be scheduled using standard Kubernetes scheduling behavior. Setting this field at group creation time opts this group to basic scheduling; this field cannot be changed afterward."
     },
     "gang": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.GangSchedulingPolicy",
-      "description": "Gang specifies that the pods in this group should be scheduled using all-or-nothing semantics."
+      "description": "Gang specifies that the pods in this group should be scheduled using all-or-nothing semantics. Setting this field at group creation time opts this group to gang scheduling; this field cannot be set or unset afterward. The minCount field within Gang scheduling policy remains mutable after group creation."
     }
   },
   "type": "object",
