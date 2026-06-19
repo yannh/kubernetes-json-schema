@@ -541,15 +541,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.CertificateSigningRequestStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundle"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1alpha1.ClusterTrustBundleSpec"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundle"
     },
     {
@@ -1468,30 +1459,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.ServiceCIDRStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddress"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ParentReference"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDR"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRStatus"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1.Overhead"
     },
     {
@@ -2120,12 +2087,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeNodeResources"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClass"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClassList"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigration"
