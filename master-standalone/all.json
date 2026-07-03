@@ -2002,9 +2002,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupTemplate"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupTemplateReference"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.SingleDisruptionMode"
     },
     {
@@ -2020,7 +2017,7 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupTemplateReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadReference"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadSpec"
