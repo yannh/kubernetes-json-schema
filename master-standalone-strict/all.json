@@ -1600,6 +1600,21 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceTaint"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceTaintRule"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceTaintRuleList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceTaintRuleSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceTaintRuleStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceTaintSelector"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceToleration"
     },
     {
