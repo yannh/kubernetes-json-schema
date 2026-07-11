@@ -67,6 +67,7 @@
         "storage.k8s.io/v1",
         "storage.k8s.io/v1alpha1",
         "storage.k8s.io/v1beta1",
+        "storagemigration.k8s.io/v1",
         "storagemigration.k8s.io/v1beta1"
       ]
     },
@@ -424,6 +425,11 @@
       "group": "storage.k8s.io",
       "kind": "DeleteOptions",
       "version": "v1beta1"
+    },
+    {
+      "group": "storagemigration.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
     },
     {
       "group": "storagemigration.k8s.io",

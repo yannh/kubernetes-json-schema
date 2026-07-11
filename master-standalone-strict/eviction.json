@@ -399,6 +399,11 @@
         {
           "group": "storagemigration.k8s.io",
           "kind": "DeleteOptions",
+          "version": "v1"
+        },
+        {
+          "group": "storagemigration.k8s.io",
+          "kind": "DeleteOptions",
           "version": "v1beta1"
         }
       ],

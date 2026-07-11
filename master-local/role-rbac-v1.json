@@ -23,10 +23,10 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object's metadata."
+      "description": "metadata is the standard object's metadata."
     },
     "rules": {
-      "description": "Rules holds all the PolicyRules for this Role",
+      "description": "rules holds all the PolicyRules for this Role",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.PolicyRule"
       },

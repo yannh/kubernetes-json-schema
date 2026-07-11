@@ -2101,6 +2101,18 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeNodeResources"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1.StorageVersionMigration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1.StorageVersionMigrationList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1.StorageVersionMigrationSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1.StorageVersionMigrationStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1beta1.StorageVersionMigration"
     },
     {

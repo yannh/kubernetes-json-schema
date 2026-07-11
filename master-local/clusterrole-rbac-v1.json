@@ -3,7 +3,7 @@
   "properties": {
     "aggregationRule": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.AggregationRule",
-      "description": "AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller."
+      "description": "aggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller."
     },
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -27,10 +27,10 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object's metadata."
+      "description": "metadata is the standard object's metadata."
     },
     "rules": {
-      "description": "Rules holds all the PolicyRules for this ClusterRole",
+      "description": "rules holds all the PolicyRules for this ClusterRole",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.PolicyRule"
       },
