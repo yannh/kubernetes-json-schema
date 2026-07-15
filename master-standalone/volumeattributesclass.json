@@ -9,7 +9,7 @@
       ]
     },
     "driverName": {
-      "description": "Name of the CSI driver This field is immutable.",
+      "description": "driverName is the name of the CSI driver This field is immutable.",
       "type": [
         "string",
         "null"
