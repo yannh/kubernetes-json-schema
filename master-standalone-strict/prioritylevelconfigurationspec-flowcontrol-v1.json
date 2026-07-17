@@ -91,10 +91,7 @@
           "required": [
             "type"
           ],
-          "type": [
-            "object",
-            "null"
-          ],
+          "type": "object",
           "x-kubernetes-unions": [
             {
               "discriminator": "type",
@@ -114,6 +111,9 @@
           ]
         }
       },
+      "required": [
+        "limitResponse"
+      ],
       "type": [
         "object",
         "null"

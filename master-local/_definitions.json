@@ -4220,7 +4220,7 @@
       "type": "object"
     },
     "io.k8s.api.autoscaling.v2.HPAScalingRules": {
-      "description": "HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.\n\nScaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.\n\nThe tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations. (Note that setting a tolerance requires the beta HPAConfigurableTolerance feature gate to be enabled.)",
+      "description": "HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.\n\nScaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.\n\nThe tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations.",
       "properties": {
         "policies": {
           "description": "policies is a list of potential scaling polices which can be used during scaling. If not set, use the default values: - For scale up: allow doubling the number of pods, or an absolute change of 4 pods in a 15s window. - For scale down: allow all pods to be removed in a 15s window.",
@@ -4241,7 +4241,7 @@
         },
         "tolerance": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
-          "description": "tolerance is the tolerance on the ratio between the current and desired metric value under which no updates are made to the desired number of replicas (e.g. 0.01 for 1%). Must be greater than or equal to zero. If not set, the default cluster-wide tolerance is applied (by default 10%).\n\nFor example, if autoscaling is configured with a memory consumption target of 100Mi, and scale-down and scale-up tolerances of 5% and 1% respectively, scaling will be triggered when the actual consumption falls below 95Mi or exceeds 101Mi.\n\nThis is an beta field and requires the HPAConfigurableTolerance feature gate to be enabled."
+          "description": "tolerance is the tolerance on the ratio between the current and desired metric value under which no updates are made to the desired number of replicas (e.g. 0.01 for 1%). Must be greater than or equal to zero. If not set, the default cluster-wide tolerance is applied (by default 10%).\n\nFor example, if autoscaling is configured with a memory consumption target of 100Mi, and scale-down and scale-up tolerances of 5% and 1% respectively, scaling will be triggered when the actual consumption falls below 95Mi or exceeds 101Mi."
         }
       },
       "type": "object"
@@ -5437,6 +5437,96 @@
           "x-kubernetes-list-type": "map"
         }
       },
+      "type": "object"
+    },
+    "io.k8s.api.certificates.v1.ClusterTrustBundle": {
+      "description": "ClusterTrustBundle is a cluster-scoped container for X.509 trust anchors (root certificates).\n\nClusterTrustBundle objects are considered to be readable by any authenticated user in the cluster, because they can be mounted by pods using the `clusterTrustBundle` projection.  All service accounts have read access to ClusterTrustBundles by default.  Users who only have namespace-level access to a cluster can read ClusterTrustBundles by impersonating a serviceaccount that they have access to.\n\nIt can be optionally associated with a particular signer, in which case it contains one valid set of trust anchors for that signer. Signers may have multiple associated ClusterTrustBundles; each is an independent set of trust anchors for that signer. Admission control is used to enforce that only users with permissions on the signer can create or modify the corresponding bundle.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ClusterTrustBundle"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "metadata contains the object metadata."
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.certificates.v1.ClusterTrustBundleSpec",
+          "description": "spec contains the signer (if any) and trust anchors."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "certificates.k8s.io",
+          "kind": "ClusterTrustBundle",
+          "version": "v1"
+        }
+      ]
+    },
+    "io.k8s.api.certificates.v1.ClusterTrustBundleList": {
+      "description": "ClusterTrustBundleList is a collection of ClusterTrustBundle objects",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "items is a collection of ClusterTrustBundle objects",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.certificates.v1.ClusterTrustBundle"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "ClusterTrustBundleList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "metadata contains the list metadata."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "certificates.k8s.io",
+          "kind": "ClusterTrustBundleList",
+          "version": "v1"
+        }
+      ]
+    },
+    "io.k8s.api.certificates.v1.ClusterTrustBundleSpec": {
+      "description": "ClusterTrustBundleSpec contains the signer and trust anchors.",
+      "properties": {
+        "signerName": {
+          "description": "signerName indicates the associated signer, if any.\n\nIn order to create or update a ClusterTrustBundle that sets signerName, you must have the following cluster-scoped permission: group=certificates.k8s.io resource=signers resourceName=<the signer name> verb=attest.\n\nIf signerName is not empty, then the ClusterTrustBundle object must be named with the signer name as a prefix (translating slashes to colons). For example, for the signer name `example.com/foo`, valid ClusterTrustBundle object names include `example.com:foo:abc` and `example.com:foo:v1`.\n\nIf signerName is empty, then the ClusterTrustBundle object's name must not have such a prefix.\n\nList/watch requests for ClusterTrustBundles can filter on this field using a `spec.signerName=NAME` field selector.",
+          "type": "string"
+        },
+        "trustBundle": {
+          "description": "trustBundle contains the individual X.509 trust anchors for this bundle, as PEM bundle of PEM-wrapped, DER-formatted X.509 certificates.\n\nThe data must consist only of PEM certificate blocks that parse as valid X.509 certificates.  Each certificate must include a basic constraints extension with the CA bit set.  The API server will reject objects that contain duplicate certificates, or that use PEM block headers.\n\nUsers of ClusterTrustBundles, including Kubelet, are free to reorder and deduplicate certificate blocks in this file according to their own logic, as well as to drop PEM block headers and inter-block data.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trustBundle"
+      ],
       "type": "object"
     },
     "io.k8s.api.certificates.v1beta1.ClusterTrustBundle": {
@@ -13576,6 +13666,9 @@
           "description": "`status` is the current status of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
         }
       },
+      "required": [
+        "spec"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -13601,7 +13694,7 @@
           "type": "string"
         },
         "status": {
-          "description": "`status` is the status of the condition. Can be True, False, Unknown. Required.",
+          "description": "`status` is the status of the condition. Should be specified and set to one of True, False, Unknown.",
           "type": "string"
         },
         "type": {
@@ -13609,6 +13702,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "type"
+      ],
       "type": "object"
     },
     "io.k8s.api.flowcontrol.v1.FlowSchemaList": {
@@ -13759,6 +13855,9 @@
           "type": "integer"
         }
       },
+      "required": [
+        "limitResponse"
+      ],
       "type": "object"
     },
     "io.k8s.api.flowcontrol.v1.NonResourcePolicyRule": {
@@ -13847,6 +13946,9 @@
           "description": "`status` is the current status of a \"request-priority\". More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
         }
       },
+      "required": [
+        "spec"
+      ],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -13872,7 +13974,7 @@
           "type": "string"
         },
         "status": {
-          "description": "`status` is the status of the condition. Can be True, False, Unknown. Required.",
+          "description": "`status` is the status of the condition. Should be specified and set to one of True, False, Unknown.",
           "type": "string"
         },
         "type": {
@@ -13880,6 +13982,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "type"
+      ],
       "type": "object"
     },
     "io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationList": {
@@ -20123,6 +20228,222 @@
       "description": "BasicSchedulingPolicy indicates that standard Kubernetes scheduling behavior should be used.",
       "type": "object"
     },
+    "io.k8s.api.scheduling.v1alpha3.CompositeBasicSchedulingPolicy": {
+      "description": "CompositeBasicSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled independently.",
+      "type": "object"
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositeGangSchedulingPolicy": {
+      "description": "CompositeGangSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled using all-or-nothing semantics.",
+      "properties": {
+        "minGroupCount": {
+          "description": "MinGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minGroupCount"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositePodGroup": {
+      "description": "CompositePodGroup represents a runtime instance of pod groups grouped together. CompositePodGroups are created by workload controllers (LWS, JobSet, etc...) from Workload.compositePodGroupTemplates. CompositePodGroup API enablement is toggled by the CompositePodGroup feature gate.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "CompositePodGroup"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSpec",
+          "description": "Spec defines the desired state of the CompositePodGroup."
+        },
+        "status": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupStatus",
+          "description": "Status represents the current observed state of the CompositePodGroup."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "scheduling.k8s.io",
+          "kind": "CompositePodGroup",
+          "version": "v1alpha3"
+        }
+      ]
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositePodGroupList": {
+      "description": "CompositePodGroupList contains a list of CompositePodGroup resources.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "description": "Items is the list of CompositePodGroups.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroup"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string",
+          "enum": [
+            "CompositePodGroupList"
+          ]
+        },
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+          "description": "Standard list metadata."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "scheduling.k8s.io",
+          "kind": "CompositePodGroupList",
+          "version": "v1alpha3"
+        }
+      ]
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy": {
+      "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
+      "properties": {
+        "basic": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeBasicSchedulingPolicy",
+          "description": "Basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
+        },
+        "gang": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeGangSchedulingPolicy",
+          "description": "Gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
+        }
+      },
+      "type": "object",
+      "x-kubernetes-unions": [
+        {
+          "fields-to-discriminateBy": {
+            "basic": "Basic",
+            "gang": "Gang"
+          }
+        }
+      ]
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositePodGroupSpec": {
+      "description": "CompositePodGroupSpec defines the desired state of CompositePodGroup.",
+      "properties": {
+        "parentCompositePodGroupName": {
+          "description": "ParentCompositePodGroupName contains the name of the parent composite pod group within the same namespace as this composite pod group. It must be a DNS name. If it's nil, then this composite pod group is a root of a workload's hierarchy. This field is immutable.",
+          "type": "string"
+        },
+        "priority": {
+          "description": "Priority is the value of priority of this composite pod group. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "priorityClassName": {
+          "description": "PriorityClassName defines the priority that should be considered when scheduling this CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. If left unspecified, it is validated and resolved similarly to the PriorityClassName field in Pods (i.e. if no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, the composite pod group's priority will be zero). This field is immutable.",
+          "type": "string"
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy",
+          "description": "SchedulingPolicy defines the scheduling policy for this instance of the CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. This field is immutable."
+        },
+        "workloadRef": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadReference",
+          "description": "WorkloadRef references an optional CompositePodGroup template within the Workload object that was used to create the CompositePodGroup. This field is required. This field is immutable."
+        }
+      },
+      "required": [
+        "workloadRef",
+        "schedulingPolicy"
+      ],
+      "type": "object"
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositePodGroupStatus": {
+      "description": "CompositePodGroupStatus represents information about the status of a composite pod group.",
+      "properties": {
+        "conditions": {
+          "description": "Conditions represent the latest observations of the CompositePodGroup's state.\n\nKnown condition types: - \"CompositePodGroupInitiallyScheduled\": Indicates whether the overall scheduling requirement\n  for the subtree under this CompositePodGroup has been satisfied. Once this condition\n  transitions to True, it serves as a terminal state and will never revert to False,\n  even if pods are subsequently deleted and group constraints are no longer met.\n- \"DisruptionTarget\": Indicates whether the CompositePodGroup is about to be terminated\n  due to disruption such as preemption.\n\nKnown reasons for the CompositePodGroupInitiallyScheduled condition: - \"Unschedulable\": The CompositePodGroup's subtree could not be placed due to resource constraints,\n  affinity/anti-affinity, or topological constraints.\n- \"SchedulerError\": The CompositePodGroup cannot be scheduled due to some internal error\n  that occurred during scheduling.\n- \"Invalid\": Set to True when kube-scheduler detects an invalid group layout during\n  runtime validation. The `message` field details the specific layout violation (such as\n  a detected cycle, exceeding the maximum depth of 4, or referencing multiple distinct Workloads).\n\nKnown reasons for the DisruptionTarget condition: - \"PreemptionByScheduler\": The CompositePodGroup was targeted by the scheduler's preemption loop\n  to free up capacity for higher-priority preemptors.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "type",
+          "x-kubernetes-patch-strategy": "merge"
+        }
+      },
+      "type": "object"
+    },
+    "io.k8s.api.scheduling.v1alpha3.CompositePodGroupTemplate": {
+      "description": "CompositePodGroupTemplate represents a template for a CompositePodGroup with a scheduling policy.",
+      "properties": {
+        "compositePodGroupTemplates": {
+          "description": "CompositePodGroupTemplates is the list of templates for children CompositePodGroups. The maximum number of templates is 8. At least one entry in CompositePodGroupTemplates or PodGroupTemplates must be set.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupTemplate"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "name": {
+          "description": "Name is a unique identifier for the CompositePodGroupTemplate within the Workload. It must be a DNS label. This field is required.",
+          "type": "string"
+        },
+        "podGroupTemplates": {
+          "description": "PodGroupTemplates is the list of templates for children PodGroups. The maximum number of templates is 8. At least one entry in CompositePodGroupTemplates or PodGroupTemplates must be set.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupTemplate"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "priority": {
+          "description": "Priority is the value of priority of composite pod groups created from this template. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "priorityClassName": {
+          "description": "PriorityClassName indicates the priority that should be considered when scheduling a composite pod group created from this template. If no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, composite pod groups created from this template will have the priority set to zero. This field is immutable.",
+          "type": "string"
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy",
+          "description": "SchedulingPolicy defines the scheduling policy for this template."
+        }
+      },
+      "required": [
+        "name",
+        "schedulingPolicy"
+      ],
+      "type": "object"
+    },
     "io.k8s.api.scheduling.v1alpha3.DisruptionMode": {
       "description": "DisruptionMode defines how individual entities within a group can be disrupted. Exactly one mode can be set.",
       "properties": {
@@ -20316,6 +20637,10 @@
         "disruptionMode": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.DisruptionMode",
           "description": "DisruptionMode defines the mode in which a given PodGroup can be disrupted. Controllers are expected to fill this field by copying it from a PodGroupTemplate. One of Single, All. Defaults to Single if unset. This field is immutable."
+        },
+        "parentCompositePodGroupName": {
+          "description": "ParentCompositePodGroupName contains the name of the parent composite pod group within the same namespace as this pod group. If it's nil, then this pod group is a root of a workload's hierarchy. This field is used only when the CompositePodGroup feature gate is enabled. This field is immutable.",
+          "type": "string"
         },
         "preemptionPolicy": {
           "description": "PreemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. When Priority Admission Controller is enabled, it populates this field from PriorityClassName, and defaults to PreemptLowerPriority if value is unset in PriorityClass. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.",
@@ -20578,12 +20903,23 @@
     "io.k8s.api.scheduling.v1alpha3.WorkloadSpec": {
       "description": "WorkloadSpec defines the desired state of a Workload.",
       "properties": {
+        "compositePodGroupTemplates": {
+          "description": "CompositePodGroupTemplates is the list of CompositePodGroup templates that make up the Workload. The maximum number of templates is 8. This field is immutable. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.\n\nThis field is used only when the CompositePodGroup feature gate is enabled.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupTemplate"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
         "controllerRef": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.TypedLocalObjectReference",
           "description": "ControllerRef is an optional reference to the controlling object, such as a Deployment or Job. This field is intended for use by tools like CLIs to provide a link back to the original workload definition. This field is immutable."
         },
         "podGroupTemplates": {
-          "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it.",
+          "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupTemplate"
           },
@@ -20594,9 +20930,6 @@
           "x-kubernetes-list-type": "map"
         }
       },
-      "required": [
-        "podGroupTemplates"
-      ],
       "type": "object"
     },
     "io.k8s.api.storage.v1.CSIDriver": {

@@ -571,7 +571,7 @@
                 ]
               },
               "status": {
-                "description": "`status` is the status of the condition. Can be True, False, Unknown. Required.",
+                "description": "`status` is the status of the condition. Should be specified and set to one of True, False, Unknown.",
                 "type": [
                   "string",
                   "null"
@@ -579,12 +579,12 @@
               },
               "type": {
                 "description": "`type` is the type of the condition. Required.",
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               }
             },
+            "required": [
+              "type"
+            ],
             "type": [
               "object",
               "null"
@@ -608,6 +608,9 @@
       ]
     }
   },
+  "required": [
+    "spec"
+  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

@@ -1,5 +1,5 @@
 {
-  "description": "WorkloadList contains a list of Workload resources.",
+  "description": "ClusterTrustBundleList is a collection of ClusterTrustBundle objects",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -8,13 +8,13 @@
         "null"
       ],
       "enum": [
-        "scheduling.k8s.io/v1alpha3"
+        "certificates.k8s.io/v1"
       ]
     },
     "items": {
-      "description": "Items is the list of Workloads.",
+      "description": "items is a collection of ClusterTrustBundle objects",
       "items": {
-        "description": "Workload allows for expressing scheduling constraints that should be used when managing the lifecycle of workloads from the scheduling perspective, including scheduling, preemption, eviction and other phases. Workload API enablement is toggled by the GenericWorkload feature gate.",
+        "description": "ClusterTrustBundle is a cluster-scoped container for X.509 trust anchors (root certificates).\n\nClusterTrustBundle objects are considered to be readable by any authenticated user in the cluster, because they can be mounted by pods using the `clusterTrustBundle` projection.  All service accounts have read access to ClusterTrustBundles by default.  Users who only have namespace-level access to a cluster can read ClusterTrustBundles by impersonating a serviceaccount that they have access to.\n\nIt can be optionally associated with a particular signer, in which case it contains one valid set of trust anchors for that signer. Signers may have multiple associated ClusterTrustBundles; each is an independent set of trust anchors for that signer. Admission control is used to enforce that only users with permissions on the signer can create or modify the corresponding bundle.",
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -23,7 +23,7 @@
               "null"
             ],
             "enum": [
-              "scheduling.k8s.io/v1alpha3"
+              "certificates.k8s.io/v1"
             ]
           },
           "kind": {
@@ -33,7 +33,7 @@
               "null"
             ],
             "enum": [
-              "Workload"
+              "ClusterTrustBundle"
             ]
           },
           "metadata": {
@@ -178,8 +178,7 @@
                   "type": [
                     "object",
                     "null"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "array",
@@ -247,8 +246,7 @@
                     "object",
                     "null"
                   ],
-                  "x-kubernetes-map-type": "atomic",
-                  "additionalProperties": false
+                  "x-kubernetes-map-type": "atomic"
                 },
                 "type": [
                   "array",
@@ -286,246 +284,27 @@
             "type": [
               "object",
               "null"
-            ],
-            "additionalProperties": false
+            ]
           },
           "spec": {
-            "description": "WorkloadSpec defines the desired state of a Workload.",
+            "description": "ClusterTrustBundleSpec contains the signer and trust anchors.",
             "properties": {
-              "controllerRef": {
-                "description": "TypedLocalObjectReference allows to reference typed object inside the same namespace.",
-                "properties": {
-                  "apiGroup": {
-                    "description": "APIGroup is the group for the resource being referenced. If APIGroup is empty, the specified Kind must be in the core API group. For any other third-party types, setting APIGroup is required. It must be a DNS subdomain.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "kind": {
-                    "description": "Kind is the type of resource being referenced. It must be a path segment name.",
-                    "type": "string"
-                  },
-                  "name": {
-                    "description": "Name is the name of resource being referenced. It must be a path segment name.",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "kind",
-                  "name"
-                ],
+              "signerName": {
+                "description": "signerName indicates the associated signer, if any.\n\nIn order to create or update a ClusterTrustBundle that sets signerName, you must have the following cluster-scoped permission: group=certificates.k8s.io resource=signers resourceName=<the signer name> verb=attest.\n\nIf signerName is not empty, then the ClusterTrustBundle object must be named with the signer name as a prefix (translating slashes to colons). For example, for the signer name `example.com/foo`, valid ClusterTrustBundle object names include `example.com:foo:abc` and `example.com:foo:v1`.\n\nIf signerName is empty, then the ClusterTrustBundle object's name must not have such a prefix.\n\nList/watch requests for ClusterTrustBundles can filter on this field using a `spec.signerName=NAME` field selector.",
                 "type": [
-                  "object",
+                  "string",
                   "null"
-                ],
-                "additionalProperties": false
+                ]
               },
-              "podGroupTemplates": {
-                "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it.",
-                "items": {
-                  "description": "PodGroupTemplate represents a template for a set of pods with a scheduling policy.",
-                  "properties": {
-                    "disruptionMode": {
-                      "description": "DisruptionMode defines how individual entities within a group can be disrupted. Exactly one mode can be set.",
-                      "properties": {
-                        "all": {
-                          "description": "AllDisruptionMode specifies that children can only be disrupted together.",
-                          "type": [
-                            "object",
-                            "null"
-                          ]
-                        },
-                        "single": {
-                          "description": "SingleDisruptionMode specifies that children can be disrupted independently.",
-                          "type": [
-                            "object",
-                            "null"
-                          ]
-                        }
-                      },
-                      "type": [
-                        "object",
-                        "null"
-                      ],
-                      "x-kubernetes-unions": [
-                        {
-                          "fields-to-discriminateBy": {
-                            "all": "All",
-                            "single": "Single"
-                          }
-                        }
-                      ],
-                      "additionalProperties": false
-                    },
-                    "name": {
-                      "description": "Name is a unique identifier for the PodGroupTemplate within the Workload. It must be a DNS label. This field is immutable.",
-                      "type": "string"
-                    },
-                    "preemptionPolicy": {
-                      "description": "PreemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "priority": {
-                      "description": "Priority is the value of priority of pod groups created from this template. Various system components use this field to find the priority of the pod group. The higher the value, the higher the priority. This field is immutable.",
-                      "format": "int32",
-                      "type": [
-                        "integer",
-                        "null"
-                      ]
-                    },
-                    "priorityClassName": {
-                      "description": "PriorityClassName indicates the priority that should be considered when scheduling a pod group created from this template. This field is immutable.",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "resourceClaims": {
-                      "description": "ResourceClaims defines which ResourceClaims may be shared among Pods in the group. Pods consume the devices allocated to a PodGroup's claim by defining a claim in its own Spec.ResourceClaims that matches the PodGroup's claim exactly. The claim must have the same name and refer to the same ResourceClaim or ResourceClaimTemplate.\n\nThis is an alpha-level field and requires that the DRAWorkloadResourceClaims feature gate is enabled.\n\nThis field is immutable.",
-                      "items": {
-                        "description": "PodGroupResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the PodGroup.\n\nIt adds a name to it that uniquely identifies the ResourceClaim inside the PodGroup. Pods that need access to the ResourceClaim define a matching reference in its own Spec.ResourceClaims. The Pod's claim must match all fields of the PodGroup's claim exactly.",
-                        "properties": {
-                          "name": {
-                            "description": "Name uniquely identifies this resource claim inside the PodGroup. This must be a DNS_LABEL.",
-                            "type": "string"
-                          },
-                          "resourceClaimName": {
-                            "description": "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this PodGroup. The ResourceClaim will be reserved for the PodGroup instead of its individual pods.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "resourceClaimTemplateName": {
-                            "description": "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this PodGroup.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this PodGroup. When this PodGroup is deleted, the ResourceClaim will also be deleted. The PodGroup name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in podgroup.status.resourceClaimStatuses.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ],
-                        "type": [
-                          "object",
-                          "null"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "type": [
-                        "array",
-                        "null"
-                      ],
-                      "x-kubernetes-list-map-keys": [
-                        "name"
-                      ],
-                      "x-kubernetes-list-type": "map",
-                      "x-kubernetes-patch-merge-key": "name",
-                      "x-kubernetes-patch-strategy": "merge,retainKeys"
-                    },
-                    "schedulingConstraints": {
-                      "description": "PodGroupSchedulingConstraints defines scheduling constraints (e.g. topology) for a PodGroup.",
-                      "properties": {
-                        "topology": {
-                          "description": "Topology defines the topology constraints for the pod group. Currently only a single topology constraint can be specified. This may change in the future.",
-                          "items": {
-                            "description": "TopologyConstraint defines a topology constraint for a PodGroup.",
-                            "properties": {
-                              "key": {
-                                "description": "Key specifies the key of the node label representing the topology domain. All pods within the PodGroup must be colocated within the same domain instance. Different PodGroups can land on different domain instances even if they derive from the same PodGroupTemplate. Examples: \"topology.kubernetes.io/rack\"",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "key"
-                            ],
-                            "type": [
-                              "object",
-                              "null"
-                            ],
-                            "additionalProperties": false
-                          },
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "x-kubernetes-list-type": "atomic"
-                        }
-                      },
-                      "type": [
-                        "object",
-                        "null"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "schedulingPolicy": {
-                      "description": "PodGroupSchedulingPolicy defines the scheduling configuration for a PodGroup. Exactly one policy must be set. The policy is chosen at creation time by setting either the Basic or Gang field. The PodGroup may not change policy after creation. Fields within chosen policy may be updated after creation when their individual fields allow it.",
-                      "properties": {
-                        "basic": {
-                          "description": "BasicSchedulingPolicy indicates that standard Kubernetes scheduling behavior should be used.",
-                          "type": [
-                            "object",
-                            "null"
-                          ]
-                        },
-                        "gang": {
-                          "description": "GangSchedulingPolicy defines the parameters for gang scheduling.",
-                          "properties": {
-                            "minCount": {
-                              "description": "MinCount is the minimum number of pods that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer. This field is mutable to support workload scaling.\n\nNote that the scheduler operates on an eventually consistent model. Updates to minCount may not be immediately reflected in scheduling decisions due to propagation delays. If minCount is updated while a scheduling cycle is in progress for that group, the new value may not take effect until the next cycle. Moreover, minCount is only enforced during scheduling, meaning that modifications to this field do not affect already-scheduled pods, applying only to those evaluated in future cycles.",
-                              "format": "int32",
-                              "type": "integer"
-                            }
-                          },
-                          "required": [
-                            "minCount"
-                          ],
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "type": "object",
-                      "x-kubernetes-unions": [
-                        {
-                          "fields-to-discriminateBy": {
-                            "basic": "Basic",
-                            "gang": "Gang"
-                          }
-                        }
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "schedulingPolicy"
-                  ],
-                  "type": [
-                    "object",
-                    "null"
-                  ],
-                  "additionalProperties": false
-                },
-                "type": "array",
-                "x-kubernetes-list-map-keys": [
-                  "name"
-                ],
-                "x-kubernetes-list-type": "map"
+              "trustBundle": {
+                "description": "trustBundle contains the individual X.509 trust anchors for this bundle, as PEM bundle of PEM-wrapped, DER-formatted X.509 certificates.\n\nThe data must consist only of PEM certificate blocks that parse as valid X.509 certificates.  Each certificate must include a basic constraints extension with the CA bit set.  The API server will reject objects that contain duplicate certificates, or that use PEM block headers.\n\nUsers of ClusterTrustBundles, including Kubelet, are free to reorder and deduplicate certificate blocks in this file according to their own logic, as well as to drop PEM block headers and inter-block data.",
+                "type": "string"
               }
             },
             "required": [
-              "podGroupTemplates"
+              "trustBundle"
             ],
-            "type": "object",
-            "additionalProperties": false
+            "type": "object"
           }
         },
         "required": [
@@ -537,12 +316,11 @@
         ],
         "x-kubernetes-group-version-kind": [
           {
-            "group": "scheduling.k8s.io",
-            "kind": "Workload",
-            "version": "v1alpha3"
+            "group": "certificates.k8s.io",
+            "kind": "ClusterTrustBundle",
+            "version": "v1"
           }
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "array",
@@ -556,7 +334,7 @@
         "null"
       ],
       "enum": [
-        "WorkloadList"
+        "ClusterTrustBundleList"
       ]
     },
     "metadata": {
@@ -605,15 +383,13 @@
           "type": [
             "object",
             "null"
-          ],
-          "additionalProperties": false
+          ]
         }
       },
       "type": [
         "object",
         "null"
-      ],
-      "additionalProperties": false
+      ]
     }
   },
   "required": [
@@ -622,11 +398,10 @@
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
-      "group": "scheduling.k8s.io",
-      "kind": "WorkloadList",
-      "version": "v1alpha3"
+      "group": "certificates.k8s.io",
+      "kind": "ClusterTrustBundleList",
+      "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

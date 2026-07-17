@@ -1,0 +1,23 @@
+{
+  "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
+  "properties": {
+    "basic": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeBasicSchedulingPolicy",
+      "description": "Basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
+    },
+    "gang": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeGangSchedulingPolicy",
+      "description": "Gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "fields-to-discriminateBy": {
+        "basic": "Basic",
+        "gang": "Gang"
+      }
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

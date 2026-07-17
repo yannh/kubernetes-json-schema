@@ -1,12 +1,26 @@
 {
   "description": "WorkloadSpec defines the desired state of a Workload.",
   "properties": {
+    "compositePodGroupTemplates": {
+      "description": "CompositePodGroupTemplates is the list of CompositePodGroup templates that make up the Workload. The maximum number of templates is 8. This field is immutable. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.\n\nThis field is used only when the CompositePodGroup feature gate is enabled.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupTemplate"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
     "controllerRef": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.TypedLocalObjectReference",
       "description": "ControllerRef is an optional reference to the controlling object, such as a Deployment or Job. This field is intended for use by tools like CLIs to provide a link back to the original workload definition. This field is immutable."
     },
     "podGroupTemplates": {
-      "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it.",
+      "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupTemplate"
       },
@@ -20,9 +34,6 @@
       "x-kubernetes-list-type": "map"
     }
   },
-  "required": [
-    "podGroupTemplates"
-  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

@@ -1,5 +1,5 @@
 {
-  "description": "Workload allows for expressing scheduling constraints that should be used when managing the lifecycle of workloads from the scheduling perspective, including scheduling, preemption, eviction and other phases. Workload API enablement is toggled by the GenericWorkload feature gate.",
+  "description": "CompositePodGroup represents a runtime instance of pod groups grouped together. CompositePodGroups are created by workload controllers (LWS, JobSet, etc...) from Workload.compositePodGroupTemplates. CompositePodGroup API enablement is toggled by the CompositePodGroup feature gate.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -15,7 +15,7 @@
         "null"
       ],
       "enum": [
-        "Workload"
+        "CompositePodGroup"
       ]
     },
     "metadata": {
@@ -269,232 +269,158 @@
       ]
     },
     "spec": {
-      "description": "WorkloadSpec defines the desired state of a Workload.",
+      "description": "CompositePodGroupSpec defines the desired state of CompositePodGroup.",
       "properties": {
-        "controllerRef": {
-          "description": "TypedLocalObjectReference allows to reference typed object inside the same namespace.",
+        "parentCompositePodGroupName": {
+          "description": "ParentCompositePodGroupName contains the name of the parent composite pod group within the same namespace as this composite pod group. It must be a DNS name. If it's nil, then this composite pod group is a root of a workload's hierarchy. This field is immutable.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "priority": {
+          "description": "Priority is the value of priority of this composite pod group. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
+          "format": "int32",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "priorityClassName": {
+          "description": "PriorityClassName defines the priority that should be considered when scheduling this CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. If left unspecified, it is validated and resolved similarly to the PriorityClassName field in Pods (i.e. if no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, the composite pod group's priority will be zero). This field is immutable.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schedulingPolicy": {
+          "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
           "properties": {
-            "apiGroup": {
-              "description": "APIGroup is the group for the resource being referenced. If APIGroup is empty, the specified Kind must be in the core API group. For any other third-party types, setting APIGroup is required. It must be a DNS subdomain.",
+            "basic": {
+              "description": "CompositeBasicSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled independently.",
               "type": [
-                "string",
+                "object",
                 "null"
               ]
             },
-            "kind": {
-              "description": "Kind is the type of resource being referenced. It must be a path segment name.",
+            "gang": {
+              "description": "CompositeGangSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled using all-or-nothing semantics.",
+              "properties": {
+                "minGroupCount": {
+                  "description": "MinGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "minGroupCount"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "x-kubernetes-unions": [
+            {
+              "fields-to-discriminateBy": {
+                "basic": "Basic",
+                "gang": "Gang"
+              }
+            }
+          ]
+        },
+        "workloadRef": {
+          "description": "WorkloadReference references the Workload object together with the template that was used to create a particular PodGroup.",
+          "properties": {
+            "templateName": {
+              "description": "TemplateName is the name of a template within the Workload object that was used to create a pod group. It must be a DNS label. This field is required.",
               "type": "string"
             },
-            "name": {
-              "description": "Name is the name of resource being referenced. It must be a path segment name.",
+            "workloadName": {
+              "description": "WorkloadName is the name of the Workload object that contains a template that was used when creating a pod group. It must be a DNS name. This field is required.",
               "type": "string"
             }
           },
           "required": [
-            "kind",
-            "name"
+            "workloadName",
+            "templateName"
           ],
-          "type": [
-            "object",
-            "null"
-          ]
-        },
-        "podGroupTemplates": {
-          "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "workloadRef",
+        "schedulingPolicy"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "status": {
+      "description": "CompositePodGroupStatus represents information about the status of a composite pod group.",
+      "properties": {
+        "conditions": {
+          "description": "Conditions represent the latest observations of the CompositePodGroup's state.\n\nKnown condition types: - \"CompositePodGroupInitiallyScheduled\": Indicates whether the overall scheduling requirement\n  for the subtree under this CompositePodGroup has been satisfied. Once this condition\n  transitions to True, it serves as a terminal state and will never revert to False,\n  even if pods are subsequently deleted and group constraints are no longer met.\n- \"DisruptionTarget\": Indicates whether the CompositePodGroup is about to be terminated\n  due to disruption such as preemption.\n\nKnown reasons for the CompositePodGroupInitiallyScheduled condition: - \"Unschedulable\": The CompositePodGroup's subtree could not be placed due to resource constraints,\n  affinity/anti-affinity, or topological constraints.\n- \"SchedulerError\": The CompositePodGroup cannot be scheduled due to some internal error\n  that occurred during scheduling.\n- \"Invalid\": Set to True when kube-scheduler detects an invalid group layout during\n  runtime validation. The `message` field details the specific layout violation (such as\n  a detected cycle, exceeding the maximum depth of 4, or referencing multiple distinct Workloads).\n\nKnown reasons for the DisruptionTarget condition: - \"PreemptionByScheduler\": The CompositePodGroup was targeted by the scheduler's preemption loop\n  to free up capacity for higher-priority preemptors.",
           "items": {
-            "description": "PodGroupTemplate represents a template for a set of pods with a scheduling policy.",
+            "description": "Condition contains details for one aspect of the current state of this API Resource.",
             "properties": {
-              "disruptionMode": {
-                "description": "DisruptionMode defines how individual entities within a group can be disrupted. Exactly one mode can be set.",
-                "properties": {
-                  "all": {
-                    "description": "AllDisruptionMode specifies that children can only be disrupted together.",
-                    "type": [
-                      "object",
-                      "null"
-                    ]
-                  },
-                  "single": {
-                    "description": "SingleDisruptionMode specifies that children can be disrupted independently.",
-                    "type": [
-                      "object",
-                      "null"
-                    ]
-                  }
-                },
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "x-kubernetes-unions": [
-                  {
-                    "fields-to-discriminateBy": {
-                      "all": "All",
-                      "single": "Single"
-                    }
-                  }
-                ]
-              },
-              "name": {
-                "description": "Name is a unique identifier for the PodGroupTemplate within the Workload. It must be a DNS label. This field is immutable.",
+              "lastTransitionTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
                 "type": "string"
               },
-              "preemptionPolicy": {
-                "description": "PreemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.",
-                "type": [
-                  "string",
-                  "null"
-                ]
+              "message": {
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "type": "string"
               },
-              "priority": {
-                "description": "Priority is the value of priority of pod groups created from this template. Various system components use this field to find the priority of the pod group. The higher the value, the higher the priority. This field is immutable.",
-                "format": "int32",
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                "format": "int64",
                 "type": [
                   "integer",
                   "null"
                 ]
               },
-              "priorityClassName": {
-                "description": "PriorityClassName indicates the priority that should be considered when scheduling a pod group created from this template. This field is immutable.",
-                "type": [
-                  "string",
-                  "null"
-                ]
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "type": "string"
               },
-              "resourceClaims": {
-                "description": "ResourceClaims defines which ResourceClaims may be shared among Pods in the group. Pods consume the devices allocated to a PodGroup's claim by defining a claim in its own Spec.ResourceClaims that matches the PodGroup's claim exactly. The claim must have the same name and refer to the same ResourceClaim or ResourceClaimTemplate.\n\nThis is an alpha-level field and requires that the DRAWorkloadResourceClaims feature gate is enabled.\n\nThis field is immutable.",
-                "items": {
-                  "description": "PodGroupResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the PodGroup.\n\nIt adds a name to it that uniquely identifies the ResourceClaim inside the PodGroup. Pods that need access to the ResourceClaim define a matching reference in its own Spec.ResourceClaims. The Pod's claim must match all fields of the PodGroup's claim exactly.",
-                  "properties": {
-                    "name": {
-                      "description": "Name uniquely identifies this resource claim inside the PodGroup. This must be a DNS_LABEL.",
-                      "type": "string"
-                    },
-                    "resourceClaimName": {
-                      "description": "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this PodGroup. The ResourceClaim will be reserved for the PodGroup instead of its individual pods.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "resourceClaimTemplateName": {
-                      "description": "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this PodGroup.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this PodGroup. When this PodGroup is deleted, the ResourceClaim will also be deleted. The PodGroup name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in podgroup.status.resourceClaimStatuses.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ],
-                  "type": [
-                    "object",
-                    "null"
-                  ]
-                },
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "x-kubernetes-list-map-keys": [
-                  "name"
-                ],
-                "x-kubernetes-list-type": "map",
-                "x-kubernetes-patch-merge-key": "name",
-                "x-kubernetes-patch-strategy": "merge,retainKeys"
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "type": "string"
               },
-              "schedulingConstraints": {
-                "description": "PodGroupSchedulingConstraints defines scheduling constraints (e.g. topology) for a PodGroup.",
-                "properties": {
-                  "topology": {
-                    "description": "Topology defines the topology constraints for the pod group. Currently only a single topology constraint can be specified. This may change in the future.",
-                    "items": {
-                      "description": "TopologyConstraint defines a topology constraint for a PodGroup.",
-                      "properties": {
-                        "key": {
-                          "description": "Key specifies the key of the node label representing the topology domain. All pods within the PodGroup must be colocated within the same domain instance. Different PodGroups can land on different domain instances even if they derive from the same PodGroupTemplate. Examples: \"topology.kubernetes.io/rack\"",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "key"
-                      ],
-                      "type": [
-                        "object",
-                        "null"
-                      ]
-                    },
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "x-kubernetes-list-type": "atomic"
-                  }
-                },
-                "type": [
-                  "object",
-                  "null"
-                ]
-              },
-              "schedulingPolicy": {
-                "description": "PodGroupSchedulingPolicy defines the scheduling configuration for a PodGroup. Exactly one policy must be set. The policy is chosen at creation time by setting either the Basic or Gang field. The PodGroup may not change policy after creation. Fields within chosen policy may be updated after creation when their individual fields allow it.",
-                "properties": {
-                  "basic": {
-                    "description": "BasicSchedulingPolicy indicates that standard Kubernetes scheduling behavior should be used.",
-                    "type": [
-                      "object",
-                      "null"
-                    ]
-                  },
-                  "gang": {
-                    "description": "GangSchedulingPolicy defines the parameters for gang scheduling.",
-                    "properties": {
-                      "minCount": {
-                        "description": "MinCount is the minimum number of pods that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer. This field is mutable to support workload scaling.\n\nNote that the scheduler operates on an eventually consistent model. Updates to minCount may not be immediately reflected in scheduling decisions due to propagation delays. If minCount is updated while a scheduling cycle is in progress for that group, the new value may not take effect until the next cycle. Moreover, minCount is only enforced during scheduling, meaning that modifications to this field do not affect already-scheduled pods, applying only to those evaluated in future cycles.",
-                        "format": "int32",
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "minCount"
-                    ],
-                    "type": [
-                      "object",
-                      "null"
-                    ]
-                  }
-                },
-                "type": "object",
-                "x-kubernetes-unions": [
-                  {
-                    "fields-to-discriminateBy": {
-                      "basic": "Basic",
-                      "gang": "Gang"
-                    }
-                  }
-                ]
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
+                "type": "string"
               }
             },
             "required": [
-              "name",
-              "schedulingPolicy"
+              "type",
+              "status",
+              "lastTransitionTime",
+              "reason",
+              "message"
             ],
             "type": [
               "object",
               "null"
             ]
           },
-          "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "name"
+          "type": [
+            "array",
+            "null"
           ],
-          "x-kubernetes-list-type": "map"
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "type",
+          "x-kubernetes-patch-strategy": "merge"
         }
       },
-      "required": [
-        "podGroupTemplates"
-      ],
       "type": [
         "object",
         "null"
@@ -508,7 +434,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "group": "scheduling.k8s.io",
-      "kind": "Workload",
+      "kind": "CompositePodGroup",
       "version": "v1alpha3"
     }
   ],

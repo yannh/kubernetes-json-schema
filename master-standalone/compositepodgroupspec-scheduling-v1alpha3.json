@@ -1,0 +1,95 @@
+{
+  "description": "CompositePodGroupSpec defines the desired state of CompositePodGroup.",
+  "properties": {
+    "parentCompositePodGroupName": {
+      "description": "ParentCompositePodGroupName contains the name of the parent composite pod group within the same namespace as this composite pod group. It must be a DNS name. If it's nil, then this composite pod group is a root of a workload's hierarchy. This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "priority": {
+      "description": "Priority is the value of priority of this composite pod group. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "priorityClassName": {
+      "description": "PriorityClassName defines the priority that should be considered when scheduling this CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. If left unspecified, it is validated and resolved similarly to the PriorityClassName field in Pods (i.e. if no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, the composite pod group's priority will be zero). This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schedulingPolicy": {
+      "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
+      "properties": {
+        "basic": {
+          "description": "CompositeBasicSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled independently.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "gang": {
+          "description": "CompositeGangSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled using all-or-nothing semantics.",
+          "properties": {
+            "minGroupCount": {
+              "description": "MinGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "minGroupCount"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "x-kubernetes-unions": [
+        {
+          "fields-to-discriminateBy": {
+            "basic": "Basic",
+            "gang": "Gang"
+          }
+        }
+      ]
+    },
+    "workloadRef": {
+      "description": "WorkloadReference references the Workload object together with the template that was used to create a particular PodGroup.",
+      "properties": {
+        "templateName": {
+          "description": "TemplateName is the name of a template within the Workload object that was used to create a pod group. It must be a DNS label. This field is required.",
+          "type": "string"
+        },
+        "workloadName": {
+          "description": "WorkloadName is the name of the Workload object that contains a template that was used when creating a pod group. It must be a DNS name. This field is required.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "workloadName",
+        "templateName"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "workloadRef",
+    "schedulingPolicy"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -85,6 +85,9 @@
       ]
     }
   },
+  "required": [
+    "limitResponse"
+  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
