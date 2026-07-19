@@ -3,11 +3,11 @@
   "properties": {
     "basic": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeBasicSchedulingPolicy",
-      "description": "Basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
+      "description": "basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
     },
     "gang": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeGangSchedulingPolicy",
-      "description": "Gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
+      "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
     }
   },
   "type": "object",

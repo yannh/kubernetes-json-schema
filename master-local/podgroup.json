@@ -20,15 +20,15 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+      "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupSpec",
-      "description": "Spec defines the desired state of the PodGroup."
+      "description": "spec defines the desired state of the PodGroup."
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupStatus",
-      "description": "Status represents the current observed state of the PodGroup."
+      "description": "status represents the current observed state of the PodGroup."
     }
   },
   "required": [

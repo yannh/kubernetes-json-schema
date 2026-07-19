@@ -3,11 +3,11 @@
   "properties": {
     "all": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.AllDisruptionMode",
-      "description": "All specifies that all children can only be disrupted together."
+      "description": "all specifies that all children can only be disrupted together."
     },
     "single": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.SingleDisruptionMode",
-      "description": "Single specifies that children can be disrupted independently from each other."
+      "description": "single specifies that children can be disrupted independently from each other."
     }
   },
   "type": "object",

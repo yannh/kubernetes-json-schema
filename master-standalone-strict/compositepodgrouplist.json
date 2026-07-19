@@ -287,14 +287,14 @@
             "description": "CompositePodGroupSpec defines the desired state of CompositePodGroup.",
             "properties": {
               "parentCompositePodGroupName": {
-                "description": "ParentCompositePodGroupName contains the name of the parent composite pod group within the same namespace as this composite pod group. It must be a DNS name. If it's nil, then this composite pod group is a root of a workload's hierarchy. This field is immutable.",
+                "description": "parentCompositePodGroupName contains the name of the parent composite pod group within the same namespace as this composite pod group. It must be a DNS name. If it's nil, then this composite pod group is a root of a workload's hierarchy. This field is immutable.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "priority": {
-                "description": "Priority is the value of priority of this composite pod group. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
+                "description": "priority is the value of priority of this composite pod group. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -302,7 +302,7 @@
                 ]
               },
               "priorityClassName": {
-                "description": "PriorityClassName defines the priority that should be considered when scheduling this CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. If left unspecified, it is validated and resolved similarly to the PriorityClassName field in Pods (i.e. if no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, the composite pod group's priority will be zero). This field is immutable.",
+                "description": "priorityClassName defines the priority that should be considered when scheduling this CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. If left unspecified, it is validated and resolved similarly to the PriorityClassName field in Pods (i.e. if no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, the composite pod group's priority will be zero). This field is immutable.",
                 "type": [
                   "string",
                   "null"
@@ -322,7 +322,7 @@
                     "description": "CompositeGangSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled using all-or-nothing semantics.",
                     "properties": {
                       "minGroupCount": {
-                        "description": "MinGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+                        "description": "minGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
                         "format": "int32",
                         "type": "integer"
                       }
@@ -352,11 +352,11 @@
                 "description": "WorkloadReference references the Workload object together with the template that was used to create a particular PodGroup.",
                 "properties": {
                   "templateName": {
-                    "description": "TemplateName is the name of a template within the Workload object that was used to create a pod group. It must be a DNS label. This field is required.",
+                    "description": "templateName is the name of a template within the Workload object that was used to create a pod group. It must be a DNS label. This field is required.",
                     "type": "string"
                   },
                   "workloadName": {
-                    "description": "WorkloadName is the name of the Workload object that contains a template that was used when creating a pod group. It must be a DNS name. This field is required.",
+                    "description": "workloadName is the name of the Workload object that contains a template that was used when creating a pod group. It must be a DNS name. This field is required.",
                     "type": "string"
                   }
                 },
@@ -379,7 +379,7 @@
             "description": "CompositePodGroupStatus represents information about the status of a composite pod group.",
             "properties": {
               "conditions": {
-                "description": "Conditions represent the latest observations of the CompositePodGroup's state.\n\nKnown condition types: - \"CompositePodGroupInitiallyScheduled\": Indicates whether the overall scheduling requirement\n  for the subtree under this CompositePodGroup has been satisfied. Once this condition\n  transitions to True, it serves as a terminal state and will never revert to False,\n  even if pods are subsequently deleted and group constraints are no longer met.\n- \"DisruptionTarget\": Indicates whether the CompositePodGroup is about to be terminated\n  due to disruption such as preemption.\n\nKnown reasons for the CompositePodGroupInitiallyScheduled condition: - \"Unschedulable\": The CompositePodGroup's subtree could not be placed due to resource constraints,\n  affinity/anti-affinity, or topological constraints.\n- \"SchedulerError\": The CompositePodGroup cannot be scheduled due to some internal error\n  that occurred during scheduling.\n- \"Invalid\": Set to True when kube-scheduler detects an invalid group layout during\n  runtime validation. The `message` field details the specific layout violation (such as\n  a detected cycle, exceeding the maximum depth of 4, or referencing multiple distinct Workloads).\n\nKnown reasons for the DisruptionTarget condition: - \"PreemptionByScheduler\": The CompositePodGroup was targeted by the scheduler's preemption loop\n  to free up capacity for higher-priority preemptors.",
+                "description": "conditions represent the latest observations of the CompositePodGroup's state.\n\nKnown condition types: - \"CompositePodGroupInitiallyScheduled\": Indicates whether the overall scheduling requirement\n  for the subtree under this CompositePodGroup has been satisfied. Once this condition\n  transitions to True, it serves as a terminal state and will never revert to False,\n  even if pods are subsequently deleted and group constraints are no longer met.\n- \"DisruptionTarget\": Indicates whether the CompositePodGroup is about to be terminated\n  due to disruption such as preemption.\n\nKnown reasons for the CompositePodGroupInitiallyScheduled condition: - \"Unschedulable\": The CompositePodGroup's subtree could not be placed due to resource constraints,\n  affinity/anti-affinity, or topological constraints.\n- \"SchedulerError\": The CompositePodGroup cannot be scheduled due to some internal error\n  that occurred during scheduling.\n- \"Invalid\": Set to True when kube-scheduler detects an invalid group layout during\n  runtime validation. The `message` field details the specific layout violation (such as\n  a detected cycle, exceeding the maximum depth of 4, or referencing multiple distinct Workloads).\n\nKnown reasons for the DisruptionTarget condition: - \"PreemptionByScheduler\": The CompositePodGroup was targeted by the scheduler's preemption loop\n  to free up capacity for higher-priority preemptors.",
                 "items": {
                   "description": "Condition contains details for one aspect of the current state of this API Resource.",
                   "properties": {
