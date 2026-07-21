@@ -3,7 +3,7 @@
   "properties": {
     "parentRef": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.ParentReference",
-      "description": "ParentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
+      "description": "parentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
     }
   },
   "required": [

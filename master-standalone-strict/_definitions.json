@@ -5119,6 +5119,38 @@
       ],
       "additionalProperties": false
     },
+    "io.k8s.api.batch.v1.JobSchedulingConfiguration": {
+      "description": "JobSchedulingConfiguration composes the reusable workload-aware scheduling building blocks.",
+      "properties": {
+        "disruptionMode": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupDisruptionMode",
+          "description": "DisruptionMode defines the mode in which the Job's pods can be disrupted. One of Single, All. This field is immutable after creation: it may not be added or removed, and the selected mode may not be changed."
+        },
+        "resourceClaims": {
+          "description": "ResourceClaims defines which ResourceClaims may be shared among Pods in the Job. Pods consume the devices allocated to a PodGroup's claim by defining a claim in its own Spec.ResourceClaims that matches the PodGroup's claim exactly. The claim must have the same name and refer to the same ResourceClaim or ResourceClaimTemplate. At most 4 claims may be set, matching the limit on the resulting PodGroup. This list is immutable after creation: entries may neither be added, removed, nor modified.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupResourceClaim"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "name",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "schedulingConstraints": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingConstraints",
+          "description": "SchedulingConstraints defines scheduling constraints (e.g. topology) for the Job's pods. This field is immutable after creation."
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingPolicy",
+          "description": "SchedulingPolicy defines the scheduling policy for this Job. Exactly one of Basic or Gang must be set. This field is immutable after creation: the policy may not be added or removed. The policy variant (basic/gang) is frozen by hand-written validation; only schedulingPolicy.gang.minCount may be changed."
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.batch.v1.JobSpec": {
       "description": "JobSpec describes how the job execution will look like.",
       "properties": {
@@ -5171,6 +5203,10 @@
         "podReplacementPolicy": {
           "description": "podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods\n  when they are terminating (has a metadata.deletionTimestamp) or failed.\n- Failed means to wait until a previously created Pod is fully terminated (has phase\n  Failed or Succeeded) before creating a replacement Pod.\n\nWhen using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use.",
           "type": "string"
+        },
+        "scheduling": {
+          "$ref": "#/definitions/io.k8s.api.batch.v1.JobSchedulingConfiguration",
+          "description": "scheduling defines the Workload-aware Scheduling configuration for this Job. When set, it specifies the scheduling policy (basic or gang), topology constraints, disruption mode, and shared resource claims. When omitted, the Job defaults to the basic scheduling policy, which behaves as standard pod-by-pod scheduling. This field is alpha-level and requires the WorkloadWithJob feature gate. This field is immutable, including whether it is set at all, only policy.gang.minCount may be changed after creation."
         },
         "selector": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
@@ -9555,6 +9591,21 @@
       ],
       "additionalProperties": false
     },
+    "io.k8s.api.core.v1.NodePodPreemptionPolicy": {
+      "description": "NodePodPreemptionPolicy defines the node-level policies governing preemption for pods on this node.",
+      "properties": {
+        "disableResizePreemption": {
+          "description": "DisableResizePreemption lists the owners (e.g., autoscalers, operators, administrators) that have requested to disable scheduler and Kubelet preemption for in-place pod resize on this node. If this list is non-empty, resize-induced preemption is disabled on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "set"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
     "io.k8s.api.core.v1.NodeRuntimeHandler": {
       "description": "NodeRuntimeHandler is a set of runtime handler information.",
       "properties": {
@@ -9678,6 +9729,10 @@
           "type": "array",
           "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
+        },
+        "podPreemptionPolicy": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.NodePodPreemptionPolicy",
+          "description": "PodPreemptionPolicy controls the node-level preemption behaviors for pods on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate."
         },
         "providerID": {
           "description": "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
@@ -14732,7 +14787,7 @@
         },
         "metadata": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+          "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.IPAddressSpec",
@@ -14796,7 +14851,7 @@
       "properties": {
         "parentRef": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.ParentReference",
-          "description": "ParentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
+          "description": "parentRef references the resource that an IPAddress is attached to. An IPAddress must reference a parent object."
         }
       },
       "required": [
@@ -14843,7 +14898,7 @@
         },
         "metadata": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+          "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.IngressSpec",
@@ -14895,7 +14950,7 @@
         },
         "metadata": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+          "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.IngressClassSpec",
@@ -15106,7 +15161,8 @@
           "type": "string"
         },
         "http": {
-          "$ref": "#/definitions/io.k8s.api.networking.v1.HTTPIngressRuleValue"
+          "$ref": "#/definitions/io.k8s.api.networking.v1.HTTPIngressRuleValue",
+          "description": "http is a HTTP IngressRuleValue, which contains a list of http selectors"
         }
       },
       "type": "object",
@@ -15207,7 +15263,7 @@
         },
         "metadata": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+          "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.NetworkPolicySpec",
@@ -15387,19 +15443,19 @@
       "description": "ParentReference describes a reference to a parent object.",
       "properties": {
         "group": {
-          "description": "Group is the group of the object being referenced.",
+          "description": "group is the group of the object being referenced.",
           "type": "string"
         },
         "name": {
-          "description": "Name is the name of the object being referenced.",
+          "description": "name is the name of the object being referenced.",
           "type": "string"
         },
         "namespace": {
-          "description": "Namespace is the namespace of the object being referenced.",
+          "description": "namespace is the namespace of the object being referenced.",
           "type": "string"
         },
         "resource": {
-          "description": "Resource is the resource of the object being referenced.",
+          "description": "resource is the resource of the object being referenced.",
           "type": "string"
         }
       },
@@ -15443,7 +15499,7 @@
         },
         "metadata": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+          "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
         },
         "spec": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.ServiceCIDRSpec",
@@ -15507,7 +15563,7 @@
       "description": "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.",
       "properties": {
         "cidrs": {
-          "description": "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.",
+          "description": "cidrs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.",
           "items": {
             "type": "string"
           },
@@ -16386,7 +16442,7 @@
       "additionalProperties": false
     },
     "io.k8s.api.resource.v1.CapacityRequestPolicyRange": {
-      "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
+      "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\nIf the DRAFractionalCapacityRange feature gate is enabled and at least one of Min, Max, or Step is a fractional quantity (i.e. its value is not an integer), milli-unit arithmetic is used instead, supporting values with up to 3 decimal places (e.g. 100m = 0.1). The largest supported value then is 1000 times smaller compared to using 64-bit integers. Otherwise, all comparisons use 64-bit integer arithmetic via resource.Quantity.Value().\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
       "properties": {
         "max": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
@@ -18257,7 +18313,7 @@
       "additionalProperties": false
     },
     "io.k8s.api.resource.v1beta1.CapacityRequestPolicyRange": {
-      "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
+      "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\nIf the DRAFractionalCapacityRange feature gate is enabled and at least one of Min, Max, or Step is a fractional quantity (i.e. its value is not an integer), milli-unit arithmetic is used instead, supporting values with up to 3 decimal places (e.g. 100m = 0.1). The largest supported value then is 1000 times smaller compared to using 64-bit integers. Otherwise, all comparisons use 64-bit integer arithmetic via resource.Quantity.Value().\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
       "properties": {
         "max": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
@@ -19469,7 +19525,7 @@
       "additionalProperties": false
     },
     "io.k8s.api.resource.v1beta2.CapacityRequestPolicyRange": {
-      "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
+      "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\nIf the DRAFractionalCapacityRange feature gate is enabled and at least one of Min, Max, or Step is a fractional quantity (i.e. its value is not an integer), milli-unit arithmetic is used instead, supporting values with up to 3 decimal places (e.g. 100m = 0.1). The largest supported value then is 1000 times smaller compared to using 64-bit integers. Otherwise, all comparisons use 64-bit integer arithmetic via resource.Quantity.Value().\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
       "properties": {
         "max": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
@@ -21565,6 +21621,113 @@
       ],
       "additionalProperties": false
     },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupAllDisruptionMode": {
+      "description": "WorkloadPodGroupAllDisruptionMode indicates that all pods in the group must be disrupted together.",
+      "type": "object"
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupBasicSchedulingPolicy": {
+      "description": "WorkloadPodGroupBasicSchedulingPolicy indicates standard Kubernetes scheduling behavior.",
+      "type": "object"
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupDisruptionMode": {
+      "description": "WorkloadPodGroupDisruptionMode defines how individual pods within a group can be disrupted. Exactly one mode must be set.",
+      "properties": {
+        "all": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupAllDisruptionMode",
+          "description": "all specifies that all pods in the group must be disrupted together."
+        },
+        "single": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSingleDisruptionMode",
+          "description": "single specifies that pods can be disrupted independently from each other."
+        }
+      },
+      "type": "object",
+      "x-kubernetes-unions": [
+        {
+          "fields-to-discriminateBy": {
+            "all": "All",
+            "single": "Single"
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupGangSchedulingPolicy": {
+      "description": "WorkloadPodGroupGangSchedulingPolicy defines the parameters for gang (all-or-nothing) scheduling.",
+      "properties": {
+        "minCount": {
+          "description": "minCount is the minimum number of pods that must be scheduled at the same time for the scheduler to admit the entire group. This field is optional. If it is not specified, the controller should inject a context-specific sane default (e.g., parallelism for a Job). If set, it must be a positive integer.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupResourceClaim": {
+      "description": "WorkloadPodGroupResourceClaim references a dynamic resource claim that is shared across pods in the group.",
+      "properties": {
+        "name": {
+          "description": "name uniquely identifies this resource claim inside the group. This field is required. It must be a DNS_LABEL.",
+          "type": "string"
+        },
+        "resourceClaimName": {
+          "description": "resourceClaimName is the name of a ResourceClaim object in the same namespace. This field is optional. If it is not specified, no resource claim is used. If set, it must be a DNS subdomain.",
+          "type": "string"
+        },
+        "resourceClaimTemplateName": {
+          "description": "resourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace. This field is optional. If it is not specified, no resource claim template is used. If set, it must be a DNS subdomain.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingConstraints": {
+      "description": "WorkloadPodGroupSchedulingConstraints defines leaf-level scheduling constraints, such as topology.",
+      "properties": {
+        "topology": {
+          "description": "topology specifies desired topological placements for all pods within the pod group. If unset, no topology placement is requested.",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.TopologyConstraint"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingPolicy": {
+      "description": "WorkloadPodGroupSchedulingPolicy defines the scheduling policy for a group of pods managed by a workload controller. Exactly one policy must be set.",
+      "properties": {
+        "basic": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupBasicSchedulingPolicy",
+          "description": "basic specifies that standard, pod-by-pod Kubernetes scheduling behavior should be used."
+        },
+        "gang": {
+          "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupGangSchedulingPolicy",
+          "description": "gang specifies all-or-nothing scheduling semantics."
+        }
+      },
+      "type": "object",
+      "x-kubernetes-unions": [
+        {
+          "fields-to-discriminateBy": {
+            "basic": "Basic",
+            "gang": "Gang"
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSingleDisruptionMode": {
+      "description": "WorkloadPodGroupSingleDisruptionMode indicates that individual pods can be disrupted independently.",
+      "type": "object"
+    },
     "io.k8s.api.scheduling.v1alpha3.WorkloadReference": {
       "description": "WorkloadReference references the Workload object together with the template that was used to create a particular PodGroup.",
       "properties": {
@@ -21713,7 +21876,7 @@
           "type": "boolean"
         },
         "preventPodSchedulingIfMissing": {
-          "description": "preventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod scheduling if the CSI driver on the node is missing.\n\nEnabling this option will prevent the scheduler (or any other component which embeds default scheduler such as cluster-autoscaler) from scheduling pods to nodes where CSI driver is not installed.\n\nFor components(such as cluster-autoscaler) that embed the scheduler and run pod placement simulations using scheduler plugins, they MUST be aware of CSI driver registration information via CSINode object. They must create simulated CSINode objects in addition to Node objects during scheduling simulation, otherwise if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any newly created node may be rejected by the scheduler because of missing CSI driver information from the node.\n\nThis is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled. Default is \"false\".",
+          "description": "preventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod scheduling if the CSI driver on the node is missing.\n\nEnabling this option will prevent the scheduler (or any other component which embeds default scheduler such as cluster-autoscaler) from scheduling pods to nodes where CSI driver is not installed.\n\nFor components(such as cluster-autoscaler) that embed the scheduler and run pod placement simulations using scheduler plugins, they MUST be aware of CSI driver registration information via CSINode object. They must create simulated CSINode objects in addition to Node objects during scheduling simulation, otherwise if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any newly created node may be rejected by the scheduler because of missing CSI driver information from the node.\n\nThis is a beta feature and requires the VolumeLimitScaling feature gate to be enabled. Default is \"false\".",
           "type": "boolean"
         },
         "requiresRepublish": {

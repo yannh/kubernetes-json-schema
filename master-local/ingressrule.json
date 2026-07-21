@@ -9,7 +9,8 @@
       ]
     },
     "http": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.HTTPIngressRuleValue"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.HTTPIngressRuleValue",
+      "description": "http is a HTTP IngressRuleValue, which contains a list of http selectors"
     }
   },
   "type": "object",

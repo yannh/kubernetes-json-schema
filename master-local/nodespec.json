@@ -34,6 +34,10 @@
       "x-kubernetes-list-type": "set",
       "x-kubernetes-patch-strategy": "merge"
     },
+    "podPreemptionPolicy": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodePodPreemptionPolicy",
+      "description": "PodPreemptionPolicy controls the node-level preemption behaviors for pods on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate."
+    },
     "providerID": {
       "description": "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
       "type": [

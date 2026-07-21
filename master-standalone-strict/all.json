@@ -496,6 +496,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.JobList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.JobSchedulingConfiguration"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.JobSpec"
     },
     {
@@ -920,6 +923,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodePodPreemptionPolicy"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeHandler"
@@ -2063,6 +2069,30 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupAllDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupBasicSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupGangSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingConstraints"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSingleDisruptionMode"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadReference"

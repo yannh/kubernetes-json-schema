@@ -1,0 +1,23 @@
+{
+  "description": "WorkloadPodGroupSchedulingPolicy defines the scheduling policy for a group of pods managed by a workload controller. Exactly one policy must be set.",
+  "properties": {
+    "basic": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupBasicSchedulingPolicy",
+      "description": "basic specifies that standard, pod-by-pod Kubernetes scheduling behavior should be used."
+    },
+    "gang": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupGangSchedulingPolicy",
+      "description": "gang specifies all-or-nothing scheduling semantics."
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "fields-to-discriminateBy": {
+        "basic": "Basic",
+        "gang": "Gang"
+      }
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -354,6 +354,30 @@
           "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
+        "podPreemptionPolicy": {
+          "description": "NodePodPreemptionPolicy defines the node-level policies governing preemption for pods on this node.",
+          "properties": {
+            "disableResizePreemption": {
+              "description": "DisableResizePreemption lists the owners (e.g., autoscalers, operators, administrators) that have requested to disable scheduler and Kubelet preemption for in-place pod resize on this node. If this list is non-empty, resize-induced preemption is disabled on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate.",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
+              ],
+              "x-kubernetes-list-type": "set"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false
+        },
         "providerID": {
           "description": "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
           "type": [
