@@ -297,6 +297,11 @@
           "version": "v1alpha1"
         },
         {
+          "group": "lifecycle.k8s.io",
+          "kind": "DeleteOptions",
+          "version": "v1alpha1"
+        },
+        {
           "group": "networking.k8s.io",
           "kind": "DeleteOptions",
           "version": "v1"

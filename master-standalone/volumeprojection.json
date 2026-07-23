@@ -94,6 +94,14 @@
             "string",
             "null"
           ]
+        },
+        "user": {
+          "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+          "format": "int64",
+          "type": [
+            "integer",
+            "null"
+          ]
         }
       },
       "required": [
@@ -127,6 +135,14 @@
               "path": {
                 "description": "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.",
                 "type": "string"
+              },
+              "user": {
+                "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
               }
             },
             "required": [
@@ -247,6 +263,14 @@
                   "null"
                 ],
                 "x-kubernetes-map-type": "atomic"
+              },
+              "user": {
+                "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
               }
             },
             "required": [
@@ -309,6 +333,14 @@
           "description": "Kubelet's generated CSRs will be addressed to this signer.",
           "type": "string"
         },
+        "user": {
+          "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+          "format": "int64",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "userAnnotations": {
           "additionalProperties": {
             "type": [
@@ -355,6 +387,14 @@
               "path": {
                 "description": "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.",
                 "type": "string"
+              },
+              "user": {
+                "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
               }
             },
             "required": [
@@ -413,6 +453,14 @@
         "path": {
           "description": "path is the path relative to the mount point of the file to project the token into.",
           "type": "string"
+        },
+        "user": {
+          "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+          "format": "int64",
+          "type": [
+            "integer",
+            "null"
+          ]
         }
       },
       "required": [

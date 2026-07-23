@@ -15,27 +15,48 @@
       ],
       "x-kubernetes-list-type": "set"
     },
+    "mapping": {
+      "description": "Mapping contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].mapping` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableMappedResources"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "overhead": {
+      "description": "Overhead contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].overhead` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableOverheadResources"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
     "resourceClaimName": {
       "description": "ResourceClaimName is the resource claim referenced by the pod that resulted in this node allocatable resource allocation.",
       "type": [
         "string",
         "null"
       ]
-    },
-    "resources": {
-      "additionalProperties": {
-        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
-      },
-      "description": "Resources is a map of the node-allocatable resource name to the aggregate quantity allocated to the claim.",
-      "type": [
-        "object",
-        "null"
-      ]
     }
   },
   "required": [
-    "resourceClaimName",
-    "resources"
+    "resourceClaimName"
   ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"

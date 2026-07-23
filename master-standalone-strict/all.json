@@ -553,6 +553,18 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.ClusterTrustBundleSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.PodCertificateRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.PodCertificateRequestList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.PodCertificateRequestSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1.PodCertificateRequestStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.certificates.v1beta1.ClusterTrustBundle"
     },
     {
@@ -778,6 +790,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.EventSource"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.EvictionResponder"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ExecAction"
     },
     {
@@ -902,6 +917,12 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAffinity"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableMappedResources"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableOverheadResources"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableResourceClaimStatus"
@@ -1064,6 +1085,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodVolumeHealth"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PortStatus"
@@ -1243,6 +1267,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeDevice"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthCondition"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
     },
     {
@@ -1370,6 +1400,51 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.UserSubject"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.Eviction"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionPodReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestPodReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestTarget"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionTarget"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.Requester"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.ResponderStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.TargetResponder"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.HTTPIngressPath"
@@ -1639,7 +1714,13 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.NetworkDeviceData"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.NodeAllocatableResourceMapping"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.NodeAllocatableMapping"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.NodeAllocatableOverhead"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.NodeAllocatableResource"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.OpaqueDeviceConfiguration"
@@ -1699,6 +1780,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceTaintSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PartitionTypeStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.PoolStatus"
     },
     {
@@ -1712,6 +1796,12 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequestStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ShareableCapacityStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ShareableSummaryStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocatedDeviceStatus"
@@ -1801,7 +1891,13 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NetworkDeviceData"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NodeAllocatableResourceMapping"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NodeAllocatableMapping"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NodeAllocatableOverhead"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NodeAllocatableResource"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.OpaqueDeviceConfiguration"
@@ -1945,7 +2041,13 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NetworkDeviceData"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NodeAllocatableResourceMapping"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NodeAllocatableMapping"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NodeAllocatableOverhead"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NodeAllocatableResource"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.OpaqueDeviceConfiguration"
@@ -1993,6 +2095,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClassList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.AllCompositeDisruptionMode"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.AllDisruptionMode"
     },
     {
@@ -2002,6 +2107,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeBasicSchedulingPolicy"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeDisruptionMode"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeGangSchedulingPolicy"
     },
     {
@@ -2009,6 +2117,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingConstraints"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy"
@@ -2056,6 +2167,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupTemplate"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.SingleCompositeDisruptionMode"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.SingleDisruptionMode"
     },
     {
@@ -2101,6 +2215,90 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.AllCompositeDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.AllDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.BasicSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositeBasicSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositeDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositeGangSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupSchedulingConstraints"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupTemplate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.DisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.GangSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroup"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupResourceClaimStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupSchedulingConstraints"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupTemplate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.SingleCompositeDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.SingleDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.TopologyConstraint"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.TypedLocalObjectReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.Workload"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.WorkloadList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.WorkloadReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.WorkloadSpec"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIDriver"
     },
     {
@@ -2122,6 +2320,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSIStorageCapacity"
     },
     {
@@ -2132,6 +2333,12 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageHealth"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageHealthCondition"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.TokenRequest"

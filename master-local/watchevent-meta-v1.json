@@ -214,6 +214,11 @@
       "version": "v1alpha1"
     },
     {
+      "group": "lifecycle.k8s.io",
+      "kind": "WatchEvent",
+      "version": "v1alpha1"
+    },
+    {
       "group": "networking.k8s.io",
       "kind": "WatchEvent",
       "version": "v1"

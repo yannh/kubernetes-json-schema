@@ -599,7 +599,7 @@
           {
             "group": "scheduling.k8s.io",
             "kind": "PodGroup",
-            "version": "v1alpha3"
+            "version": "v1beta1"
           }
         ]
       },
@@ -681,7 +681,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "PodGroupList",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

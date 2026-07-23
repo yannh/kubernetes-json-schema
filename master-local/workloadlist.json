@@ -9,9 +9,9 @@
       ]
     },
     "items": {
-      "description": "Items is the list of Workloads.",
+      "description": "items is the list of Workloads.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.Workload"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.Workload"
       },
       "type": [
         "array",
@@ -30,7 +30,7 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
-      "description": "Standard list metadata."
+      "description": "metadata is the standard list metadata."
     }
   },
   "required": [
@@ -41,7 +41,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "WorkloadList",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

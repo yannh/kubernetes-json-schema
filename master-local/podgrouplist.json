@@ -11,7 +11,7 @@
     "items": {
       "description": "Items is the list of PodGroups.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroup"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroup"
       },
       "type": [
         "array",
@@ -41,7 +41,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "PodGroupList",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

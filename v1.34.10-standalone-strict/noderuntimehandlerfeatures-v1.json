@@ -1,0 +1,22 @@
+{
+  "description": "NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.",
+  "properties": {
+    "recursiveReadOnlyMounts": {
+      "description": "RecursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "userNamespaces": {
+      "description": "UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

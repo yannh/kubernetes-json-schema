@@ -81,6 +81,14 @@
               "null"
             ],
             "x-kubernetes-map-type": "atomic"
+          },
+          "user": {
+            "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+            "format": "int64",
+            "type": [
+              "integer",
+              "null"
+            ]
           }
         },
         "required": [

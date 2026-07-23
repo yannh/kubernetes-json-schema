@@ -674,6 +674,67 @@
                   "null"
                 ]
               },
+              "healthStatus": {
+                "description": "VolumeHealthStatus contains health information for a volume reported by the CSI controller plugin.",
+                "properties": {
+                  "healthConditions": {
+                    "description": "conditions is the set of adverse conditions reported by the CSI controller plugin. An empty list means no adverse condition. At most 16 conditions may be reported.",
+                    "items": {
+                      "description": "VolumeHealthCondition represents an adverse health condition reported for a volume.",
+                      "properties": {
+                        "message": {
+                          "description": "message is a human-readable description. Maximum permitted length of a message is 1024 bytes.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "reason": {
+                          "description": "reason is a brief CamelCase machine-parseable reason. Together with status it forms the unique identity of a condition entry. Maximum permitted length of a reason is 256 bytes.",
+                          "type": "string"
+                        },
+                        "status": {
+                          "description": "status is the machine-parseable health category. Possible values: - \"Inaccessible\": the volume cannot be accessed. - \"DataLoss\": data loss has been detected on the volume. - \"Degraded\": the volume is functioning with reduced capability.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-map-keys": [
+                      "status",
+                      "reason"
+                    ],
+                    "x-kubernetes-list-type": "map",
+                    "x-kubernetes-patch-merge-key": "status",
+                    "x-kubernetes-patch-strategy": "merge"
+                  },
+                  "lastTransitionTime": {
+                    "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                    "format": "date-time",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
               "modifyVolumeStatus": {
                 "description": "ModifyVolumeStatus represents the status object of ControllerModifyVolume operation",
                 "properties": {

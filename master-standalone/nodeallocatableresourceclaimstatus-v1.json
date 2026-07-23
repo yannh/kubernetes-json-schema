@@ -15,40 +15,123 @@
       ],
       "x-kubernetes-list-type": "set"
     },
+    "mapping": {
+      "description": "Mapping contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].mapping` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
+      "items": {
+        "description": "NodeAllocatableMappedResources describes mapped node allocatable resource allocations.",
+        "properties": {
+          "name": {
+            "description": "Name is the name of the resource (e.g., cpu, memory).",
+            "type": "string"
+          },
+          "quantity": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "quantity"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "overhead": {
+      "description": "Overhead contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].overhead` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
+      "items": {
+        "description": "NodeAllocatableOverheadResources describes auxiliary overhead resource allocations.",
+        "properties": {
+          "name": {
+            "description": "Name is the name of the resource (e.g., cpu, memory).",
+            "type": "string"
+          },
+          "perContainer": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          },
+          "perPod": {
+            "oneOf": [
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
     "resourceClaimName": {
       "description": "ResourceClaimName is the resource claim referenced by the pod that resulted in this node allocatable resource allocation.",
       "type": [
         "string",
         "null"
       ]
-    },
-    "resources": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          {
-            "type": [
-              "number",
-              "null"
-            ]
-          }
-        ]
-      },
-      "description": "Resources is a map of the node-allocatable resource name to the aggregate quantity allocated to the claim.",
-      "type": [
-        "object",
-        "null"
-      ]
     }
   },
   "required": [
-    "resourceClaimName",
-    "resources"
+    "resourceClaimName"
   ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"

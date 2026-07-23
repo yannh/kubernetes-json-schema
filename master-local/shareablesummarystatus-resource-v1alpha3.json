@@ -1,0 +1,38 @@
+{
+  "description": "ShareableSummaryStatus reports aggregate capacity for a pool that contains devices with AllowMultipleAllocations.",
+  "properties": {
+    "capacity": {
+      "description": "Capacity reports aggregate total, consumed, and available amounts per shareable capacity key across the pool.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ShareableCapacityStatus"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    },
+    "fullyAvailableDevices": {
+      "description": "FullyAvailableDevices is the number of shareable devices with no capacity consumed.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "partiallyAvailableDevices": {
+      "description": "PartiallyAvailableDevices is the number of shareable devices with some but not all capacity consumed.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "fullyAvailableDevices",
+    "partiallyAvailableDevices"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

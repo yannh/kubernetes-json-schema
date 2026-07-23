@@ -2560,6 +2560,13 @@
                                       }
                                     ]
                                   },
+                                  "protocol": {
+                                    "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
                                   "scheme": {
                                     "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
                                     "type": [
@@ -2728,6 +2735,13 @@
                                       }
                                     ]
                                   },
+                                  "protocol": {
+                                    "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
                                   "scheme": {
                                     "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
                                     "type": [
@@ -2858,6 +2872,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -2941,6 +2962,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -3146,6 +3174,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -3229,6 +3264,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -3793,6 +3835,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -3876,6 +3925,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -4652,6 +4708,13 @@
                                       }
                                     ]
                                   },
+                                  "protocol": {
+                                    "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
                                   "scheme": {
                                     "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
                                     "type": [
@@ -4820,6 +4883,13 @@
                                       }
                                     ]
                                   },
+                                  "protocol": {
+                                    "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
                                   "scheme": {
                                     "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
                                     "type": [
@@ -4950,6 +5020,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -5033,6 +5110,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -5238,6 +5322,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -5321,6 +5412,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -5885,6 +5983,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -5968,6 +6073,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -6245,6 +6357,43 @@
                   "x-kubernetes-patch-merge-key": "name",
                   "x-kubernetes-patch-strategy": "merge"
                 },
+                "evictionResponders": {
+                  "description": "evictionResponders reference responders that react to Evictions based on EvictionRequests. Responders should observe and communicate through the Eviction Resource API to help with the graceful termination of a pod. The responders are selected sequentially, according to their specified priority.\n\nResponders should periodically report on an eviction progress by updating the .status.responders[].heartbeatTime field of the Eviction object. If this field is not updated within the heartbeat deadline defined by the Eviction API (currently 20 minutes), the eviction is passed over to the next responder with a lower priority. If there is no other responder, the last default imperative-eviction.k8s.io/evictor responder with a priority of 100 will evict the pod using the imperative Eviction API (pods/<name>/eviction subresource).\n\nThe maximum length of the responders list is 10. Responders are not supported when the pod is part of a PodGroup (.spec.schedulingGroup is set). This field can only be set on creation and is immutable afterwards.",
+                  "items": {
+                    "description": "EvictionResponder allows you to specify the responder reacting to an Eviction. Responders should observe and communicate through the Eviction Resource API to help with the graceful eviction of a target (e.g. termination of a pod).",
+                    "properties": {
+                      "name": {
+                        "description": "name allows you to identify the responder responding to the Eviction.\n\nIt must be a valid domain-prefixed key (such as \"acme.io/foo\"). Domain names *.k8s.io and *.kubernetes.io are reserved. This field must be unique for each responder. This field is required.",
+                        "type": "string"
+                      },
+                      "priority": {
+                        "description": "priority for this responder. Higher priorities are selected first by the evictionrequest-controller. If there are responders with the same priority, the responder whose domain name comes first in the alphabetical higher domain order, will be picked. This means that the top domain labels are compared alphabetically first, followed by the lower domain labels. The key is compared last.\n\nThe responder that is the managing controller of the pod should set the value of this field to 10000 to allow both for preemption or fallback registration by other responders.\n\nThe minimum value is 0 and the maximum value is 100000. The interval 0-999 is reserved for responders with *.k8s.io suffix. This field is required.",
+                        "format": "int32",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "priority"
+                    ],
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "x-kubernetes-map-type": "atomic",
+                    "additionalProperties": false
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "x-kubernetes-list-map-keys": [
+                    "name"
+                  ],
+                  "x-kubernetes-list-type": "map",
+                  "x-kubernetes-patch-merge-key": "name",
+                  "x-kubernetes-patch-strategy": "merge"
+                },
                 "hostAliases": {
                   "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified.",
                   "items": {
@@ -6325,7 +6474,7 @@
                   ]
                 },
                 "hostnameOverride": {
-                  "description": "HostnameOverride specifies an explicit override for the pod's hostname as perceived by the pod. This field only specifies the pod's hostname and does not affect its DNS records. When this field is set to a non-empty string: - It takes precedence over the values set in `hostname` and `subdomain`. - The Pod's hostname will be set to this value. - `setHostnameAsFQDN` must be nil or set to false. - `hostNetwork` must be set to false.\n\nThis field must be a valid DNS subdomain as defined in RFC 1123 and contain at most 64 characters. Requires the HostnameOverride feature gate to be enabled.",
+                  "description": "HostnameOverride specifies an explicit override for the pod's hostname as perceived by the pod. This field only specifies the pod's hostname and does not affect its DNS records. When this field is set to a non-empty string: - It takes precedence over the values set in `hostname` and `subdomain`. - The Pod's hostname will be set to this value. - `setHostnameAsFQDN` must be nil or set to false. - `hostNetwork` must be set to false.\n\nThis field must be a valid DNS subdomain as defined in RFC 1123 and contain at most 64 characters.",
                   "type": [
                     "string",
                     "null"
@@ -6787,6 +6936,13 @@
                                       }
                                     ]
                                   },
+                                  "protocol": {
+                                    "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
                                   "scheme": {
                                     "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
                                     "type": [
@@ -6955,6 +7111,13 @@
                                       }
                                     ]
                                   },
+                                  "protocol": {
+                                    "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
                                   "scheme": {
                                     "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
                                     "type": [
@@ -7085,6 +7248,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -7168,6 +7338,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -7373,6 +7550,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -7456,6 +7640,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -8020,6 +8211,13 @@
                           "grpc": {
                             "description": "GRPCAction specifies an action involving a GRPC service.",
                             "properties": {
+                              "mode": {
+                                "description": "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
                               "port": {
                                 "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                                 "format": "int32",
@@ -8103,6 +8301,13 @@
                                       "null"
                                     ]
                                   }
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                                "type": [
+                                  "string",
+                                  "null"
                                 ]
                               },
                               "scheme": {
@@ -9434,6 +9639,14 @@
                               "null"
                             ]
                           },
+                          "defaultUser": {
+                            "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                            "format": "int64",
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
                           "items": {
                             "description": "items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.",
                             "items": {
@@ -9454,6 +9667,14 @@
                                 "path": {
                                   "description": "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.",
                                   "type": "string"
+                                },
+                                "user": {
+                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                  "format": "int64",
+                                  "type": [
+                                    "integer",
+                                    "null"
+                                  ]
                                 }
                               },
                               "required": [
@@ -9566,6 +9787,14 @@
                               "null"
                             ]
                           },
+                          "defaultUser": {
+                            "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                            "format": "int64",
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
                           "items": {
                             "description": "Items is a list of downward API volume file",
                             "items": {
@@ -9648,6 +9877,14 @@
                                   ],
                                   "x-kubernetes-map-type": "atomic",
                                   "additionalProperties": false
+                                },
+                                "user": {
+                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                  "format": "int64",
+                                  "type": [
+                                    "integer",
+                                    "null"
+                                  ]
                                 }
                               },
                               "required": [
@@ -9679,6 +9916,14 @@
                             "description": "medium represents what type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir",
                             "type": [
                               "string",
+                              "null"
+                            ]
+                          },
+                          "mode": {
+                            "description": "mode specifies the permission bits for the emptyDir directory, in numeric notation (e.g., 0755, 01777). Must be a value between 0000 and 01777. If not specified, defaults to 0777. This might be in conflict with other options that affect the file mode, like fsGroup. If fsGroup is specified, the fsGroup permissions will override the mode specified here. This field has no effect on Windows. This field is alpha and requires EmptyDirVolumeMode featuregate to be enabled.",
+                            "format": "int32",
+                            "type": [
+                              "integer",
                               "null"
                             ]
                           },
@@ -10738,6 +10983,14 @@
                               "null"
                             ]
                           },
+                          "defaultUser": {
+                            "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                            "format": "int64",
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
                           "sources": {
                             "description": "sources is the list of volume projections. Each entry in this list handles one source.",
                             "items": {
@@ -10838,6 +11091,14 @@
                                         "string",
                                         "null"
                                       ]
+                                    },
+                                    "user": {
+                                      "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                      "format": "int64",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
                                     }
                                   },
                                   "required": [
@@ -10872,6 +11133,14 @@
                                           "path": {
                                             "description": "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.",
                                             "type": "string"
+                                          },
+                                          "user": {
+                                            "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                            "format": "int64",
+                                            "type": [
+                                              "integer",
+                                              "null"
+                                            ]
                                           }
                                         },
                                         "required": [
@@ -10996,6 +11265,14 @@
                                             ],
                                             "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
+                                          },
+                                          "user": {
+                                            "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                            "format": "int64",
+                                            "type": [
+                                              "integer",
+                                              "null"
+                                            ]
                                           }
                                         },
                                         "required": [
@@ -11060,6 +11337,14 @@
                                       "description": "Kubelet's generated CSRs will be addressed to this signer.",
                                       "type": "string"
                                     },
+                                    "user": {
+                                      "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                      "format": "int64",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
                                     "userAnnotations": {
                                       "additionalProperties": {
                                         "type": [
@@ -11107,6 +11392,14 @@
                                           "path": {
                                             "description": "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.",
                                             "type": "string"
+                                          },
+                                          "user": {
+                                            "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                            "format": "int64",
+                                            "type": [
+                                              "integer",
+                                              "null"
+                                            ]
                                           }
                                         },
                                         "required": [
@@ -11167,6 +11460,14 @@
                                     "path": {
                                       "description": "path is the path relative to the mount point of the file to project the token into.",
                                       "type": "string"
+                                    },
+                                    "user": {
+                                      "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                      "format": "int64",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
                                     }
                                   },
                                   "required": [
@@ -11428,6 +11729,14 @@
                               "null"
                             ]
                           },
+                          "defaultUser": {
+                            "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                            "format": "int64",
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
                           "items": {
                             "description": "items If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.",
                             "items": {
@@ -11448,6 +11757,14 @@
                                 "path": {
                                   "description": "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.",
                                   "type": "string"
+                                },
+                                "user": {
+                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                  "format": "int64",
+                                  "type": [
+                                    "integer",
+                                    "null"
+                                  ]
                                 }
                               },
                               "required": [

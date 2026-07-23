@@ -23,11 +23,11 @@
       "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupSpec",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupSpec",
       "description": "spec defines the desired state of the PodGroup."
     },
     "status": {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupStatus",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.PodGroupStatus",
       "description": "status represents the current observed state of the PodGroup."
     }
   },
@@ -39,7 +39,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "PodGroup",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

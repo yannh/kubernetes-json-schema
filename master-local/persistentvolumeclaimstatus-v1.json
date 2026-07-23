@@ -72,6 +72,10 @@
         "null"
       ]
     },
+    "healthStatus": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthStatus",
+      "description": "healthStatus contains the latest controller-reported health information for the volume bound to this claim."
+    },
     "modifyVolumeStatus": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ModifyVolumeStatus",
       "description": "ModifyVolumeStatus represents the status object of ControllerModifyVolume operation. When this is unset, there is no ModifyVolume operation being attempted."

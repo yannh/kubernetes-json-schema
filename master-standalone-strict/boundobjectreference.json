@@ -9,7 +9,7 @@
       ]
     },
     "kind": {
-      "description": "kind of the referent. Valid kinds are 'Pod' and 'Secret'.",
+      "description": "kind of the referent. Valid kinds are 'Pod', 'Secret', 'Node', 'ValidatingWebhookConfiguration', and 'MutatingWebhookConfiguration'.",
       "type": [
         "string",
         "null"

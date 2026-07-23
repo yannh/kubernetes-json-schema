@@ -47,6 +47,7 @@
         "flowcontrol.apiserver.k8s.io/v1beta3",
         "imagepolicy.k8s.io/v1alpha1",
         "internal.apiserver.k8s.io/v1alpha1",
+        "lifecycle.k8s.io/v1alpha1",
         "networking.k8s.io/v1",
         "networking.k8s.io/v1beta1",
         "node.k8s.io/v1",
@@ -323,6 +324,11 @@
     },
     {
       "group": "internal.apiserver.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "lifecycle.k8s.io",
       "kind": "DeleteOptions",
       "version": "v1alpha1"
     },

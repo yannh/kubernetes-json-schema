@@ -15,6 +15,10 @@
       ],
       "x-kubernetes-list-type": "map"
     },
+    "disruptionMode": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeDisruptionMode",
+      "description": "disruptionMode defines the mode in which a given CompositePodGroup can be disrupted. One of Single, All. This field is immutable."
+    },
     "name": {
       "description": "name is a unique identifier for the CompositePodGroupTemplate within the Workload. It must be a DNS label. This field is required.",
       "type": [
@@ -36,6 +40,13 @@
       ],
       "x-kubernetes-list-type": "map"
     },
+    "preemptionPolicy": {
+      "description": "preemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "priority": {
       "description": "priority is the value of priority of composite pod groups created from this template. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.",
       "format": "int32",
@@ -50,6 +61,10 @@
         "string",
         "null"
       ]
+    },
+    "schedulingConstraints": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingConstraints",
+      "description": "schedulingConstraints defines optional scheduling constraints (e.g. topology) for this CompositePodGroupTemplate. This field is immutable."
     },
     "schedulingPolicy": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy",
