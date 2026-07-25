@@ -1675,6 +1675,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceCounterConsumption"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceDerivedAttribute"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceRequest"
     },
     {
@@ -1870,6 +1873,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceCounterConsumption"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceDerivedAttribute"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceRequest"
     },
     {
@@ -2000,6 +2006,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceCounterConsumption"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceDerivedAttribute"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceRequest"

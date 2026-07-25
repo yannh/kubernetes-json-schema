@@ -64,6 +64,13 @@
         "null"
       ]
     },
+    "runningInUserNamespace": {
+      "description": "Whether the node is running in a user namespace.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
     "swap": {
       "description": "NodeSwapStatus represents swap memory information.",
       "properties": {

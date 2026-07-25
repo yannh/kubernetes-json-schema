@@ -1675,6 +1675,9 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceCounterConsumption"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceDerivedAttribute"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceRequest"
     },
     {
@@ -1870,6 +1873,9 @@
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceCounterConsumption"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceDerivedAttribute"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceRequest"
     },
     {
@@ -2000,6 +2006,9 @@
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceCounterConsumption"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceDerivedAttribute"
     },
     {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceRequest"

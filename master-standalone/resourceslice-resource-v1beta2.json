@@ -1147,6 +1147,20 @@
             "null"
           ],
           "x-kubernetes-list-type": "atomic"
+        },
+        "skipNodeOperations": {
+          "description": "SkipNodeOperations lists node-local resource operations (gRPC calls) that will be skipped for the devices in this slice when determining whether operations are necessary on the node. If all allocated devices for a driver in a claim skip an operation, that gRPC call will be skipped. Valid values are:\n\n- \"NodePrepareResources\": NodePrepareResources gRPC calls are skipped. This\n  value cannot be specified unless \"NodeUnprepareResources\" is also listed\n  (or \"*\" is specified).\n- \"NodeUnprepareResources\": NodeUnprepareResources gRPC calls are skipped. - \"*\": All node-local resource operations are skipped.\n\nOther values may be added in the future. The kubelet must ignore unknown values.",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "x-kubernetes-list-type": "set"
         }
       },
       "required": [

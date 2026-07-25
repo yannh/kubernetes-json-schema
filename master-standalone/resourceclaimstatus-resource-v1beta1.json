@@ -160,6 +160,20 @@
                       "null"
                     ]
                   },
+                  "skipNodeOperations": {
+                    "description": "SkipNodeOperations lists node-local resource operations (gRPC calls) that will be skipped for this allocated device when determining whether operations are necessary on the node. If all allocated devices for a driver in a claim skip an operation, that gRPC call will be skipped. It is a copy of the ResourceSlice.spec.skipNodeOperations value at the time when the device was allocated.",
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-type": "set"
+                  },
                   "tolerations": {
                     "description": "A copy of all tolerations specified in the request at the time when the device got allocated.\n\nThe maximum number of tolerations is 16.\n\nThis is a beta field and requires enabling the DRADeviceTaints feature gate.",
                     "items": {
