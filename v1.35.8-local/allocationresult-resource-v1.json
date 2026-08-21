@@ -1,0 +1,19 @@
+{
+  "description": "AllocationResult contains attributes of an allocated resource.",
+  "properties": {
+    "allocationTimestamp": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.\n\nThis is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate."
+    },
+    "devices": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.DeviceAllocationResult",
+      "description": "Devices is the result of allocating devices."
+    },
+    "nodeSelector": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector",
+      "description": "NodeSelector defines where the allocated resources are available. If unset, they are available everywhere."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

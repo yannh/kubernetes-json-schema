@@ -1,0 +1,23 @@
+{
+  "description": "ServiceCIDRStatus describes the current state of the ServiceCIDR.",
+  "properties": {
+    "conditions": {
+      "description": "conditions holds an array of metav1.Condition that describe the state of the ServiceCIDR. Current service state",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

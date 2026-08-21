@@ -1,0 +1,13 @@
+{
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "number"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "additionalProperties": false
+}
