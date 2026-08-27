@@ -2,7 +2,7 @@
   "description": "SubjectAccessReviewStatus",
   "properties": {
     "allowed": {
-      "description": "allowed is required. True if the action would be allowed, false otherwise.",
+      "description": "allowed is set to true if the action is allowed, and should be set to false otherwise.",
       "type": [
         "boolean",
         "null"
@@ -30,9 +30,6 @@
       ]
     }
   },
-  "required": [
-    "allowed"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

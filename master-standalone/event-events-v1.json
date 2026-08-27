@@ -511,7 +511,12 @@
     }
   },
   "required": [
-    "eventTime"
+    "eventTime",
+    "reportingController",
+    "reportingInstance",
+    "action",
+    "reason",
+    "type"
   ],
   "type": "object",
   "x-kubernetes-group-version-kind": [

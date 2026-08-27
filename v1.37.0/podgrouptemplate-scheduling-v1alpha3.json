@@ -1,0 +1,68 @@
+{
+  "description": "PodGroupTemplate represents a template for a set of pods with a scheduling policy.",
+  "properties": {
+    "disruptionMode": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.37.0/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.DisruptionMode",
+      "description": "disruptionMode defines the mode in which a given PodGroup can be disrupted. One of Single, All. This field is immutable."
+    },
+    "name": {
+      "description": "name is a unique identifier for the PodGroupTemplate within the Workload. It must be a DNS label. This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "preemptionPolicy": {
+      "description": "preemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "priority": {
+      "description": "priority is the value of priority of pod groups created from this template. Various system components use this field to find the priority of the pod group. The higher the value, the higher the priority. This field is immutable.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "priorityClassName": {
+      "description": "priorityClassName indicates the priority that should be considered when scheduling a pod group created from this template. This field is immutable.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resourceClaims": {
+      "description": "resourceClaims defines which ResourceClaims may be shared among Pods in the group. Pods consume the devices allocated to a PodGroup's claim by defining a claim in its own Spec.ResourceClaims that matches the PodGroup's claim exactly. The claim must have the same name and refer to the same ResourceClaim or ResourceClaimTemplate.\n\nThis is a beta-level field and requires that the DRAWorkloadResourceClaims feature gate is enabled.\n\nThis field is immutable.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.37.0/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupResourceClaim"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge,retainKeys"
+    },
+    "schedulingConstraints": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.37.0/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupSchedulingConstraints",
+      "description": "schedulingConstraints defines optional scheduling constraints (e.g. topology) for this PodGroupTemplate. This field is only available when the TopologyAwareWorkloadScheduling feature gate is enabled. This field is immutable."
+    },
+    "schedulingPolicy": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.37.0/_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.PodGroupSchedulingPolicy",
+      "description": "schedulingPolicy defines the scheduling policy for this PodGroupTemplate."
+    }
+  },
+  "required": [
+    "name",
+    "schedulingPolicy"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

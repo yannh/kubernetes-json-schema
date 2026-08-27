@@ -1,0 +1,68 @@
+{
+  "description": "ShareableCapacityStatus reports aggregate amounts for a single shareable capacity key.",
+  "properties": {
+    "available": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    },
+    "consumed": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    },
+    "name": {
+      "description": "Name is the capacity name.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "total",
+    "consumed",
+    "available"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

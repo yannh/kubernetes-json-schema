@@ -3657,9 +3657,6 @@
           "x-kubernetes-list-type": "atomic"
         }
       },
-      "required": [
-        "verbs"
-      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -3742,9 +3739,6 @@
           "x-kubernetes-list-type": "atomic"
         }
       },
-      "required": [
-        "verbs"
-      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -3851,6 +3845,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "namespace"
+      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -3939,7 +3936,7 @@
       "description": "SubjectAccessReviewStatus",
       "properties": {
         "allowed": {
-          "description": "allowed is required. True if the action would be allowed, false otherwise.",
+          "description": "allowed is set to true if the action is allowed, and should be set to false otherwise.",
           "type": "boolean"
         },
         "denied": {
@@ -3955,9 +3952,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "allowed"
-      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -3989,11 +3983,6 @@
           "x-kubernetes-list-type": "atomic"
         }
       },
-      "required": [
-        "resourceRules",
-        "nonResourceRules",
-        "incomplete"
-      ],
       "type": "object",
       "additionalProperties": false
     },
@@ -14475,7 +14464,12 @@
         }
       },
       "required": [
-        "eventTime"
+        "eventTime",
+        "reportingController",
+        "reportingInstance",
+        "action",
+        "reason",
+        "type"
       ],
       "type": "object",
       "x-kubernetes-group-version-kind": [

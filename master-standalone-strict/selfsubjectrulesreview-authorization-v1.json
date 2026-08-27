@@ -279,12 +279,12 @@
       "properties": {
         "namespace": {
           "description": "namespace to evaluate rules for. Required.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         }
       },
+      "required": [
+        "namespace"
+      ],
       "type": [
         "object",
         "null"
@@ -303,7 +303,10 @@
         },
         "incomplete": {
           "description": "incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.",
-          "type": "boolean"
+          "type": [
+            "boolean",
+            "null"
+          ]
         },
         "nonResourceRules": {
           "description": "nonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
@@ -332,20 +335,23 @@
                     "null"
                   ]
                 },
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "x-kubernetes-list-type": "atomic"
               }
             },
-            "required": [
-              "verbs"
-            ],
             "type": [
               "object",
               "null"
             ],
             "additionalProperties": false
           },
-          "type": "array",
+          "type": [
+            "array",
+            "null"
+          ],
           "x-kubernetes-list-type": "atomic"
         },
         "resourceRules": {
@@ -403,28 +409,26 @@
                     "null"
                   ]
                 },
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "x-kubernetes-list-type": "atomic"
               }
             },
-            "required": [
-              "verbs"
-            ],
             "type": [
               "object",
               "null"
             ],
             "additionalProperties": false
           },
-          "type": "array",
+          "type": [
+            "array",
+            "null"
+          ],
           "x-kubernetes-list-type": "atomic"
         }
       },
-      "required": [
-        "resourceRules",
-        "nonResourceRules",
-        "incomplete"
-      ],
       "type": [
         "object",
         "null"

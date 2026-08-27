@@ -42,13 +42,13 @@
                 "null"
               ]
             },
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "x-kubernetes-list-type": "atomic"
           }
         },
-        "required": [
-          "verbs"
-        ],
         "type": [
           "object",
           "null"
@@ -116,13 +116,13 @@
                 "null"
               ]
             },
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "x-kubernetes-list-type": "atomic"
           }
         },
-        "required": [
-          "verbs"
-        ],
         "type": [
           "object",
           "null"
@@ -136,11 +136,6 @@
       "x-kubernetes-list-type": "atomic"
     }
   },
-  "required": [
-    "resourceRules",
-    "nonResourceRules",
-    "incomplete"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

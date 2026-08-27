@@ -15,10 +15,7 @@
         "properties": {
           "action": {
             "description": "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -348,10 +345,7 @@
           },
           "reason": {
             "description": "reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "regarding": {
             "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
@@ -473,17 +467,11 @@
           },
           "reportingController": {
             "description": "reportingController is the name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. This field cannot be empty for new Events.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "reportingInstance": {
             "description": "reportingInstance is the ID of the controller instance, e.g. `kubelet-xyzf`. This field cannot be empty for new Events and it can have at most 128 characters.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "series": {
             "description": "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time. How often to update the EventSeries is up to the event reporters. The default event reporter in \"k8s.io/client-go/tools/events/event_broadcaster.go\" shows how this struct is updated on heartbeats and can guide customized reporter implementations.",
@@ -510,14 +498,16 @@
           },
           "type": {
             "description": "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "required": [
-          "eventTime"
+          "eventTime",
+          "reportingController",
+          "reportingInstance",
+          "action",
+          "reason",
+          "type"
         ],
         "type": [
           "object",
