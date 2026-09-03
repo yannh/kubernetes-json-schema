@@ -96,9 +96,6 @@
       "x-kubernetes-list-type": "atomic"
     }
   },
-  "required": [
-    "rules"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

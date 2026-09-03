@@ -411,13 +411,13 @@
                   "null"
                 ]
               },
-              "type": "array",
+              "type": [
+                "array",
+                "null"
+              ],
               "x-kubernetes-list-type": "atomic"
             }
           },
-          "required": [
-            "rules"
-          ],
           "type": [
             "object",
             "null"
@@ -11661,6 +11661,9 @@
       ]
     }
   },
+  "required": [
+    "spec"
+  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

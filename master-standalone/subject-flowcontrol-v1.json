@@ -18,7 +18,7 @@
       ]
     },
     "kind": {
-      "description": "`kind` indicates which one of the other fields is non-empty. Required",
+      "description": "kind indicates which one of the other fields is non-empty. Required",
       "type": [
         "string",
         "null"
@@ -28,11 +28,11 @@
       "description": "ServiceAccountSubject holds detailed information for service-account-kind subject.",
       "properties": {
         "name": {
-          "description": "`name` is the name of matching ServiceAccount objects, or \"*\" to match regardless of name. Required.",
+          "description": "name is the name of matching ServiceAccount objects, or \"*\" to match regardless of name. Required.",
           "type": "string"
         },
         "namespace": {
-          "description": "`namespace` is the namespace of matching ServiceAccount objects. Required.",
+          "description": "namespace is the namespace of matching ServiceAccount objects. Required.",
           "type": "string"
         }
       },
@@ -49,7 +49,7 @@
       "description": "UserSubject holds detailed information for user-kind subject.",
       "properties": {
         "name": {
-          "description": "`name` is the username that matches, or \"*\" to match all usernames. Required.",
+          "description": "name is the username that matches, or \"*\" to match all usernames. Required.",
           "type": "string"
         }
       },

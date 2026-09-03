@@ -338,7 +338,10 @@
               },
               "message": {
                 "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "observedGeneration": {
                 "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
@@ -365,8 +368,7 @@
               "type",
               "status",
               "lastTransitionTime",
-              "reason",
-              "message"
+              "reason"
             ],
             "type": [
               "object",

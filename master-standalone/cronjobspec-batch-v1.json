@@ -429,13 +429,13 @@
                       "null"
                     ]
                   },
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "x-kubernetes-list-type": "atomic"
                 }
               },
-              "required": [
-                "rules"
-              ],
               "type": [
                 "object",
                 "null"
@@ -11673,12 +11673,12 @@
           "required": [
             "template"
           ],
-          "type": [
-            "object",
-            "null"
-          ]
+          "type": "object"
         }
       },
+      "required": [
+        "spec"
+      ],
       "type": [
         "object",
         "null"

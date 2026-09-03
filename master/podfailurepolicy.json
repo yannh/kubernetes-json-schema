@@ -13,9 +13,6 @@
       "x-kubernetes-list-type": "atomic"
     }
   },
-  "required": [
-    "rules"
-  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

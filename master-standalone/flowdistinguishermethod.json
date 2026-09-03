@@ -2,7 +2,7 @@
   "description": "FlowDistinguisherMethod specifies the method of a flow distinguisher.",
   "properties": {
     "type": {
-      "description": "`type` is the type of flow distinguisher method The supported types are \"ByUser\" and \"ByNamespace\". Required.",
+      "description": "type is the type of flow distinguisher method The supported types are \"ByUser\" and \"ByNamespace\". Required.",
       "type": [
         "string",
         "null"

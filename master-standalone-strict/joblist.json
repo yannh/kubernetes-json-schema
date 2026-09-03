@@ -446,13 +446,13 @@
                       ],
                       "additionalProperties": false
                     },
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "x-kubernetes-list-type": "atomic"
                   }
                 },
-                "required": [
-                  "rules"
-                ],
                 "type": [
                   "object",
                   "null"
@@ -11999,10 +11999,7 @@
             "required": [
               "template"
             ],
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": false
           },
           "status": {
@@ -12068,17 +12065,19 @@
                     },
                     "status": {
                       "description": "Status of the condition, one of True, False, Unknown.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "type": {
                       "description": "Type of job condition, Complete or Failed.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
-                  "required": [
-                    "type",
-                    "status"
-                  ],
                   "type": [
                     "object",
                     "null"
@@ -12186,6 +12185,9 @@
             "additionalProperties": false
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

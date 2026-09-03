@@ -3,10 +3,10 @@
   "properties": {
     "group": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.GroupSubject",
-      "description": "`group` matches based on user group name."
+      "description": "group matches based on user group name."
     },
     "kind": {
-      "description": "`kind` indicates which one of the other fields is non-empty. Required",
+      "description": "kind indicates which one of the other fields is non-empty. Required",
       "type": [
         "string",
         "null"
@@ -14,11 +14,11 @@
     },
     "serviceAccount": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.ServiceAccountSubject",
-      "description": "`serviceAccount` matches ServiceAccounts."
+      "description": "serviceAccount matches ServiceAccounts."
     },
     "user": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.UserSubject",
-      "description": "`user` matches based on username."
+      "description": "user matches based on username."
     }
   },
   "required": [
