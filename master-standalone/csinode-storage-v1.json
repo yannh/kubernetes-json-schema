@@ -328,7 +328,10 @@
               "null"
             ]
           },
-          "type": "array",
+          "type": [
+            "array",
+            "null"
+          ],
           "x-kubernetes-list-map-keys": [
             "name"
           ],
@@ -337,9 +340,6 @@
           "x-kubernetes-patch-strategy": "merge"
         }
       },
-      "required": [
-        "drivers"
-      ],
       "type": [
         "object",
         "null"
@@ -442,9 +442,6 @@
       ]
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

@@ -91,6 +91,9 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "parameterNotFoundAction"
+  ],
   "type": "object",
   "x-kubernetes-map-type": "atomic",
   "additionalProperties": false,

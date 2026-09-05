@@ -2,14 +2,14 @@
   "description": "PodFailurePolicyOnPodConditionsPattern describes a pattern for matching an actual pod condition type.",
   "properties": {
     "status": {
-      "description": "Specifies the required Pod condition status. To match a pod condition it is required that the specified status equals the pod condition status. Defaults to True.",
+      "description": "status specifies the required Pod condition status. To match a pod condition it is required that the specified status equals the pod condition status. Defaults to True.",
       "type": [
         "string",
         "null"
       ]
     },
     "type": {
-      "description": "Specifies the required Pod condition type. To match a pod condition it is required that specified type equals the pod condition type.",
+      "description": "type specifies the required Pod condition type. To match a pod condition it is required that specified type equals the pod condition type.",
       "type": [
         "string",
         "null"

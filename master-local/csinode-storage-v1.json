@@ -34,9 +34,6 @@
       "description": "status contains health and status information for the node's storage."
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

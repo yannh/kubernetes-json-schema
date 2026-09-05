@@ -303,10 +303,7 @@
             "required": [
               "resource"
             ],
-            "type": [
-              "object",
-              "null"
-            ]
+            "type": "object"
           },
           "status": {
             "description": "Status of the storage version migration.",
@@ -385,6 +382,9 @@
             ]
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

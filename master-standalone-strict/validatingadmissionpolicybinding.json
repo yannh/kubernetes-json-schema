@@ -639,10 +639,7 @@
             },
             "parameterNotFoundAction": {
               "description": "parameterNotFoundAction controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             },
             "selector": {
               "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
@@ -713,6 +710,9 @@
               "additionalProperties": false
             }
           },
+          "required": [
+            "parameterNotFoundAction"
+          ],
           "type": [
             "object",
             "null"

@@ -337,7 +337,10 @@
                     "null"
                   ]
                 },
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "x-kubernetes-list-map-keys": [
                   "name"
                 ],
@@ -346,10 +349,10 @@
                 "x-kubernetes-patch-strategy": "merge"
               }
             },
-            "required": [
-              "drivers"
-            ],
-            "type": "object"
+            "type": [
+              "object",
+              "null"
+            ]
           },
           "status": {
             "description": "CSINodeStatus contains health and status information for storage on a node.",
@@ -448,9 +451,6 @@
             ]
           }
         },
-        "required": [
-          "spec"
-        ],
         "type": [
           "object",
           "null"

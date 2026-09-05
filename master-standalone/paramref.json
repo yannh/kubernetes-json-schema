@@ -89,6 +89,9 @@
       "x-kubernetes-map-type": "atomic"
     }
   },
+  "required": [
+    "parameterNotFoundAction"
+  ],
   "type": "object",
   "x-kubernetes-map-type": "atomic",
   "$schema": "http://json-schema.org/schema#"

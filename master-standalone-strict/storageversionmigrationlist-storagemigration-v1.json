@@ -313,10 +313,7 @@
             "required": [
               "resource"
             ],
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": false
           },
           "status": {
@@ -398,6 +395,9 @@
             "additionalProperties": false
           }
         },
+        "required": [
+          "spec"
+        ],
         "type": [
           "object",
           "null"

@@ -30,9 +30,6 @@
       "description": "spec represents the specification of the CSI Driver."
     }
   },
-  "required": [
-    "spec"
-  ],
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {

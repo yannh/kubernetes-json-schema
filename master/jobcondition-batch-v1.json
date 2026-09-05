@@ -3,35 +3,35 @@
   "properties": {
     "lastProbeTime": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
-      "description": "Last time the condition was checked."
+      "description": "lastProbeTime is the last time the condition was checked."
     },
     "lastTransitionTime": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
-      "description": "Last time the condition transit from one status to another."
+      "description": "lastTransitionTime is the last time the condition transit from one status to another."
     },
     "message": {
-      "description": "Human readable message indicating details about last transition.",
+      "description": "message is human readable message indicating details about last transition.",
       "type": [
         "string",
         "null"
       ]
     },
     "reason": {
-      "description": "(brief) reason for the condition's last transition.",
+      "description": "reason is the brief reason for the condition's last transition.",
       "type": [
         "string",
         "null"
       ]
     },
     "status": {
-      "description": "Status of the condition, one of True, False, Unknown.",
+      "description": "status is the status of the condition, one of True, False, Unknown.",
       "type": [
         "string",
         "null"
       ]
     },
     "type": {
-      "description": "Type of job condition, Complete or Failed.",
+      "description": "type is the type of job condition, Complete or Failed.",
       "type": [
         "string",
         "null"
