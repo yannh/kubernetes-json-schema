@@ -488,7 +488,8 @@
             "type": [
               "object",
               "null"
-            ]
+            ],
+            "x-kubernetes-map-type": "atomic"
           },
           "source": {
             "description": "EventSource contains information for an event.",

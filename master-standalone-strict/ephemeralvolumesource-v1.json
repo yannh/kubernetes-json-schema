@@ -507,6 +507,9 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "volumeClaimTemplate"
+  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

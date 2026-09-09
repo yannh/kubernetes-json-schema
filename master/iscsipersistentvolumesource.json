@@ -86,8 +86,7 @@
   },
   "required": [
     "targetPortal",
-    "iqn",
-    "lun"
+    "iqn"
   ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"

@@ -72,7 +72,7 @@
   "required": [
     "gateway",
     "system",
-    "secretRef"
+    "volumeName"
   ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"

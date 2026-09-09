@@ -342,10 +342,7 @@
               "null"
             ]
           },
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "x-kubernetes-list-type": "atomic"
         },
         "username": {
@@ -358,7 +355,8 @@
       },
       "required": [
         "request",
-        "signerName"
+        "signerName",
+        "usages"
       ],
       "type": [
         "object",

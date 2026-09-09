@@ -120,6 +120,9 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "required"
+  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

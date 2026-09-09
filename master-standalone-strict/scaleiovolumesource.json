@@ -86,7 +86,7 @@
   "required": [
     "gateway",
     "system",
-    "secretRef"
+    "volumeName"
   ],
   "type": "object",
   "additionalProperties": false,
