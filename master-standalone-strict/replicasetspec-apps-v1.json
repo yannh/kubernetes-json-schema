@@ -2,7 +2,7 @@
   "description": "ReplicaSetSpec is the specification of a ReplicaSet.",
   "properties": {
     "minReadySeconds": {
-      "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
+      "description": "minReadySeconds is the minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
       "format": "int32",
       "type": [
         "integer",
@@ -10,7 +10,7 @@
       ]
     },
     "replicas": {
-      "description": "Replicas is the number of desired pods. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
+      "description": "replicas is the number of desired pods. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
       "format": "int32",
       "type": [
         "integer",

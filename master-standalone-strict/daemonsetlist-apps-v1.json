@@ -293,7 +293,7 @@
             "description": "DaemonSetSpec is the specification of a daemon set.",
             "properties": {
               "minReadySeconds": {
-                "description": "The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).",
+                "description": "minReadySeconds is the minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -301,7 +301,7 @@
                 ]
               },
               "revisionHistoryLimit": {
-                "description": "The number of old history to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.",
+                "description": "revisionHistoryLimit is the maximum number of old revisions to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11660,7 +11660,7 @@
                     "additionalProperties": false
                   },
                   "type": {
-                    "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.",
+                    "description": "type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.",
                     "type": [
                       "string",
                       "null"
@@ -11685,7 +11685,7 @@
             "description": "DaemonSetStatus represents the current status of a daemon set.",
             "properties": {
               "collisionCount": {
-                "description": "Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.",
+                "description": "collisionCount is the number of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11693,7 +11693,7 @@
                 ]
               },
               "conditions": {
-                "description": "Represents the latest available observations of a DaemonSet's current state.",
+                "description": "conditions lists the latest available observations of a DaemonSet's current state.",
                 "items": {
                   "description": "DaemonSetCondition describes the state of a DaemonSet at a certain point.",
                   "properties": {
@@ -11706,28 +11706,28 @@
                       ]
                     },
                     "message": {
-                      "description": "A human readable message indicating details about the transition.",
+                      "description": "message is a human readable string indicating details about the transition.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "reason": {
-                      "description": "The reason for the condition's last transition.",
+                      "description": "reason for the condition's last transition.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "status": {
-                      "description": "Status of the condition, one of True, False, Unknown.",
+                      "description": "status of the condition, one of True, False, Unknown.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "type": {
-                      "description": "Type of DaemonSet condition.",
+                      "description": "type of DaemonSet condition.",
                       "type": [
                         "string",
                         "null"
@@ -11752,17 +11752,17 @@
                 "x-kubernetes-patch-strategy": "merge"
               },
               "currentNumberScheduled": {
-                "description": "The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
+                "description": "currentNumberScheduled is the number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
                 "format": "int32",
                 "type": "integer"
               },
               "desiredNumberScheduled": {
-                "description": "The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
+                "description": "desiredNumberScheduled is the total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
                 "format": "int32",
                 "type": "integer"
               },
               "numberAvailable": {
-                "description": "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)",
+                "description": "numberAvailable is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds).",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11770,7 +11770,7 @@
                 ]
               },
               "numberMisscheduled": {
-                "description": "The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
+                "description": "numberMisscheduled is the number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
                 "format": "int32",
                 "type": "integer"
               },
@@ -11780,7 +11780,7 @@
                 "type": "integer"
               },
               "numberUnavailable": {
-                "description": "The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)",
+                "description": "numberUnavailable is the number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds).",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11788,7 +11788,7 @@
                 ]
               },
               "observedGeneration": {
-                "description": "The most recent generation observed by the daemon set controller.",
+                "description": "observedGeneration is the most recent generation observed by the daemon set controller.",
                 "format": "int64",
                 "type": [
                   "integer",
@@ -11796,7 +11796,7 @@
                 ]
               },
               "updatedNumberScheduled": {
-                "description": "The total number of nodes that are running updated daemon pod",
+                "description": "updatedNumberScheduled is the total number of nodes that are running updated daemon pod.",
                 "format": "int32",
                 "type": [
                   "integer",

@@ -2,7 +2,7 @@
   "description": "DaemonSetSpec is the specification of a daemon set.",
   "properties": {
     "minReadySeconds": {
-      "description": "The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).",
+      "description": "minReadySeconds is the minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).",
       "format": "int32",
       "type": [
         "integer",
@@ -10,7 +10,7 @@
       ]
     },
     "revisionHistoryLimit": {
-      "description": "The number of old history to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.",
+      "description": "revisionHistoryLimit is the maximum number of old revisions to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.",
       "format": "int32",
       "type": [
         "integer",
@@ -11075,7 +11075,7 @@
           ]
         },
         "type": {
-          "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.",
+          "description": "type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.",
           "type": [
             "string",
             "null"

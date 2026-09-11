@@ -290,7 +290,7 @@
             "description": "ReplicaSetSpec is the specification of a ReplicaSet.",
             "properties": {
               "minReadySeconds": {
-                "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
+                "description": "minReadySeconds is the minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -298,7 +298,7 @@
                 ]
               },
               "replicas": {
-                "description": "Replicas is the number of desired pods. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
+                "description": "replicas is the number of desired pods. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11325,7 +11325,7 @@
             "description": "ReplicaSetStatus represents the current status of a ReplicaSet.",
             "properties": {
               "availableReplicas": {
-                "description": "The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.",
+                "description": "availableReplicas is the number of available non-terminating pods (ready for at least minReadySeconds) for this ReplicaSet.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11333,7 +11333,7 @@
                 ]
               },
               "conditions": {
-                "description": "Represents the latest available observations of a replica set's current state.",
+                "description": "conditions lists the latest available observations of a ReplicaSet's current state.",
                 "items": {
                   "description": "ReplicaSetCondition describes the state of a replica set at a certain point.",
                   "properties": {
@@ -11346,28 +11346,28 @@
                       ]
                     },
                     "message": {
-                      "description": "A human readable message indicating details about the transition.",
+                      "description": "message is a human readable string indicating details about the transition.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "reason": {
-                      "description": "The reason for the condition's last transition.",
+                      "description": "reason for the condition's last transition.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "status": {
-                      "description": "Status of the condition, one of True, False, Unknown.",
+                      "description": "status of the condition, one of True, False, Unknown.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "type": {
-                      "description": "Type of replica set condition.",
+                      "description": "type of replica set condition.",
                       "type": [
                         "string",
                         "null"
@@ -11391,7 +11391,7 @@
                 "x-kubernetes-patch-strategy": "merge"
               },
               "fullyLabeledReplicas": {
-                "description": "The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.",
+                "description": "fullyLabeledReplicas is the number of non-terminating pods that have labels matching the labels of the pod template of the ReplicaSet.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11399,7 +11399,7 @@
                 ]
               },
               "observedGeneration": {
-                "description": "ObservedGeneration reflects the generation of the most recently observed ReplicaSet.",
+                "description": "observedGeneration reflects the generation of the most recently observed ReplicaSet.",
                 "format": "int64",
                 "type": [
                   "integer",
@@ -11407,7 +11407,7 @@
                 ]
               },
               "readyReplicas": {
-                "description": "The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.",
+                "description": "readyReplicas is the number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -11415,12 +11415,12 @@
                 ]
               },
               "replicas": {
-                "description": "Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
+                "description": "replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset",
                 "format": "int32",
                 "type": "integer"
               },
               "terminatingReplicas": {
-                "description": "The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is a beta field and requires enabling DeploymentReplicaSetTerminatingReplicas feature (enabled by default).",
+                "description": "terminatingReplicas is the number of terminating pods for this ReplicaSet. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is a beta field and requires enabling DeploymentReplicaSetTerminatingReplicas feature (enabled by default).",
                 "format": "int32",
                 "type": [
                   "integer",

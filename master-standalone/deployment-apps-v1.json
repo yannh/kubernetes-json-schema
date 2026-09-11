@@ -275,7 +275,7 @@
       "description": "DeploymentSpec is the specification of the desired behavior of the Deployment.",
       "properties": {
         "minReadySeconds": {
-          "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
+          "description": "minReadySeconds is the minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).",
           "format": "int32",
           "type": [
             "integer",
@@ -283,14 +283,14 @@
           ]
         },
         "paused": {
-          "description": "Indicates that the deployment is paused.",
+          "description": "paused indicates that the deployment is paused.",
           "type": [
             "boolean",
             "null"
           ]
         },
         "progressDeadlineSeconds": {
-          "description": "The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.",
+          "description": "progressDeadlineSeconds is the maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.",
           "format": "int32",
           "type": [
             "integer",
@@ -298,7 +298,7 @@
           ]
         },
         "replicas": {
-          "description": "Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.",
+          "description": "replicas is the desired number of pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -306,7 +306,7 @@
           ]
         },
         "revisionHistoryLimit": {
-          "description": "The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.",
+          "description": "revisionHistoryLimit is the maximum number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.",
           "format": "int32",
           "type": [
             "integer",
@@ -421,7 +421,7 @@
               ]
             },
             "type": {
-              "description": "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.",
+              "description": "type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.",
               "type": [
                 "string",
                 "null"
@@ -11391,7 +11391,7 @@
       "description": "DeploymentStatus is the most recently observed status of the Deployment.",
       "properties": {
         "availableReplicas": {
-          "description": "Total number of available non-terminating pods (ready for at least minReadySeconds) targeted by this deployment.",
+          "description": "availableReplicas is the total number of available non-terminating pods (ready for at least minReadySeconds) targeted by this deployment.",
           "format": "int32",
           "type": [
             "integer",
@@ -11399,7 +11399,7 @@
           ]
         },
         "collisionCount": {
-          "description": "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.",
+          "description": "collisionCount is the number of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.",
           "format": "int32",
           "type": [
             "integer",
@@ -11407,7 +11407,7 @@
           ]
         },
         "conditions": {
-          "description": "Represents the latest available observations of a deployment's current state.",
+          "description": "conditions lists the latest available observations of a deployment's current state.",
           "items": {
             "description": "DeploymentCondition describes the state of a deployment at a certain point.",
             "properties": {
@@ -11428,28 +11428,28 @@
                 ]
               },
               "message": {
-                "description": "A human readable message indicating details about the transition.",
+                "description": "message is a human readable string indicating details about the transition.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "reason": {
-                "description": "The reason for the condition's last transition.",
+                "description": "reason for the condition's last transition.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "status": {
-                "description": "Status of the condition, one of True, False, Unknown.",
+                "description": "status of the condition, one of True, False, Unknown.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "type": {
-                "description": "Type of deployment condition.",
+                "description": "type of deployment condition.",
                 "type": [
                   "string",
                   "null"
@@ -11473,7 +11473,7 @@
           "x-kubernetes-patch-strategy": "merge"
         },
         "observedGeneration": {
-          "description": "The generation observed by the deployment controller.",
+          "description": "observedGeneration is the generation observed by the deployment controller.",
           "format": "int64",
           "type": [
             "integer",
@@ -11481,7 +11481,7 @@
           ]
         },
         "readyReplicas": {
-          "description": "Total number of non-terminating pods targeted by this Deployment with a Ready Condition.",
+          "description": "readyReplicas is the total number of non-terminating pods targeted by this Deployment with a Ready Condition.",
           "format": "int32",
           "type": [
             "integer",
@@ -11489,7 +11489,7 @@
           ]
         },
         "replicas": {
-          "description": "Total number of non-terminating pods targeted by this deployment (their labels match the selector).",
+          "description": "replicas is the total number of non-terminating pods targeted by this deployment (their labels match the selector).",
           "format": "int32",
           "type": [
             "integer",
@@ -11497,7 +11497,7 @@
           ]
         },
         "terminatingReplicas": {
-          "description": "Total number of terminating pods targeted by this deployment. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is a beta field and requires enabling DeploymentReplicaSetTerminatingReplicas feature (enabled by default).",
+          "description": "terminatingReplicas is the number of terminating pods targeted by this deployment. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is a beta field and requires enabling DeploymentReplicaSetTerminatingReplicas feature (enabled by default).",
           "format": "int32",
           "type": [
             "integer",
@@ -11505,7 +11505,7 @@
           ]
         },
         "unavailableReplicas": {
-          "description": "Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.",
+          "description": "unavailableReplicas is the total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.",
           "format": "int32",
           "type": [
             "integer",
@@ -11513,7 +11513,7 @@
           ]
         },
         "updatedReplicas": {
-          "description": "Total number of non-terminating pods targeted by this deployment that have the desired template spec.",
+          "description": "updatedReplicas is total number of non-terminating pods targeted by this deployment that have the desired template spec.",
           "format": "int32",
           "type": [
             "integer",

@@ -3,10 +3,10 @@
   "properties": {
     "rollingUpdate": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.apps.v1.RollingUpdateDeployment",
-      "description": "Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate."
+      "description": "rollingUpdate config params. Present only if type = RollingUpdate."
     },
     "type": {
-      "description": "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.",
+      "description": "type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.",
       "type": [
         "string",
         "null"

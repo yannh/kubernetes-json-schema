@@ -23,15 +23,15 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+      "description": "metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetSpec",
-      "description": "Spec defines the desired identities of pods in this set."
+      "description": "spec defines the desired identities of pods in this set."
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.StatefulSetStatus",
-      "description": "Status is the current status of Pods in this StatefulSet. This data may be out of date by some window of time."
+      "description": "status is the current status of Pods in this StatefulSet. This data may be out of date by some window of time."
     }
   },
   "required": [

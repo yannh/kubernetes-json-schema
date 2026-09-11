@@ -275,7 +275,7 @@
       "description": "A StatefulSetSpec is the specification of a StatefulSet.",
       "properties": {
         "minReadySeconds": {
-          "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
+          "description": "minReadySeconds is the minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
           "format": "int32",
           "type": [
             "integer",
@@ -303,14 +303,14 @@
           "description": "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.",
           "properties": {
             "whenDeleted": {
-              "description": "WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.",
+              "description": "whenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "whenScaled": {
-              "description": "WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.",
+              "description": "whenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.",
               "type": [
                 "string",
                 "null"
@@ -11382,7 +11382,7 @@
                   ]
                 },
                 "partition": {
-                  "description": "Partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.",
+                  "description": "partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.",
                   "format": "int32",
                   "type": [
                     "integer",
@@ -11396,7 +11396,7 @@
               ]
             },
             "type": {
-              "description": "Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.",
+              "description": "type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.",
               "type": [
                 "string",
                 "null"
@@ -12195,7 +12195,7 @@
       "description": "StatefulSetStatus represents the current state of a StatefulSet.",
       "properties": {
         "availableReplicas": {
-          "description": "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset.",
+          "description": "availableReplicas is the number of available non-terminating pods (ready for at least minReadySeconds) targeted by this StatefulSet.",
           "format": "int32",
           "type": [
             "integer",
@@ -12211,7 +12211,7 @@
           ]
         },
         "conditions": {
-          "description": "Represents the latest available observations of a statefulset's current state.",
+          "description": "conditions lists the latest available observations of a StatefulSet's current state.",
           "items": {
             "description": "StatefulSetCondition describes the state of a statefulset at a certain point.",
             "properties": {
@@ -12224,28 +12224,28 @@
                 ]
               },
               "message": {
-                "description": "A human readable message indicating details about the transition.",
+                "description": "message is a human readable string indicating details about the transition.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "reason": {
-                "description": "The reason for the condition's last transition.",
+                "description": "reason for the condition's last transition.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "status": {
-                "description": "Status of the condition, one of True, False, Unknown.",
+                "description": "status of the condition, one of True, False, Unknown.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "type": {
-                "description": "Type of statefulset condition.",
+                "description": "type of statefulset condition.",
                 "type": [
                   "string",
                   "null"
@@ -12305,7 +12305,7 @@
           "type": "integer"
         },
         "updateRevision": {
-          "description": "updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas)",
+          "description": "updateRevision indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas)",
           "type": [
             "string",
             "null"

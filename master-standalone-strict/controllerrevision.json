@@ -279,7 +279,7 @@
       "additionalProperties": false
     },
     "revision": {
-      "description": "Revision indicates the revision of the state represented by Data.",
+      "description": "revision indicates the revision of the state represented by Data.",
       "format": "int64",
       "type": [
         "integer",

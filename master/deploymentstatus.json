@@ -2,7 +2,7 @@
   "description": "DeploymentStatus is the most recently observed status of the Deployment.",
   "properties": {
     "availableReplicas": {
-      "description": "Total number of available non-terminating pods (ready for at least minReadySeconds) targeted by this deployment.",
+      "description": "availableReplicas is the total number of available non-terminating pods (ready for at least minReadySeconds) targeted by this deployment.",
       "format": "int32",
       "type": [
         "integer",
@@ -10,7 +10,7 @@
       ]
     },
     "collisionCount": {
-      "description": "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.",
+      "description": "collisionCount is the number of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.",
       "format": "int32",
       "type": [
         "integer",
@@ -18,7 +18,7 @@
       ]
     },
     "conditions": {
-      "description": "Represents the latest available observations of a deployment's current state.",
+      "description": "conditions lists the latest available observations of a deployment's current state.",
       "items": {
         "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.apps.v1.DeploymentCondition"
       },
@@ -34,7 +34,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "observedGeneration": {
-      "description": "The generation observed by the deployment controller.",
+      "description": "observedGeneration is the generation observed by the deployment controller.",
       "format": "int64",
       "type": [
         "integer",
@@ -42,7 +42,7 @@
       ]
     },
     "readyReplicas": {
-      "description": "Total number of non-terminating pods targeted by this Deployment with a Ready Condition.",
+      "description": "readyReplicas is the total number of non-terminating pods targeted by this Deployment with a Ready Condition.",
       "format": "int32",
       "type": [
         "integer",
@@ -50,7 +50,7 @@
       ]
     },
     "replicas": {
-      "description": "Total number of non-terminating pods targeted by this deployment (their labels match the selector).",
+      "description": "replicas is the total number of non-terminating pods targeted by this deployment (their labels match the selector).",
       "format": "int32",
       "type": [
         "integer",
@@ -58,7 +58,7 @@
       ]
     },
     "terminatingReplicas": {
-      "description": "Total number of terminating pods targeted by this deployment. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is a beta field and requires enabling DeploymentReplicaSetTerminatingReplicas feature (enabled by default).",
+      "description": "terminatingReplicas is the number of terminating pods targeted by this deployment. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.\n\nThis is a beta field and requires enabling DeploymentReplicaSetTerminatingReplicas feature (enabled by default).",
       "format": "int32",
       "type": [
         "integer",
@@ -66,7 +66,7 @@
       ]
     },
     "unavailableReplicas": {
-      "description": "Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.",
+      "description": "unavailableReplicas is the total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.",
       "format": "int32",
       "type": [
         "integer",
@@ -74,7 +74,7 @@
       ]
     },
     "updatedReplicas": {
-      "description": "Total number of non-terminating pods targeted by this deployment that have the desired template spec.",
+      "description": "updatedReplicas is total number of non-terminating pods targeted by this deployment that have the desired template spec.",
       "format": "int32",
       "type": [
         "integer",
