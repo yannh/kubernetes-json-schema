@@ -3,7 +3,7 @@
   "properties": {
     "value": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
-      "description": "Value defines how much of a certain device counter is available."
+      "description": "value defines how much of a certain device counter is available."
     }
   },
   "required": [

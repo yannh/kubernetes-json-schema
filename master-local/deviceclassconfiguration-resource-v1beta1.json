@@ -3,7 +3,7 @@
   "properties": {
     "opaque": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.OpaqueDeviceConfiguration",
-      "description": "Opaque provides driver-specific configuration parameters."
+      "description": "opaque provides driver-specific configuration parameters."
     }
   },
   "type": "object",

@@ -5,14 +5,14 @@
       "additionalProperties": {
         "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta1.Counter"
       },
-      "description": "Counters defines the set of counters for this CounterSet The name of each counter must be unique in that set and must be a DNS label.\n\nThe maximum number of counters is 32.",
+      "description": "counters defines the set of counters for this CounterSet The name of each counter must be unique in that set and must be a DNS label.\n\nThe maximum number of counters is 32.",
       "type": [
         "object",
         "null"
       ]
     },
     "name": {
-      "description": "Name defines the name of the counter set. It must be a DNS label.",
+      "description": "name defines the name of the counter set. It must be a DNS label.",
       "type": [
         "string",
         "null"

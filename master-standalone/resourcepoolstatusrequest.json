@@ -272,18 +272,18 @@
       "description": "ResourcePoolStatusRequestSpec defines the filters for the pool status request.",
       "properties": {
         "defaultPartitionTypeAttribute": {
-          "description": "DefaultPartitionTypeAttribute optionally names a device attribute (by its fully qualified name, e.g. \"gpu.example.com/profile\") to use as the default grouping attribute for partitionable devices whose slice has not declared one themselves.\n\nA slice's own PartitionTypeAttribute always takes precedence. This default applies only to devices whose slice does not declare one, so that a request can still get an accurate partitionSummary from a driver that has not been updated to declare it. When neither the slice nor this default names an attribute, a partitionable pool reports no partitionSummary.\n\nMust include the domain qualifier.",
+          "description": "defaultPartitionTypeAttribute optionally names a device attribute (by its fully qualified name, e.g. \"gpu.example.com/profile\") to use as the default grouping attribute for partitionable devices whose slice has not declared one themselves.\n\nA slice's own PartitionTypeAttribute always takes precedence. This default applies only to devices whose slice does not declare one, so that a request can still get an accurate partitionSummary from a driver that has not been updated to declare it. When neither the slice nor this default names an attribute, a partitionable pool reports no partitionSummary.\n\nMust include the domain qualifier.",
           "type": [
             "string",
             "null"
           ]
         },
         "driver": {
-          "description": "Driver specifies the DRA driver name to filter pools. Only pools from ResourceSlices with this driver will be included. Must be a DNS subdomain (e.g., \"gpu.example.com\").",
+          "description": "driver specifies the DRA driver name to filter pools. Only pools from ResourceSlices with this driver will be included. Must be a DNS subdomain (e.g., \"gpu.example.com\").",
           "type": "string"
         },
         "limit": {
-          "description": "Limit optionally specifies the maximum number of pools to return in the status. If more pools match the filter criteria, the response will be truncated (i.e., len(status.pools) < status.poolCount).\n\nDefault: 100 Minimum: 1 Maximum: 1000",
+          "description": "limit optionally specifies the maximum number of pools to return in the status. If more pools match the filter criteria, the response will be truncated (i.e., len(status.pools) < status.poolCount).\n\nDefault: 100 Minimum: 1 Maximum: 1000",
           "format": "int32",
           "type": [
             "integer",
@@ -291,7 +291,7 @@
           ]
         },
         "poolName": {
-          "description": "PoolName optionally filters to a specific pool name. If not specified, all pools from the specified driver are included. When specified, must be a non-empty valid resource pool name (DNS subdomains separated by \"/\").",
+          "description": "poolName optionally filters to a specific pool name. If not specified, all pools from the specified driver are included. When specified, must be a non-empty valid resource pool name (DNS subdomains separated by \"/\").",
           "type": [
             "string",
             "null"
@@ -310,7 +310,7 @@
       "description": "ResourcePoolStatusRequestStatus contains the calculated pool status information.",
       "properties": {
         "conditions": {
-          "description": "Conditions provide information about the state of the request. A condition with type=Complete or type=Failed will always be set when the status is populated.\n\nKnown condition types: - \"Complete\": True when the request has been processed successfully - \"Failed\": True when the request could not be processed",
+          "description": "conditions provide information about the state of the request. A condition with type=Complete or type=Failed will always be set when the status is populated.\n\nKnown condition types: - \"Complete\": True when the request has been processed successfully - \"Failed\": True when the request could not be processed",
           "items": {
             "description": "Condition contains details for one aspect of the current state of this API Resource.",
             "properties": {
@@ -370,17 +370,17 @@
           "x-kubernetes-patch-strategy": "merge"
         },
         "poolCount": {
-          "description": "PoolCount is the total number of pools that matched the filter criteria, regardless of truncation. This helps users understand how many pools exist even when the response is truncated. A value of 0 means no pools matched the filter criteria.",
+          "description": "poolCount is the total number of pools that matched the filter criteria, regardless of truncation. This helps users understand how many pools exist even when the response is truncated. A value of 0 means no pools matched the filter criteria.",
           "format": "int32",
           "type": "integer"
         },
         "pools": {
-          "description": "Pools contains the first `spec.limit` matching pools, sorted by driver then pool name. If `len(pools) < poolCount`, the list was truncated. When omitted, no pools matched the request filters.",
+          "description": "pools contains the first `spec.limit` matching pools, sorted by driver then pool name. If `len(pools) < poolCount`, the list was truncated. When omitted, no pools matched the request filters.",
           "items": {
             "description": "PoolStatus contains status information for a single resource pool.",
             "properties": {
               "allocatedDevices": {
-                "description": "AllocatedDevices is the number of devices currently allocated to claims. A value of 0 means no devices are allocated. May be unset when validationError is set.",
+                "description": "allocatedDevices is the number of devices currently allocated to claims. A value of 0 means no devices are allocated. May be unset when validationError is set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -388,7 +388,7 @@
                 ]
               },
               "availableDevices": {
-                "description": "AvailableDevices is the number of devices available for allocation. This equals TotalDevices - AllocatedDevices - UnavailableDevices. A value of 0 means no devices are currently available. May be unset when validationError is set.",
+                "description": "availableDevices is the number of devices available for allocation. This equals TotalDevices - AllocatedDevices - UnavailableDevices. A value of 0 means no devices are currently available. May be unset when validationError is set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -396,42 +396,42 @@
                 ]
               },
               "driver": {
-                "description": "Driver is the DRA driver name for this pool. Must be a DNS subdomain (e.g., \"gpu.example.com\").",
+                "description": "driver is the DRA driver name for this pool. Must be a DNS subdomain (e.g., \"gpu.example.com\").",
                 "type": "string"
               },
               "generation": {
-                "description": "Generation is the pool generation observed across all ResourceSlices in this pool. Only the latest generation is reported. During a generation rollout, if not all slices at the latest generation have been published, the pool is included with a validationError and device counts unset.",
+                "description": "generation is the pool generation observed across all ResourceSlices in this pool. Only the latest generation is reported. During a generation rollout, if not all slices at the latest generation have been published, the pool is included with a validationError and device counts unset.",
                 "format": "int64",
                 "type": "integer"
               },
               "nodeName": {
-                "description": "NodeName is the node this pool is associated with. When omitted, the pool is not associated with a specific node. Must be a valid DNS subdomain name (RFC1123).",
+                "description": "nodeName is the node this pool is associated with. When omitted, the pool is not associated with a specific node. Must be a valid DNS subdomain name (RFC1123).",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "partitionSummary": {
-                "description": "PartitionSummary reports allocatability per (attribute, partition type) for a partitionable pool that publishes SharedCounters. Each entry names the grouping attribute it was resolved from: the PartitionTypeAttribute declared by a device's own slice, or for devices whose slice declares none, the default named in the request. A pool that mixes partitions declared under different attributes reports each independently. When no slice declares an attribute and the request names no default, the pool reports no partition summary.",
+                "description": "partitionSummary reports allocatability per (attribute, partition type) for a partitionable pool that publishes SharedCounters. Each entry names the grouping attribute it was resolved from: the PartitionTypeAttribute declared by a device's own slice, or for devices whose slice declares none, the default named in the request. A pool that mixes partitions declared under different attributes reports each independently. When no slice declares an attribute and the request names no default, the pool reports no partition summary.",
                 "items": {
                   "description": "PartitionTypeStatus reports allocatability for a single partition type, identified by the value of a grouping attribute.",
                   "properties": {
                     "allocatable": {
-                      "description": "Allocatable is the number of additional devices of this partition type that could still be allocated given current shared-counter consumption.",
+                      "description": "allocatable is the number of additional devices of this partition type that could still be allocated given current shared-counter consumption.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "attribute": {
-                      "description": "Attribute is the fully qualified name of the device attribute whose value groups this entry. It is the PartitionTypeAttribute declared by the devices' own slice, or the default named in the request when their slice declares none.",
+                      "description": "attribute is the fully qualified name of the device attribute whose value groups this entry. It is the PartitionTypeAttribute declared by the devices' own slice, or the default named in the request when their slice declares none.",
                       "type": "string"
                     },
                     "total": {
-                      "description": "Total is the number of devices of this partition type in the pool.",
+                      "description": "total is the number of devices of this partition type in the pool.",
                       "format": "int32",
                       "type": "integer"
                     },
                     "type": {
-                      "description": "Type is the partition type value (e.g. \"Full\" or \"Half\").",
+                      "description": "type is the partition type value (e.g. \"Full\" or \"Half\").",
                       "type": "string"
                     }
                   },
@@ -453,11 +453,11 @@
                 "x-kubernetes-list-type": "atomic"
               },
               "poolName": {
-                "description": "PoolName is the name of the pool. Must be a valid resource pool name (DNS subdomains separated by \"/\").",
+                "description": "poolName is the name of the pool. Must be a valid resource pool name (DNS subdomains separated by \"/\").",
                 "type": "string"
               },
               "resourceSliceCount": {
-                "description": "ResourceSliceCount is the number of ResourceSlices that make up this pool. May be unset when validationError is set.",
+                "description": "resourceSliceCount is the number of ResourceSlices that make up this pool. May be unset when validationError is set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -468,7 +468,7 @@
                 "description": "ShareableSummaryStatus reports aggregate capacity for a pool that contains devices with AllowMultipleAllocations.",
                 "properties": {
                   "capacity": {
-                    "description": "Capacity reports aggregate total, consumed, and available amounts per shareable capacity key across the pool.",
+                    "description": "capacity reports aggregate total, consumed, and available amounts per shareable capacity key across the pool.",
                     "items": {
                       "description": "ShareableCapacityStatus reports aggregate amounts for a single shareable capacity key.",
                       "properties": {
@@ -505,7 +505,7 @@
                           ]
                         },
                         "name": {
-                          "description": "Name is the capacity name.",
+                          "description": "name is the capacity name.",
                           "type": "string"
                         },
                         "total": {
@@ -543,12 +543,12 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "fullyAvailableDevices": {
-                    "description": "FullyAvailableDevices is the number of shareable devices with no capacity consumed.",
+                    "description": "fullyAvailableDevices is the number of shareable devices with no capacity consumed.",
                     "format": "int32",
                     "type": "integer"
                   },
                   "partiallyAvailableDevices": {
-                    "description": "PartiallyAvailableDevices is the number of shareable devices with some but not all capacity consumed.",
+                    "description": "partiallyAvailableDevices is the number of shareable devices with some but not all capacity consumed.",
                     "format": "int32",
                     "type": "integer"
                   }
@@ -563,7 +563,7 @@
                 ]
               },
               "totalDevices": {
-                "description": "TotalDevices is the total number of devices in the pool across all slices. A value of 0 means the pool has no devices. May be unset when validationError is set.",
+                "description": "totalDevices is the total number of devices in the pool across all slices. A value of 0 means the pool has no devices. May be unset when validationError is set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -571,7 +571,7 @@
                 ]
               },
               "unavailableDevices": {
-                "description": "UnavailableDevices is the number of devices that are not available due to taints or other conditions, but are not allocated. A value of 0 means all unallocated devices are available. May be unset when validationError is set.",
+                "description": "unavailableDevices is the number of devices that are not available due to taints or other conditions, but are not allocated. A value of 0 means all unallocated devices are available. May be unset when validationError is set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -579,7 +579,7 @@
                 ]
               },
               "validationError": {
-                "description": "ValidationError is set when the pool's data could not be fully validated (e.g., incomplete slice publication). When set, device count fields and ResourceSliceCount may be unset.",
+                "description": "validationError is set when the pool's data could not be fully validated (e.g., incomplete slice publication). When set, device count fields and ResourceSliceCount may be unset.",
                 "type": [
                   "string",
                   "null"

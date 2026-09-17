@@ -20,15 +20,15 @@
     },
     "metadata": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object metadata"
+      "description": "metadata is the standard object metadata."
     },
     "spec": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequestSpec",
-      "description": "Spec defines the filters for which pools to include in the status. The spec is immutable once created."
+      "description": "spec defines the filters for which pools to include in the status. The spec is immutable once created."
     },
     "status": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePoolStatusRequestStatus",
-      "description": "Status is populated by the controller with the calculated pool status. When status is non-nil, the request is considered complete and the entire object becomes immutable."
+      "description": "status is populated by the controller with the calculated pool status. When status is non-nil, the request is considered complete and the entire object becomes immutable."
     }
   },
   "required": [

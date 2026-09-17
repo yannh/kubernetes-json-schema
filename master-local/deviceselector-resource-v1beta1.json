@@ -3,7 +3,7 @@
   "properties": {
     "cel": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.CELDeviceSelector",
-      "description": "CEL contains a CEL expression for selecting a device."
+      "description": "cel contains a CEL expression for selecting a device."
     }
   },
   "type": "object",

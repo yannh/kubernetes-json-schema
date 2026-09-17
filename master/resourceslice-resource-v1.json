@@ -23,11 +23,11 @@
     },
     "metadata": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object metadata"
+      "description": "metadata is the standard object's metadata."
     },
     "spec": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1.ResourceSliceSpec",
-      "description": "Contains the information published by the driver.\n\nChanging the spec automatically increments the metadata.generation number."
+      "description": "spec contains the information published by the driver.\n\nChanging the spec automatically increments the metadata.generation number."
     }
   },
   "required": [

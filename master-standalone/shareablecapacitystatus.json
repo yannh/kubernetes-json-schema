@@ -34,7 +34,7 @@
       ]
     },
     "name": {
-      "description": "Name is the capacity name.",
+      "description": "name is the capacity name.",
       "type": [
         "string",
         "null"

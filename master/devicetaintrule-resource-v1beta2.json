@@ -23,15 +23,15 @@
     },
     "metadata": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-      "description": "Standard object metadata"
+      "description": "metadata is the standard object metadata."
     },
     "spec": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceTaintRuleSpec",
-      "description": "Spec specifies the selector and one taint.\n\nChanging the spec automatically increments the metadata.generation number."
+      "description": "spec specifies the selector and one taint.\n\nChanging the spec automatically increments the metadata.generation number."
     },
     "status": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.resource.v1beta2.DeviceTaintRuleStatus",
-      "description": "Status provides information about what was requested in the spec."
+      "description": "status provides information about what was requested in the spec."
     }
   },
   "required": [
