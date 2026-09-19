@@ -5,7 +5,7 @@
       "additionalProperties": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
-      "description": "Default specifies resource limit values by resource name. These are applied to containers which do not specify their own limits for those resources.",
+      "description": "default specifies resource limit values by resource name. These are applied to containers which do not specify their own limits for those resources.",
       "type": [
         "object",
         "null"
@@ -15,7 +15,7 @@
       "additionalProperties": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
-      "description": "DefaultRequest specifies resource request values by resource name. These are applied to containers which do not specify their own requests for those resources.",
+      "description": "defaultRequest specifies resource request values by resource name. These are applied to containers which do not specify their own requests for those resources.",
       "type": [
         "object",
         "null"
@@ -25,7 +25,7 @@
       "additionalProperties": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
-      "description": "Max usage constraints on this kind by resource name.",
+      "description": "max usage constraints on this kind by resource name.",
       "type": [
         "object",
         "null"
@@ -35,7 +35,7 @@
       "additionalProperties": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
-      "description": "MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.",
+      "description": "maxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.",
       "type": [
         "object",
         "null"
@@ -45,14 +45,14 @@
       "additionalProperties": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
       },
-      "description": "Min usage constraints on this kind by resource name.",
+      "description": "min usage constraints on this kind by resource name.",
       "type": [
         "object",
         "null"
       ]
     },
     "type": {
-      "description": "Type of resource that this limit applies to.",
+      "description": "type of resource that this limit applies to.",
       "type": [
         "string",
         "null"

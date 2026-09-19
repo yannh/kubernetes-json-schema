@@ -17,7 +17,7 @@
         "description": "Event is a report of an event somewhere in the cluster.  Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.",
         "properties": {
           "action": {
-            "description": "What action was taken/failed regarding to the Regarding object.",
+            "description": "action is what action was taken/failed regarding to the Regarding object.",
             "type": [
               "string",
               "null"
@@ -34,7 +34,7 @@
             ]
           },
           "count": {
-            "description": "The number of times this event has occurred.",
+            "description": "count is the number of times this event has occurred.",
             "format": "int32",
             "type": [
               "integer",
@@ -61,49 +61,49 @@
             "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
             "properties": {
               "apiVersion": {
-                "description": "API version of the referent.",
+                "description": "apiVersion is API version of the referent.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "fieldPath": {
-                "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+                "description": "fieldPath if referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "kind": {
-                "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                "description": "kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "name": {
-                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "description": "name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "namespace": {
-                "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                "description": "namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "resourceVersion": {
-                "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                "description": "resourceVersion is the specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "uid": {
-                "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                "description": "uid of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
                 "type": [
                   "string",
                   "null"
@@ -132,7 +132,7 @@
             ]
           },
           "message": {
-            "description": "A human-readable description of the status of this operation.",
+            "description": "message is a human-readable description of the status of this operation.",
             "type": [
               "string",
               "null"
@@ -386,7 +386,7 @@
             "type": "object"
           },
           "reason": {
-            "description": "This should be a short, machine understandable string that gives the reason for the transition into the object's current status.",
+            "description": "reason is a short, machine understandable string that gives the reason for the transition into the object's current status.",
             "type": [
               "string",
               "null"
@@ -396,49 +396,49 @@
             "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
             "properties": {
               "apiVersion": {
-                "description": "API version of the referent.",
+                "description": "apiVersion is API version of the referent.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "fieldPath": {
-                "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+                "description": "fieldPath if referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "kind": {
-                "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                "description": "kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "name": {
-                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "description": "name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "namespace": {
-                "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                "description": "namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "resourceVersion": {
-                "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                "description": "resourceVersion is the specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "uid": {
-                "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                "description": "uid of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
                 "type": [
                   "string",
                   "null"
@@ -452,14 +452,14 @@
             "x-kubernetes-map-type": "atomic"
           },
           "reportingComponent": {
-            "description": "Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`.",
+            "description": "reportingComponent is the name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`.",
             "type": [
               "string",
               "null"
             ]
           },
           "reportingInstance": {
-            "description": "ID of the controller instance, e.g. `kubelet-xyzf`.",
+            "description": "reportingInstance is the ID of the controller instance, e.g. `kubelet-xyzf`.",
             "type": [
               "string",
               "null"
@@ -469,7 +469,7 @@
             "description": "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.",
             "properties": {
               "count": {
-                "description": "Number of occurrences in this series up to the last heartbeat time",
+                "description": "count is the number of occurrences in this series up to the last heartbeat time",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -495,14 +495,14 @@
             "description": "EventSource contains information for an event.",
             "properties": {
               "component": {
-                "description": "Component from which the event is generated.",
+                "description": "component from which the event is generated.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "host": {
-                "description": "Node name on which the event is generated.",
+                "description": "host name on which the event is generated.",
                 "type": [
                   "string",
                   "null"
@@ -515,7 +515,7 @@
             ]
           },
           "type": {
-            "description": "Type of this event (Normal, Warning), new types could be added in the future",
+            "description": "type is the type of this event (Normal, Warning), new types could be added in the future",
             "type": [
               "string",
               "null"

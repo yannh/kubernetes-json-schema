@@ -2,7 +2,7 @@
   "description": "TCPSocketAction describes an action based on opening a socket",
   "properties": {
     "host": {
-      "description": "Optional: Host name to connect to, defaults to the pod IP.",
+      "description": "host is the optional host name to connect to, defaults to the pod IP.",
       "type": [
         "string",
         "null"

@@ -2,7 +2,7 @@
   "description": "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.\n\nTo add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.",
   "properties": {
     "args": {
-      "description": "Arguments to the entrypoint. The image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+      "description": "args are the arguments to the entrypoint. The image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
       "items": {
         "type": [
           "string",
@@ -16,7 +16,7 @@
       "x-kubernetes-list-type": "atomic"
     },
     "command": {
-      "description": "Entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+      "description": "command is the entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
       "items": {
         "type": [
           "string",
@@ -30,16 +30,16 @@
       "x-kubernetes-list-type": "atomic"
     },
     "env": {
-      "description": "List of environment variables to set in the container. Cannot be updated.",
+      "description": "env is the list of environment variables to set in the container. Cannot be updated.",
       "items": {
         "description": "EnvVar represents an environment variable present in a Container.",
         "properties": {
           "name": {
-            "description": "Name of the environment variable. May consist of any printable ASCII characters except '='.",
+            "description": "name is the name of the environment variable. May consist of any printable ASCII characters except '='.",
             "type": "string"
           },
           "value": {
-            "description": "Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".",
+            "description": "value is the value of the environment variable. Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".",
             "type": [
               "string",
               "null"
@@ -52,18 +52,18 @@
                 "description": "Selects a key from a ConfigMap.",
                 "properties": {
                   "key": {
-                    "description": "The key to select from the ConfigMap's Data field. Keys in the BinaryData field are not currently propagated to container env vars.",
+                    "description": "key is the key to select from the ConfigMap's Data field. Keys in the BinaryData field are not currently propagated to container env vars.",
                     "type": "string"
                   },
                   "name": {
-                    "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "optional": {
-                    "description": "Specify whether the ConfigMap or its key must be defined",
+                    "description": "optional specifies whether the ConfigMap or its key must be defined",
                     "type": [
                       "boolean",
                       "null"
@@ -83,14 +83,14 @@
                 "description": "ObjectFieldSelector selects an APIVersioned field of an object.",
                 "properties": {
                   "apiVersion": {
-                    "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                    "description": "apiVersion is the version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "fieldPath": {
-                    "description": "Path of the field to select in the specified API version.",
+                    "description": "fieldPath is the path of the field to select in the specified API version.",
                     "type": "string"
                   }
                 },
@@ -107,22 +107,22 @@
                 "description": "FileKeySelector selects a key of the env file.",
                 "properties": {
                   "key": {
-                    "description": "The key within the env file. An invalid key will prevent the pod from starting. The keys defined within a source may consist of any printable ASCII characters except '='. During Alpha stage of the EnvFiles feature gate, the key size is limited to 128 characters.",
+                    "description": "key is the key within the env file. An invalid key will prevent the pod from starting. The keys defined within a source may consist of any printable ASCII characters except '='. During Alpha stage of the EnvFiles feature gate, the key size is limited to 128 characters.",
                     "type": "string"
                   },
                   "optional": {
-                    "description": "Specify whether the file or its key must be defined. If the file or key does not exist, then the env var is not published. If optional is set to true and the specified key does not exist, the environment variable will not be set in the Pod's containers.\n\nIf optional is set to false and the specified key does not exist, an error will be returned during Pod creation.",
+                    "description": "optional specifies whether the file or its key must be defined. If the file or key does not exist, then the env var is not published. If optional is set to true and the specified key does not exist, the environment variable will not be set in the Pod's containers.\n\nIf optional is set to false and the specified key does not exist, an error will be returned during Pod creation.",
                     "type": [
                       "boolean",
                       "null"
                     ]
                   },
                   "path": {
-                    "description": "The path within the volume from which to select the file. Must be relative and may not contain the '..' path or start with '..'.",
+                    "description": "path is the path within the volume from which to select the file. Must be relative and may not contain the '..' path or start with '..'.",
                     "type": "string"
                   },
                   "volumeName": {
-                    "description": "The name of the volume mount containing the env file.",
+                    "description": "volumeName is the name of the volume mount containing the env file.",
                     "type": "string"
                   }
                 },
@@ -141,7 +141,7 @@
                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
                 "properties": {
                   "containerName": {
-                    "description": "Container name: required for volumes, optional for env vars",
+                    "description": "containerName is the name of the container: required for volumes, optional for env vars",
                     "type": [
                       "string",
                       "null"
@@ -164,7 +164,7 @@
                     ]
                   },
                   "resource": {
-                    "description": "Required: resource to select",
+                    "description": "resource is the resource to select",
                     "type": "string"
                   }
                 },
@@ -181,18 +181,18 @@
                 "description": "SecretKeySelector selects a key of a Secret.",
                 "properties": {
                   "key": {
-                    "description": "The key of the secret to select from.  Must be a valid secret key.",
+                    "description": "key is the key of the secret to select from.  Must be a valid secret key.",
                     "type": "string"
                   },
                   "name": {
-                    "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "optional": {
-                    "description": "Specify whether the Secret or its key must be defined",
+                    "description": "optional specifies whether the Secret or its key must be defined",
                     "type": [
                       "boolean",
                       "null"
@@ -235,7 +235,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "envFrom": {
-      "description": "List of sources to populate environment variables in the container. The keys defined within a source may consist of any printable ASCII characters except '='. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
+      "description": "envFrom is the list of sources to populate environment variables in the container. The keys defined within a source may consist of any printable ASCII characters except '='. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
       "items": {
         "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
         "properties": {
@@ -243,14 +243,14 @@
             "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables. Keys in the BinaryData field are not currently propagated to container env vars.",
             "properties": {
               "name": {
-                "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "optional": {
-                "description": "Specify whether the ConfigMap must be defined",
+                "description": "optional specifies whether the ConfigMap must be defined",
                 "type": [
                   "boolean",
                   "null"
@@ -263,7 +263,7 @@
             ]
           },
           "prefix": {
-            "description": "Optional text to prepend to the name of each environment variable. May consist of any printable ASCII characters except '='.",
+            "description": "prefix is the text to prepend to the name of each environment variable. May consist of any printable ASCII characters except '='.",
             "type": [
               "string",
               "null"
@@ -273,14 +273,14 @@
             "description": "SecretEnvSource selects a Secret to populate the environment variables with.\n\nThe contents of the target Secret's Data field will represent the key-value pairs as environment variables.",
             "properties": {
               "name": {
-                "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "optional": {
-                "description": "Specify whether the Secret must be defined",
+                "description": "optional specifies whether the Secret must be defined",
                 "type": [
                   "boolean",
                   "null"
@@ -305,14 +305,14 @@
       "x-kubernetes-list-type": "atomic"
     },
     "image": {
-      "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images",
+      "description": "image is the container image name. More info: https://kubernetes.io/docs/concepts/containers/images",
       "type": [
         "string",
         "null"
       ]
     },
     "imagePullPolicy": {
-      "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images",
+      "description": "imagePullPolicy is the image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images",
       "type": [
         "string",
         "null"
@@ -328,7 +328,7 @@
               "description": "ExecAction describes a \"run in container\" action.",
               "properties": {
                 "command": {
-                  "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+                  "description": "command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
                   "items": {
                     "type": [
                       "string",
@@ -351,23 +351,23 @@
               "description": "HTTPGetAction describes an action based on HTTP Get requests.",
               "properties": {
                 "host": {
-                  "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+                  "description": "host is the host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
                   "type": [
                     "string",
                     "null"
                   ]
                 },
                 "httpHeaders": {
-                  "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+                  "description": "httpHeaders are the custom headers to set in the request. HTTP allows repeated headers.",
                   "items": {
                     "description": "HTTPHeader describes a custom header to be used in HTTP probes",
                     "properties": {
                       "name": {
-                        "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+                        "description": "name is the header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
                         "type": "string"
                       },
                       "value": {
-                        "description": "The header field value",
+                        "description": "value is the header field value",
                         "type": "string"
                       }
                     },
@@ -387,7 +387,7 @@
                   "x-kubernetes-list-type": "atomic"
                 },
                 "path": {
-                  "description": "Path to access on the HTTP server.",
+                  "description": "path is the path to access on the HTTP server.",
                   "type": [
                     "string",
                     "null"
@@ -410,14 +410,14 @@
                   ]
                 },
                 "protocol": {
-                  "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                  "description": "protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
                   "type": [
                     "string",
                     "null"
                   ]
                 },
                 "scheme": {
-                  "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                  "description": "scheme is the scheme to use for connecting to the host. Defaults to HTTP.",
                   "type": [
                     "string",
                     "null"
@@ -436,7 +436,7 @@
               "description": "SleepAction describes a \"sleep\" action.",
               "properties": {
                 "seconds": {
-                  "description": "Seconds is the number of seconds to sleep.",
+                  "description": "seconds is the number of seconds to sleep.",
                   "format": "int64",
                   "type": "integer"
                 }
@@ -453,7 +453,7 @@
               "description": "TCPSocketAction describes an action based on opening a socket",
               "properties": {
                 "host": {
-                  "description": "Optional: Host name to connect to, defaults to the pod IP.",
+                  "description": "host is the optional host name to connect to, defaults to the pod IP.",
                   "type": [
                     "string",
                     "null"
@@ -497,7 +497,7 @@
               "description": "ExecAction describes a \"run in container\" action.",
               "properties": {
                 "command": {
-                  "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+                  "description": "command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
                   "items": {
                     "type": [
                       "string",
@@ -520,23 +520,23 @@
               "description": "HTTPGetAction describes an action based on HTTP Get requests.",
               "properties": {
                 "host": {
-                  "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+                  "description": "host is the host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
                   "type": [
                     "string",
                     "null"
                   ]
                 },
                 "httpHeaders": {
-                  "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+                  "description": "httpHeaders are the custom headers to set in the request. HTTP allows repeated headers.",
                   "items": {
                     "description": "HTTPHeader describes a custom header to be used in HTTP probes",
                     "properties": {
                       "name": {
-                        "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+                        "description": "name is the header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
                         "type": "string"
                       },
                       "value": {
-                        "description": "The header field value",
+                        "description": "value is the header field value",
                         "type": "string"
                       }
                     },
@@ -556,7 +556,7 @@
                   "x-kubernetes-list-type": "atomic"
                 },
                 "path": {
-                  "description": "Path to access on the HTTP server.",
+                  "description": "path is the path to access on the HTTP server.",
                   "type": [
                     "string",
                     "null"
@@ -579,14 +579,14 @@
                   ]
                 },
                 "protocol": {
-                  "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+                  "description": "protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
                   "type": [
                     "string",
                     "null"
                   ]
                 },
                 "scheme": {
-                  "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+                  "description": "scheme is the scheme to use for connecting to the host. Defaults to HTTP.",
                   "type": [
                     "string",
                     "null"
@@ -605,7 +605,7 @@
               "description": "SleepAction describes a \"sleep\" action.",
               "properties": {
                 "seconds": {
-                  "description": "Seconds is the number of seconds to sleep.",
+                  "description": "seconds is the number of seconds to sleep.",
                   "format": "int64",
                   "type": "integer"
                 }
@@ -622,7 +622,7 @@
               "description": "TCPSocketAction describes an action based on opening a socket",
               "properties": {
                 "host": {
-                  "description": "Optional: Host name to connect to, defaults to the pod IP.",
+                  "description": "host is the optional host name to connect to, defaults to the pod IP.",
                   "type": [
                     "string",
                     "null"
@@ -660,7 +660,7 @@
           ]
         },
         "stopSignal": {
-          "description": "StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name",
+          "description": "stopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name",
           "type": [
             "string",
             "null"
@@ -679,7 +679,7 @@
           "description": "ExecAction describes a \"run in container\" action.",
           "properties": {
             "command": {
-              "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+              "description": "command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
               "items": {
                 "type": [
                   "string",
@@ -699,7 +699,7 @@
           ]
         },
         "failureThreshold": {
-          "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
+          "description": "failureThreshold is the minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -717,12 +717,12 @@
               ]
             },
             "port": {
-              "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+              "description": "port is the number of the gRPC service. Number must be in the range 1 to 65535.",
               "format": "int32",
               "type": "integer"
             },
             "service": {
-              "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+              "description": "service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
               "type": [
                 "string",
                 "null"
@@ -741,23 +741,23 @@
           "description": "HTTPGetAction describes an action based on HTTP Get requests.",
           "properties": {
             "host": {
-              "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+              "description": "host is the host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "httpHeaders": {
-              "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+              "description": "httpHeaders are the custom headers to set in the request. HTTP allows repeated headers.",
               "items": {
                 "description": "HTTPHeader describes a custom header to be used in HTTP probes",
                 "properties": {
                   "name": {
-                    "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+                    "description": "name is the header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
                     "type": "string"
                   },
                   "value": {
-                    "description": "The header field value",
+                    "description": "value is the header field value",
                     "type": "string"
                   }
                 },
@@ -777,7 +777,7 @@
               "x-kubernetes-list-type": "atomic"
             },
             "path": {
-              "description": "Path to access on the HTTP server.",
+              "description": "path is the path to access on the HTTP server.",
               "type": [
                 "string",
                 "null"
@@ -800,14 +800,14 @@
               ]
             },
             "protocol": {
-              "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+              "description": "protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+              "description": "scheme is the scheme to use for connecting to the host. Defaults to HTTP.",
               "type": [
                 "string",
                 "null"
@@ -823,7 +823,7 @@
           ]
         },
         "initialDelaySeconds": {
-          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "description": "initialDelaySeconds is the number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
           "format": "int32",
           "type": [
             "integer",
@@ -831,7 +831,7 @@
           ]
         },
         "periodSeconds": {
-          "description": "How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
+          "description": "periodSeconds is how often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -839,7 +839,7 @@
           ]
         },
         "successThreshold": {
-          "description": "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
+          "description": "successThreshold is the minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -850,7 +850,7 @@
           "description": "TCPSocketAction describes an action based on opening a socket",
           "properties": {
             "host": {
-              "description": "Optional: Host name to connect to, defaults to the pod IP.",
+              "description": "host is the optional host name to connect to, defaults to the pod IP.",
               "type": [
                 "string",
                 "null"
@@ -882,7 +882,7 @@
           ]
         },
         "terminationGracePeriodSeconds": {
-          "description": "Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.",
+          "description": "terminationGracePeriodSeconds is the optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.",
           "format": "int64",
           "type": [
             "integer",
@@ -890,7 +890,7 @@
           ]
         },
         "timeoutSeconds": {
-          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "description": "timeoutSeconds is the number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
           "format": "int32",
           "type": [
             "integer",
@@ -904,31 +904,31 @@
       ]
     },
     "name": {
-      "description": "Name of the ephemeral container specified as a DNS_LABEL. This name must be unique among all containers, init containers and ephemeral containers.",
+      "description": "name of the ephemeral container specified as a DNS_LABEL. This name must be unique among all containers, init containers and ephemeral containers.",
       "type": [
         "string",
         "null"
       ]
     },
     "ports": {
-      "description": "Ports are not allowed for ephemeral containers.",
+      "description": "ports are not allowed for ephemeral containers.",
       "items": {
         "description": "ContainerPort represents a network port in a single container.",
         "properties": {
           "containerPort": {
-            "description": "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.",
+            "description": "containerPort is the number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.",
             "format": "int32",
             "type": "integer"
           },
           "hostIP": {
-            "description": "What host IP to bind the external port to.",
+            "description": "hostIP is the host IP to bind the external port to.",
             "type": [
               "string",
               "null"
             ]
           },
           "hostPort": {
-            "description": "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.",
+            "description": "hostPort is the number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.",
             "format": "int32",
             "type": [
               "integer",
@@ -936,14 +936,14 @@
             ]
           },
           "name": {
-            "description": "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.",
+            "description": "name is the name of the port. If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.",
             "type": [
               "string",
               "null"
             ]
           },
           "protocol": {
-            "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
+            "description": "protocol is the protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
             "type": [
               "string",
               "null"
@@ -977,7 +977,7 @@
           "description": "ExecAction describes a \"run in container\" action.",
           "properties": {
             "command": {
-              "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+              "description": "command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
               "items": {
                 "type": [
                   "string",
@@ -997,7 +997,7 @@
           ]
         },
         "failureThreshold": {
-          "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
+          "description": "failureThreshold is the minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -1015,12 +1015,12 @@
               ]
             },
             "port": {
-              "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+              "description": "port is the number of the gRPC service. Number must be in the range 1 to 65535.",
               "format": "int32",
               "type": "integer"
             },
             "service": {
-              "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+              "description": "service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
               "type": [
                 "string",
                 "null"
@@ -1039,23 +1039,23 @@
           "description": "HTTPGetAction describes an action based on HTTP Get requests.",
           "properties": {
             "host": {
-              "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+              "description": "host is the host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "httpHeaders": {
-              "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+              "description": "httpHeaders are the custom headers to set in the request. HTTP allows repeated headers.",
               "items": {
                 "description": "HTTPHeader describes a custom header to be used in HTTP probes",
                 "properties": {
                   "name": {
-                    "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+                    "description": "name is the header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
                     "type": "string"
                   },
                   "value": {
-                    "description": "The header field value",
+                    "description": "value is the header field value",
                     "type": "string"
                   }
                 },
@@ -1075,7 +1075,7 @@
               "x-kubernetes-list-type": "atomic"
             },
             "path": {
-              "description": "Path to access on the HTTP server.",
+              "description": "path is the path to access on the HTTP server.",
               "type": [
                 "string",
                 "null"
@@ -1098,14 +1098,14 @@
               ]
             },
             "protocol": {
-              "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+              "description": "protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+              "description": "scheme is the scheme to use for connecting to the host. Defaults to HTTP.",
               "type": [
                 "string",
                 "null"
@@ -1121,7 +1121,7 @@
           ]
         },
         "initialDelaySeconds": {
-          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "description": "initialDelaySeconds is the number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
           "format": "int32",
           "type": [
             "integer",
@@ -1129,7 +1129,7 @@
           ]
         },
         "periodSeconds": {
-          "description": "How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
+          "description": "periodSeconds is how often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -1137,7 +1137,7 @@
           ]
         },
         "successThreshold": {
-          "description": "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
+          "description": "successThreshold is the minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -1148,7 +1148,7 @@
           "description": "TCPSocketAction describes an action based on opening a socket",
           "properties": {
             "host": {
-              "description": "Optional: Host name to connect to, defaults to the pod IP.",
+              "description": "host is the optional host name to connect to, defaults to the pod IP.",
               "type": [
                 "string",
                 "null"
@@ -1180,7 +1180,7 @@
           ]
         },
         "terminationGracePeriodSeconds": {
-          "description": "Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.",
+          "description": "terminationGracePeriodSeconds is the optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.",
           "format": "int64",
           "type": [
             "integer",
@@ -1188,7 +1188,7 @@
           ]
         },
         "timeoutSeconds": {
-          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "description": "timeoutSeconds is the number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
           "format": "int32",
           "type": [
             "integer",
@@ -1202,16 +1202,16 @@
       ]
     },
     "resizePolicy": {
-      "description": "Resources resize policy for the container.",
+      "description": "resizePolicy is the resources resize policy for the container.",
       "items": {
         "description": "ContainerResizePolicy represents resource resize policy for the container.",
         "properties": {
           "resourceName": {
-            "description": "Name of the resource to which this resource resize policy applies. Supported values: cpu, memory.",
+            "description": "resourceName is the name of the resource to which this resource resize policy applies. Supported values: cpu, memory.",
             "type": "string"
           },
           "restartPolicy": {
-            "description": "Restart policy to apply when specified resource is resized. If not specified, it defaults to NotRequired.",
+            "description": "restartPolicy is the restart policy to apply when specified resource is resized. If not specified, it defaults to NotRequired.",
             "type": "string"
           }
         },
@@ -1234,16 +1234,16 @@
       "description": "ResourceRequirements describes the compute resource requirements.",
       "properties": {
         "claims": {
-          "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis field is immutable. It can only be set for containers.",
+          "description": "claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis field is immutable. It can only be set for containers.",
           "items": {
             "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
             "properties": {
               "name": {
-                "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                "description": "name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
                 "type": "string"
               },
               "request": {
-                "description": "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
+                "description": "request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
                 "type": [
                   "string",
                   "null"
@@ -1284,7 +1284,7 @@
               }
             ]
           },
-          "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+          "description": "limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
           "type": [
             "object",
             "null"
@@ -1307,7 +1307,7 @@
               }
             ]
           },
-          "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+          "description": "requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
           "type": [
             "object",
             "null"
@@ -1320,30 +1320,30 @@
       ]
     },
     "restartPolicy": {
-      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. You cannot set this field on ephemeral containers.",
+      "description": "restartPolicy is the restart policy for the container to manage the restart behavior of each container within a pod. You cannot set this field on ephemeral containers.",
       "type": [
         "string",
         "null"
       ]
     },
     "restartPolicyRules": {
-      "description": "Represents a list of rules to be checked to determine if the container should be restarted on exit. You cannot set this field on ephemeral containers.",
+      "description": "restartPolicyRules represents a list of rules to be checked to determine if the container should be restarted on exit. You cannot set this field on ephemeral containers.",
       "items": {
         "description": "ContainerRestartRule describes how a container exit is handled.",
         "properties": {
           "action": {
-            "description": "Specifies the action taken on a container exit if the requirements are satisfied. The only possible value is \"Restart\" to restart the container.",
+            "description": "action specifies the action taken on a container exit if the requirements are satisfied. The only possible value is \"Restart\" to restart the container.",
             "type": "string"
           },
           "exitCodes": {
             "description": "ContainerRestartRuleOnExitCodes describes the condition for handling an exited container based on its exit codes.",
             "properties": {
               "operator": {
-                "description": "Represents the relationship between the container exit code(s) and the specified values. Possible values are: - In: the requirement is satisfied if the container exit code is in the\n  set of specified values.\n- NotIn: the requirement is satisfied if the container exit code is\n  not in the set of specified values.",
+                "description": "operator represents the relationship between the container exit code(s) and the specified values. Possible values are: - In: the requirement is satisfied if the container exit code is in the\n  set of specified values.\n- NotIn: the requirement is satisfied if the container exit code is\n  not in the set of specified values.",
                 "type": "string"
               },
               "values": {
-                "description": "Specifies the set of values to check for container exit codes. At most 255 elements are allowed.",
+                "description": "values specifies the set of values to check for container exit codes. At most 255 elements are allowed.",
                 "items": {
                   "format": "int32",
                   "type": [
@@ -1385,7 +1385,7 @@
       "description": "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.",
       "properties": {
         "allowPrivilegeEscalation": {
-          "description": "AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.",
+          "description": "allowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.",
           "type": [
             "boolean",
             "null"
@@ -1426,7 +1426,7 @@
           "description": "Adds and removes POSIX capabilities from running containers.",
           "properties": {
             "add": {
-              "description": "Added capabilities",
+              "description": "add lists the capabilities to add to the container.",
               "items": {
                 "type": [
                   "string",
@@ -1440,7 +1440,7 @@
               "x-kubernetes-list-type": "atomic"
             },
             "drop": {
-              "description": "Removed capabilities",
+              "description": "drop lists the capabilities to remove from the container.",
               "items": {
                 "type": [
                   "string",
@@ -1460,7 +1460,7 @@
           ]
         },
         "privileged": {
-          "description": "Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.",
+          "description": "privileged indicates whether to run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.",
           "type": [
             "boolean",
             "null"
@@ -1474,14 +1474,14 @@
           ]
         },
         "readOnlyRootFilesystem": {
-          "description": "Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.",
+          "description": "readOnlyRootFilesystem indicates whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.",
           "type": [
             "boolean",
             "null"
           ]
         },
         "runAsGroup": {
-          "description": "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.",
+          "description": "runAsGroup is the GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.",
           "format": "int64",
           "type": [
             "integer",
@@ -1489,14 +1489,14 @@
           ]
         },
         "runAsNonRoot": {
-          "description": "Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
+          "description": "runAsNonRoot indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
           "type": [
             "boolean",
             "null"
           ]
         },
         "runAsUser": {
-          "description": "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.",
+          "description": "runAsUser is the UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.",
           "format": "int64",
           "type": [
             "integer",
@@ -1507,28 +1507,28 @@
           "description": "SELinuxOptions are the labels to be applied to the container",
           "properties": {
             "level": {
-              "description": "Level is SELinux level label that applies to the container.",
+              "description": "level is SELinux level label that applies to the container.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "role": {
-              "description": "Role is a SELinux role label that applies to the container.",
+              "description": "role is a SELinux role label that applies to the container.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "type": {
-              "description": "Type is a SELinux type label that applies to the container.",
+              "description": "type is a SELinux type label that applies to the container.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "user": {
-              "description": "User is a SELinux user label that applies to the container.",
+              "description": "user is a SELinux user label that applies to the container.",
               "type": [
                 "string",
                 "null"
@@ -1575,28 +1575,28 @@
           "description": "WindowsSecurityContextOptions contain Windows-specific options and credentials.",
           "properties": {
             "gmsaCredentialSpec": {
-              "description": "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.",
+              "description": "gmsaCredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "gmsaCredentialSpecName": {
-              "description": "GMSACredentialSpecName is the name of the GMSA credential spec to use.",
+              "description": "gmsaCredentialSpecName is the name of the GMSA credential spec to use.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "hostProcess": {
-              "description": "HostProcess determines if a container should be run as a 'Host Process' container. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.",
+              "description": "hostProcess determines if a container should be run as a 'Host Process' container. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.",
               "type": [
                 "boolean",
                 "null"
               ]
             },
             "runAsUserName": {
-              "description": "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
+              "description": "runAsUserName is the UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
               "type": [
                 "string",
                 "null"
@@ -1621,7 +1621,7 @@
           "description": "ExecAction describes a \"run in container\" action.",
           "properties": {
             "command": {
-              "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+              "description": "command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
               "items": {
                 "type": [
                   "string",
@@ -1641,7 +1641,7 @@
           ]
         },
         "failureThreshold": {
-          "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
+          "description": "failureThreshold is the minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -1659,12 +1659,12 @@
               ]
             },
             "port": {
-              "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
+              "description": "port is the number of the gRPC service. Number must be in the range 1 to 65535.",
               "format": "int32",
               "type": "integer"
             },
             "service": {
-              "description": "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
+              "description": "service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).\n\nIf this is not specified, the default behavior is defined by gRPC.",
               "type": [
                 "string",
                 "null"
@@ -1683,23 +1683,23 @@
           "description": "HTTPGetAction describes an action based on HTTP Get requests.",
           "properties": {
             "host": {
-              "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+              "description": "host is the host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "httpHeaders": {
-              "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+              "description": "httpHeaders are the custom headers to set in the request. HTTP allows repeated headers.",
               "items": {
                 "description": "HTTPHeader describes a custom header to be used in HTTP probes",
                 "properties": {
                   "name": {
-                    "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+                    "description": "name is the header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
                     "type": "string"
                   },
                   "value": {
-                    "description": "The header field value",
+                    "description": "value is the header field value",
                     "type": "string"
                   }
                 },
@@ -1719,7 +1719,7 @@
               "x-kubernetes-list-type": "atomic"
             },
             "path": {
-              "description": "Path to access on the HTTP server.",
+              "description": "path is the path to access on the HTTP server.",
               "type": [
                 "string",
                 "null"
@@ -1742,14 +1742,14 @@
               ]
             },
             "protocol": {
-              "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+              "description": "protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "scheme": {
-              "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+              "description": "scheme is the scheme to use for connecting to the host. Defaults to HTTP.",
               "type": [
                 "string",
                 "null"
@@ -1765,7 +1765,7 @@
           ]
         },
         "initialDelaySeconds": {
-          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "description": "initialDelaySeconds is the number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
           "format": "int32",
           "type": [
             "integer",
@@ -1773,7 +1773,7 @@
           ]
         },
         "periodSeconds": {
-          "description": "How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
+          "description": "periodSeconds is how often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -1781,7 +1781,7 @@
           ]
         },
         "successThreshold": {
-          "description": "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
+          "description": "successThreshold is the minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.",
           "format": "int32",
           "type": [
             "integer",
@@ -1792,7 +1792,7 @@
           "description": "TCPSocketAction describes an action based on opening a socket",
           "properties": {
             "host": {
-              "description": "Optional: Host name to connect to, defaults to the pod IP.",
+              "description": "host is the optional host name to connect to, defaults to the pod IP.",
               "type": [
                 "string",
                 "null"
@@ -1824,7 +1824,7 @@
           ]
         },
         "terminationGracePeriodSeconds": {
-          "description": "Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.",
+          "description": "terminationGracePeriodSeconds is the optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.",
           "format": "int64",
           "type": [
             "integer",
@@ -1832,7 +1832,7 @@
           ]
         },
         "timeoutSeconds": {
-          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "description": "timeoutSeconds is the number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
           "format": "int32",
           "type": [
             "integer",
@@ -1846,42 +1846,42 @@
       ]
     },
     "stdin": {
-      "description": "Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.",
+      "description": "stdin indicates whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.",
       "type": [
         "boolean",
         "null"
       ]
     },
     "stdinOnce": {
-      "description": "Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false",
+      "description": "stdinOnce indicates whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false",
       "type": [
         "boolean",
         "null"
       ]
     },
     "targetContainerName": {
-      "description": "If set, the name of the container from PodSpec that this ephemeral container targets. The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container uses the namespaces configured in the Pod spec.\n\nThe container runtime must implement support for this feature. If the runtime does not support namespace targeting then the result of setting this field is undefined.",
+      "description": "targetContainerName if set, the name of the container from PodSpec that this ephemeral container targets. The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container uses the namespaces configured in the Pod spec.\n\nThe container runtime must implement support for this feature. If the runtime does not support namespace targeting then the result of setting this field is undefined.",
       "type": [
         "string",
         "null"
       ]
     },
     "terminationMessagePath": {
-      "description": "Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.",
+      "description": "terminationMessagePath is the optional path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.",
       "type": [
         "string",
         "null"
       ]
     },
     "terminationMessagePolicy": {
-      "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.",
+      "description": "terminationMessagePolicy indicates how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.",
       "type": [
         "string",
         "null"
       ]
     },
     "tty": {
-      "description": "Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.",
+      "description": "tty indicates whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.",
       "type": [
         "boolean",
         "null"
@@ -1922,7 +1922,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "volumeMounts": {
-      "description": "Pod volumes to mount into the container's filesystem. Subpath mounts are not allowed for ephemeral containers. Cannot be updated.",
+      "description": "volumeMounts are the pod volumes to mount into the container's filesystem. Subpath mounts are not allowed for ephemeral containers. Cannot be updated.",
       "items": {
         "description": "VolumeMount describes a mounting of a Volume within a container.",
         "properties": {
@@ -1941,7 +1941,7 @@
             "x-kubernetes-list-type": "set"
           },
           "mountPath": {
-            "description": "Path within the container at which the volume should be mounted.",
+            "description": "mountPath is the path within the container at which the volume should be mounted.",
             "type": "string"
           },
           "mountPropagation": {
@@ -1952,32 +1952,32 @@
             ]
           },
           "name": {
-            "description": "This must match the Name of a Volume.",
+            "description": "name must match the Name of a Volume.",
             "type": "string"
           },
           "readOnly": {
-            "description": "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.",
+            "description": "readOnly mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.",
             "type": [
               "boolean",
               "null"
             ]
           },
           "recursiveReadOnly": {
-            "description": "RecursiveReadOnly specifies whether read-only mounts should be handled recursively.\n\nIf ReadOnly is false, this field has no meaning and must be unspecified.\n\nIf ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.\n\nIf this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).\n\nIf this field is not specified, it is treated as an equivalent of Disabled.",
+            "description": "recursiveReadOnly specifies whether read-only mounts should be handled recursively.\n\nIf ReadOnly is false, this field has no meaning and must be unspecified.\n\nIf ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.\n\nIf this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).\n\nIf this field is not specified, it is treated as an equivalent of Disabled.",
             "type": [
               "string",
               "null"
             ]
           },
           "subPath": {
-            "description": "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).",
+            "description": "subPath is the path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).",
             "type": [
               "string",
               "null"
             ]
           },
           "subPathExpr": {
-            "description": "Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to \"\" (volume's root). SubPathExpr and SubPath are mutually exclusive.",
+            "description": "subPathExpr is the expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to \"\" (volume's root). SubPathExpr and SubPath are mutually exclusive.",
             "type": [
               "string",
               "null"
@@ -2005,7 +2005,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "workingDir": {
-      "description": "Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.",
+      "description": "workingDir is the container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.",
       "type": [
         "string",
         "null"

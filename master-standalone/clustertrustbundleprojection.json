@@ -68,28 +68,28 @@
       "x-kubernetes-map-type": "atomic"
     },
     "name": {
-      "description": "Select a single ClusterTrustBundle by object name.  Mutually-exclusive with signerName and labelSelector.",
+      "description": "name selects a single ClusterTrustBundle by object name.  Mutually-exclusive with signerName and labelSelector.",
       "type": [
         "string",
         "null"
       ]
     },
     "optional": {
-      "description": "If true, don't block pod startup if the referenced ClusterTrustBundle(s) aren't available.  If using name, then the named ClusterTrustBundle is allowed not to exist.  If using signerName, then the combination of signerName and labelSelector is allowed to match zero ClusterTrustBundles.",
+      "description": "optional indicates that if true, don't block pod startup if the referenced ClusterTrustBundle(s) aren't available.  If using name, then the named ClusterTrustBundle is allowed not to exist.  If using signerName, then the combination of signerName and labelSelector is allowed to match zero ClusterTrustBundles.",
       "type": [
         "boolean",
         "null"
       ]
     },
     "path": {
-      "description": "Relative path from the volume root to write the bundle.",
+      "description": "path is the relative path from the volume root to write the bundle.",
       "type": [
         "string",
         "null"
       ]
     },
     "signerName": {
-      "description": "Select all ClusterTrustBundles that match this signer name. Mutually-exclusive with name.  The contents of all selected ClusterTrustBundles will be unified and deduplicated.",
+      "description": "signerName selects all ClusterTrustBundles that match this signer name. Mutually-exclusive with name.  The contents of all selected ClusterTrustBundles will be unified and deduplicated.",
       "type": [
         "string",
         "null"

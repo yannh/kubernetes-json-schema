@@ -2,7 +2,7 @@
   "description": "SleepAction describes a \"sleep\" action.",
   "properties": {
     "seconds": {
-      "description": "Seconds is the number of seconds to sleep.",
+      "description": "seconds is the number of seconds to sleep.",
       "format": "int64",
       "type": [
         "integer",

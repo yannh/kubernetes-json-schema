@@ -2,7 +2,7 @@
   "description": "NodeSwapStatus represents swap memory information.",
   "properties": {
     "capacity": {
-      "description": "Total amount of swap memory in bytes.",
+      "description": "capacity is the total amount of swap memory in bytes.",
       "format": "int64",
       "type": [
         "integer",

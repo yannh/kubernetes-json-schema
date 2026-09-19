@@ -158,7 +158,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -210,7 +210,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -304,7 +304,7 @@
           "x-kubernetes-list-type": "atomic"
         },
         "name": {
-          "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
           "type": [
             "string",
             "null"
@@ -342,7 +342,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -390,7 +390,7 @@
       "description": "DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership management and SELinux relabeling.",
       "properties": {
         "defaultMode": {
-          "description": "Optional: mode bits to use on created files by default. Must be a Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.",
+          "description": "defaultMode is mode bits to use on created files by default. Must be a Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.",
           "format": "int32",
           "type": [
             "integer",
@@ -406,7 +406,7 @@
           ]
         },
         "items": {
-          "description": "Items is a list of downward API volume file",
+          "description": "items is a list of downward API volume file",
           "items": {
             "description": "DownwardAPIVolumeFile represents information to create the file containing the pod field",
             "properties": {
@@ -414,14 +414,14 @@
                 "description": "ObjectFieldSelector selects an APIVersioned field of an object.",
                 "properties": {
                   "apiVersion": {
-                    "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                    "description": "apiVersion is the version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "fieldPath": {
-                    "description": "Path of the field to select in the specified API version.",
+                    "description": "fieldPath is the path of the field to select in the specified API version.",
                     "type": "string"
                   }
                 },
@@ -436,7 +436,7 @@
                 "additionalProperties": false
               },
               "mode": {
-                "description": "Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.",
+                "description": "mode is optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.",
                 "format": "int32",
                 "type": [
                   "integer",
@@ -444,14 +444,14 @@
                 ]
               },
               "path": {
-                "description": "Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'",
+                "description": "path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'",
                 "type": "string"
               },
               "resourceFieldRef": {
                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
                 "properties": {
                   "containerName": {
-                    "description": "Container name: required for volumes, optional for env vars",
+                    "description": "containerName is the name of the container: required for volumes, optional for env vars",
                     "type": [
                       "string",
                       "null"
@@ -474,7 +474,7 @@
                     ]
                   },
                   "resource": {
-                    "description": "Required: resource to select",
+                    "description": "resource is the resource to select",
                     "type": "string"
                   }
                 },
@@ -840,18 +840,18 @@
                   "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
                   "properties": {
                     "apiGroup": {
-                      "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+                      "description": "apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "kind": {
-                      "description": "Kind is the type of resource being referenced",
+                      "description": "kind is the type of resource being referenced",
                       "type": "string"
                     },
                     "name": {
-                      "description": "Name is the name of resource being referenced",
+                      "description": "name is the name of resource being referenced",
                       "type": "string"
                     }
                   },
@@ -870,22 +870,22 @@
                   "description": "TypedObjectReference contains enough information to let you locate the typed referenced object",
                   "properties": {
                     "apiGroup": {
-                      "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+                      "description": "apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "kind": {
-                      "description": "Kind is the type of resource being referenced",
+                      "description": "kind is the type of resource being referenced",
                       "type": "string"
                     },
                     "name": {
-                      "description": "Name is the name of resource being referenced",
+                      "description": "name is the name of resource being referenced",
                       "type": "string"
                     },
                     "namespace": {
-                      "description": "Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.",
+                      "description": "namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.",
                       "type": [
                         "string",
                         "null"
@@ -922,7 +922,7 @@
                           }
                         ]
                       },
-                      "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                      "description": "limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
                       "type": [
                         "object",
                         "null"
@@ -945,7 +945,7 @@
                           }
                         ]
                       },
-                      "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                      "description": "requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
                       "type": [
                         "object",
                         "null"
@@ -1173,7 +1173,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -1348,14 +1348,14 @@
       "description": "ImageVolumeSource represents a image volume resource.",
       "properties": {
         "pullPolicy": {
-          "description": "Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.",
+          "description": "pullPolicy is the policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.",
           "type": [
             "string",
             "null"
           ]
         },
         "reference": {
-          "description": "Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
+          "description": "reference is required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
           "type": [
             "string",
             "null"
@@ -1443,7 +1443,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -1560,7 +1560,7 @@
       "description": "PortworxVolumeSource represents a Portworx volume resource.",
       "properties": {
         "fsType": {
-          "description": "fSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+          "description": "fsType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\". Implicitly inferred to be \"ext4\" if unspecified.",
           "type": [
             "string",
             "null"
@@ -1683,25 +1683,25 @@
                     "additionalProperties": false
                   },
                   "name": {
-                    "description": "Select a single ClusterTrustBundle by object name.  Mutually-exclusive with signerName and labelSelector.",
+                    "description": "name selects a single ClusterTrustBundle by object name.  Mutually-exclusive with signerName and labelSelector.",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "optional": {
-                    "description": "If true, don't block pod startup if the referenced ClusterTrustBundle(s) aren't available.  If using name, then the named ClusterTrustBundle is allowed not to exist.  If using signerName, then the combination of signerName and labelSelector is allowed to match zero ClusterTrustBundles.",
+                    "description": "optional indicates that if true, don't block pod startup if the referenced ClusterTrustBundle(s) aren't available.  If using name, then the named ClusterTrustBundle is allowed not to exist.  If using signerName, then the combination of signerName and labelSelector is allowed to match zero ClusterTrustBundles.",
                     "type": [
                       "boolean",
                       "null"
                     ]
                   },
                   "path": {
-                    "description": "Relative path from the volume root to write the bundle.",
+                    "description": "path is the relative path from the volume root to write the bundle.",
                     "type": "string"
                   },
                   "signerName": {
-                    "description": "Select all ClusterTrustBundles that match this signer name. Mutually-exclusive with name.  The contents of all selected ClusterTrustBundles will be unified and deduplicated.",
+                    "description": "signerName selects all ClusterTrustBundles that match this signer name. Mutually-exclusive with name.  The contents of all selected ClusterTrustBundles will be unified and deduplicated.",
                     "type": [
                       "string",
                       "null"
@@ -1775,7 +1775,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "name": {
-                    "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                     "type": [
                       "string",
                       "null"
@@ -1799,7 +1799,7 @@
                 "description": "Represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.",
                 "properties": {
                   "items": {
-                    "description": "Items is a list of DownwardAPIVolume file",
+                    "description": "items is a list of DownwardAPIVolume file",
                     "items": {
                       "description": "DownwardAPIVolumeFile represents information to create the file containing the pod field",
                       "properties": {
@@ -1807,14 +1807,14 @@
                           "description": "ObjectFieldSelector selects an APIVersioned field of an object.",
                           "properties": {
                             "apiVersion": {
-                              "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                              "description": "apiVersion is the version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
                               "type": [
                                 "string",
                                 "null"
                               ]
                             },
                             "fieldPath": {
-                              "description": "Path of the field to select in the specified API version.",
+                              "description": "fieldPath is the path of the field to select in the specified API version.",
                               "type": "string"
                             }
                           },
@@ -1829,7 +1829,7 @@
                           "additionalProperties": false
                         },
                         "mode": {
-                          "description": "Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.",
+                          "description": "mode is optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.",
                           "format": "int32",
                           "type": [
                             "integer",
@@ -1837,14 +1837,14 @@
                           ]
                         },
                         "path": {
-                          "description": "Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'",
+                          "description": "path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'",
                           "type": "string"
                         },
                         "resourceFieldRef": {
                           "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
                           "properties": {
                             "containerName": {
-                              "description": "Container name: required for volumes, optional for env vars",
+                              "description": "containerName is the name of the container: required for volumes, optional for env vars",
                               "type": [
                                 "string",
                                 "null"
@@ -1867,7 +1867,7 @@
                               ]
                             },
                             "resource": {
-                              "description": "Required: resource to select",
+                              "description": "resource is the resource to select",
                               "type": "string"
                             }
                           },
@@ -1916,28 +1916,28 @@
                 "description": "PodCertificateProjection provides a private key and X.509 certificate in the pod filesystem.",
                 "properties": {
                   "certificateChainPath": {
-                    "description": "Write the certificate chain at this path in the projected volume.\n\nMost applications should use credentialBundlePath.  When using keyPath and certificateChainPath, your application needs to check that the key and leaf certificate are consistent, because it is possible to read the files mid-rotation.",
+                    "description": "certificateChainPath is the path to write the certificate chain at this path in the projected volume.\n\nMost applications should use credentialBundlePath.  When using keyPath and certificateChainPath, your application needs to check that the key and leaf certificate are consistent, because it is possible to read the files mid-rotation.",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "credentialBundlePath": {
-                    "description": "Write the credential bundle at this path in the projected volume.\n\nThe credential bundle is a single file that contains multiple PEM blocks. The first PEM block is a PRIVATE KEY block, containing a PKCS#8 private key.\n\nThe remaining blocks are CERTIFICATE blocks, containing the issued certificate chain from the signer (leaf and any intermediates).\n\nUsing credentialBundlePath lets your Pod's application code make a single atomic read that retrieves a consistent key and certificate chain.  If you project them to separate files, your application code will need to additionally check that the leaf certificate was issued to the key.",
+                    "description": "credentialBundlePath is the path to write the credential bundle at in the projected volume.\n\nThe credential bundle is a single file that contains multiple PEM blocks. The first PEM block is a PRIVATE KEY block, containing a PKCS#8 private key.\n\nThe remaining blocks are CERTIFICATE blocks, containing the issued certificate chain from the signer (leaf and any intermediates).\n\nUsing credentialBundlePath lets your Pod's application code make a single atomic read that retrieves a consistent key and certificate chain.  If you project them to separate files, your application code will need to additionally check that the leaf certificate was issued to the key.",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "keyPath": {
-                    "description": "Write the key at this path in the projected volume.\n\nMost applications should use credentialBundlePath.  When using keyPath and certificateChainPath, your application needs to check that the key and leaf certificate are consistent, because it is possible to read the files mid-rotation.",
+                    "description": "keyPath is the path to write the key at in the projected volume.\n\nMost applications should use credentialBundlePath.  When using keyPath and certificateChainPath, your application needs to check that the key and leaf certificate are consistent, because it is possible to read the files mid-rotation.",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "keyType": {
-                    "description": "The type of keypair Kubelet will generate for the pod.\n\nValid values are \"RSA3072\", \"RSA4096\", \"ECDSAP256\", \"ECDSAP384\", \"ECDSAP521\", and \"ED25519\".",
+                    "description": "keyType is the type of keypair Kubelet will generate for the pod.\n\nValid values are \"RSA3072\", \"RSA4096\", \"ECDSAP256\", \"ECDSAP384\", \"ECDSAP521\", \"ED25519\", \"MLDSA44\", \"MLDSA65\", and \"MLDSA87\".\n\nMLDSA key types are only allowed when the PodCertificateMLDSA feature gate is enabled.",
                     "type": "string"
                   },
                   "maxExpirationSeconds": {
@@ -1949,7 +1949,7 @@
                     ]
                   },
                   "signerName": {
-                    "description": "Kubelet's generated CSRs will be addressed to this signer.",
+                    "description": "signerName is the name of the signer. Kubelet's generated CSRs will be addressed to this signer.",
                     "type": "string"
                   },
                   "user": {
@@ -2034,7 +2034,7 @@
                     "x-kubernetes-list-type": "atomic"
                   },
                   "name": {
-                    "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                     "type": [
                       "string",
                       "null"
@@ -2214,7 +2214,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -2278,7 +2278,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"
@@ -2440,7 +2440,7 @@
           "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
           "properties": {
             "name": {
-              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": [
                 "string",
                 "null"

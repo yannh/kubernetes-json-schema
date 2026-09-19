@@ -10,28 +10,28 @@
       ]
     },
     "message": {
-      "description": "Human-readable message indicating details about last transition.",
+      "description": "message is a human-readable message indicating details about last transition.",
       "type": [
         "string",
         "null"
       ]
     },
     "reason": {
-      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+      "description": "reason is the unique, one-word, CamelCase reason for the condition's last transition.",
       "type": [
         "string",
         "null"
       ]
     },
     "status": {
-      "description": "Status of the condition, one of True, False, Unknown.",
+      "description": "status of the condition, one of True, False, Unknown.",
       "type": [
         "string",
         "null"
       ]
     },
     "type": {
-      "description": "Type of namespace controller condition.",
+      "description": "type of namespace controller condition.",
       "type": [
         "string",
         "null"

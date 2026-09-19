@@ -287,7 +287,7 @@
             "description": "NamespaceSpec describes the attributes on a Namespace.",
             "properties": {
               "finalizers": {
-                "description": "Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/",
+                "description": "finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/",
                 "items": {
                   "type": [
                     "string",
@@ -324,25 +324,25 @@
                       ]
                     },
                     "message": {
-                      "description": "Human-readable message indicating details about last transition.",
+                      "description": "message is a human-readable message indicating details about last transition.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "reason": {
-                      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                      "description": "reason is the unique, one-word, CamelCase reason for the condition's last transition.",
                       "type": [
                         "string",
                         "null"
                       ]
                     },
                     "status": {
-                      "description": "Status of the condition, one of True, False, Unknown.",
+                      "description": "status of the condition, one of True, False, Unknown.",
                       "type": "string"
                     },
                     "type": {
-                      "description": "Type of namespace controller condition.",
+                      "description": "type of namespace controller condition.",
                       "type": "string"
                     }
                   },

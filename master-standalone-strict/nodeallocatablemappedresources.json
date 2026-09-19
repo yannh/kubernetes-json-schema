@@ -2,7 +2,7 @@
   "description": "NodeAllocatableMappedResources describes mapped node allocatable resource allocations.",
   "properties": {
     "name": {
-      "description": "Name is the name of the resource (e.g., cpu, memory).",
+      "description": "name is the name of the resource (e.g., cpu, memory).",
       "type": [
         "string",
         "null"

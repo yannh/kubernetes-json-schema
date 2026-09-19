@@ -2,7 +2,7 @@
   "description": "VolumeHealthStatus contains health information for a volume reported by the CSI controller plugin.",
   "properties": {
     "healthConditions": {
-      "description": "conditions is the set of adverse conditions reported by the CSI controller plugin. An empty list means no adverse condition. At most 16 conditions may be reported.",
+      "description": "healthConditions is the set of adverse conditions reported by the CSI controller plugin. An empty list means no adverse condition. At most 16 conditions may be reported.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthCondition"
       },

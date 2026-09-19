@@ -2,7 +2,7 @@
   "description": "Describe a container image",
   "properties": {
     "names": {
-      "description": "Names by which this image is known. e.g. [\"kubernetes.example/hyperkube:v1.0.7\", \"cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\"]",
+      "description": "names by which this image is known. e.g. [\"kubernetes.example/hyperkube:v1.0.7\", \"cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\"]",
       "items": {
         "type": [
           "string",
@@ -16,7 +16,7 @@
       "x-kubernetes-list-type": "atomic"
     },
     "sizeBytes": {
-      "description": "The size of the image in bytes.",
+      "description": "sizeBytes is the size of the image in bytes.",
       "format": "int64",
       "type": [
         "integer",

@@ -307,18 +307,18 @@
                 "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
                 "properties": {
                   "apiGroup": {
-                    "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+                    "description": "apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "kind": {
-                    "description": "Kind is the type of resource being referenced",
+                    "description": "kind is the type of resource being referenced",
                     "type": "string"
                   },
                   "name": {
-                    "description": "Name is the name of resource being referenced",
+                    "description": "name is the name of resource being referenced",
                     "type": "string"
                   }
                 },
@@ -336,22 +336,22 @@
                 "description": "TypedObjectReference contains enough information to let you locate the typed referenced object",
                 "properties": {
                   "apiGroup": {
-                    "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+                    "description": "apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
                     "type": [
                       "string",
                       "null"
                     ]
                   },
                   "kind": {
-                    "description": "Kind is the type of resource being referenced",
+                    "description": "kind is the type of resource being referenced",
                     "type": "string"
                   },
                   "name": {
-                    "description": "Name is the name of resource being referenced",
+                    "description": "name is the name of resource being referenced",
                     "type": "string"
                   },
                   "namespace": {
-                    "description": "Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.",
+                    "description": "namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.",
                     "type": [
                       "string",
                       "null"
@@ -387,7 +387,7 @@
                         }
                       ]
                     },
-                    "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "description": "limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
                     "type": [
                       "object",
                       "null"
@@ -410,7 +410,7 @@
                         }
                       ]
                     },
-                    "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                    "description": "requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
                     "type": [
                       "object",
                       "null"
@@ -635,11 +635,11 @@
                       ]
                     },
                     "status": {
-                      "description": "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=state%20of%20pvc-,conditions.status,-(string)%2C%20required",
+                      "description": "status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=state%20of%20pvc-,conditions.status,-(string)%2C%20required",
                       "type": "string"
                     },
                     "type": {
-                      "description": "Type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about",
+                      "description": "type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about",
                       "type": "string"
                     }
                   },
@@ -674,7 +674,7 @@
                 "description": "VolumeHealthStatus contains health information for a volume reported by the CSI controller plugin.",
                 "properties": {
                   "healthConditions": {
-                    "description": "conditions is the set of adverse conditions reported by the CSI controller plugin. An empty list means no adverse condition. At most 16 conditions may be reported.",
+                    "description": "healthConditions is the set of adverse conditions reported by the CSI controller plugin. An empty list means no adverse condition. At most 16 conditions may be reported.",
                     "items": {
                       "description": "VolumeHealthCondition represents an adverse health condition reported for a volume.",
                       "properties": {

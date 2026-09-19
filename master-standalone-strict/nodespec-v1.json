@@ -8,26 +8,26 @@
           "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration",
           "properties": {
             "kubeletConfigKey": {
-              "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
+              "description": "kubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
               "type": "string"
             },
             "name": {
-              "description": "Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.",
+              "description": "name is the metadata.name of the referenced ConfigMap. This field is required in all cases.",
               "type": "string"
             },
             "namespace": {
-              "description": "Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.",
+              "description": "namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.",
               "type": "string"
             },
             "resourceVersion": {
-              "description": "ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
+              "description": "resourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
               "type": [
                 "string",
                 "null"
               ]
             },
             "uid": {
-              "description": "UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
+              "description": "uid is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
               "type": [
                 "string",
                 "null"
@@ -53,14 +53,14 @@
       "additionalProperties": false
     },
     "externalID": {
-      "description": "Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966",
+      "description": "externalID is deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966",
       "type": [
         "string",
         "null"
       ]
     },
     "podCIDR": {
-      "description": "PodCIDR represents the pod IP range assigned to the node.",
+      "description": "podCIDR represents the pod IP range assigned to the node.",
       "type": [
         "string",
         "null"
@@ -85,7 +85,7 @@
       "description": "NodePodPreemptionPolicy defines the node-level policies governing preemption for pods on this node.",
       "properties": {
         "disableResizePreemption": {
-          "description": "DisableResizePreemption lists the owners (e.g., autoscalers, operators, administrators) that have requested to disable scheduler and Kubelet preemption for in-place pod resize on this node. If this list is non-empty, resize-induced preemption is disabled on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate.",
+          "description": "disableResizePreemption lists the owners (e.g., autoscalers, operators, administrators) that have requested to disable scheduler and Kubelet preemption for in-place pod resize on this node. If this list is non-empty, resize-induced preemption is disabled on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate.",
           "items": {
             "type": [
               "string",
@@ -106,23 +106,23 @@
       "additionalProperties": false
     },
     "providerID": {
-      "description": "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
+      "description": "providerID is the ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
       "type": [
         "string",
         "null"
       ]
     },
     "taints": {
-      "description": "If specified, the node's taints.",
+      "description": "taints if specified, is the node's taints.",
       "items": {
         "description": "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.",
         "properties": {
           "effect": {
-            "description": "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.",
+            "description": "effect is the effect of the taint on pods that do not tolerate the taint. Required. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.",
             "type": "string"
           },
           "key": {
-            "description": "Required. The taint key to be applied to a node.",
+            "description": "key is the taint key to be applied to a node. Required. The taint key to be applied to a node.",
             "type": "string"
           },
           "timeAdded": {
@@ -134,7 +134,7 @@
             ]
           },
           "value": {
-            "description": "The taint value corresponding to the taint key.",
+            "description": "value is the taint value corresponding to the taint key.",
             "type": [
               "string",
               "null"
@@ -158,7 +158,7 @@
       "x-kubernetes-list-type": "atomic"
     },
     "unschedulable": {
-      "description": "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration",
+      "description": "unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration",
       "type": [
         "boolean",
         "null"

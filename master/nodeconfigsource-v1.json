@@ -3,7 +3,7 @@
   "properties": {
     "configMap": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.ConfigMapNodeConfigSource",
-      "description": "ConfigMap is a reference to a Node's ConfigMap"
+      "description": "configMap is a reference to a Node's ConfigMap"
     }
   },
   "type": "object",

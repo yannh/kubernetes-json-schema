@@ -2,23 +2,23 @@
   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
   "properties": {
     "host": {
-      "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
+      "description": "host is the host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
       "type": [
         "string",
         "null"
       ]
     },
     "httpHeaders": {
-      "description": "Custom headers to set in the request. HTTP allows repeated headers.",
+      "description": "httpHeaders are the custom headers to set in the request. HTTP allows repeated headers.",
       "items": {
         "description": "HTTPHeader describes a custom header to be used in HTTP probes",
         "properties": {
           "name": {
-            "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+            "description": "name is the header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
             "type": "string"
           },
           "value": {
-            "description": "The header field value",
+            "description": "value is the header field value",
             "type": "string"
           }
         },
@@ -38,7 +38,7 @@
       "x-kubernetes-list-type": "atomic"
     },
     "path": {
-      "description": "Path to access on the HTTP server.",
+      "description": "path is the path to access on the HTTP server.",
       "type": [
         "string",
         "null"
@@ -61,14 +61,14 @@
       ]
     },
     "protocol": {
-      "description": "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
+      "description": "protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.",
       "type": [
         "string",
         "null"
       ]
     },
     "scheme": {
-      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
+      "description": "scheme is the scheme to use for connecting to the host. Defaults to HTTP.",
       "type": [
         "string",
         "null"

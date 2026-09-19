@@ -3,10 +3,10 @@
   "properties": {
     "features": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeHandlerFeatures",
-      "description": "Supported features."
+      "description": "features is the set of supported features."
     },
     "name": {
-      "description": "Runtime handler name. Empty for the default runtime handler.",
+      "description": "name is the runtime handler name. Empty for the default runtime handler.",
       "type": [
         "string",
         "null"

@@ -2,14 +2,14 @@
   "description": "EventSource contains information for an event.",
   "properties": {
     "component": {
-      "description": "Component from which the event is generated.",
+      "description": "component from which the event is generated.",
       "type": [
         "string",
         "null"
       ]
     },
     "host": {
-      "description": "Node name on which the event is generated.",
+      "description": "host name on which the event is generated.",
       "type": [
         "string",
         "null"

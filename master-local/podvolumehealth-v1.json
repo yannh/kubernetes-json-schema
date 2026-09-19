@@ -2,7 +2,7 @@
   "description": "PodVolumeHealth contains health information for a volume used by a pod, reported by the CSI node plugin via the kubelet.",
   "properties": {
     "healthConditions": {
-      "description": "conditions is the set of adverse conditions reported by the CSI node plugin for this volume on this node. At most 16 conditions may be reported.",
+      "description": "healthConditions is the set of adverse conditions reported by the CSI node plugin for this volume on this node. At most 16 conditions may be reported.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthCondition"
       },

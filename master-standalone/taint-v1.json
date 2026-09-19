@@ -2,14 +2,14 @@
   "description": "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.",
   "properties": {
     "effect": {
-      "description": "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.",
+      "description": "effect is the effect of the taint on pods that do not tolerate the taint. Required. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.",
       "type": [
         "string",
         "null"
       ]
     },
     "key": {
-      "description": "Required. The taint key to be applied to a node.",
+      "description": "key is the taint key to be applied to a node. Required. The taint key to be applied to a node.",
       "type": [
         "string",
         "null"
@@ -24,7 +24,7 @@
       ]
     },
     "value": {
-      "description": "The taint value corresponding to the taint key.",
+      "description": "value is the taint value corresponding to the taint key.",
       "type": [
         "string",
         "null"

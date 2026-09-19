@@ -2,7 +2,7 @@
   "description": "NodeAllocatableResourceClaimStatus describes the status of node allocatable resources allocated via DRA.",
   "properties": {
     "containers": {
-      "description": "Containers lists the names of all containers in this pod that reference the claim.",
+      "description": "containers lists the names of all containers in this pod that reference the claim.",
       "items": {
         "type": [
           "string",
@@ -16,12 +16,12 @@
       "x-kubernetes-list-type": "set"
     },
     "mapping": {
-      "description": "Mapping contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].mapping` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
+      "description": "mapping contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].mapping` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
       "items": {
         "description": "NodeAllocatableMappedResources describes mapped node allocatable resource allocations.",
         "properties": {
           "name": {
-            "description": "Name is the name of the resource (e.g., cpu, memory).",
+            "description": "name is the name of the resource (e.g., cpu, memory).",
             "type": "string"
           },
           "quantity": {
@@ -63,12 +63,12 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "overhead": {
-      "description": "Overhead contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].overhead` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
+      "description": "overhead contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].overhead` field. This is used by kubelet for pod level and container-level cgroup enforcement.",
       "items": {
         "description": "NodeAllocatableOverheadResources describes auxiliary overhead resource allocations.",
         "properties": {
           "name": {
-            "description": "Name is the name of the resource (e.g., cpu, memory).",
+            "description": "name is the name of the resource (e.g., cpu, memory).",
             "type": "string"
           },
           "perContainer": {
@@ -125,7 +125,7 @@
       "x-kubernetes-patch-strategy": "merge"
     },
     "resourceClaimName": {
-      "description": "ResourceClaimName is the resource claim referenced by the pod that resulted in this node allocatable resource allocation.",
+      "description": "resourceClaimName is the resource claim referenced by the pod that resulted in this node allocatable resource allocation.",
       "type": [
         "string",
         "null"
