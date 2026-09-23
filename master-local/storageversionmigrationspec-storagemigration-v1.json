@@ -3,7 +3,7 @@
   "properties": {
     "resource": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.GroupResource",
-      "description": "The resource that is being migrated. The migrator sends requests to the endpoint serving the resource. Immutable."
+      "description": "resource is the resource that is being migrated. The migrator sends requests to the endpoint serving the resource. Immutable."
     }
   },
   "required": [
