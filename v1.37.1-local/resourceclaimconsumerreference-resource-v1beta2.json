@@ -1,0 +1,40 @@
+{
+  "description": "ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.",
+  "properties": {
+    "apiGroup": {
+      "description": "APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Name is the name of resource being referenced.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resource": {
+      "description": "Resource is the type of resource being referenced, for example \"pods\".",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "uid": {
+      "description": "UID identifies exactly one incarnation of the resource.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "resource",
+    "name",
+    "uid"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

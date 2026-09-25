@@ -1,0 +1,46 @@
+{
+  "description": "EvictionRequest defines a request that should ideally result in a graceful eviction of a .spec.target (e.g. termination of a pod).\n\nThe evictionrequest-controller observes intents of all EvictionRequests and transforms them into Evictions.\n  - .spec.requester is set as a label on the Eviction for easier lookup.\n  - Each target can have a set of responders assigned to it. Eviction objects are observed by\n    these responders, who implement the eviction logic and update the Eviction's status with\n    progress.\n\nThere is many-to-many relationship between EvictionRequests and Evictions in general. And many-to-one if the target is a  pod.\n\nIf all requesters withdraw their eviction intent for a common target, the eviction will be canceled. Deleting an EvictionRequest also counts as a withdrawal. Once all EvictionRequest of a target are removed, the corresponding Evictions are eventually garbage collected.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "EvictionRequest"
+      ]
+    },
+    "metadata": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+      "description": "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata."
+    },
+    "spec": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestSpec",
+      "description": "spec defines the eviction request specification. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+    },
+    "status": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.lifecycle.v1alpha1.EvictionRequestStatus",
+      "description": "status represents the most recently observed status of the eviction request. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+    }
+  },
+  "required": [
+    "spec"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "lifecycle.k8s.io",
+      "kind": "EvictionRequest",
+      "version": "v1alpha1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

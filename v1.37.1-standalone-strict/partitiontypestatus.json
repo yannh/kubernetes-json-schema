@@ -1,0 +1,44 @@
+{
+  "description": "PartitionTypeStatus reports allocatability for a single partition type, identified by the value of a grouping attribute.",
+  "properties": {
+    "allocatable": {
+      "description": "Allocatable is the number of additional devices of this partition type that could still be allocated given current shared-counter consumption.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "attribute": {
+      "description": "Attribute is the fully qualified name of the device attribute whose value groups this entry. It is the PartitionTypeAttribute declared by the devices' own slice, or the default named in the request when their slice declares none.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total": {
+      "description": "Total is the number of devices of this partition type in the pool.",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "Type is the partition type value (e.g. \"Full\" or \"Half\").",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "attribute",
+    "type",
+    "total",
+    "allocatable"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,6 @@
+{
+  "description": "AllCompositeDisruptionMode means that children of a CompositePodGroup can only be disrupted or preempted together.",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false
+}

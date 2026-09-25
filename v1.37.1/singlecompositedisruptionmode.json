@@ -1,0 +1,5 @@
+{
+  "description": "SingleCompositeDisruptionMode means that individual children of a CompositePodGroup can be disrupted or preempted independently.",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

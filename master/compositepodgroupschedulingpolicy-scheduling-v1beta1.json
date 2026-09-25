@@ -1,13 +1,13 @@
 {
-  "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
+  "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set. The policy is chosen at creation time by setting either the Basic or Gang field. The CompositePodGroup may not change policy after creation. Fields within chosen policy may be updated after creation when their individual fields allow it.",
   "properties": {
     "basic": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositeBasicSchedulingPolicy",
-      "description": "basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
+      "description": "basic specifies that the groups of this composite group should be scheduled independently. Setting this field at group creation time opts this group to basic scheduling; this field cannot be changed afterward."
     },
     "gang": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositeGangSchedulingPolicy",
-      "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
+      "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics. Setting this field at group creation time opts this group to gang scheduling; this field cannot be set or unset afterward. The minGroupCount field within Gang scheduling policy remains mutable after group creation."
     }
   },
   "type": "object",

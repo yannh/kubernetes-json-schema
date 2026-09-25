@@ -5617,7 +5617,7 @@
           "type": "string"
         },
         "usages": {
-          "description": "usages specifies a set of key usages requested in the issued certificate.\n\nRequests for TLS client certificates typically request: \"digital signature\", \"key encipherment\", \"client auth\".\n\nRequests for TLS serving certificates typically request: \"key encipherment\", \"digital signature\", \"server auth\".\n\nValid values are:\n \"signing\", \"digital signature\", \"content commitment\",\n \"key encipherment\", \"key agreement\", \"data encipherment\",\n \"cert sign\", \"crl sign\", \"encipher only\", \"decipher only\", \"any\",\n \"server auth\", \"client auth\",\n \"code signing\", \"email protection\", \"s/mime\",\n \"ipsec end system\", \"ipsec tunnel\", \"ipsec user\",\n \"timestamping\", \"ocsp signing\", \"microsoft sgc\", \"netscape sgc\"",
+          "description": "usages specifies a set of key usages requested in the issued certificate.\n\nRequests for TLS client certificates typically request: \"digital signature\", \"client auth\".\n\nRequests for TLS serving certificates typically request: \"digital signature\", \"server auth\".\n\nValid values are:\n \"signing\", \"digital signature\", \"content commitment\",\n \"key encipherment\", \"key agreement\", \"data encipherment\",\n \"cert sign\", \"crl sign\", \"encipher only\", \"decipher only\", \"any\",\n \"server auth\", \"client auth\",\n \"code signing\", \"email protection\", \"s/mime\",\n \"ipsec end system\", \"ipsec tunnel\", \"ipsec user\",\n \"timestamping\", \"ocsp signing\", \"microsoft sgc\", \"netscape sgc\"\n\nWhen request contains a x509 certificate signing request signed with an ML-DSA key, usages must contain at least one of \"digital signature\", \"content commitment\", \"cert sign\", or \"crl sign\" and must not contain \"key encipherment\", \"key agreement\", \"data encipherment\", \"encipher only\", or \"decipher only\".",
           "items": {
             "type": "string"
           },
@@ -6617,7 +6617,7 @@
       "description": "AttachedVolume describes a volume attached to a node",
       "properties": {
         "devicePath": {
-          "description": "devicePath represents the device path where the volume should be available",
+          "description": "devicePath represents the path where the attached volume is available on the node. On Linux nodes, this is the host block-device node (e.g. /dev/xvdX) that the kubelet uses to mount and format the volume. On Windows nodes there is no /dev device tree, so this carries the CSI VolumeID (the attach identity reported by the CSI driver) instead of a device path.",
           "type": "string"
         },
         "name": {
@@ -22278,7 +22278,7 @@
       "description": "CompositeGangSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled using all-or-nothing semantics.",
       "properties": {
         "minGroupCount": {
-          "description": "minGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+          "description": "minGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer. This field is mutable to support workload scaling.\n\nNote that the scheduler operates on an eventually consistent model. Updates to minGroupCount may not be immediately reflected in scheduling decisions due to propagation delays. If minGroupCount is updated while a scheduling cycle is in progress for that group, the new value may not take effect until the next cycle. Moreover, minGroupCount is only enforced during scheduling, meaning that modifications to this field do not affect already-scheduled pods, applying only to those evaluated in future cycles.",
           "format": "int32",
           "type": "integer"
         }
@@ -22384,15 +22384,15 @@
       "additionalProperties": false
     },
     "io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy": {
-      "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
+      "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set. The policy is chosen at creation time by setting either the Basic or Gang field. The CompositePodGroup may not change policy after creation. Fields within chosen policy may be updated after creation when their individual fields allow it.",
       "properties": {
         "basic": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeBasicSchedulingPolicy",
-          "description": "basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
+          "description": "basic specifies that the groups of this composite group should be scheduled independently. Setting this field at group creation time opts this group to basic scheduling; this field cannot be changed afterward."
         },
         "gang": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositeGangSchedulingPolicy",
-          "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
+          "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics. Setting this field at group creation time opts this group to gang scheduling; this field cannot be set or unset afterward. The minGroupCount field within Gang scheduling policy remains mutable after group creation."
         }
       },
       "type": "object",
@@ -22436,7 +22436,7 @@
         },
         "schedulingPolicy": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupSchedulingPolicy",
-          "description": "schedulingPolicy defines the scheduling policy for this instance of the CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate. This field is immutable."
+          "description": "schedulingPolicy defines the scheduling policy for this instance of the CompositePodGroup. Controllers are expected to fill this field by copying it from a CompositePodGroupTemplate."
         },
         "workloadRef": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadReference",
@@ -23119,7 +23119,7 @@
       "description": "WorkloadSpec defines the desired state of a Workload.",
       "properties": {
         "compositePodGroupTemplates": {
-          "description": "compositePodGroupTemplates is the list of CompositePodGroup templates that make up the Workload. The maximum number of templates is 8. This field is immutable. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.\n\nThis field is used only when the CompositePodGroup feature gate is enabled.",
+          "description": "compositePodGroupTemplates is the list of CompositePodGroup templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.\n\nThis field is used only when the CompositePodGroup feature gate is enabled.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.scheduling.v1alpha3.CompositePodGroupTemplate"
           },
@@ -23191,7 +23191,7 @@
       "description": "CompositeGangSchedulingPolicy indicates that the groups belonging to the composite group should be scheduled using all-or-nothing semantics.",
       "properties": {
         "minGroupCount": {
-          "description": "minGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer.",
+          "description": "minGroupCount is the minimum number of child groups that must be schedulable or scheduled at the same time for the scheduler to admit the entire group. It must be a positive integer. This field is mutable to support workload scaling.\n\nNote that the scheduler operates on an eventually consistent model. Updates to minGroupCount may not be immediately reflected in scheduling decisions due to propagation delays. If minGroupCount is updated while a scheduling cycle is in progress for that group, the new value may not take effect until the next cycle. Moreover, minGroupCount is only enforced during scheduling, meaning that modifications to this field do not affect already-scheduled pods, applying only to those evaluated in future cycles.",
           "format": "int32",
           "type": "integer"
         }
@@ -23218,15 +23218,15 @@
       "additionalProperties": false
     },
     "io.k8s.api.scheduling.v1beta1.CompositePodGroupSchedulingPolicy": {
-      "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set.",
+      "description": "CompositePodGroupSchedulingPolicy defines the scheduling configuration for a CompositePodGroup. Exactly one policy must be set. The policy is chosen at creation time by setting either the Basic or Gang field. The CompositePodGroup may not change policy after creation. Fields within chosen policy may be updated after creation when their individual fields allow it.",
       "properties": {
         "basic": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.CompositeBasicSchedulingPolicy",
-          "description": "basic specifies that the groups of this composite group should be scheduled independently. This field is immutable."
+          "description": "basic specifies that the groups of this composite group should be scheduled independently. Setting this field at group creation time opts this group to basic scheduling; this field cannot be changed afterward."
         },
         "gang": {
           "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.CompositeGangSchedulingPolicy",
-          "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics."
+          "description": "gang specifies that the groups of this composite group should be scheduled using all-or-nothing semantics. Setting this field at group creation time opts this group to gang scheduling; this field cannot be set or unset afterward. The minGroupCount field within Gang scheduling policy remains mutable after group creation."
         }
       },
       "type": "object",
@@ -23782,7 +23782,7 @@
       "description": "WorkloadSpec defines the desired state of a Workload.",
       "properties": {
         "compositePodGroupTemplates": {
-          "description": "compositePodGroupTemplates is the list of CompositePodGroup templates that make up the Workload. The maximum number of templates is 8. This field is immutable. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.\n\nThis field is used only when the CompositePodGroup feature gate is enabled.",
+          "description": "compositePodGroupTemplates is the list of CompositePodGroup templates that make up the Workload. The maximum number of templates is 8. Templates cannot be added or removed after the workload is created. Existing templates may still be updated where their individual fields allow it. Exactly one of CompositePodGroupTemplates and PodGroupTemplates must be set.\n\nThis field is used only when the CompositePodGroup feature gate is enabled.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupTemplate"
           },

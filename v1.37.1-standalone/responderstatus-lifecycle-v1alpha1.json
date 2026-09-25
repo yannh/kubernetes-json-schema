@@ -1,0 +1,57 @@
+{
+  "description": "ResponderStatus represents the last observed status of the eviction process of the responder. It should be only updated by the designated responder whose name is .name field.",
+  "properties": {
+    "completionTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expectedCompletionTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "heartbeatTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "description": "message provides human-readable details about the state of the responder and the eviction process. Maximum length is 4000 characters.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "name allows you to identify the responder reacting to the Eviction.\n\nIt must be a valid domain-prefixed key (such as \"acme.io/foo\"). This field is initialized by Kubernetes and must be unique for each responder. This field is required.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "startTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "x-kubernetes-map-type": "granular",
+  "$schema": "http://json-schema.org/schema#"
+}

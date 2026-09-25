@@ -1,0 +1,23 @@
+{
+  "description": "CSINodeStatus contains health and status information for storage on a node.",
+  "properties": {
+    "storageHealth": {
+      "description": "storageHealth contains backend health reports for CSI drivers registered on the node.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageHealth"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

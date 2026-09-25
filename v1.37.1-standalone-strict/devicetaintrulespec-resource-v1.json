@@ -1,0 +1,79 @@
+{
+  "description": "DeviceTaintRuleSpec specifies the selector and one taint.",
+  "properties": {
+    "deviceSelector": {
+      "description": "DeviceTaintSelector defines which device(s) a DeviceTaintRule applies to. The empty selector matches all devices. Without a selector, no devices are matched.",
+      "properties": {
+        "device": {
+          "description": "If device is set, only devices with that name are selected. This field corresponds to slice.spec.devices[].name.\n\nSetting also driver and pool may be required to avoid ambiguity, but is not required.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "driver": {
+          "description": "If driver is set, only devices from that driver are selected. This fields corresponds to slice.spec.driver.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pool": {
+          "description": "If pool is set, only devices in that pool are selected.\n\nAlso setting the driver name may be useful to avoid ambiguity when different drivers use the same pool name, but this is not required because selecting pools from different drivers may also be useful, for example when drivers with node-local devices use the node name as their pool name.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    },
+    "taint": {
+      "description": "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.",
+      "properties": {
+        "effect": {
+          "description": "The effect of the taint on claims that do not tolerate the taint and through such claims on the pods using them.\n\nValid effects are None, NoSchedule and NoExecute. PreferNoSchedule as used for nodes is not valid here. More effects may get added in the future. Consumers must treat unknown effects like None.",
+          "type": "string"
+        },
+        "key": {
+          "description": "The taint key to be applied to a device. Must be a label name.",
+          "type": "string"
+        },
+        "timeAdded": {
+          "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "value": {
+          "description": "The taint value corresponding to the taint key. Must be a label value.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "effect"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "taint"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

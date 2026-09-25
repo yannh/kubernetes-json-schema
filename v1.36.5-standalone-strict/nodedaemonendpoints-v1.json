@@ -1,0 +1,26 @@
+{
+  "description": "NodeDaemonEndpoints lists ports opened by daemons running on the Node.",
+  "properties": {
+    "kubeletEndpoint": {
+      "description": "DaemonEndpoint contains information about a single Daemon endpoint.",
+      "properties": {
+        "Port": {
+          "description": "Port number of the given endpoint.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Port"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

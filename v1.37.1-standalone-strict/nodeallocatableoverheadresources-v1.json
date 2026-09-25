@@ -1,0 +1,50 @@
+{
+  "description": "NodeAllocatableOverheadResources describes auxiliary overhead resource allocations.",
+  "properties": {
+    "name": {
+      "description": "Name is the name of the resource (e.g., cpu, memory).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "perContainer": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    },
+    "perPod": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

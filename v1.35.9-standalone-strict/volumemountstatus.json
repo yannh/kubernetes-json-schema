@@ -1,0 +1,40 @@
+{
+  "description": "VolumeMountStatus shows status of volume mounts.",
+  "properties": {
+    "mountPath": {
+      "description": "MountPath corresponds to the original VolumeMount.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Name corresponds to the name of the original VolumeMount.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "readOnly": {
+      "description": "ReadOnly corresponds to the original VolumeMount.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "recursiveReadOnly": {
+      "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "mountPath"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
