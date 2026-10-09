@@ -42,10 +42,6 @@
       ]
     }
   },
-  "required": [
-    "currentReplicas",
-    "desiredReplicas"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

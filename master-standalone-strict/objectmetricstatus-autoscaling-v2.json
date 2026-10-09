@@ -166,11 +166,6 @@
       "additionalProperties": false
     }
   },
-  "required": [
-    "metric",
-    "current",
-    "describedObject"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

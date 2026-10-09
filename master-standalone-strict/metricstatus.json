@@ -6,7 +6,10 @@
       "properties": {
         "container": {
           "description": "container is the name of the container in the pods of the scaling target",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "current": {
           "description": "MetricValueStatus holds the current value for a metric",
@@ -52,19 +55,20 @@
               ]
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         },
         "name": {
           "description": "name is the name of the resource in question.",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
-      "required": [
-        "name",
-        "current",
-        "container"
-      ],
       "type": [
         "object",
         "null"
@@ -118,7 +122,10 @@
               ]
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         },
         "metric": {
@@ -200,14 +207,13 @@
           "required": [
             "name"
           ],
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         }
       },
-      "required": [
-        "metric",
-        "current"
-      ],
       "type": [
         "object",
         "null"
@@ -261,7 +267,10 @@
               ]
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         },
         "describedObject": {
@@ -287,7 +296,10 @@
             "kind",
             "name"
           ],
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         },
         "metric": {
@@ -369,15 +381,13 @@
           "required": [
             "name"
           ],
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         }
       },
-      "required": [
-        "metric",
-        "current",
-        "describedObject"
-      ],
       "type": [
         "object",
         "null"
@@ -431,7 +441,10 @@
               ]
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         },
         "metric": {
@@ -513,14 +526,13 @@
           "required": [
             "name"
           ],
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         }
       },
-      "required": [
-        "metric",
-        "current"
-      ],
       "type": [
         "object",
         "null"
@@ -574,18 +586,20 @@
               ]
             }
           },
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false
         },
         "name": {
           "description": "name is the name of the resource in question.",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
-      "required": [
-        "name",
-        "current"
-      ],
       "type": [
         "object",
         "null"
@@ -600,9 +614,6 @@
       ]
     }
   },
-  "required": [
-    "type"
-  ],
   "type": "object",
   "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"

@@ -161,11 +161,6 @@
       ]
     }
   },
-  "required": [
-    "metric",
-    "current",
-    "describedObject"
-  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

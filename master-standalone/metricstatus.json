@@ -6,7 +6,10 @@
       "properties": {
         "container": {
           "description": "container is the name of the container in the pods of the scaling target",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "current": {
           "description": "MetricValueStatus holds the current value for a metric",
@@ -52,18 +55,19 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "name": {
           "description": "name is the name of the resource in question.",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
-      "required": [
-        "name",
-        "current",
-        "container"
-      ],
       "type": [
         "object",
         "null"
@@ -116,7 +120,10 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "metric": {
           "description": "MetricIdentifier defines the name and optionally selector for a metric",
@@ -195,13 +202,12 @@
           "required": [
             "name"
           ],
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         }
       },
-      "required": [
-        "metric",
-        "current"
-      ],
       "type": [
         "object",
         "null"
@@ -254,7 +260,10 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "describedObject": {
           "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
@@ -279,7 +288,10 @@
             "kind",
             "name"
           ],
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "metric": {
           "description": "MetricIdentifier defines the name and optionally selector for a metric",
@@ -358,14 +370,12 @@
           "required": [
             "name"
           ],
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         }
       },
-      "required": [
-        "metric",
-        "current",
-        "describedObject"
-      ],
       "type": [
         "object",
         "null"
@@ -418,7 +428,10 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "metric": {
           "description": "MetricIdentifier defines the name and optionally selector for a metric",
@@ -497,13 +510,12 @@
           "required": [
             "name"
           ],
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         }
       },
-      "required": [
-        "metric",
-        "current"
-      ],
       "type": [
         "object",
         "null"
@@ -556,17 +568,19 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "name": {
           "description": "name is the name of the resource in question.",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
-      "required": [
-        "name",
-        "current"
-      ],
       "type": [
         "object",
         "null"
@@ -580,9 +594,6 @@
       ]
     }
   },
-  "required": [
-    "type"
-  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

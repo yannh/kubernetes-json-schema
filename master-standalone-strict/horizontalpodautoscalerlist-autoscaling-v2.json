@@ -1195,18 +1195,20 @@
                       ]
                     },
                     "status": {
-                      "description": "status is the status of the condition (True, False, Unknown)",
-                      "type": "string"
+                      "description": "status is the status of the condition, should be one of True, False, Unknown",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "type": {
                       "description": "type describes the current condition",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
-                  "required": [
-                    "type",
-                    "status"
-                  ],
                   "type": [
                     "object",
                     "null"
@@ -1234,7 +1236,10 @@
                       "properties": {
                         "container": {
                           "description": "container is the name of the container in the pods of the scaling target",
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "current": {
                           "description": "MetricValueStatus holds the current value for a metric",
@@ -1280,19 +1285,20 @@
                               ]
                             }
                           },
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         },
                         "name": {
                           "description": "name is the name of the resource in question.",
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
-                      "required": [
-                        "name",
-                        "current",
-                        "container"
-                      ],
                       "type": [
                         "object",
                         "null"
@@ -1346,7 +1352,10 @@
                               ]
                             }
                           },
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         },
                         "metric": {
@@ -1428,14 +1437,13 @@
                           "required": [
                             "name"
                           ],
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         }
                       },
-                      "required": [
-                        "metric",
-                        "current"
-                      ],
                       "type": [
                         "object",
                         "null"
@@ -1489,7 +1497,10 @@
                               ]
                             }
                           },
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         },
                         "describedObject": {
@@ -1515,7 +1526,10 @@
                             "kind",
                             "name"
                           ],
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         },
                         "metric": {
@@ -1597,15 +1611,13 @@
                           "required": [
                             "name"
                           ],
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         }
                       },
-                      "required": [
-                        "metric",
-                        "current",
-                        "describedObject"
-                      ],
                       "type": [
                         "object",
                         "null"
@@ -1659,7 +1671,10 @@
                               ]
                             }
                           },
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         },
                         "metric": {
@@ -1741,14 +1756,13 @@
                           "required": [
                             "name"
                           ],
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         }
                       },
-                      "required": [
-                        "metric",
-                        "current"
-                      ],
                       "type": [
                         "object",
                         "null"
@@ -1802,18 +1816,20 @@
                               ]
                             }
                           },
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "additionalProperties": false
                         },
                         "name": {
                           "description": "name is the name of the resource in question.",
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
-                      "required": [
-                        "name",
-                        "current"
-                      ],
                       "type": [
                         "object",
                         "null"
@@ -1822,12 +1838,12 @@
                     },
                     "type": {
                       "description": "type is the type of metric source.  It will be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each corresponds to a matching field in the object.",
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
-                  "required": [
-                    "type"
-                  ],
                   "type": [
                     "object",
                     "null"
@@ -1851,7 +1867,10 @@
               "desiredReplicas": {
                 "description": "desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.",
                 "format": "int32",
-                "type": "integer"
+                "type": [
+                  "integer",
+                  "null"
+                ]
               },
               "lastScaleTime": {
                 "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
@@ -1870,9 +1889,6 @@
                 ]
               }
             },
-            "required": [
-              "desiredReplicas"
-            ],
             "type": [
               "object",
               "null"

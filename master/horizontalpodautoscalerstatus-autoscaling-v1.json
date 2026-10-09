@@ -38,10 +38,6 @@
       ]
     }
   },
-  "required": [
-    "currentReplicas",
-    "desiredReplicas"
-  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }
