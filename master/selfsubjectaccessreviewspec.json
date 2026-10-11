@@ -1,6 +1,10 @@
 {
   "description": "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
   "properties": {
+    "authorizationOptions": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.AuthorizationOptions",
+      "description": "authorizationOptions contains options for specifying the client's authorization abilities. If unset, only unconditional authorization is supported, for backwards-compatibility. Requires the ConditionalAuthorization feature to be enabled."
+    },
     "nonResourceAttributes": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.NonResourceAttributes",
       "description": "nonResourceAttributes describes information for a non-resource access request"

@@ -1,0 +1,47 @@
+{
+  "description": "ConditionsAwareDecision represents one authorizer's decision. It is an enum type, with variants described in ConditionsAwareDecisionType, plus a reason and error.",
+  "properties": {
+    "allow": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.UnconditionalDecision",
+      "description": "allow represents an unconditional Allow decision. Must be non-null when type == \"Allow\", otherwise this field must be unset."
+    },
+    "conditionsMap": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.ConditionsMap",
+      "description": "conditionsMap represents a conditional decision, modelled as a map of conditions. Must be non-null when type == \"ConditionsMap\", otherwise this field must be unset."
+    },
+    "deny": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.UnconditionalDecision",
+      "description": "deny represents an unconditional Deny decision. Must be non-null when type == \"Deny\", otherwise this field must be unset."
+    },
+    "noOpinion": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.UnconditionalDecision",
+      "description": "noOpinion represents an unconditional NoOpinion decision. Must be non-null when type == \"NoOpinion\", otherwise this field must be unset."
+    },
+    "type": {
+      "description": "type describes the type of the decision, and acts as an enum discriminator.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "union": {
+      "description": "union forms an ordered tree of decisions, where the union decision is represented by an internal node, and all other decision types are leaf nodes. During evaluation, the leaf decisions are evaluated in depth-first order, until an Allow or Deny decision is found. The order of the decisions should match the order of the authorizers in the union authorizer for interpretability, but the authorizerName is the map key. At least one of the leaves must be of type ConditionsMap, as otherwise the union could be trivially reduced to just a single Allow/Deny/NoOpinion.\n\nMust have at least one element when type == \"Union\", otherwise this field must be unset.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.authorization.v1.NamedConditionsAwareDecision"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "authorizerName"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

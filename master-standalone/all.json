@@ -334,6 +334,18 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1.UserInfo"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.AuthorizationOptions"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.Condition"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.ConditionsAwareDecision"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.ConditionsMap"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.FieldSelectorAttributes"
     },
     {
@@ -341,6 +353,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.LocalSubjectAccessReview"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.NamedConditionsAwareDecision"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.NonResourceAttributes"
@@ -377,6 +392,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.SubjectRulesReviewStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.UnconditionalDecision"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v1.CrossVersionObjectReference"

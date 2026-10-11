@@ -1,0 +1,151 @@
+{
+  "description": "ConditionsMap represents a map of conditions, keyed by ID across all conditions, across all effects. The ConditionsMap must have at least one Allow condition or at least one Deny condition. It cannot contain more than 128 conditions in total. The conditions are evaluated against data available later, to determine whether the authorizer that authored the conditions allows or denies the request. If all conditions in the map evaluate to false, the final decision must be NoOpinion.",
+  "properties": {
+    "allowConditions": {
+      "description": "allowConditions contains the conditions with Allow effect. If any such condition evaluates to true, the ConditionsMap as a whole must evaluate to Allow.",
+      "items": {
+        "description": "Condition represents a single authorization condition to be evaluated against data available later in the request chain, e.g. objects available in admission.",
+        "properties": {
+          "condition": {
+            "description": "condition returns a string encoding of the condition to be evaluated. It is a pure, deterministic function from ConditionsData to a boolean (or error). Might or might not be human-readable. Optional, if the ID alone is enough for the authorizer to know how to evaluate the condition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "description": "description is an optional human-friendly description that can be shown as an error message or for debugging. Optional.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "id uniquely identifies this condition within the scope of the authorizer that authored it and ConditionsMap it is part of. Validated as a Kubernetes label key. Any domain of form *.k8s.io or *.kubernetes.io is reserved for Kubernetes use.",
+            "type": "string"
+          },
+          "type": {
+            "description": "type describes the type of the condition, if there are multiple possibilities. Should be formatted as a Kubernetes label key. Any domain of form *.k8s.io or *.kubernetes.io is reserved for Kubernetes use. authorizer.kubernetes.io/cel is a conditions type for CEL, handled by kube-apiserver. Optional. Can be omitted if the authorizer already knows how to evaluate the condition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "id"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "denyConditions": {
+      "description": "denyConditions contains the conditions with Deny effect. If any such condition evaluates to true or error, the ConditionsMap as a whole must evaluate to Deny.",
+      "items": {
+        "description": "Condition represents a single authorization condition to be evaluated against data available later in the request chain, e.g. objects available in admission.",
+        "properties": {
+          "condition": {
+            "description": "condition returns a string encoding of the condition to be evaluated. It is a pure, deterministic function from ConditionsData to a boolean (or error). Might or might not be human-readable. Optional, if the ID alone is enough for the authorizer to know how to evaluate the condition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "description": "description is an optional human-friendly description that can be shown as an error message or for debugging. Optional.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "id uniquely identifies this condition within the scope of the authorizer that authored it and ConditionsMap it is part of. Validated as a Kubernetes label key. Any domain of form *.k8s.io or *.kubernetes.io is reserved for Kubernetes use.",
+            "type": "string"
+          },
+          "type": {
+            "description": "type describes the type of the condition, if there are multiple possibilities. Should be formatted as a Kubernetes label key. Any domain of form *.k8s.io or *.kubernetes.io is reserved for Kubernetes use. authorizer.kubernetes.io/cel is a conditions type for CEL, handled by kube-apiserver. Optional. Can be omitted if the authorizer already knows how to evaluate the condition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "id"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "noOpinionConditions": {
+      "description": "noOpinionConditions contains the conditions with NoOpinion effect. If any such condition evaluates to true or error, the ConditionsMap as a whole must evaluate to NoOpinion.",
+      "items": {
+        "description": "Condition represents a single authorization condition to be evaluated against data available later in the request chain, e.g. objects available in admission.",
+        "properties": {
+          "condition": {
+            "description": "condition returns a string encoding of the condition to be evaluated. It is a pure, deterministic function from ConditionsData to a boolean (or error). Might or might not be human-readable. Optional, if the ID alone is enough for the authorizer to know how to evaluate the condition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "description": "description is an optional human-friendly description that can be shown as an error message or for debugging. Optional.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "id uniquely identifies this condition within the scope of the authorizer that authored it and ConditionsMap it is part of. Validated as a Kubernetes label key. Any domain of form *.k8s.io or *.kubernetes.io is reserved for Kubernetes use.",
+            "type": "string"
+          },
+          "type": {
+            "description": "type describes the type of the condition, if there are multiple possibilities. Should be formatted as a Kubernetes label key. Any domain of form *.k8s.io or *.kubernetes.io is reserved for Kubernetes use. authorizer.kubernetes.io/cel is a conditions type for CEL, handled by kube-apiserver. Optional. Can be omitted if the authorizer already knows how to evaluate the condition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "id"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

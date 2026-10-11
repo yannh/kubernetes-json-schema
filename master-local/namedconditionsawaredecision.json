@@ -1,0 +1,22 @@
+{
+  "description": "NamedConditionsAwareDecision is a named ConditionsAwareDecision, returned by a unioned authorizer.",
+  "properties": {
+    "authorizerName": {
+      "description": "authorizerName details the name of the authorizer that authored the condition, such that the right Decision can be paired with the right authorizer when evaluating the conditions, even across API server replicas. The name must be stable over time. This name must be unique within a given union authorizer, not necessarily globally.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.ConditionsAwareDecision",
+      "description": "decision carries the inner decision returned from the authorizer."
+    }
+  },
+  "required": [
+    "authorizerName",
+    "decision"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
