@@ -8483,7 +8483,7 @@
                 "additionalProperties": false
               },
               "serviceAccount": {
-                "description": "serviceAccount is a deprecated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.",
+                "description": "serviceAccount is a deprecated alias for ServiceAccountName.\n\nDeprecated: Use serviceAccountName instead.",
                 "type": [
                   "string",
                   "null"
@@ -9990,7 +9990,7 @@
                       "additionalProperties": false
                     },
                     "gitRepo": {
-                      "description": "Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.\n\nDEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.",
+                      "description": "Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.\n\nDeprecated: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.",
                       "properties": {
                         "directory": {
                           "description": "directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.",
@@ -13511,7 +13511,7 @@
                 ]
               },
               "resize": {
-                "description": "Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \"Proposed\" Deprecated: Resize status is moved to two pod conditions PodResizePending and PodResizeInProgress. PodResizePending will track states where the spec has been resized, but the Kubelet has not yet allocated the resources. PodResizeInProgress will track in-progress resizes, and should be present whenever allocated resources != acknowledged resources.",
+                "description": "Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \"Proposed\"\n\nDeprecated: Resize status is moved to two pod conditions PodResizePending and PodResizeInProgress. PodResizePending will track states where the spec has been resized, but the Kubelet has not yet allocated the resources. PodResizeInProgress will track in-progress resizes, and should be present whenever allocated resources != acknowledged resources.",
                 "type": [
                   "string",
                   "null"

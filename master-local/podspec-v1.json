@@ -310,7 +310,7 @@
       "description": "securityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field."
     },
     "serviceAccount": {
-      "description": "serviceAccount is a deprecated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.",
+      "description": "serviceAccount is a deprecated alias for ServiceAccountName.\n\nDeprecated: Use serviceAccountName instead.",
       "type": [
         "string",
         "null"
