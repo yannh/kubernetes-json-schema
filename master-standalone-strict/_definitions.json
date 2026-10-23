@@ -11649,7 +11649,7 @@
         },
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements",
-          "description": "resources is the total amount of CPU and Memory resources required by all containers in the pod. It supports specifying Requests and Limits for \"cpu\", \"memory\" and \"hugepages-\" resource names only. ResourceClaims are not supported.\n\nThis field enables fine-grained control over resource allocation for the entire pod, allowing resource sharing among containers in a pod.\n\nThis is an alpha field and requires enabling the PodLevelResources feature gate."
+          "description": "resources is the total amount of CPU and Memory resources required by all containers in the pod. It supports specifying Requests and Limits for \"cpu\", \"memory\" and \"hugepages-\" resource names only. ResourceClaims are not supported.\n\nThis field enables fine-grained control over resource allocation for the entire pod, allowing resource sharing among containers in a pod.\n\nIf a limit is not specified at the pod level, the pod is limited by the aggregate of its container limits: - For cpu and memory, the aggregate is used only if every init and regular container\n  specifies a limit; otherwise the pod is not limited for that resource.\n- For hugepages, the container limits are summed and unspecified values are treated as 0.\n\nMore details: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
         },
         "restartPolicy": {
           "description": "restartPolicy is the restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
@@ -12691,7 +12691,7 @@
           "additionalProperties": {
             "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
           },
-          "description": "limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+          "description": "limits describes the maximum amount of compute resources allowed. For kubelet cgroup enforcement: - cpu and memory: a limit of 0 is treated the same as an unspecified limit. If\n  neither the container nor the pod specifies a limit, the resource is not limited.\n- hugepages: an unspecified limit is treated the same as a limit of 0. More details: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
           "type": "object"
         },
         "requests": {
@@ -25133,7 +25133,7 @@
         },
         "shardInfo": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ShardInfo",
-          "description": "shardInfo is set when the list is a filtered subset of the full collection, as selected by a shard selector on the request. It echoes back the selector so clients can verify which shard they received and merge sharded responses. Clients should not cache sharded list responses as a full representation of the collection.\n\nThis is an alpha field and requires enabling the ShardedListAndWatch feature gate."
+          "description": "shardInfo is set when the list is a filtered subset of the full collection, as selected by a shard selector on the request. It echoes back the selector so clients can verify which shard they received and merge sharded responses. Clients should not cache sharded list responses as a full representation of the collection.\n\nThis is a beta field and is enabled by default via the ShardedListAndWatch feature gate."
         }
       },
       "type": "object",
