@@ -1,0 +1,32 @@
+{
+  "description": "ResourcePoolStatusRequestSpec defines the filters for the pool status request.",
+  "properties": {
+    "driver": {
+      "description": "Driver specifies the DRA driver name to filter pools. Only pools from ResourceSlices with this driver will be included. Must be a DNS subdomain (e.g., \"gpu.example.com\").",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "limit": {
+      "description": "Limit optionally specifies the maximum number of pools to return in the status. If more pools match the filter criteria, the response will be truncated (i.e., len(status.pools) < status.poolCount).\n\nDefault: 100 Minimum: 1 Maximum: 1000",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "poolName": {
+      "description": "PoolName optionally filters to a specific pool name. If not specified, all pools from the specified driver are included. When specified, must be a non-empty valid resource pool name (DNS subdomains separated by \"/\").",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "driver"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,81 @@
+{
+  "description": "IngressBackend describes all endpoints for a given service and port.",
+  "properties": {
+    "resource": {
+      "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
+      "properties": {
+        "apiGroup": {
+          "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "description": "Kind is the type of resource being referenced",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name is the name of resource being referenced",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "name"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "x-kubernetes-map-type": "atomic",
+      "additionalProperties": false
+    },
+    "service": {
+      "description": "IngressServiceBackend references a Kubernetes Service as a Backend.",
+      "properties": {
+        "name": {
+          "description": "name is the referenced service. The service must exist in the same namespace as the Ingress object.",
+          "type": "string"
+        },
+        "port": {
+          "description": "ServiceBackendPort is the service port being referenced.",
+          "properties": {
+            "name": {
+              "description": "name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "number": {
+              "description": "number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".",
+              "format": "int32",
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

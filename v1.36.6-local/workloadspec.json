@@ -1,0 +1,28 @@
+{
+  "description": "WorkloadSpec defines the desired state of a Workload.",
+  "properties": {
+    "controllerRef": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.TypedLocalObjectReference",
+      "description": "ControllerRef is an optional reference to the controlling object, such as a Deployment or Job. This field is intended for use by tools like CLIs to provide a link back to the original workload definition. This field is immutable."
+    },
+    "podGroupTemplates": {
+      "description": "PodGroupTemplates is the list of templates that make up the Workload. The maximum number of templates is 8. This field is immutable.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha2.PodGroupTemplate"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "required": [
+    "podGroupTemplates"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

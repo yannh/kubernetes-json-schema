@@ -2122,10 +2122,22 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositeGangSchedulingPolicy"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroup"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupList"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupSchedulingConstraints"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1beta1.CompositePodGroupTemplate"

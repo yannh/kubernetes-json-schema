@@ -1,0 +1,17 @@
+{
+  "description": "ForNode provides information about which nodes should consume this endpoint.",
+  "properties": {
+    "name": {
+      "description": "name represents the name of the node.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

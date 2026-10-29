@@ -508,7 +508,7 @@
     {
       "group": "scheduling.k8s.io",
       "kind": "CompositePodGroup",
-      "version": "v1alpha3"
+      "version": "v1beta1"
     }
   ],
   "$schema": "http://json-schema.org/schema#"
