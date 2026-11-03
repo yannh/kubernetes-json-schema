@@ -1984,6 +1984,33 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClassList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupAllDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupBasicSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupGangSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupSchedulingConstraints"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupSchedulingPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadPodGroupSingleDisruptionMode"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadTopologyConstraint"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.AllCompositeDisruptionMode"
     },
     {
@@ -2072,30 +2099,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupAllDisruptionMode"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupBasicSchedulingPolicy"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupDisruptionMode"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupGangSchedulingPolicy"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupResourceClaim"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingConstraints"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSchedulingPolicy"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadPodGroupSingleDisruptionMode"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.WorkloadReference"

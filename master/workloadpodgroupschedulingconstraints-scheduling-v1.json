@@ -4,7 +4,7 @@
     "topology": {
       "description": "topology specifies desired topological placements for all pods within the pod group. If unset, no topology placement is requested.",
       "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.TopologyConstraint"
+        "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.scheduling.v1.WorkloadTopologyConstraint"
       },
       "type": [
         "array",
