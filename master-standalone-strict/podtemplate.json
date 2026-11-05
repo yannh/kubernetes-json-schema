@@ -3265,8 +3265,57 @@
                               "null"
                             ]
                           },
+                          "oci": {
+                            "description": "SecurityProfileOCI references a security profile stored as an artifact in an OCI registry, with an optional base profile.",
+                            "properties": {
+                              "baseProfile": {
+                                "description": "SecurityProfileOCIBase specifies the base profile of an OCI security profile.",
+                                "properties": {
+                                  "localhostProfile": {
+                                    "description": "localhostProfile indicates a base profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a non-empty descending path, relative to the kubelet's configured seccomp profile location, of at most 4096 characters. Must be set if type is \"Localhost\". Must NOT be set for any other type.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "type": {
+                                    "description": "type indicates which kind of base profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "x-kubernetes-unions": [
+                                  {
+                                    "discriminator": "type",
+                                    "fields-to-discriminateBy": {
+                                      "localhostProfile": "LocalhostProfile"
+                                    }
+                                  }
+                                ],
+                                "additionalProperties": false
+                              },
+                              "ref": {
+                                "description": "ref is the OCI reference of the profile. It must be a digest-pinned reference in canonical form, registry/repository@<algorithm>:<digest>, with the registry spelled out (for example docker.io/library/profile, not profile or docker.io/profile). Tags are rejected. The digest algorithm must be sha256, sha384, or sha512. The maximum length is 1024 characters. Pull secrets are assembled in the same way as for the container image by looking up node credentials, service account image pull secrets, and pod spec image pull secrets.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "ref"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "additionalProperties": false
+                          },
                           "type": {
-                            "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                            "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied. OCI - a profile pulled from an OCI registry should be used, merged with a base profile (see oci.baseProfile). Privileged containers cannot use it, whether it is set on the container or inherited from the pod. This is an alpha value and requires enabling the SecurityProfileOCI feature gate.",
                             "type": "string"
                           }
                         },
@@ -3281,7 +3330,8 @@
                           {
                             "discriminator": "type",
                             "fields-to-discriminateBy": {
-                              "localhostProfile": "LocalhostProfile"
+                              "localhostProfile": "LocalhostProfile",
+                              "oci": "OCI"
                             }
                           }
                         ],
@@ -5427,8 +5477,57 @@
                               "null"
                             ]
                           },
+                          "oci": {
+                            "description": "SecurityProfileOCI references a security profile stored as an artifact in an OCI registry, with an optional base profile.",
+                            "properties": {
+                              "baseProfile": {
+                                "description": "SecurityProfileOCIBase specifies the base profile of an OCI security profile.",
+                                "properties": {
+                                  "localhostProfile": {
+                                    "description": "localhostProfile indicates a base profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a non-empty descending path, relative to the kubelet's configured seccomp profile location, of at most 4096 characters. Must be set if type is \"Localhost\". Must NOT be set for any other type.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "type": {
+                                    "description": "type indicates which kind of base profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "x-kubernetes-unions": [
+                                  {
+                                    "discriminator": "type",
+                                    "fields-to-discriminateBy": {
+                                      "localhostProfile": "LocalhostProfile"
+                                    }
+                                  }
+                                ],
+                                "additionalProperties": false
+                              },
+                              "ref": {
+                                "description": "ref is the OCI reference of the profile. It must be a digest-pinned reference in canonical form, registry/repository@<algorithm>:<digest>, with the registry spelled out (for example docker.io/library/profile, not profile or docker.io/profile). Tags are rejected. The digest algorithm must be sha256, sha384, or sha512. The maximum length is 1024 characters. Pull secrets are assembled in the same way as for the container image by looking up node credentials, service account image pull secrets, and pod spec image pull secrets.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "ref"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "additionalProperties": false
+                          },
                           "type": {
-                            "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                            "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied. OCI - a profile pulled from an OCI registry should be used, merged with a base profile (see oci.baseProfile). Privileged containers cannot use it, whether it is set on the container or inherited from the pod. This is an alpha value and requires enabling the SecurityProfileOCI feature gate.",
                             "type": "string"
                           }
                         },
@@ -5443,7 +5542,8 @@
                           {
                             "discriminator": "type",
                             "fields-to-discriminateBy": {
-                              "localhostProfile": "LocalhostProfile"
+                              "localhostProfile": "LocalhostProfile",
+                              "oci": "OCI"
                             }
                           }
                         ],
@@ -7669,8 +7769,57 @@
                               "null"
                             ]
                           },
+                          "oci": {
+                            "description": "SecurityProfileOCI references a security profile stored as an artifact in an OCI registry, with an optional base profile.",
+                            "properties": {
+                              "baseProfile": {
+                                "description": "SecurityProfileOCIBase specifies the base profile of an OCI security profile.",
+                                "properties": {
+                                  "localhostProfile": {
+                                    "description": "localhostProfile indicates a base profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a non-empty descending path, relative to the kubelet's configured seccomp profile location, of at most 4096 characters. Must be set if type is \"Localhost\". Must NOT be set for any other type.",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "type": {
+                                    "description": "type indicates which kind of base profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "x-kubernetes-unions": [
+                                  {
+                                    "discriminator": "type",
+                                    "fields-to-discriminateBy": {
+                                      "localhostProfile": "LocalhostProfile"
+                                    }
+                                  }
+                                ],
+                                "additionalProperties": false
+                              },
+                              "ref": {
+                                "description": "ref is the OCI reference of the profile. It must be a digest-pinned reference in canonical form, registry/repository@<algorithm>:<digest>, with the registry spelled out (for example docker.io/library/profile, not profile or docker.io/profile). Tags are rejected. The digest algorithm must be sha256, sha384, or sha512. The maximum length is 1024 characters. Pull secrets are assembled in the same way as for the container image by looking up node credentials, service account image pull secrets, and pod spec image pull secrets.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "ref"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "additionalProperties": false
+                          },
                           "type": {
-                            "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                            "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied. OCI - a profile pulled from an OCI registry should be used, merged with a base profile (see oci.baseProfile). Privileged containers cannot use it, whether it is set on the container or inherited from the pod. This is an alpha value and requires enabling the SecurityProfileOCI feature gate.",
                             "type": "string"
                           }
                         },
@@ -7685,7 +7834,8 @@
                           {
                             "discriminator": "type",
                             "fields-to-discriminateBy": {
-                              "localhostProfile": "LocalhostProfile"
+                              "localhostProfile": "LocalhostProfile",
+                              "oci": "OCI"
                             }
                           }
                         ],
@@ -8601,8 +8751,57 @@
                         "null"
                       ]
                     },
+                    "oci": {
+                      "description": "SecurityProfileOCI references a security profile stored as an artifact in an OCI registry, with an optional base profile.",
+                      "properties": {
+                        "baseProfile": {
+                          "description": "SecurityProfileOCIBase specifies the base profile of an OCI security profile.",
+                          "properties": {
+                            "localhostProfile": {
+                              "description": "localhostProfile indicates a base profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a non-empty descending path, relative to the kubelet's configured seccomp profile location, of at most 4096 characters. Must be set if type is \"Localhost\". Must NOT be set for any other type.",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "type": {
+                              "description": "type indicates which kind of base profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type"
+                          ],
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "x-kubernetes-unions": [
+                            {
+                              "discriminator": "type",
+                              "fields-to-discriminateBy": {
+                                "localhostProfile": "LocalhostProfile"
+                              }
+                            }
+                          ],
+                          "additionalProperties": false
+                        },
+                        "ref": {
+                          "description": "ref is the OCI reference of the profile. It must be a digest-pinned reference in canonical form, registry/repository@<algorithm>:<digest>, with the registry spelled out (for example docker.io/library/profile, not profile or docker.io/profile). Tags are rejected. The digest algorithm must be sha256, sha384, or sha512. The maximum length is 1024 characters. Pull secrets are assembled in the same way as for the container image by looking up node credentials, service account image pull secrets, and pod spec image pull secrets.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ref"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
                     "type": {
-                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                      "description": "type indicates which kind of seccomp profile will be applied. Valid options are:\n\nLocalhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied. OCI - a profile pulled from an OCI registry should be used, merged with a base profile (see oci.baseProfile). Privileged containers cannot use it, whether it is set on the container or inherited from the pod. This is an alpha value and requires enabling the SecurityProfileOCI feature gate.",
                       "type": "string"
                     }
                   },
@@ -8617,7 +8816,8 @@
                     {
                       "discriminator": "type",
                       "fields-to-discriminateBy": {
-                        "localhostProfile": "LocalhostProfile"
+                        "localhostProfile": "LocalhostProfile",
+                        "oci": "OCI"
                       }
                     }
                   ],
@@ -9217,7 +9417,7 @@
                         ]
                       },
                       "defaultUser": {
-                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                         "format": "int64",
                         "type": [
                           "integer",
@@ -9246,7 +9446,7 @@
                               "type": "string"
                             },
                             "user": {
-                              "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                              "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                               "format": "int64",
                               "type": [
                                 "integer",
@@ -9365,7 +9565,7 @@
                         ]
                       },
                       "defaultUser": {
-                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                         "format": "int64",
                         "type": [
                           "integer",
@@ -9456,7 +9656,7 @@
                               "additionalProperties": false
                             },
                             "user": {
-                              "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                              "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                               "format": "int64",
                               "type": [
                                 "integer",
@@ -10563,7 +10763,7 @@
                         ]
                       },
                       "defaultUser": {
-                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                         "format": "int64",
                         "type": [
                           "integer",
@@ -10672,7 +10872,7 @@
                                   ]
                                 },
                                 "user": {
-                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                                   "format": "int64",
                                   "type": [
                                     "integer",
@@ -10714,7 +10914,7 @@
                                         "type": "string"
                                       },
                                       "user": {
-                                        "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                        "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                                         "format": "int64",
                                         "type": [
                                           "integer",
@@ -10846,7 +11046,7 @@
                                         "additionalProperties": false
                                       },
                                       "user": {
-                                        "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                        "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                                         "format": "int64",
                                         "type": [
                                           "integer",
@@ -10917,7 +11117,7 @@
                                   "type": "string"
                                 },
                                 "user": {
-                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                                   "format": "int64",
                                   "type": [
                                     "integer",
@@ -10973,7 +11173,7 @@
                                         "type": "string"
                                       },
                                       "user": {
-                                        "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                        "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                                         "format": "int64",
                                         "type": [
                                           "integer",
@@ -11041,7 +11241,7 @@
                                   "type": "string"
                                 },
                                 "user": {
-                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                                  "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                                   "format": "int64",
                                   "type": [
                                     "integer",
@@ -11309,7 +11509,7 @@
                         ]
                       },
                       "defaultUser": {
-                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                        "description": "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                         "format": "int64",
                         "type": [
                           "integer",
@@ -11338,7 +11538,7 @@
                               "type": "string"
                             },
                             "user": {
-                              "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+                              "description": "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
                               "format": "int64",
                               "type": [
                                 "integer",

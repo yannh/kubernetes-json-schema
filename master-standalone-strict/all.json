@@ -1216,6 +1216,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecurityContext"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecurityProfileOCI"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SecurityProfileOCIBase"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Service"
     },
     {
