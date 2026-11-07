@@ -1105,7 +1105,7 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodTemplateSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodVolumeHealth"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodVolumeStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PortStatus"

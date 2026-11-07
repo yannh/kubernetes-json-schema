@@ -1,0 +1,21 @@
+{
+  "description": "PodVolumeStatus represents the status of an individual volume used by a pod.",
+  "properties": {
+    "healthStatus": {
+      "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthStatus",
+      "description": "healthStatus contains health reported by the CSI node plugin for this volume on the pod's node. Populated by the kubelet. This is an alpha field and requires enabling the CSIVolumeHealth feature gate."
+    },
+    "name": {
+      "description": "name matches an entry in pod.spec.volumes.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

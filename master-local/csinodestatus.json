@@ -2,7 +2,7 @@
   "description": "CSINodeStatus contains health and status information for storage on a node.",
   "properties": {
     "storageHealth": {
-      "description": "storageHealth contains backend health reports for CSI drivers registered on the node.",
+      "description": "storageHealth contains backend health reports for CSI drivers registered on the node. This is an alpha field and requires enabling the CSIVolumeHealth feature gate.",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.StorageHealth"
       },

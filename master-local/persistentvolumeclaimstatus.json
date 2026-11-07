@@ -74,7 +74,7 @@
     },
     "healthStatus": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthStatus",
-      "description": "healthStatus contains the latest controller-reported health information for the volume bound to this claim."
+      "description": "healthStatus contains the latest controller-reported health information for the volume bound to this claim. This is an alpha field and requires enabling the CSIVolumeHealth feature gate."
     },
     "modifyVolumeStatus": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ModifyVolumeStatus",
