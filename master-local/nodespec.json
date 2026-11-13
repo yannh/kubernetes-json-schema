@@ -36,7 +36,7 @@
     },
     "podPreemptionPolicy": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodePodPreemptionPolicy",
-      "description": "podPreemptionPolicy controls the node-level preemption behaviors for pods on this node. This is an alpha field and requires enabling the InPlacePodVerticalScalingSchedulerPreemption feature gate."
+      "description": "podPreemptionPolicy controls the node-level preemption behaviors for pods on this node. This is a beta field and requires the InPlacePodVerticalScalingSchedulerPreemption feature gate to be enabled (enabled by default)."
     },
     "providerID": {
       "description": "providerID is the ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>",
