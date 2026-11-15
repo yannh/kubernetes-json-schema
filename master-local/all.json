@@ -670,6 +670,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CephFSVolumeSource"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CgroupOptions"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CinderPersistentVolumeSource"
     },
     {

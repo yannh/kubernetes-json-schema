@@ -1,0 +1,15 @@
+{
+  "description": "CgroupOptions defines options for cgroup filesystem access.",
+  "properties": {
+    "mountMode": {
+      "description": "mountMode controls how the cgroup filesystem is mounted in the container. Valid values are \"ReadOnly\" and \"ReadWrite\". If not specified, the container runtime's default mount mode is used. The kubelet refuses to create a container with an unrecognized value. \"ReadOnly\" cannot be set when the container's privileged field is true. \"ReadWrite\" cannot be set when spec.hostNetwork is true and spec.hostUsers is false.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
