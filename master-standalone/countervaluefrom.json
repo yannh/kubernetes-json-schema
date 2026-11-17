@@ -1,0 +1,17 @@
+{
+  "description": "CounterValueFrom looks up the requested capacity value in a ResourceClaim via the capacity name.",
+  "properties": {
+    "capacityName": {
+      "description": "capacityName is the name of a capacity that can be requested in a ResourceClaim. The counter value then defines a capacity that is shared between devices, in contrast to the per-device capacity defined in the device's capacity map. Typically a capacity is either shared or per-device, but it is also valid to use the same capacity name in both places. Requests then need to be satisfied by both.\n\nIf this name has no domain prefix, the driver name from the ResourceSlice is used as the domain when matching against capacity requests.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "capacityName"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

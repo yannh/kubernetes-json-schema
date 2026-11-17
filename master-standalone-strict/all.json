@@ -247,6 +247,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.DeploymentList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.DeploymentSchedulingConfiguration"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.apps.v1.DeploymentSpec"
     },
     {
@@ -817,6 +820,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ExecAction"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ExtraNodeAllocatableResource"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.FCVolumeSource"
     },
     {
@@ -938,15 +944,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAffinity"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableMappedResources"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableOverheadResources"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableResourceClaimStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeCondition"
@@ -1660,7 +1657,16 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.Counter"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CounterRequirement"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CounterSet"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CounterSetConsumption"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.CounterValueFrom"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.Device"
@@ -1739,6 +1745,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.ExactDeviceRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.ExtendedResourceRequest"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1.NetworkDeviceData"
@@ -1855,7 +1864,16 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.Counter"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterRequirement"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterSet"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterSetConsumption"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterValueFrom"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.Device"
@@ -1934,6 +1952,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ExactDeviceRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.ExtendedResourceRequest"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.NetworkDeviceData"

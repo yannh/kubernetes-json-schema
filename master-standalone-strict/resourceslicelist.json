@@ -324,7 +324,7 @@
                             ]
                           },
                           "bools": {
-                            "description": "bools is a non-empty list of true/false values.",
+                            "description": "bools is a non-empty list of true/false values.\n\nThis is a beta field and requires enabling the DRAListTypeAttributes feature gate (enabled by default).",
                             "items": {
                               "type": [
                                 "boolean",
@@ -346,7 +346,7 @@
                             ]
                           },
                           "ints": {
-                            "description": "ints is a non-empty list of numbers.\n\nThis is an alpha field and requires enabling the DRAListTypeAttributes feature gate.",
+                            "description": "ints is a non-empty list of numbers.\n\nThis is a beta field and requires enabling the DRAListTypeAttributes feature gate (enabled by default).",
                             "items": {
                               "format": "int64",
                               "type": [
@@ -368,7 +368,7 @@
                             ]
                           },
                           "strings": {
-                            "description": "strings is a non-empty list of strings. Each string must not be longer than 64 characters.\n\nThis is an alpha field and requires enabling the DRAListTypeAttributes feature gate.",
+                            "description": "strings is a non-empty list of strings. Each string must not be longer than 64 characters.\n\nThis is a beta field and requires enabling the DRAListTypeAttributes feature gate (enabled by default).",
                             "items": {
                               "type": [
                                 "string",
@@ -389,7 +389,7 @@
                             ]
                           },
                           "versions": {
-                            "description": "versions is a non-empty list of semantic versions according to semver.org spec 2.0.0. Each version string must not be longer than 64 characters.\n\nThis is an alpha field and requires enabling the DRAListTypeAttributes feature gate.",
+                            "description": "versions is a non-empty list of semantic versions according to semver.org spec 2.0.0. Each version string must not be longer than 64 characters.\n\nThis is a beta field and requires enabling the DRAListTypeAttributes feature gate (enabled by default).",
                             "items": {
                               "type": [
                                 "string",
@@ -455,7 +455,7 @@
                         "description": "DeviceCapacity describes a quantity associated with a device.",
                         "properties": {
                           "requestPolicy": {
-                            "description": "CapacityRequestPolicy defines how requests consume device capacity.\n\nMust not set more than one ValidRequestValues.",
+                            "description": "CapacityRequestPolicy defines how requests consume device capacity and how devices consume counters.\n\nIt is used by DeviceCapacity.RequestPolicy and Counter.ConsumptionPolicy. For counter consumption, capacity means the available counter value, and a request means the device's required counter amount. Both use the same default selection, rounding and range arithmetic, including the DRAFractionalCapacityRange feature gate and the rules described by CapacityRequestPolicyRange.\n\nMust not set more than one ValidRequestValues.",
                             "properties": {
                               "default": {
                                 "oneOf": [
@@ -622,7 +622,7 @@
                           },
                           "counters": {
                             "additionalProperties": {
-                              "description": "Counter describes a quantity associated with a device.",
+                              "description": "CounterRequirement describes how much of a counter a device consumes.",
                               "properties": {
                                 "value": {
                                   "oneOf": [
@@ -639,11 +639,25 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "valueFrom": {
+                                  "description": "CounterValueFrom looks up the requested capacity value in a ResourceClaim via the capacity name.",
+                                  "properties": {
+                                    "capacityName": {
+                                      "description": "capacityName is the name of a capacity that can be requested in a ResourceClaim. The counter value then defines a capacity that is shared between devices, in contrast to the per-device capacity defined in the device's capacity map. Typically a capacity is either shared or per-device, but it is also valid to use the same capacity name in both places. Requests then need to be satisfied by both.\n\nIf this name has no domain prefix, the driver name from the ResourceSlice is used as the domain when matching against capacity requests.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "capacityName"
+                                  ],
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "additionalProperties": false
                                 }
                               },
-                              "required": [
-                                "value"
-                              ],
                               "type": [
                                 "object",
                                 "null"
@@ -679,7 +693,7 @@
                         "description": "NodeAllocatableResource defines the translation between the DRA device/capacity units requested to the corresponding quantity of the node allocatable resource. At least one of Mapping or Overhead must be specified. Not specifying either is an invalid configuration.",
                         "properties": {
                           "mapping": {
-                            "description": "NodeAllocatableMapping defines how a DRA allocation directly translates into a node allocatable resource quantity. The mapping can be derived from either the count of allocated devices (via deviceMultiplier) or the specific capacity consumed (via capacityKey and capacityMultiplier). These options are mutually exclusive. Kubelet adds this mapped resource quantity from claim to both requests and limits at the pod-level cgroup, and to limits at the container-level cgroup for each container referencing the claim.",
+                            "description": "NodeAllocatableMapping defines how a DRA allocation directly translates into a node allocatable resource quantity. The mapping can be derived from either the count of allocated devices (via deviceMultiplier) or the specific capacity consumed (via capacityKey and capacityMultiplier). These options are mutually exclusive. The scheduler records the mapped quantity in the pod's `status.extraNodeAllocatableResources`: once in the requests and limits of the pod level entry, and in the limits of the container entry of each container referencing the claim, so that each of these containers can use all of it while the pod level entry caps their total usage.",
                             "properties": {
                               "capacityKey": {
                                 "description": "capacityKey references a capacity name defined as a key in the `spec.devices[*].capacity` map. When this field is set, the value associated with this key in the `status.allocation.devices.results[*].consumedCapacity` map (for a specific claim allocation) determines the base quantity for the node allocatable resource. `capacityMultiplier` must also be set and is multiplied with the base quantity.\n\nFor example, if `spec.devices[*].capacity` has an entry \"dra.example.com/memory\": \"128Gi\", and this field is set to \"dra.example.com/memory\", then for a claim allocation that consumes { \"dra.example.com/memory\": \"4Gi\" } the base quantity for the node allocatable resource mapping will be \"4Gi\". The final node allocatable resource amount is `consumedCapacity[capacityKey]` * `capacityMultiplier`.\n\nIn this example, \"dra.example.com/memory\" is a fictional standardized capacity name. For driver-specific capacities the driver name can be omitted. As defined for consumedCapacity, the capacity consumption may be recorded there with or without the driver name.",
@@ -728,7 +742,7 @@
                             "additionalProperties": false
                           },
                           "overhead": {
-                            "description": "NodeAllocatableOverhead defines auxiliary resource overheads incurred when allocating a device. Overheads can be specified as a fixed cost per pod referencing the claim, a variable cost per container reference, or both. Kubelet accounts for this overhead by adding it to both the pod-level and container-level cgroups of referencing containers.",
+                            "description": "NodeAllocatableOverhead defines auxiliary resource overheads incurred when allocating a device. Overheads can be specified as a fixed cost per pod referencing the claim, a variable cost per container reference, or both. The scheduler records the overhead in the pod's `status.extraNodeAllocatableResources`, as described for perContainer.",
                             "properties": {
                               "perContainer": {
                                 "oneOf": [
@@ -776,7 +790,7 @@
                         ],
                         "additionalProperties": false
                       },
-                      "description": "nodeAllocatableResources defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages. In addition to standard requests made through the Pod `spec`, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \"cpu\", \"memory\"). Extended resource names are not permitted as keys.",
+                      "description": "nodeAllocatableResources defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages. In addition to standard requests made through the Pod `spec`, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. When the device is allocated for a pod's claim, the scheduler records these resources in the pod's `status.extraNodeAllocatableResources`, as described for mapping and overhead. The keys of this map are the node-allocatable resource names (e.g., \"cpu\", \"memory\"). Extended resource names are not permitted as keys.",
                       "type": [
                         "object",
                         "null"
@@ -1144,8 +1158,119 @@
                   "properties": {
                     "counters": {
                       "additionalProperties": {
-                        "description": "Counter describes a quantity associated with a device.",
+                        "description": "Counter describes a quantity that is available in a counter set.",
                         "properties": {
+                          "consumptionPolicy": {
+                            "description": "CapacityRequestPolicy defines how requests consume device capacity and how devices consume counters.\n\nIt is used by DeviceCapacity.RequestPolicy and Counter.ConsumptionPolicy. For counter consumption, capacity means the available counter value, and a request means the device's required counter amount. Both use the same default selection, rounding and range arithmetic, including the DRAFractionalCapacityRange feature gate and the rules described by CapacityRequestPolicyRange.\n\nMust not set more than one ValidRequestValues.",
+                            "properties": {
+                              "default": {
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  {
+                                    "type": [
+                                      "number",
+                                      "null"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "validRange": {
+                                "description": "CapacityRequestPolicyRange defines a valid range for consumable capacity values.\n\nIf the DRAFractionalCapacityRange feature gate is enabled and at least one of Min, Max, or Step is a fractional quantity (i.e. its value is not an integer), milli-unit arithmetic is used instead, supporting values with up to 3 decimal places (e.g. 100m = 0.1). The largest supported value then is 1000 times smaller compared to using 64-bit integers. Otherwise, all comparisons use 64-bit integer arithmetic via resource.Quantity.Value().\n\n  - If the requested amount is less than Min, it is rounded up to the Min value.\n  - If Step is set and the requested amount is between Min and Max but not aligned with Step,\n    it will be rounded up to the next value equal to Min + (n * Step).\n  - If Step is not set, the requested amount is used as-is if it falls within the range Min to Max (if set).\n  - If the requested or rounded amount exceeds Max (if set), the request does not satisfy the policy,\n    and the device cannot be allocated.",
+                                "properties": {
+                                  "max": {
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      {
+                                        "type": [
+                                          "number",
+                                          "null"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "min": {
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      {
+                                        "type": [
+                                          "number",
+                                          "null"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "step": {
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      {
+                                        "type": [
+                                          "number",
+                                          "null"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "min"
+                                ],
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "validValues": {
+                                "description": "validValues defines a set of acceptable quantity values in consuming requests.\n\nMust not contain more than 10 entries. Must be sorted in ascending order.\n\nIf this field is set, Default must be defined and it must be included in ValidValues list.\n\nIf the requested amount does not match any valid value but smaller than some valid values, the scheduler calculates the smallest valid value that is greater than or equal to the request. That is: min(ceil(requestedValue) \u2208 validValues), where requestedValue \u2264 max(validValues).\n\nIf the requested amount exceeds all valid values, the request violates the policy, and this device cannot be allocated.",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    {
+                                      "type": [
+                                        "number",
+                                        "null"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "x-kubernetes-list-type": "atomic"
+                              }
+                            },
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "additionalProperties": false
+                          },
                           "value": {
                             "oneOf": [
                               {

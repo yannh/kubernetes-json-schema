@@ -1,5 +1,5 @@
 {
-  "description": "NodeAllocatableOverhead defines auxiliary resource overheads incurred when allocating a device. Overheads can be specified as a fixed cost per pod referencing the claim, a variable cost per container reference, or both. Kubelet accounts for this overhead by adding it to both the pod-level and container-level cgroups of referencing containers.",
+  "description": "NodeAllocatableOverhead defines auxiliary resource overheads incurred when allocating a device. Overheads can be specified as a fixed cost per pod referencing the claim, a variable cost per container reference, or both. The scheduler records the overhead in the pod's `status.extraNodeAllocatableResources`, as described for perContainer.",
   "properties": {
     "perContainer": {
       "oneOf": [

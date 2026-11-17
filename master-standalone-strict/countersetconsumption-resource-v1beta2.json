@@ -1,0 +1,42 @@
+{
+  "description": "CounterSetConsumption records one allocation's resolved valueFrom consumption from one counter set. The containing DeviceRequestAllocationResult identifies the allocated device and its pool.\n\nFor example, two allocations sharing a device may consume 2Gi and 3Gi from a \"memory\" counter. Each result records only its own amount; together they consume 5Gi. Releasing the first allocation leaves 3Gi charged. If the device also consumes one fixed \"slots\" counter, that charge is accounted for separately from current ResourceSlices. With unchanged slice definitions, the fixed charge remains until the last non-admin allocation is released.",
+  "properties": {
+    "counterSet": {
+      "description": "counterSet identifies a counter set in the pool named by the containing allocation result.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "counters": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        ]
+      },
+      "description": "counters records this allocation's resolved quantity for each counter in the set. The map contains at most 32 counters; each quantity must be non-negative.",
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "counterSet",
+    "counters"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

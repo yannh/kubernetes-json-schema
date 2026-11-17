@@ -53,6 +53,20 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.PodExtendedResourceClaimStatus",
       "description": "Status of extended resource claim backed by DRA."
     },
+    "extraNodeAllocatableResources": {
+      "description": "extraNodeAllocatableResources lists node allocatable resources that the pod and its containers use in addition to their spec, for example for the devices allocated to the pod's DRA claims. The scheduler sets them before it binds the pod. Allowed are the resources that v1.Node reports in `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources), such as \"cpu\", \"memory\", \"ephemeral-storage\", and \"hugepages-<size>\".\n\nThe list has one pod entry, with an empty containerName, and at most one entry for each init or regular container. The pod's total footprint is its spec plus the pod entry, so the pod entry must cover what the container entries add to the peak of the spec, across the init, sidecar, and regular containers. For resources that the pod level resources (`spec.resources`) set, that value is the footprint and must already include the extra resources.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ExtraNodeAllocatableResource"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "containerName"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
     "hostIP": {
       "description": "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod",
       "type": [
@@ -90,22 +104,6 @@
         "string",
         "null"
       ]
-    },
-    "nodeAllocatableResourceClaimStatuses": {
-      "description": "NodeAllocatableResourceClaimStatuses contains the status of node-allocatable resources that were allocated for this pod through DRA claims. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages.",
-      "items": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeAllocatableResourceClaimStatus"
-      },
-      "type": [
-        "array",
-        "null"
-      ],
-      "x-kubernetes-list-map-keys": [
-        "resourceClaimName"
-      ],
-      "x-kubernetes-list-type": "map",
-      "x-kubernetes-patch-merge-key": "resourceClaimName",
-      "x-kubernetes-patch-strategy": "merge"
     },
     "nominatedNodeName": {
       "description": "nominatedNodeName is set only when this pod preempts other pods on the node, but it cannot be scheduled right away as preemption victims receive their graceful termination periods. This field does not guarantee that the pod will be scheduled on this node. Scheduler may decide to place the pod elsewhere if other nodes become available sooner. Scheduler may also decide to give the resources on this node to a higher priority pod that is created after preemption. As a result, this field may be different than PodSpec.nodeName when the pod is scheduled.",

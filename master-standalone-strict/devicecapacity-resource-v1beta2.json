@@ -2,7 +2,7 @@
   "description": "DeviceCapacity describes a quantity associated with a device.",
   "properties": {
     "requestPolicy": {
-      "description": "CapacityRequestPolicy defines how requests consume device capacity.\n\nMust not set more than one ValidRequestValues.",
+      "description": "CapacityRequestPolicy defines how requests consume device capacity and how devices consume counters.\n\nIt is used by DeviceCapacity.RequestPolicy and Counter.ConsumptionPolicy. For counter consumption, capacity means the available counter value, and a request means the device's required counter amount. Both use the same default selection, rounding and range arithmetic, including the DRAFractionalCapacityRange feature gate and the rules described by CapacityRequestPolicyRange.\n\nMust not set more than one ValidRequestValues.",
       "properties": {
         "default": {
           "oneOf": [

@@ -1,0 +1,15 @@
+{
+  "description": "CounterRequirement describes how much of a counter a device consumes.",
+  "properties": {
+    "value": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
+      "description": "value defines the statically consumed amount.\n\nExactly one of value or valueFrom must be specified."
+    },
+    "valueFrom": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterValueFrom",
+      "description": "valueFrom looks up the requested capacity value in a ResourceClaim via the capacity name. That value is then consumed from the counter instead of using a static value defined by the driver.\n\nExactly one of value or valueFrom must be specified."
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

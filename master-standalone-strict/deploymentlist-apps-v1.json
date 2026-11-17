@@ -331,6 +331,170 @@
                   "null"
                 ]
               },
+              "scheduling": {
+                "description": "DeploymentSchedulingConfiguration composes the reusable scheduling building blocks from scheduling.k8s.io for use on a Deployment.",
+                "properties": {
+                  "disruptionMode": {
+                    "description": "WorkloadPodGroupDisruptionMode defines how individual pods within a group can be disrupted. Exactly one mode must be set.",
+                    "properties": {
+                      "all": {
+                        "description": "WorkloadPodGroupAllDisruptionMode indicates that all pods in the group must be disrupted together.",
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "single": {
+                        "description": "WorkloadPodGroupSingleDisruptionMode indicates that individual pods can be disrupted independently.",
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "x-kubernetes-unions": [
+                      {
+                        "fields-to-discriminateBy": {
+                          "all": "All",
+                          "single": "Single"
+                        }
+                      }
+                    ],
+                    "additionalProperties": false
+                  },
+                  "resourceClaims": {
+                    "description": "resourceClaims defines which ResourceClaims may be shared among Pods in the Deployment. Pods consume the devices allocated to a PodGroup's claim by defining a claim in its own Spec.ResourceClaims that matches the PodGroup's claim exactly. The claim must have the same name and refer to the same ResourceClaim or ResourceClaimTemplate. At most 4 claims may be set, matching the limit on the resulting PodGroup.",
+                    "items": {
+                      "description": "WorkloadPodGroupResourceClaim references a dynamic resource claim that is shared across pods in the group.",
+                      "properties": {
+                        "name": {
+                          "description": "name uniquely identifies this resource claim inside the group. This field is required. It must be a DNS_LABEL.",
+                          "type": "string"
+                        },
+                        "resourceClaimName": {
+                          "description": "resourceClaimName is the name of a ResourceClaim object in the same namespace. This field is optional. If it is not specified, no resource claim is used. If set, it must be a DNS subdomain.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "resourceClaimTemplateName": {
+                          "description": "resourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace. This field is optional. If it is not specified, no resource claim template is used. If set, it must be a DNS subdomain.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map",
+                    "x-kubernetes-patch-merge-key": "name",
+                    "x-kubernetes-patch-strategy": "merge"
+                  },
+                  "schedulingConstraints": {
+                    "description": "WorkloadPodGroupSchedulingConstraints defines leaf-level scheduling constraints, such as topology.",
+                    "properties": {
+                      "topology": {
+                        "description": "topology specifies desired topological placements for all pods within the pod group. If unset, no topology placement is requested.",
+                        "items": {
+                          "description": "WorkloadTopologyConstraint defines a topology constraint for a group of pods managed by a workload controller.",
+                          "properties": {
+                            "key": {
+                              "description": "key specifies the key of the node label representing the topology domain. All pods within the PodGroup (or CompositePodGroup) must be colocated within the same domain instance. Different groups can land on different domain instances even if they derive from the same template. Nodes where this label is missing or has an empty value do not belong to any domain instance, so pods within the PodGroup/CompositePodGroup cannot be scheduled onto them. Examples: \"topology.kubernetes.io/rack\"",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key"
+                          ],
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "x-kubernetes-list-type": "atomic"
+                      }
+                    },
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "schedulingPolicy": {
+                    "description": "WorkloadPodGroupSchedulingPolicy defines the scheduling policy for a group of pods managed by a workload controller. Exactly one policy must be set.",
+                    "properties": {
+                      "basic": {
+                        "description": "WorkloadPodGroupBasicSchedulingPolicy indicates standard Kubernetes scheduling behavior.",
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "gang": {
+                        "description": "WorkloadPodGroupGangSchedulingPolicy defines the parameters for gang (all-or-nothing) scheduling.",
+                        "properties": {
+                          "minCount": {
+                            "description": "minCount is the minimum number of pods that must be scheduled at the same time for the scheduler to admit the entire group. This field is optional. If it is not specified, the controller should inject a context-specific sane default (e.g., parallelism for a Job). If set, it must be a positive integer.",
+                            "format": "int32",
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "x-kubernetes-unions": [
+                      {
+                        "fields-to-discriminateBy": {
+                          "basic": "Basic",
+                          "gang": "Gang"
+                        }
+                      }
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false
+              },
               "selector": {
                 "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
                 "properties": {
@@ -6327,7 +6491,7 @@
                         ]
                       },
                       "hostNetwork": {
-                        "description": "hostNetwork indicates that the pod should use the host's network namespace. When using hostNetwork you should specify ports so the scheduler is aware. When `hostNetwork` is true, specified `hostPort` fields in port definitions must match `containerPort`, and unspecified `hostPort` fields in port definitions are defaulted to match `containerPort`. Default to false.",
+                        "description": "hostNetwork indicates that the pod should use the host's network namespace. When using hostNetwork you should specify ports so the scheduler is aware. When `hostNetwork` is true, specified `hostPort` fields in port definitions must match `containerPort`, and unspecified `hostPort` fields in port definitions are defaulted to match `containerPort`. Default to false. When true, podNetwork may not be set: the pod has no network namespace of its own.",
                         "type": [
                           "boolean",
                           "null"
@@ -8598,6 +8762,13 @@
                         "description": "overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md",
                         "type": [
                           "object",
+                          "null"
+                        ]
+                      },
+                      "podNetwork": {
+                        "description": "podNetwork selects whether a non-hostNetwork pod is attached to the pod network. \"Default\" attaches the pod to the pod network. \"Isolated\" gives the pod an isolated network namespace with only the loopback interface configured, not attached to the pod network. This field must be unset if hostNetwork is true. For non-hostNetwork pods, this behaves as if it was set to \"Default\" if it is not set. If a pod is \"Isolated\", hostPort and network-based probes and lifecycle handlers are not allowed. This field is immutable on Pods.",
+                        "type": [
+                          "string",
                           "null"
                         ]
                       },

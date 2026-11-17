@@ -1,6 +1,10 @@
 {
-  "description": "Counter describes a quantity associated with a device.",
+  "description": "Counter describes a quantity that is available in a counter set.",
   "properties": {
+    "consumptionPolicy": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CapacityRequestPolicy",
+      "description": "consumptionPolicy defines how devices consume this counter. The consumed amount is rounded up according to the policy and must satisfy its limits.\n\nIf unset, devices can consume any amount up to the available counter value. If and only if the required amount is unspecified, then the policy default is used (if set) or the full counter value (if not set).\n\nFixed consumption of already allocated devices is resolved using the current policy and counted even if it violates the policy's limits."
+    },
     "value": {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity",
       "description": "value defines how much of a certain device counter is available."

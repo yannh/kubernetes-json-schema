@@ -24,7 +24,7 @@
     },
     "counters": {
       "additionalProperties": {
-        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.Counter"
+        "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta2.CounterRequirement"
       },
       "description": "counters defines the counters that will be consumed by the device.\n\nThe maximum number of counters is 32.",
       "type": [
