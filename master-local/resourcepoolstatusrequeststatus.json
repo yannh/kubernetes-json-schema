@@ -2,7 +2,7 @@
   "description": "ResourcePoolStatusRequestStatus contains the calculated pool status information.",
   "properties": {
     "conditions": {
-      "description": "conditions provide information about the state of the request. A condition with type=Complete or type=Failed will always be set when the status is populated.\n\nKnown condition types: - \"Complete\": True when the request has been processed successfully - \"Failed\": True when the request could not be processed",
+      "description": "conditions provide information about the state of the request. The final status always has a condition with type=Complete or type=Failed. Before that, a status with only WaitingForPools=True may be set; its poolCount is 0 and pools is empty.\n\nKnown condition types: - \"Complete\": True when the request has been processed successfully - \"Failed\": True when the request could not be processed - \"WaitingForPools\": True while the controller waits for incomplete pools",
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Condition"
       },

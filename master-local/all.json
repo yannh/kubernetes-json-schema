@@ -2248,6 +2248,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeDriver"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeDriverRegistration"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.CSINodeList"
     },
     {

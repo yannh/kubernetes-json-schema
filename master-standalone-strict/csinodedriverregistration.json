@@ -1,0 +1,26 @@
+{
+  "description": "CSINodeDriverRegistration holds the node ID of a CSI driver whose topology and volume attachment limit are reported by the CSI controller.",
+  "properties": {
+    "name": {
+      "description": "name is the name of the CSI driver. This MUST be the same name returned by the CSI GetPluginInfo() call for that driver. This field is required.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nodeID": {
+      "description": "nodeID is the ID of the node from the driver's point of view, as returned by the driver's NodeGetInfo call. This field is required.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "nodeID"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
