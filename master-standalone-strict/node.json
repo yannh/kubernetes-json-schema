@@ -964,6 +964,13 @@
               "features": {
                 "description": "NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.",
                 "properties": {
+                  "cgroupNamespaces": {
+                    "description": "cgroupNamespaces is set to true if the runtime handler supports specifying whether to use the host cgroup namespace for privileged and non-privileged containers.",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
                   "recursiveReadOnlyMounts": {
                     "description": "recursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.",
                     "type": [

@@ -56,6 +56,13 @@
       ],
       "x-kubernetes-list-type": "atomic"
     },
+    "hostCgroupNamespace": {
+      "description": "hostCgroupNamespace is not allowed for ephemeral containers.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
     "image": {
       "description": "image is the container image name. More info: https://kubernetes.io/docs/concepts/containers/images",
       "type": [

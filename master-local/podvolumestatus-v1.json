@@ -5,8 +5,15 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthStatus",
       "description": "healthStatus contains health reported by the CSI node plugin for this volume on the pod's node. Populated by the kubelet. This is an alpha field and requires enabling the CSIVolumeHealth feature gate."
     },
+    "hostPhase": {
+      "description": "hostPhase represents the host-level preparation phase of the volume: Pending, HostMounted, Unmounting. Currently populated only for node-local ephemeral volume types supported for dynamic updates (configMap, secret, projected, emptyDir, and image). This is an alpha field and requires enabling the DynamicNodeLocalEphemeralVolumes feature gate.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "name": {
-      "description": "name matches an entry in pod.spec.volumes.",
+      "description": "name matches an entry in pod.spec.volumes, or the name of a dynamically removed volume that is still unmounting on the node.",
       "type": [
         "string",
         "null"
