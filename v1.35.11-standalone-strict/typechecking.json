@@ -1,0 +1,38 @@
+{
+  "description": "TypeChecking contains results of type checking the expressions in the ValidatingAdmissionPolicy",
+  "properties": {
+    "expressionWarnings": {
+      "description": "The type checking warnings for each expression.",
+      "items": {
+        "description": "ExpressionWarning is a warning information that targets a specific expression.",
+        "properties": {
+          "fieldRef": {
+            "description": "The path to the field that refers the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"",
+            "type": "string"
+          },
+          "warning": {
+            "description": "The content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "fieldRef",
+          "warning"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

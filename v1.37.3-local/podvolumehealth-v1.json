@@ -1,0 +1,38 @@
+{
+  "description": "PodVolumeHealth contains health information for a volume used by a pod, reported by the CSI node plugin via the kubelet.",
+  "properties": {
+    "healthConditions": {
+      "description": "conditions is the set of adverse conditions reported by the CSI node plugin for this volume on this node. At most 16 conditions may be reported.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeHealthCondition"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-map-keys": [
+        "status",
+        "reason"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "status",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "lastTransitionTime": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+      "description": "lastTransitionTime is when the current set of conditions first appeared."
+    },
+    "name": {
+      "description": "name matches an entry in pod.spec.volumes.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

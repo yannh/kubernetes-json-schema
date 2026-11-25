@@ -1,0 +1,6 @@
+{
+  "description": "WorkloadPodGroupSingleDisruptionMode indicates that individual pods can be disrupted independently.",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false
+}

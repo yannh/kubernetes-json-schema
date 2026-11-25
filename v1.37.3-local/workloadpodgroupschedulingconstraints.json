@@ -1,0 +1,18 @@
+{
+  "description": "WorkloadPodGroupSchedulingConstraints defines leaf-level scheduling constraints, such as topology.",
+  "properties": {
+    "topology": {
+      "description": "topology specifies desired topological placements for all pods within the pod group. If unset, no topology placement is requested.",
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1alpha3.TopologyConstraint"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

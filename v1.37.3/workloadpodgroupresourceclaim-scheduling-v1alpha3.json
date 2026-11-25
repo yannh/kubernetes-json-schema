@@ -1,0 +1,31 @@
+{
+  "description": "WorkloadPodGroupResourceClaim references a dynamic resource claim that is shared across pods in the group.",
+  "properties": {
+    "name": {
+      "description": "name uniquely identifies this resource claim inside the group. This field is required. It must be a DNS_LABEL.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resourceClaimName": {
+      "description": "resourceClaimName is the name of a ResourceClaim object in the same namespace. This field is optional. If it is not specified, no resource claim is used. If set, it must be a DNS subdomain.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resourceClaimTemplateName": {
+      "description": "resourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace. This field is optional. If it is not specified, no resource claim template is used. If set, it must be a DNS subdomain.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

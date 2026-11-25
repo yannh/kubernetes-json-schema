@@ -1,0 +1,25 @@
+{
+  "description": "Sysctl defines a kernel parameter to be set",
+  "properties": {
+    "name": {
+      "description": "Name of a property to set",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "value": {
+      "description": "Value of a property to set",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ],
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}

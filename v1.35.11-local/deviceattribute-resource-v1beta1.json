@@ -1,0 +1,36 @@
+{
+  "description": "DeviceAttribute must have exactly one field set.",
+  "properties": {
+    "bool": {
+      "description": "BoolValue is a true/false value.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "int": {
+      "description": "IntValue is a number.",
+      "format": "int64",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "string": {
+      "description": "StringValue is a string. Must not be longer than 64 characters.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "version": {
+      "description": "VersionValue is a semantic version according to semver.org spec 2.0.0. Must not be longer than 64 characters.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#"
+}
